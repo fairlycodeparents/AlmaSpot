@@ -2,107 +2,111 @@
 
 ## 1.1 Analysis
 
-This section outlines the analytical process conducted to understand the problem domain, define the system requirements, and structure the domain model according to Domain-Driven Design (DDD) principles.
+This section outlines the analytical process that was carried out in order to understand the 
+problem domain, define the system requirements and structure the domain model in accordance with 
+the principles of Domain-Driven Design (DDD).
 
 ### 1.1.1 Problem Analysis
 
 #### The Context
 
-Students at the University of Bologna often need a space to study as libraries are often full (or far way) 
-or there is a need for spaces where they can work in groups without having to be silent.
-Currently, there is no centralized, real-time method to verify if a classroom 
-(laboratory or lecture hall) is free and available for individual or group study 
-during these gaps.
+Students at the University of Bologna often need places to study as the libraries are often full.
+They also need spaces where they can work in groups without having to be silent. Currently, 
+there is no centralised, real-time method of verifying whether a classroom, laboratory or 
+lecture hall is free and available for individual or group study during these periods.
 
 #### The Problem Statement
 
-The current ecosystem presents several critical issues:
-1.  **Data Fragmentation:** Schedule information is scattered across courses'
-    and/or teachers' web portals, making it difficult to 
-    gather information about rooms' occupancy.
-2.  **Lack of Real-Time Updates:** Official schedules do 
-    not account for last-minute unforeseen events (e.g. 
-    seminaries, SPRITe events).
-3.  **Inefficient Resource Usage:** Students whom randomly search for a spot,
-    often are evicted from a room because a lecture they 
-    were unaware of is about to start.
+The current ecosystem raises several critical issues:
+
+1.  **Data fragmentation**: schedule information is scattered across course and/or teacher web 
+    portals, making it difficult to gather information about room occupancy.
+2.  **Lack of real-time updates**: official schedules do not account for last-minute or 
+    unofficial events, such as seminars or S.P.R.I.Te. events.
+3.  **Inefficient resource usage**: students who search for a spot at random are often forced to 
+    leave a room because they were unaware that a lecture was about to start.
 
 #### Proposed Solution
-AlmaSpot is a system that aggregates official data via automated workers, 
-empowers administrators to manage exceptions manually, 
-and provides students with an intuitive interface to find free rooms and receive 
-proactive push notifications.
+
+AlmaSpot is a system that aggregates official data and provides students with an intuitive 
+interface to find free rooms and receive proactive push notifications. It also enables 
+administrators to manage exceptions manually.
 
 #### Actors
-The system identifies two distinct roles:
+The system recognises two distinct roles:
 
-| Actor | Role | Responsibilities & Goals                                                                                                           |
-| :--- | :--- |:-----------------------------------------------------------------------------------------------------------------------------------|
-| **Student** | Passive/Reactive | Wants to find an immediate study spot based on location and time. Needs to be notified before a room becomes occupied.             |
-| **Admin** | Active/Manager | Responsible for the accuracy of availability data. Needs to override automatic schedules in case of emergencies or special events. |
+| Actor       | Role    | Goals                                                                                                                                               |
+|:------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Student** | Passive | Wants to find an immediate study spot based on location and time. Needs to be notified when a room becomes occupied or an unscheduled event occurs. |
+| **Admin**   | Active  | Responsible for ensuring the accuracy of availability data. They need to be able to add and manage special events.                                  |
 
 ### 1.1.2 Requirements Analysis
 
-This section details the specific requirements derived from the problem analysis, categorized by domain granularity.
+#### System requirements
 
-**Coarse-Grained Domain Requirements**
+1.  **Schedule acquisition**: the system must autonomously acquire heterogeneous schedule data from 
+    university sources (Open Data) and normalise it into a consistent format.
+2.  **Availability calculation**: The system must determine the real-time status of a resource by 
+    intersecting official lectures and administrative blocks.
+3.  **Admin override**: The system must allow authorised operators (admins) to manually override a 
+    room's availability, with these manual inputs taking precedence over automatic data.
+4.  **Smart Discovery (AI)**: The system must support natural language queries (e.g. 'I'd prefer 
+    not to move to a different campus') to help users find solutions if a single room is not 
+    available for the entire requested period.
+5.  **Proactive notification**: the system must follow a 'push' model to notify users who have 
+    subscribed to specific solutions of state changes.
 
-These high-level requirements define the boundaries of the system's microservices:
+#### Functional requirements
 
-1.  **Schedule Acquisition (Ingestion):** The system must autonomously acquire heterogeneous schedule data from university sources (Open Data/Scrapers) and normalize it into a consistent format.
-2.  **Availability Calculation:** The system must determine the status of a resource in real-time by intersecting official events, physical room constraints, and manual administrative blocks.
-3.  **Administrative Override:** The system must allow authorized operators (Admins) to manually overwrite a room's status, with these manual inputs taking precedence over automatic data.
-4.  **Smart Discovery (AI):** The system must support natural language queries (e.g., "Room for 4 people now") to lower the entry barrier for students.
-5.  **Proactive Notification:** The system must shift from a "pull" model to a "push" model, notifying subscribed users regarding imminent state changes.
+1.  As a student, I want to be able to find a room to study in.
+2.  As a student, I want to be able to choose the location, for example the city and campus, I want.
+3.  As a student, I want to be able to choose the type of room, for example a lab or a class, I 
+    want.
+4.  As a student, I want to be kept informed of any unexpected changes to my plan, such as a 
+    room no longer being available.
+5.  As a student, I'd like to be reminded when I have to leave a room because a lesson is about 
+    to start.
+6.  As a student, I want to be able to choose the best solution for my needs.
+7.  As an admin, I want to be able to add a new event to an available room.
+8.  As an admin, I want to be able to remove an event or a scheduled lecture.
 
-**Functional Requirements**
-* 1: The system shall scrape Unibo Open Data periodically (batch process).
-* 2: Users shall be able to filter rooms by campus, time, and capacity.
-* 3: Users shall be able to "subscribe" to a room to receive alerts.
-* 4: Admins shall be able to login and set a room status to "Closed" or "Force Free".
-* 5: The system shall parse natural language search queries using an LLM.
+#### Non-Functional Requirements
 
-**Non-Functional Requirements**
-* 1 (Polyglot Architecture): The backend must utilize at least two distinct technology stacks 
-  (Go for data ingestion, Node.js for API/Web).
-* 2 (DevOps): The application must be containerized via Docker and orchestratable via Docker 
-  Compose.
-* 3 (Responsiveness): The frontend must be a Progressive Web App (PWA) optimized for mobile devices.
-* 4 (Real-time): State changes (e.g., Admin override) must be propagated to connected clients 
-  via WebSockets/Push within seconds.
+1. The backend must utilize at least two distinct technology stacks (Go for data ingestion, Node.
+   js for API/Web).
+2. The application must be containerized via Docker and orchestrated via Docker Compose.
+3. The frontend must be a Progressive Web App (PWA) optimized for mobile devices.
+4. State changes (e.g., Admin override) must be propagated to connected clients via 
+   WebSockets/Push.
 
 ### 1.1.3 Domain Model
 
-This section defines the conceptual model of the business domain, establishing the **Ubiquitous Language** shared between developers and domain experts.
+This section defines the conceptual model of the business domain, establishing the ubiquitous 
+language shared between developers and domain experts.
 
-**Ubiquitous Language**
+#### Ubiquitous Language
 
-| Term | Definition |
-| :--- | :--- |
-| **Room** | A physical spatial unit identified by a code, campus, and capacity. Can be in states: *Free*, *Occupied*, *Closed*. |
-| **Event** | A planned academic activity (Lecture, Exam) imported from the official schedule that occupies a *Room* during a specific *Time Slot*. |
-| **Time Slot** | A specific start-time and end-time interval. |
-| **Availability Gap** | A calculated time interval between two consecutive *Events* during which a *Room* is available for student use. |
-| **Override** | A manual priority command issued by an Admin that forces a *Room* into a specific state, ignoring conflicting *Events*. |
-| **Subscription** | A link between a *Student* and a *Room*, enabling the delivery of *Push Alerts*. |
+| Term             | Definition                                                                                                                                                                                                                                                                         | 
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **User**         | A person that uses the system. <br/> 1. **Student**. <br/> 2. **Admin**.                                                                                                                                                                                                           |
+| **Room**         | A physical spatial unit identified by a name and a campus. Can be: <br/> 1. **Laboratory**.  <br/> 2. **Class**.                                                                                                                                                                   |
+| **Period**       | A specific start-time and end-time interval.                                                                                                                                                                                                                                       |
+| **Event**        | It occupies a *Period* in a specific *Room*. Can be: <br/> 1. **Academic Event**: a planned academic activity (lecture or exam) imported from the official schedule. <br/> 2. **External Event** (or Exception): a non-academic activity (such as seminars or S.P.R.I.Te. events). |
+| **Slot**         | A *Period* available for use in a *Room*.                                                                                                                                                                                                                                          |
+| **Notification** | A proactive alert sent to a Student with an active interest in a *Room*. It is triggered by the imminent expiration of an *Slot* (warning to vacate) or by an unexpected *Event* that invalidates the student's current plan.                                                      |
+| **Plan**         | A user-defined selection of one or more *Slot*.                                                                                                                                                                                                                                    |
+| **Campus**       | A macro geographical area of the university (e.g., Cesena Campus, Bologna Campus). It is made up of multiple *Site*.                                                                                                                                                               |
+| **Site**         | A specific building within a *Campus*, like "Engineering" or "Psychology", composed by *Room*s.                                                                                                                                                                                    |
+| **Solution**     | The result provided to the *Student* in response to a request. It can be a simple solution (a single *Slot*) or, if unavailable, a compound solution generated by AI (multiple *Slots*).                                                                                           |
+| **Schedule**     | The aggregate collection of all *Academic Events* imported and normalized from university sources. It represents the official timeline before any *Exception* is applied.                                                                                                          |
 
-**Bounded Contexts & Context Map**
-The domain is partitioned into specific contexts to ensure loose coupling, mapped to the microservices architecture:
+#### Bounded Contexts [TODO]
 
-1.  **Scheduling Context:**
-    * *Responsibility:* Managing the "Official Truth" of university schedules.
-    * *Service:* Worker Service (Golang).
-2.  **Availability & Booking Context:**
-    * *Responsibility:* Merging schedules with Overrides to determine the "Effective Truth" and serving users.
-    * *Service:* API Core (Node.js).
-3.  **Intelligence Context:**
-    * *Responsibility:* Interpreting user intent via AI.
-    * *Service:* AI Module (Node.js Adapter).
+The domain is partitioned into specific contexts:
 
-**Entity-Relationship Overview**
-* A **Room** has many **Events**.
-* An **Override** belongs to a **Room** and is created by an **Admin**.
-* A **Student** can have multiple **Subscriptions** to different **Rooms**.
-* **Availability** is not stored but calculated on-the-fly: `Availability = (Total Time) - (Events) - (Overrides)`.
+1.  **Scheduling Context:** Manages the "Official Truth" of university schedules (Worker).
+2.  **Availability and Booking Context:** Merges schedules with exceptions s to determine the 
+    "Effective Truth" and serving users.
+3.  **Intelligence Context:** Interprets user intent via AI.
 
 ## 1.2 Design
