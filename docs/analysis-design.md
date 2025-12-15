@@ -32,10 +32,11 @@ AlmaSpot is a system that aggregates official data and provides students with an
 interface to find free rooms and receive proactive push notifications. It also enables 
 administrators to manage exceptions manually.
 
-#### Actors
+#### Roles
+
 The system recognises two distinct roles:
 
-| Actor       | Role    | Goals                                                                                                                                               |
+| User        | Role    | Goals                                                                                                                                               |
 |:------------|:--------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Student** | Passive | Wants to find an immediate study spot based on location and time. Needs to be notified when a room becomes occupied or an unscheduled event occurs. |
 | **Admin**   | Active  | Responsible for ensuring the accuracy of availability data. They need to be able to add and manage special events.                                  |
@@ -89,24 +90,27 @@ language shared between developers and domain experts.
 | Term             | Definition                                                                                                                                                                                                                                                                         | 
 |:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **User**         | A person that uses the system. <br/> 1. **Student**. <br/> 2. **Admin**.                                                                                                                                                                                                           |
-| **Room**         | A physical spatial unit identified by a name and a campus. Can be: <br/> 1. **Laboratory**.  <br/> 2. **Class**.                                                                                                                                                                   |
+| **Assistant**    | The conversational component of the system that interprets natural language queries to discover (compound) *Solutions* when a direct search fails.                                                                                                                                 |
+| **Room**         | A physical spatial unit identified by a name and a *Site*. Can be: <br/> 1. **Laboratory**. <br/> 2. **Class**.                                                                                                                                                                    |
 | **Period**       | A specific start-time and end-time interval.                                                                                                                                                                                                                                       |
 | **Event**        | It occupies a *Period* in a specific *Room*. Can be: <br/> 1. **Academic Event**: a planned academic activity (lecture or exam) imported from the official schedule. <br/> 2. **External Event** (or Exception): a non-academic activity (such as seminars or S.P.R.I.Te. events). |
 | **Slot**         | A *Period* available for use in a *Room*.                                                                                                                                                                                                                                          |
 | **Notification** | A proactive alert sent to a Student with an active interest in a *Room*. It is triggered by the imminent expiration of an *Slot* (warning to vacate) or by an unexpected *Event* that invalidates the student's current plan.                                                      |
-| **Plan**         | A user-defined selection of one or more *Slot*.                                                                                                                                                                                                                                    |
-| **Campus**       | A macro geographical area of the university (e.g., Cesena Campus, Bologna Campus). It is made up of multiple *Site*.                                                                                                                                                               |
+| **Plan**         | A user-defined selection of one or more *Slot*s.                                                                                                                                                                                                                                   |
+| **Campus**       | A macro geographical area of the university (e.g., Cesena, Bologna). It is made up of multiple *Site*. May also be called *City* or *Location*.                                                                                                                                    |
 | **Site**         | A specific building within a *Campus*, like "Engineering" or "Psychology", composed by *Room*s.                                                                                                                                                                                    |
-| **Solution**     | The result provided to the *Student* in response to a request. It can be a simple solution (a single *Slot*) or, if unavailable, a compound solution generated by AI (multiple *Slots*).                                                                                           |
+| **Solution**     | The result provided to the *Student* in response to a request. It can be a simple solution (a single *Slot*) or, if unavailable, a compound solution generated by a *virtual assistant* (multiple *Slots*).                                                                        |
 | **Schedule**     | The aggregate collection of all *Academic Events* imported and normalized from university sources. It represents the official timeline before any *Exception* is applied.                                                                                                          |
 
-#### Bounded Contexts [TODO]
+#### Bounded Context
 
 The domain is partitioned into specific contexts:
 
-1.  **Scheduling Context:** Manages the "Official Truth" of university schedules (Worker).
-2.  **Availability and Booking Context:** Merges schedules with exceptions s to determine the 
-    "Effective Truth" and serving users.
-3.  **Intelligence Context:** Interprets user intent via AI.
+1. **Data fetching**: Responsible for the "dirty work" of interacting with external university Open 
+   Data. It autonomously scrapes, cleans, and normalizes schedule data into a consistent internal format.
+2. **Virtual Assistant**: An auxiliary context that acts as an interpreter. It processes natural 
+   language queries via the Assistant and orchestrates Compound Solutions by aggregating data from the Availability Context when simple slots are unavailable. 
+3. **Notification**: Responsible for the proactive "push" logic. It monitors changes in the 
+   Availability Context and delivers alerts to users who have active subscriptions (Plans).
 
 ## 1.2 Design
