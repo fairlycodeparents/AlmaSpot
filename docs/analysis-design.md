@@ -59,17 +59,16 @@ The system recognises two distinct roles:
 
 #### Functional requirements
 
-1.  As a student, I want to be able to find a room to study in.
-2.  As a student, I want to be able to choose the location, for example the city and campus, I want.
-3.  As a student, I want to be able to choose the type of room, for example a lab or a class, I 
-    want.
+1.  As a user, I want to be able to find an available, unused room.
+2.  As a user, I want to be able to choose the location, for example the city and campus, I want.
+3.  As a user, I want to be able to choose the type of room (such as a lab or a class) I want.
 4.  As a student, I want to be kept informed of any unexpected changes to my plan, such as a 
     room no longer being available.
 5.  As a student, I'd like to be reminded when I have to leave a room because a lesson is about 
     to start.
 6.  As a student, I want to be able to choose the best solution for my needs.
 7.  As an admin, I want to be able to add a new event to an available room.
-8.  As an admin, I want to be able to remove an event or a scheduled lecture.
+8.  As an admin, I want to be able to remove an event.
 
 #### Non-Functional Requirements
 
@@ -105,8 +104,6 @@ language shared between developers and domain experts.
 | **Campus**        | A macro geographical area of the university (e.g., Cesena, Bologna). It is made up of multiple *Site*. May also be called *City* or *Location*.                                                                                                                                    | Fetch        |
 | **Site**          | A specific building within a *Campus*, like "Engineering" or "Psychology", composed by *Room*s.                                                                                                                                                                                    | Fetch        |
 | **Schedule**      | The aggregate collection of all *Academic Events* imported and normalized from university sources. It represents the official timeline before any *Exception* is applied.                                                                                                          | Fetch        |
-| **Normalization** | The process of cleaning and transforming heterogeneous *Raw Data* into the consistent *Schedule* format.                                                                                                                                                                           | Fetch        |
-| **Raw data**      | Unprocessed schedule information (HTML, JSON, PDF) acquired from external university sources before *Normalization*.                                                                                                                                                               | Fetch        |
 
 #### Bounded Context
 
@@ -125,8 +122,7 @@ The domain is partitioned into specific contexts:
 4. **Availability Management (Core)**: The main context in which lectures, event and available 
    slots are modeled. It models the core features of managing free slots.
 
-#### Context Map
-
-![context map](figures/context-map.png)
+![Context map](figures/context-map.png)
 
 ## 1.2 Design
+
