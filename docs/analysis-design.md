@@ -105,22 +105,26 @@ language shared between developers and domain experts.
 | **Site**         | A specific building within a *Campus*, like "Engineering" or "Psychology", composed by *Room*s.                                                                                                                                   | Core                       |
 | **Schedule**     | The aggregate collection of all *Academic Events* imported and normalized from university sources. It represents the official timeline before any *Exception* is applied.                                                         | Core                       |
 
-#### Bounded Context //TODO: fix
+#### Bounded Context
 
-The domain is partitioned into specific contexts:
+The domain is divided into specific contexts.
 
-1. **Data Acquisition**: Responsible for interacting with external university Open Data context
-   (Unibo Go) by means of an AntiCorruption Layer (ACL) pattern. It autonomously scrapes, cleans, 
-   and normalizes schedule data into a consistent internal format, which can be used 
-   (customer-service pattern) by the Core context.
-2. **Smart Discovery**: An auxiliary context that acts as an interpreter. Uses the AI context 
-   (ACL), it processes natural language queries and helps define compound solutions by aggregating 
-   data from the Availability Context when simple slots are unavailable.
-3. **Notification**: Responsible for the proactive "push" logic. It monitors changes in the 
-   Availability Context and delivers alerts to users who have active subscriptions (Plans). It 
-   follows the DDD Conformist pattern in relationship with the main context.
-4. **Availability Management (Core)**: The main context in which lectures, event and available 
-   slots are modeled. It models the core features of managing free slots.
+1. **Core**: Responsible for interacting with the open-data context of the university (www.unibo.it) via an
+   AntiCorruption Layer (ACL) to obtain information about scheduled lectures. It also manages external activities
+   (e.g. seminars), which can be added by administrators who have logged in. It is also responsible for returning free
+   rooms in a given period to the search context.
+2. **Search**: It interacts with users to help them find the room they need. Moreover, it acts as an interpreter by
+   exploiting Gemini's API to understand natural language queries formulated by the user, searching for complex
+   solutions when a single room is unavailable for the required period. It has a customer/supplier relationship with
+   the core context, from which it obtains the list of available rooms.
+3. **Notification**: Responsible for the "proactive" logic. It monitors changes in activities and communicates these to
+   users with active subscriptions that are no longer valid. Since the core context emits an event every time a new
+   activity is added, it is a conformist context.
+4. **Authentication**: An auxiliary context exploited by the core to manage administrator authentication.
+
+There is a shared kernel among the bounded contexts that contains the definitions of plan, slot and period. This
+decision was made because these three concepts are crucial, and any change to their definitions must be reflected in all
+contexts that handle them.
 
 ![Context map](figures/context-map.png)
 
