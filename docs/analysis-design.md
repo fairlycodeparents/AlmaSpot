@@ -88,6 +88,8 @@ The system recognises two distinct roles:
 7.  As an admin, I want to be able to add a new activity to an available room.
 8.  As an admin, I want to be able to remove an activity.
 
+![Use case diagram](figures/use-case.png)
+
 ### 1.2.3. Non-functional requirements
 
 1. The backend must utilize at least two distinct technology stacks (Go for data ingestion, Node.
@@ -96,6 +98,7 @@ The system recognises two distinct roles:
 3. The frontend must be a Progressive Web App (PWA) optimized for mobile devices.
 4. State changes (e.g., Admin override) must be propagated to connected clients via 
    WebSockets/Push.
+
 
 ## 1.3. Domain model
 
