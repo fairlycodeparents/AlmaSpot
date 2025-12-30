@@ -27,3 +27,6 @@ gradle-app.setting
 
 # OS Data
 .DS_Store
+
+# Node dependencies
+node_modules/
