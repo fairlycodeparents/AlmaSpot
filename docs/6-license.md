@@ -2,12 +2,12 @@
 
 #### Index
 
-1. [Analysis](analysis.md)
-2. [Design](design.md)
-3. [Architecture](architecture.md)
-4. [Implementation](implementation.md)
-5. [DevOps](devops.md)
-6. [License](license.md)
+1. [Analysis](1-analysis.md)
+2. [Design](2-design.md)
+3. [Architecture](3-architecture.md)
+4. [Implementation](4-implementation.md)
+5. [DevOps](5-devops.md)
+6. [License](6-license.md)
 
 The decision to release AlmaSpot as open source was initially made due to the availability of free CI/CD tools (GitHub
 Actions) for public repositories. In this context, our aim was to enable users to modify, redistribute and integrate the

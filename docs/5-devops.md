@@ -2,18 +2,18 @@
 
 #### Index
 
-1. [Analysis](analysis.md)
-2. [Design](design.md)
-3. [Architecture](architecture.md)
-4. [Implementation](implementation.md)
-5. [DevOps](devops.md)
+1. [Analysis](1-analysis.md)
+2. [Design](2-design.md)
+3. [Architecture](3-architecture.md)
+4. [Implementation](4-implementation.md)
+5. [DevOps](5-devops.md)
    - 5.1. [DVCS Workflow](#51-dvcs-workflow)
    - 5.2. [Release Automation](#52-release-automation)
      - 5.2.1 [Conventional Commits](#521-conventional-commits)
      - 5.2.2 [Semantic Release](#522-semantic-release)
    - 5.3. [Quality Assurance](#53-quality-assurance)
    - 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
-6. [License](license.md)
+6. [License](6-license.md)
 
 To streamline collaboration among group members and automate repetitive tasks, the choice of a deployment strategy is
 crucial. For this reason, we decided to adopt the continuous release strategy described below. This requires a robust
