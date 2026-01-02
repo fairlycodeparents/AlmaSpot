@@ -2,18 +2,18 @@
 
 #### Index
 
-1. [Analysis](analysis.md)
-2. [Design](design.md)
-    * 2.1. [Bounded context](#21-bounded-context)
-        * 2.1.1. [Core context](#211-core-context)
-        * 2.1.2. [Search context](#212-search-context)
-        * 2.1.3. [Notification context](#213-notification-context)
-        * 2.1.4. [Authentication context](#214-authentication-context)
-    * 2.2. [Mockups](#22-mockups)
-3. [Architecture](architecture.md)
-4. [Implementation](implementation.md)
-5. [DevOps](devops.md)
-6. [License](license.md)
+1. [Analysis](1-analysis.md)
+2. [Design](2-design.md)
+   - 2.1. [Bounded context](#21-bounded-context)
+     - 2.1.1. [Core context](#211-core-context)
+     - 2.1.2. [Search context](#212-search-context)
+     - 2.1.3. [Notification context](#213-notification-context)
+     - 2.1.4. [Authentication context](#214-authentication-context)
+   - 2.2. [Mockups](#22-mockups)
+3. [Architecture](3-architecture.md)
+4. [Implementation](4-implementation.md)
+5. [DevOps](5-devops.md)
+6. [License](6-license.md)
 
 In this section, we define the software design of AlmaSpot, focusing on how the system's components differ and interact
 to fulfill the identified functional requirements. Adopting a Domain-Driven Design (DDD) approach, the monolithic
@@ -34,7 +34,7 @@ the physical availability of university spaces. Its domain model is centered aro
 available only if no **Activity** overlaps with the requested **Period**.
 
 To populate this model, the context implements a **Data Provider** acting as an
-*Anti-Corruption Layer (ACL)*.
+_Anti-Corruption Layer (ACL)_.
 This component is responsible for scraping, cleaning, and normalizing heterogeneous schedule
 data from the external university portal
 (`www.unibo.it`) into the system's ubiquitous language.
@@ -69,7 +69,7 @@ object,
 which aggregates a natural language explanation and a structured **Plan**. This plan is composed of
 one or more **Slots**, offering the student a compound itinerary.
 
-Finally, to facilitate integration, this context relies on a *Shared Kernel* strategy. The
+Finally, to facilitate integration, this context relies on a _Shared Kernel_ strategy. The
 fundamental concept of **Period** is shared globally with the Core and Notification contexts to
 ensure temporal consistency. Furthermore,
 the **Plan** and **Slot** value objects are shared specifically with
@@ -81,7 +81,7 @@ This decision allows the **Solution** generated here to be directly persisted as
 
 ![Notification Context diagram](figures/notification-context.png)
 
-This context manages the proactive behavior of the system, adhering to a *Conformist* relationship
+This context manages the proactive behavior of the system, adhering to a _Conformist_ relationship
 with the [Core context](#21-core-context). Its primary responsibility is to alert students when
 a previously available space becomes occupied.
 
