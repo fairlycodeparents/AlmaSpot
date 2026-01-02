@@ -7,12 +7,12 @@
 3. [Architecture](architecture.md)
 4. [Implementation](implementation.md)
 5. [DevOps](devops.md)
-    * 5.1. [DVCS Workflow](#51-dvcs-workflow)
-    * 5.2. [Release Automation](#52-release-automation)
-        * 5.2.1 [Conventional Commits](#521-conventional-commits)
-        * 5.2.2 [Semantic Release](#522-semantic-release)
-    * 5.3. [Quality Assurance](#53-quality-assurance)
-    * 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
+   - 5.1. [DVCS Workflow](#51-dvcs-workflow)
+   - 5.2. [Release Automation](#52-release-automation)
+     - 5.2.1 [Conventional Commits](#521-conventional-commits)
+     - 5.2.2 [Semantic Release](#522-semantic-release)
+   - 5.3. [Quality Assurance](#53-quality-assurance)
+   - 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
 6. [License](license.md)
 
 To streamline collaboration among group members and automate repetitive tasks, the choice of a deployment strategy is
@@ -63,8 +63,25 @@ rather than versioning tasks.
 
 ## 5.3 Quality Assurance
 
-TODO: Here, we must list all the practices and tools used to ensure quality, such as code style checkers and code
-analyzers.
+### 5.3.1 Husky
+
+We chose Husky to efficiently manage Git hooks across the development team. This allows us to automatically trigger
+scripts at specific points in the Git workflow. It acts as a first line of defence, preventing low-quality code or
+incorrect commit messages from ever entering the repository.
+
+In our configuration, we utilize two primary hooks:
+
+- **commit-msg**: This hook integrates with `Commitlint` to enforce the Conventional Commits standard (described
+  in [Section 5.2.1](#521-conventional-commits)). Before a commit is finalized, Husky validates the message format; if
+  the message does not adhere to the required structure (i.e., `<type>[(scope)][!]: <description>`), the commit is
+  aborted, providing the developer with immediate feedback.
+- **pre-commit**: This hook triggers `Lint-staged`, a tool that runs linters and formatters only on files currently
+  staged for the commit. We have configured this to run `Prettier`, which ensures that all code is automatically
+  formatted according to our style guidelines before being saved. By formatting only the changed files rather than the
+  entire project, we maintain high performance while ensuring the codebase remains consistent.
+
+This setup ensures that quality assurance is not an additional step, but an integral, automated part of the daily
+contribution workflow.
 
 ## 5.4 Continuous Integration and Delivery
 
