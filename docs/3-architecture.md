@@ -36,4 +36,6 @@ from technological coupling. Each module is divided into three concentric layers
 3. **Infrastructure layer:** Contains the concrete implementations of the interfaces defined in the
    domain. This includes controllers, _Repositories_, and clients for third-party services.
 
-//TODO: component diagram
+Below is an example architecture diagram for the Core context.
+
+![Core context architecture diagram](figures/architecture.png)
