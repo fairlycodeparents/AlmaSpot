@@ -1,24 +1,30 @@
-name: Release
+name: Main Release & Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
+  deploy-pages:
+    name: Deploy Docs
+    uses: ./.github/workflows/jekyll-gh-pages.yml
+    secrets: inherit
+
   release:
     name: Release
+    needs: deploy-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # necessary to bypass the "main" branch's protection and allow semantic-release to push tags and changelogs.
+          token: ${{ secrets.RELEASE_PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
