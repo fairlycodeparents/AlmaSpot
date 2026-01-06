@@ -21,16 +21,19 @@ test suite to limit errors, along with an adequate workflow and tools to automat
 
 ## 5.1. DVCS Workflow
 
-![GitFlow Diagram](figures/gitflow-diagram.svg)
+![GitHub Flow Diagram](figures/github-flow-diagram.png)
 
-For the DVCS workflow, we chose [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow):
-a workflow centred around two persistent branches, with `main` holding the stable production history and `develop`
-serving as an integration point for ongoing work, supported by temporary branches. We chose this strategy for our
-project because it provides the necessary control in an environment where multiple work streams occur simultaneously. By
-isolating new feature development from the production codebase using dedicated `feature` branches, we ensure that the
-application remains stable regardless of the state of ongoing work. Additionally, GitFlow's dedicated `release` branches
-enable us to finalize and test a new version without halting development on future features. Its `hotfix` protocol
-allows us to address critical production bugs immediately.
+For the DVCS workflow, we chose [GitHub Flow](https://docs.github.com/en/get-started/using-github/github-flow):
+a lightweight, branch-based workflow centered around a single persistent branch, `main`, which always holds the stable,
+deployable production history. We chose this strategy for its simplicity and agility, which supports our continuous
+delivery goals.
+
+Development of new features or bug fixes happens in dedicated branches created directly from `main`. This isolation
+ensures that work-in-progress code does not affect the stability of the production branch. The core of this workflow
+is the **Pull Request**: once work is ready, a PR is opened to facilitate code review and discussion. Only after the
+changes are approved and pass all automated tests are they merged back into `main` and immediately ready for deployment.
+This eliminates the complexity of managing multiple long-running branches like `develop` or `release`, streamlining our
+path to production.
 
 ## 5.2. Release Automation
 
