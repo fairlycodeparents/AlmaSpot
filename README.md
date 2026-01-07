@@ -8,3 +8,5 @@ schedules with manually managed external activities, AlmaSpot offers a centraliz
 availability of classrooms and laboratories.
 
 > Data regarding university schedules provided by University of Bologna under Creative Commons Attribution 3.0 License.
+
+You can find more details about the project in the [documentation](https://fairlycodeparents.github.io/AlmaSpot/).
