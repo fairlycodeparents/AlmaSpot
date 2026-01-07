@@ -1,3 +1,9 @@
+## [0.1.2](https://github.com/fairlycodeparents/AlmaSpot/compare/0.1.1...0.1.2) (2026-01-07)
+
+### Bug Fixes
+
+- docs structure on gh pages ([#2](https://github.com/fairlycodeparents/AlmaSpot/issues/2)) ([c50c003](https://github.com/fairlycodeparents/AlmaSpot/commit/c50c003183835588882de9ac7ef90cbcf1c3a241))
+
 ## [0.1.1](https://github.com/fairlycodeparents/AlmaSpot/compare/0.1.0...0.1.1) (2026-01-06)
 
 ### Bug Fixes
