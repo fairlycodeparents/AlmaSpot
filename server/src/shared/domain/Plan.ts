@@ -1,5 +1,10 @@
 import { Slot } from "./Slot";
+import { Period } from "./Period";
 
-export interface Plan {
-  slots: Array<Slot>;
+export class Plan {
+  constructor(public readonly slots: Slot[]) {}
+
+  hasOverlapWith(roomId: string, period: Period): boolean {
+    return this.slots.some((slot) => slot.matches(roomId, period));
+  }
 }
