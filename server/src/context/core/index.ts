@@ -9,3 +9,5 @@ export type {
   ExternalActivityDTO,
   InternalActivityDTO,
 } from "./application/dtos/ActivityDTO";
+
+export { ActivityAddedEvent } from "./domain/events/ActivityAddedEvent";
