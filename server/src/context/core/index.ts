@@ -1,17 +1,11 @@
-export { Room, RoomType } from "./domain/model/Room";
-export { ActivityType } from "./domain/model/Activity";
-export type {
-  Activity,
-  InternalActivity,
-  ExternalActivity,
-} from "./domain/model/Activity";
+export { CoreFacade } from "./application/CoreFacade";
+export { CoreContextFactory } from "./CoreContextFactory";
 
-export type { RoomRepository } from "./domain/ports/RoomRepository";
-export { RoomSearchService } from "./application/services/RoomSearchService";
-export { ActivityManagementService } from "./application/services/ActivityManagementService";
-
+export type { RoomDTO, RoomTypeDTO } from "./application/dtos/RoomDTO";
 export type {
-  UniboProvider,
-  NotificationService,
-  AuthService,
-} from "./domain/ports/ServicePorts";
+  ActivityDTO,
+  ActivityTypeDTO,
+  CreateActivityDTO,
+  ExternalActivityDTO,
+  InternalActivityDTO,
+} from "./application/dtos/ActivityDTO";

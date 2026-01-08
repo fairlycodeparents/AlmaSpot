@@ -3,12 +3,21 @@ import { ActivityManagementService } from "./ActivityManagementService";
 import { Room } from "../../domain/model/Room";
 import { Period } from "../../../../shared/domain/Period";
 import { Campus } from "../../../../shared/domain/Location";
+import { Activity } from "../../domain/model/Activity";
 
 export class RoomSearchService {
   constructor(
     private roomRepository: RoomRepository,
     private activityManagementService: ActivityManagementService,
   ) {}
+
+  async getActivitiesInDateAndCampus(
+    campus: Campus,
+    date: Date,
+  ): Promise<Activity[]> {
+    await this.activityManagementService.syncEvent(campus, date);
+    return this.roomRepository.getActivitiesByCampusAndDate(campus, date);
+  }
 
   async findFreeRoomGivenPeriod(
     campus: Campus,

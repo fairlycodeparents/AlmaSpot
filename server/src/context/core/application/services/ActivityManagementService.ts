@@ -9,6 +9,8 @@ import {
   NotificationService,
   AuthService,
 } from "../../domain/ports/ServicePorts";
+import { EventBus } from "../../../../shared/domain/EventBus";
+import { ActivityAddedEvent } from "../../domain/events/ActivityAddedEvent";
 
 export class ActivityManagementService {
   constructor(
@@ -16,6 +18,7 @@ export class ActivityManagementService {
     private uniboProvider: UniboProvider,
     private notificationService: NotificationService,
     private authService: AuthService,
+    private eventBus: EventBus,
   ) {}
 
   async syncEvent(campus: Campus, date: Date): Promise<void> {
@@ -63,8 +66,22 @@ export class ActivityManagementService {
     }
 
     await this.roomRepository.saveExternalActivity(event);
-    await this.notifyEvent(event);
-    console.log("[Event Created] External event created with ID:", event.id);
+
+    const domainEvent = new ActivityAddedEvent({
+      activityId: event.id || "generated-id",
+      roomId: event.roomId,
+      campus: event.campus,
+      title: event.title,
+      startTime: event.period.start,
+      endTime: event.period.end,
+      description: event.description,
+    });
+    await this.eventBus.publish(domainEvent);
+    //await this.notifyEvent(event); va fatto comunque?
+    console.log(
+      "[Event Created & Published] External event created and published on event bus with ID:",
+      event.id,
+    );
   }
 
   async notifyEvent(event: ExternalActivity): Promise<void> {
