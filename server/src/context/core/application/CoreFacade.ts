@@ -7,16 +7,15 @@ import {
   ExternalActivityDTO,
   InternalActivityDTO,
 } from "./dtos/ActivityDTO";
-import { RoomDTO, RoomTypeDTO } from "./dtos/RoomDTO";
 import { Period } from "../../../shared/domain/Period";
-import { Campus } from "../../../shared/domain/Location";
+import { Campus, Site } from "../../../shared/domain/Location";
 import {
   Activity,
   ActivityType,
   ExternalActivity,
   InternalActivity,
 } from "../domain/model/Activity";
-import { RoomType } from "../domain/model/Room";
+import { RoomAvailabilityDTO } from "./dtos/RoomAvailabilityDTO";
 
 export class CoreFacade {
   constructor(
@@ -24,29 +23,25 @@ export class CoreFacade {
     private activityManagementService: ActivityManagementService,
   ) {}
 
-  async findAvailableRooms(
+  async findAvailableRoomsByCampus(
     campusName: string,
     start: Date,
     end: Date,
-  ): Promise<RoomDTO[]> {
+  ): Promise<RoomAvailabilityDTO[]> {
     const period = new Period(start, end);
     const campus = campusName as Campus;
-    const freeRooms = await this.roomSearchService.findFreeRoomGivenPeriod(
-      campus,
-      period,
-    );
+    return this.roomSearchService.findSlotsByCampus(campus, period);
+  }
 
-    if (!freeRooms) return [];
-    return freeRooms.map((room) => ({
-      id: room.id,
-      name: room.name,
-      type:
-        room.type === RoomType.CLASSROOM
-          ? RoomTypeDTO.CLASSROOM
-          : RoomTypeDTO.LABORATORY,
-      campus: room.campus,
-      site: room.site,
-    }));
+  async findAvailableRoomsBySite(
+    campus: string,
+    address: string,
+    start: Date,
+    end: Date,
+  ): Promise<RoomAvailabilityDTO[]> {
+    const period = new Period(start, end);
+    const site = new Site(campus as Campus, address);
+    return this.roomSearchService.findSlotsBySite(site, period);
   }
 
   async createExternalActivity(

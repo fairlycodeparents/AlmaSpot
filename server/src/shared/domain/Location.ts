@@ -8,7 +8,7 @@ export enum Campus {
 
 export class Site {
   constructor(
-    public city: string,
+    public campus: Campus,
     public address: string,
   ) {}
 }
