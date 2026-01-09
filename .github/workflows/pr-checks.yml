@@ -60,10 +60,34 @@ jobs:
             --to ${{ github.event.pull_request.head.sha }} \
             --verbose
 
+  test:
+    name: Run Tests
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Tests
+        run: npm test --if-present
+
   success:
     needs:
       - build
       - commit-check
+      - test
     if: always()
     runs-on: ubuntu-latest
     steps:
