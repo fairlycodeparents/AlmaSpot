@@ -1,3 +1,13 @@
+## [1.0.0](https://github.com/fairlycodeparents/AlmaSpot/compare/0.2.0...1.0.0) (2026-01-09)
+
+### ⚠ BREAKING CHANGES
+
+- force release as APIs are defined
+
+### Features
+
+- force release as APIs are defined ([1745659](https://github.com/fairlycodeparents/AlmaSpot/commit/1745659e877587c165f19943d498ac7734138004))
+
 ## [0.2.0](https://github.com/fairlycodeparents/AlmaSpot/compare/0.1.2...0.2.0) (2026-01-09)
 
 ### Features
