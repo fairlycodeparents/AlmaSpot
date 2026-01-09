@@ -8,11 +8,14 @@
     "prettier": "^3.7.4",
     "semantic-release-preconfigured-conventional-commits": "latest",
     "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "scripts": {
     "prepare": "husky",
-    "lint": "prettier --check ."
+    "lint": "prettier --check .",
+    "test": "tsx --test \"**/*.test.ts\" \"**/*.spec.ts\"",
+    "test:watch": "tsx --test --watch src/**/*.spec.ts"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,json,css,md}": [
