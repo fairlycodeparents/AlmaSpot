@@ -1,3 +1,40 @@
+## [0.2.0](https://github.com/fairlycodeparents/AlmaSpot/compare/0.1.2...0.2.0) (2026-01-09)
+
+### Features
+
+- add .gitattributes for line ending normalization ([ead1386](https://github.com/fairlycodeparents/AlmaSpot/commit/ead1386f13ceb2b7e756e0714a57324157f53a41))
+- add Activity and Room models with type definitions ([6cbf8b1](https://github.com/fairlycodeparents/AlmaSpot/commit/6cbf8b1186da3e737ff44250a4e71a390405e90f))
+- add ActivityManagementService and RoomSearchService for event management and room availability ([4a3c111](https://github.com/fairlycodeparents/AlmaSpot/commit/4a3c111e20c29a2c62ba15f1f3fdafcdbbe03fac))
+- add RoomRepository and ServicePorts interfaces for room and activity management ([c70bac0](https://github.com/fairlycodeparents/AlmaSpot/commit/c70bac0a9d2997e454cf3fd282ecd06b31956e39))
+- add shared domain and indexes ([0d120b6](https://github.com/fairlycodeparents/AlmaSpot/commit/0d120b64824cc0ef8f109192b6876146f0c2666e))
+- added ActivityAddedEvent to exports ([e27a2c1](https://github.com/fairlycodeparents/AlmaSpot/commit/e27a2c15f9c58c71b84917d3e63775ac67aba3c7))
+- **authentication:** add Administrator model and AuthService skeleton ([def2f7a](https://github.com/fairlycodeparents/AlmaSpot/commit/def2f7adb756e62f2b04642e7f45a71d6a56508d))
+- **authentication:** add AuthFacade to export ([c58e1f8](https://github.com/fairlycodeparents/AlmaSpot/commit/c58e1f807f640f8c46c88fa14d63e323b8210b5b))
+- enhance room availability search by introducing site-based queries and DTOs ([ee95a71](https://github.com/fairlycodeparents/AlmaSpot/commit/ee95a7132f24d8f679d69c754dcbea35043d73db))
+- export models and services ([032c546](https://github.com/fairlycodeparents/AlmaSpot/commit/032c546f40d92445c46d7419e5292898ebc2cb08))
+- implement dtos and facade, exposed ActivityAddedEvent, changed ts configuration ([fe2836e](https://github.com/fairlycodeparents/AlmaSpot/commit/fe2836efe27ac81eb06b0dd21309e79712b34025))
+- **notification:** add notification context domain and service skeleton ([c4c86be](https://github.com/fairlycodeparents/AlmaSpot/commit/c4c86be520167afd6dbd7c714036eebe8d005bcf))
+- **search:** define search context entry points ([b52d30d](https://github.com/fairlycodeparents/AlmaSpot/commit/b52d30d3ae1b03a0681d4c458f2326c03e3fa9f2))
+- **search:** export DTOs and SearchPlanService ([ce56b6f](https://github.com/fairlycodeparents/AlmaSpot/commit/ce56b6ff22c76d7b239e237fe4c4786547cbfe01))
+- **shared:** add Plan first implementation ([c19ad06](https://github.com/fairlycodeparents/AlmaSpot/commit/c19ad06d3e3f3a12940993b030f111165786e81b))
+- **shared:** add Plan first implementation ([6523438](https://github.com/fairlycodeparents/AlmaSpot/commit/652343860b0954652d3fd9fdc315984dd5e3f42a))
+
+### Dependency updates
+
+- **deps:** sync package-lock.json with package.json ([7c6bb9d](https://github.com/fairlycodeparents/AlmaSpot/commit/7c6bb9d5200880a7c03633504329e9c14d2a7546))
+
+### General maintenance
+
+- add ts configuration ([8609ef9](https://github.com/fairlycodeparents/AlmaSpot/commit/8609ef957c1ccfdde03df0416fc0d745bf755b97))
+
+### Style improvements
+
+- code formatting ([fe7f382](https://github.com/fairlycodeparents/AlmaSpot/commit/fe7f38227442a33e7d8ce2821000270cc1511069))
+
+### Refactoring
+
+- **search:** use DTOs for external communication ([be5eab1](https://github.com/fairlycodeparents/AlmaSpot/commit/be5eab150ac435cd96b3bd206071d47a75c953d0))
+
 ## [0.1.2](https://github.com/fairlycodeparents/AlmaSpot/compare/0.1.1...0.1.2) (2026-01-07)
 
 ### Bug Fixes
