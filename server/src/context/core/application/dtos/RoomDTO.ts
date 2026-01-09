@@ -9,7 +9,7 @@ export interface RoomDTO {
   type: RoomTypeDTO;
   campus: string;
   site: {
-    city: string;
+    campus: string;
     address: string;
   };
 }
