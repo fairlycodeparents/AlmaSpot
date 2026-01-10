@@ -6,6 +6,7 @@ describe("NotificationService", () => {
   let service: NotificationService;
   let mockSender: any;
   let mockRepo: any;
+  let mockDetails: any;
 
   beforeEach(() => {
     mockSender = {
@@ -14,6 +15,12 @@ describe("NotificationService", () => {
     mockRepo = {
       findAll: mock.fn(async () => []),
       delete: mock.fn(async () => {}),
+      save: mock.fn(async () => {}),
+    };
+    mockDetails = {
+      type: "WEB_PUSH",
+      endpoint: "https://fcm.googleapis.com/...",
+      keys: { p256dh: "key", auth: "secret" },
     };
     service = new NotificationService(mockSender, mockRepo);
   });
@@ -23,7 +30,10 @@ describe("NotificationService", () => {
       studentId: "student-token",
       isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [interestedSub]);
+    mockRepo.findAll.mock.mockImplementation(async () => [
+      { subscription: interestedSub, details: mockDetails },
+    ]);
+
     const event: any = {
       payload: {
         roomId: "Aula1",
@@ -36,13 +46,20 @@ describe("NotificationService", () => {
     assert.strictEqual(interestedSub.isInterestedIn.mock.callCount(), 1);
     assert.strictEqual(mockSender.send.mock.callCount(), 1);
     assert.strictEqual(mockRepo.delete.mock.callCount(), 0);
-    const notificationSent = mockSender.send.mock.calls[0].arguments[0];
+    const callArgs = mockSender.send.mock.calls[0].arguments;
+    const notificationSent = callArgs[0];
+    const detailsSent = callArgs[1];
     assert.strictEqual(notificationSent.studentId, "student-token");
     assert.strictEqual(
       notificationSent.message,
       "Una nuova attività 'Seminario' si sovrappone con il tuo piano",
     );
     assert.strictEqual(notificationSent.status, "SENT");
+    assert.deepStrictEqual(
+      detailsSent,
+      mockDetails,
+      "Should pass delivery details to sender",
+    );
   });
 
   it("It should not send anything if the student is not interested in", async () => {
@@ -50,7 +67,9 @@ describe("NotificationService", () => {
       studentId: "student-token2",
       isInterestedIn: mock.fn(() => false),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [notInterestedSub]);
+    mockRepo.findAll.mock.mockImplementation(async () => [
+      { subscription: notInterestedSub, details: mockDetails },
+    ]);
     const event: any = {
       payload: {
         roomId: "Aula2",
@@ -72,7 +91,9 @@ describe("NotificationService", () => {
       studentId: "dead-token",
       isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [deadSub]);
+    mockRepo.findAll.mock.mockImplementation(async () => [
+      { subscription: deadSub, details: mockDetails },
+    ]);
     mockSender.send.mock.mockImplementation(async () => {
       const error: any = new Error("DEVICE_GONE");
       error.statusCode = 410;
@@ -97,7 +118,9 @@ describe("NotificationService", () => {
       studentId: "network-error-token",
       isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [sub]);
+    mockRepo.findAll.mock.mockImplementation(async () => [
+      { subscription: sub, details: mockDetails },
+    ]);
     mockSender.send.mock.mockImplementation(async () => {
       throw new Error("Network Error 500");
     });

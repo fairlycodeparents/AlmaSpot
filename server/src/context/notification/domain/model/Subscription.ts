@@ -1,16 +1,10 @@
 import { Period } from "../../../../shared/domain/Period";
 import { Plan } from "../../../../shared/domain/Plan";
 
-export type PushKeys = {
-  p256dh: string;
-  auth: string;
-};
-
 export class Subscription {
   constructor(
     public readonly studentId: string,
     private readonly plan: Plan,
-    public readonly keys: PushKeys,
   ) {}
 
   /**
