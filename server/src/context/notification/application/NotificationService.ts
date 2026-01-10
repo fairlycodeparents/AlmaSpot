@@ -1,9 +1,12 @@
 import { NotificationSender } from "../domain/ports/NotificationSender";
-import { SubscriptionRepository } from "../domain/ports/SubscriptionRepository";
+import {
+  DeliveryDetails,
+  SubscriptionRepository,
+} from "../domain/ports/SubscriptionRepository";
 import { ActivityAddedEvent } from "../../core";
 import { Notification } from "../domain/model/Notification";
 import { Period } from "../../../shared/domain/Period";
-import { PushKeys, Subscription } from "../domain/model/Subscription";
+import { Subscription } from "../domain/model/Subscription";
 import { Plan } from "../../../shared/domain/Plan";
 
 export class NotificationService {
@@ -13,30 +16,29 @@ export class NotificationService {
   ) {}
 
   async handleActivityAdded(event: ActivityAddedEvent): Promise<void> {
-    const subscriptions = await this.subRepo.findAll();
-    const interestedSubs = subscriptions.filter((sub) =>
-      sub.isInterestedIn(
+    const records = await this.subRepo.findAll();
+    const interestedRecords = records.filter((record) =>
+      record.subscription.isInterestedIn(
         event.payload.roomId,
         new Period(event.payload.startTime, event.payload.endTime),
       ),
     );
-    if (interestedSubs.length === 0) return;
-
-    const notificationPromises = interestedSubs.map(async (sub) => {
+    if (interestedRecords.length === 0) return;
+    const notificationPromises = interestedRecords.map(async (record) => {
+      const { subscription, details } = record;
       const message = `Una nuova attività '${event.payload.title}' si sovrappone con il tuo piano`;
       const notification = new Notification(
-        sub.studentId,
+        subscription.studentId,
         message,
         new Date(),
         "PENDING",
       );
-
       try {
-        await this.notificationSender.send(notification);
+        await this.notificationSender.send(notification, details);
         notification.status = "SENT";
-        return { status: "fulfilled", subId: sub.studentId };
-      } catch (error) {
-        throw { subId: sub.studentId, error };
+        return { status: "fulfilled", subId: subscription.studentId };
+      } catch (error: any) {
+        throw { subId: subscription.studentId, error };
       }
     });
 
@@ -59,9 +61,9 @@ export class NotificationService {
   async subscribe(
     studentId: string,
     planData: Plan,
-    keys: PushKeys,
+    details: DeliveryDetails,
   ): Promise<void> {
-    const subscription = new Subscription(studentId, planData, keys);
-    await this.subRepo.save(subscription);
+    const subscription = new Subscription(studentId, planData);
+    await this.subRepo.save(subscription, details);
   }
 }

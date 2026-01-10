@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { NotificationService } from "../../../application/NotificationService";
 import { Plan } from "../../../../../shared/domain/Plan";
+import { DeliveryDetails } from "../../../domain/ports/SubscriptionRepository";
 
 export class NotificationController {
   constructor(private readonly service: NotificationService) {}
@@ -15,9 +16,13 @@ export class NotificationController {
         return res.status(400).json({ error: "Missing Encryption Keys" });
       }
       const studentId = subscription.endpoint;
-      const keys = subscription.keys;
       const domainPlan = Plan.fromPrimitives(plan);
-      await this.service.subscribe(studentId, domainPlan, keys);
+      const deliveryDetails: DeliveryDetails = {
+        type: "WEB_PUSH",
+        endpoint: subscription.endpoint,
+        keys: subscription.keys,
+      };
+      await this.service.subscribe(studentId, domainPlan, deliveryDetails);
       return res.status(201).send();
     } catch (e: any) {
       console.error(e);
