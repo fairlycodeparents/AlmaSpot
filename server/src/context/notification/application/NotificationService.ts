@@ -3,6 +3,8 @@ import { SubscriptionRepository } from "../domain/ports/SubscriptionRepository";
 import { ActivityAddedEvent } from "../../core";
 import { Notification } from "../domain/model/Notification";
 import { Period } from "../../../shared/domain/Period";
+import { PushKeys, Subscription } from "../domain/model/Subscription";
+import { Plan } from "../../../shared/domain/Plan";
 
 export class NotificationService {
   constructor(
@@ -52,5 +54,14 @@ export class NotificationService {
         }
       }
     }
+  }
+
+  async subscribe(
+    studentId: string,
+    planData: Plan,
+    keys: PushKeys,
+  ): Promise<void> {
+    const subscription = new Subscription(studentId, planData, keys);
+    await this.subRepo.save(subscription);
   }
 }
