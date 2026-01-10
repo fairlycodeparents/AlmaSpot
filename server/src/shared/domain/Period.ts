@@ -14,7 +14,7 @@ export class Period {
       this.date = date;
     } else {
       this.date = new Date(start);
-      this.date.setHours(0, 0, 0);
+      this.date.setHours(0, 0, 0, 0);
     }
   }
 
