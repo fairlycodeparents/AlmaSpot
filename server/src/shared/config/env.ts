@@ -18,6 +18,7 @@ const envSchema = z.object({
 const _env = envSchema.safeParse(process.env);
 
 if (!_env.success) {
+  /* c8 ignore next 5 */
   console.error("ERRORE NELLE VARIABILI D'AMBIENTE:");
   console.error(_env.error.format());
 
