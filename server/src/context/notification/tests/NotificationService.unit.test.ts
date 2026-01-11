@@ -1,6 +1,6 @@
 import { describe, it, beforeEach, mock } from "node:test";
 import assert from "node:assert";
-import { NotificationService } from "./NotificationService";
+import { NotificationService } from "../application/NotificationService";
 
 describe("NotificationService", () => {
   let service: NotificationService;
