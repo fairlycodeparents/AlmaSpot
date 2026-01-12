@@ -13,6 +13,11 @@ const envSchema = z.object({
     .string()
     .min(32, "JWT_SECRET TROPPO CORTA! Deve essere di almeno 32 caratteri"),
   JWT_EXPIRES_IN: z.string().default("1h"),
+
+  MONGO_URI: z
+    .string()
+    .min(1, "MONGO_URI è obbligatoria e non può essere vuota")
+    .startsWith("mongodb://", "MONGO_URI deve iniziare con mongodb://"),
 });
 
 const _env = envSchema.safeParse(process.env);
