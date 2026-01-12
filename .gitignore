@@ -30,3 +30,5 @@ gradle-app.setting
 
 # Node dependencies
 node_modules/
+
+.env
