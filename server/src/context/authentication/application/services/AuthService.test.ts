@@ -1,7 +1,7 @@
 import { describe, it, beforeEach } from "node:test";
 import assert from "node:assert";
 import { AuthService } from "./AuthService";
-import { InMemoryAdminRepository } from "../../infrastructure/repositories/InMemoryAdminRepository";
+import { InMemoryAdminRepository } from "../../infrastructure/persistence/in-memory/InMemoryAdminRepository";
 
 describe("AuthService", () => {
   let authService: AuthService;
