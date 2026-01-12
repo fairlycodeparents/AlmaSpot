@@ -4,7 +4,7 @@ import { Plan } from "../../../../shared/domain/Plan";
 export class Subscription {
   constructor(
     public readonly studentId: string,
-    private readonly plan: Plan,
+    readonly plan: Plan,
   ) {}
 
   /**
