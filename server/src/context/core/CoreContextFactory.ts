@@ -1,20 +1,25 @@
-import { CoreFacade } from "./application/CoreFacade";
 import { RoomSearchService } from "./application/services/RoomSearchService";
 import { ActivityManagementService } from "./application/services/ActivityManagementService";
+import { MongoClient } from "mongodb";
+import { AuthService } from "./domain/ports/ServicePorts";
+import { EventBus } from "../../shared/domain/EventBus";
+import { RoomRepositoryMongo } from "./infrastructure/adapters/RoomRepositoryMongo";
+import { UniboProviderHTTP } from "./infrastructure/adapters/UniboProviderHTTP";
+import { CoreFacade } from "./application/CoreFacade";
 
 export class CoreContextFactory {
-  static create(): CoreFacade {
-    //poi adapter reali quando li implementiamo
-    const roomRepository = null as any;
-    const uniboProvider = null as any;
-    const notificationService = null as any;
-    const authService = null as any;
-    const eventBus = null as any;
+  static create(
+    mongoClient: MongoClient,
+    authService: AuthService,
+    eventBus: EventBus,
+  ): CoreFacade {
+    const dbName = process.env["DB_NAME"] || "almaspot";
+    const roomRepository = new RoomRepositoryMongo(mongoClient, dbName);
+    const uniboProvider = new UniboProviderHTTP();
 
     const activityManagementService = new ActivityManagementService(
       roomRepository,
       uniboProvider,
-      notificationService,
       authService,
       eventBus,
     );
