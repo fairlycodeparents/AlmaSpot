@@ -13,6 +13,23 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
       - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
+    networks:
+      - almaspot-network
+
+  unibo-provider:
+    build:
+      context: ./unibo-provider
+      dockerfile: Dockerfile
+    container_name: almaspot-unibo-provider
+    ports:
+      - "8080:8080"
+    networks:
+      - almaspot-network
+    restart: unless-stopped
+
+networks:
+  almaspot-network:
+    driver: bridge
 
 volumes:
   mongo_data:
