@@ -98,14 +98,64 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     assert.strictEqual(found?.details.keys.p256dh, "fake-key");
   });
 
+  it("Should find subscribers by Room and Period", async () => {
+    const repo = new MongoSubscriptionRepository();
+    await SubscriptionModel.create({
+      studentId: "student3",
+      keys: { p256dh: "fake-key1", auth: "fake-auth1" },
+      plan: {
+        slots: [
+          {
+            roomId: "AulaMagna",
+            startTime: new Date("2024-05-20T09:00:00Z"),
+            endTime: new Date("2024-05-20T11:00:00Z"),
+          },
+        ],
+      },
+    });
+    await SubscriptionModel.create({
+      studentId: "student4",
+      keys: { p256dh: "fake-key2", auth: "fake-auth2" },
+      plan: {
+        slots: [
+          {
+            roomId: "AulaMagna",
+            startTime: new Date("2024-05-20T14:00:00Z"),
+            endTime: new Date("2024-05-20T16:00:00Z"),
+          },
+        ],
+      },
+    });
+    await SubscriptionModel.create({
+      studentId: "student5",
+      keys: { p256dh: "fake-key3", auth: "fake-auth3" },
+      plan: {
+        slots: [
+          {
+            roomId: "Lab1",
+            startTime: new Date("2024-05-20T09:00:00Z"),
+            endTime: new Date("2024-05-20T11:00:00Z"),
+          },
+        ],
+      },
+    });
+    const targetRoom = "AulaMagna";
+    const targetPeriod = new Period(
+      new Date("2024-05-20T10:00:00Z"),
+      new Date("2024-05-20T10:30:00Z"),
+    );
+    const results = await repo.findByRoomAndPeriod(targetRoom, targetPeriod);
+    assert.strictEqual(results.length, 1, "Should find exactly one student");
+    assert.strictEqual(results[0]?.subscription.studentId, "student3");
+  });
+
   it("Should delete a subscription", async () => {
     const repo = new MongoSubscriptionRepository();
     const studentId = "student-to-delete";
-
     await SubscriptionModel.create({
       studentId,
       keys: { p256dh: "fake-key", auth: "fake-auth" },
-      plan: [],
+      plan: { slots: [] },
       updatedAt: new Date(),
     });
     await repo.delete(studentId);

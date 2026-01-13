@@ -1,4 +1,5 @@
 import { Subscription } from "../model/Subscription";
+import { Period } from "../../../../shared/domain/Period";
 
 export type DeliveryDetails = {
   type: "WEB_PUSH";
@@ -10,6 +11,10 @@ export interface SubscriptionRepository {
   findAll(): Promise<
     { subscription: Subscription; details: DeliveryDetails }[]
   >;
-  delete(subId: any): Promise<void>;
+  delete(subId: string): Promise<void>;
   save(subscription: Subscription, details: DeliveryDetails): Promise<void>;
+  findByRoomAndPeriod(
+    roomId: string,
+    eventPeriod: Period,
+  ): Promise<{ subscription: Subscription; details: DeliveryDetails }[]>;
 }
