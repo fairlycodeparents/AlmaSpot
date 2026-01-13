@@ -16,14 +16,18 @@ export class NotificationService {
   ) {}
 
   async handleActivityAdded(event: ActivityAddedEvent): Promise<void> {
-    const records = await this.subRepo.findAll();
-    const interestedRecords = records.filter((record) =>
-      record.subscription.isInterestedIn(
-        event.payload.roomId,
-        new Period(event.payload.startTime, event.payload.endTime),
-      ),
+    const eventPeriod = new Period(
+      event.payload.startTime,
+      event.payload.endTime,
     );
-    if (interestedRecords.length === 0) return;
+    const interestedRecords = await this.subRepo.findByRoomAndPeriod(
+      event.payload.roomId,
+      eventPeriod,
+    );
+    const validatedRecords = interestedRecords.filter((r) =>
+      r.subscription.isInterestedIn(event.payload.roomId, eventPeriod),
+    );
+    if (validatedRecords.length === 0) return;
     const notificationPromises = interestedRecords.map(async (record) => {
       const { subscription, details } = record;
       const message = `Una nuova attività '${event.payload.title}' si sovrappone con il tuo piano`;

@@ -3,8 +3,8 @@ import { Period } from "./Period";
 
 export type SlotPrimitive = {
   roomId: string;
-  startTime: string;
-  endTime: string;
+  startTime: string | Date;
+  endTime: string | Date;
 };
 
 export class Plan {
