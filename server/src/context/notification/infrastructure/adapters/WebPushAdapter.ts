@@ -28,9 +28,11 @@ export class WebPushAdapter implements NotificationSender {
       keys: details.keys,
     };
     const payload = JSON.stringify({
-      //TODO: add icon and data
       title: "AlmaSpot",
       body: notification.message,
+      data: {
+        url: "/plan",
+      },
     });
     try {
       await webpush.sendNotification(pushSubscription, payload);
