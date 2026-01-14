@@ -21,7 +21,7 @@
     "dev": "tsx watch server/src/main.ts",
     "build": "tsc --noEmit",
     "prettier:check": "prettier --check .",
-    "test": "tsx --env-file=.env --test \"**/*.test.ts\" \"**/*.spec.ts\"",
+    "test": "tsx --test \"**/*.test.ts\" \"**/*.spec.ts\"",
     "test:coverage": "c8 npm test"
   },
   "lint-staged": {
