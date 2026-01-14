@@ -13,7 +13,7 @@ export class CoreContextFactory {
     authService: AuthService,
     eventBus: EventBus,
   ): CoreFacade {
-    const dbName = process.env["DB_NAME"] || "almaspot";
+    const dbName = process.env["MONGO_DB_NAME"] || "almaspot";
     const roomRepository = new RoomRepositoryMongo(mongoClient, dbName);
     const uniboProvider = new UniboProviderHTTP();
 
