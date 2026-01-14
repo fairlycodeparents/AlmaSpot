@@ -1,6 +1,6 @@
 import {
-  AvailabilityQuery,
-  RoomAvailable,
+  UserRequest,
+  AvailableRoom,
   Suggestion,
 } from "context/search/domain/Entities";
 
@@ -8,29 +8,29 @@ import {
 export interface AI {
   /**
    * Get a query by interpreting the user input (which is written in natural language).
-   * @param userInput - Array of user input strings
-   * @returns an `AvailabilityQuery` constructed from user input
+   * @param conversation - Array of user input strings
+   * @returns an `UserRequest` constructed from user input
    */
-  getQueryGivenUserInput(userInput: string[]): Promise<AvailabilityQuery>;
+  extractRequest(conversation: string[]): Promise<UserRequest>;
 
   /**
    * Get a suggestion by combining multiple slots, considering any specific request from the user.
-   * @param userInput - Array of user input strings
+   * @param conversation - Array of user input strings
    * @param availableSlots - Array of available rooms
    * @returns a `Suggestion` containing the plan and response
    */
-  getPlanGivenUserInput(
-    userInput: string[],
-    availableSlots: RoomAvailable[],
+  getSuggestion(
+    conversation: string[],
+    availableSlots: AvailableRoom[],
   ): Promise<Suggestion>;
 }
 
 /** External port for room availability */
 export interface RoomAvailability {
   /**
-   * Get an array of available (rooms) slots, based on the provided query criteria.
-   * @param query - The availability query
-   * @returns Array of available `Slot`
+   * Get an array of available rooms, based on the provided request criteria.
+   * @param request - The availability request
+   * @returns an array of `AvailableRoom` matching the request
    */
-  getAvailableSlots(query: AvailabilityQuery): Promise<RoomAvailable[]>;
+  getAvailableRooms(request: UserRequest): Promise<AvailableRoom[]>;
 }

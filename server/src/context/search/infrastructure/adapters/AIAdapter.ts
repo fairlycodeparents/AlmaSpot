@@ -4,8 +4,8 @@ import { Campus } from "shared/domain/Location";
 import { Plan } from "shared/domain/Plan";
 import { AI } from "context/search/application/ExternalPorts";
 import {
-  RoomAvailable,
-  AvailabilityQuery,
+  AvailableRoom,
+  UserRequest,
   Suggestion,
 } from "context/search/domain/Entities";
 import { GoogleGenAI, Type } from "@google/genai";
@@ -82,9 +82,9 @@ export class AIAdapter implements AI {
     },
   };
 
-  async getPlanGivenUserInput(
-    userInput: string[],
-    availableSlots: RoomAvailable[],
+  async getSuggestion(
+    conversation: string[],
+    availableSlots: AvailableRoom[],
   ): Promise<Suggestion> {
     const slotsContext = availableSlots.map((s) => ({
       roomId: s.id,
@@ -112,7 +112,7 @@ export class AIAdapter implements AI {
       5. Always provide a clear "explanation" (e.g., "I couldn't find a single room, but you can use Room A then move to Room B").
       `;
 
-    const input = [...userInput, systemInstruction];
+    const input = [...conversation, systemInstruction];
 
     const response = await this.ai.models.generateContent({
       model: "gemini-2.5-flash-lite",
@@ -147,7 +147,7 @@ export class AIAdapter implements AI {
       });
 
       if (originalSlot) {
-        const plannedSlot = new RoomAvailable(
+        const plannedSlot = new AvailableRoom(
           originalSlot.id,
           originalSlot.type,
           originalSlot.address,
@@ -165,13 +165,11 @@ export class AIAdapter implements AI {
     return new Suggestion(new Plan(selectedSlots), explanation);
   }
 
-  async getQueryGivenUserInput(
-    userInput: string[],
-  ): Promise<AvailabilityQuery> {
+  async extractRequest(conversation: string[]): Promise<UserRequest> {
     const input = [
       `Current time is ${new Date().toString()}.
       Use this to resolve relative dates like 'tomorrow' and to better understand the user's time references.`,
-      ...userInput,
+      ...conversation,
     ];
 
     const response = await this.ai.models.generateContent({
@@ -211,7 +209,7 @@ export class AIAdapter implements AI {
       throw new Error(`Unrecognized campus value: ${args.campus}`);
     }
 
-    return new AvailabilityQuery(
+    return new UserRequest(
       new Period(startDate, endDate),
       campusValue,
       args.address,

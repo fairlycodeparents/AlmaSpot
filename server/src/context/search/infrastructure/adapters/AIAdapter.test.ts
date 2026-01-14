@@ -2,10 +2,7 @@ import { describe, it } from "node:test";
 import assert from "node:assert";
 import { AIAdapter } from "./AIAdapter";
 import { Campus } from "shared/domain/Location";
-import {
-  AvailabilityQuery,
-  RoomAvailable,
-} from "context/search/domain/Entities";
+import { UserRequest, AvailableRoom } from "context/search/domain/Entities";
 
 const GEMINI_KEY = process.env["GEMINI_API_KEY"];
 const todayAt = (hour: number) => new Date(new Date().setHours(hour, 0, 0, 0));
@@ -17,7 +14,7 @@ describe(
     const aiAdapter = new AIAdapter();
 
     const assertQueryMatches = (
-      query: AvailabilityQuery,
+      query: UserRequest,
       startHour: number,
       endHour: number,
       campus: Campus,
@@ -44,14 +41,14 @@ describe(
 
     it("should return an AvailabilityQuery", async () => {
       const userInput = [`I need a room in Rimini today, from 14 to 16.`];
-      const query = await aiAdapter.getQueryGivenUserInput(userInput);
+      const query = await aiAdapter.extractRequest(userInput);
 
       assertQueryMatches(query, 14, 16, Campus.RIMINI);
     });
 
     it("should understand the information contained in the user's query", async () => {
       const userInput = ["I need a room in Rimini today, from 14 to 16."];
-      const query = await aiAdapter.getQueryGivenUserInput(userInput);
+      const query = await aiAdapter.extractRequest(userInput);
 
       assertQueryMatches(query, 14, 16, Campus.RIMINI);
     });
@@ -60,7 +57,7 @@ describe(
       const userInput = [
         "I need a room in Cesena, at via dell'Università 50, today from 10 to 12.",
       ];
-      const query = await aiAdapter.getQueryGivenUserInput(userInput);
+      const query = await aiAdapter.extractRequest(userInput);
 
       assertQueryMatches(
         query,
@@ -76,7 +73,7 @@ describe(
         "I need a room in Cesena, at via dell'Università 50, today from 10 to 12.",
         "Forget it! Search it from 13 to 15",
       ];
-      const query = await aiAdapter.getQueryGivenUserInput(userInput);
+      const query = await aiAdapter.extractRequest(userInput);
 
       assertQueryMatches(
         query,
@@ -89,15 +86,15 @@ describe(
 
     it("should combine multiple slots to cover the requested period", async () => {
       const userInput = ["I need a room in Rimini today, from 14 to 16."];
-      const availableSlots: RoomAvailable[] = [
-        new RoomAvailable(
+      const availableSlots: AvailableRoom[] = [
+        new AvailableRoom(
           "room1",
           "classroom",
           "Rimini",
           todayAt(13),
           todayAt(15),
         ),
-        new RoomAvailable(
+        new AvailableRoom(
           "room2",
           "classroom",
           "Rimini",
@@ -105,7 +102,7 @@ describe(
           todayAt(18),
         ),
       ];
-      const suggestion = await aiAdapter.getPlanGivenUserInput(
+      const suggestion = await aiAdapter.getSuggestion(
         userInput,
         availableSlots,
       );

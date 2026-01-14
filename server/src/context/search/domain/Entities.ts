@@ -17,7 +17,7 @@ export class Suggestion {
 }
 
 /** Domain entity representing a user's request for room availability. */
-export class AvailabilityQuery {
+export class UserRequest {
   /**
    * Creates a new `UserRequest` instance.
    * @param period - The time {@link Period} for which availability is being queried.
@@ -32,9 +32,9 @@ export class AvailabilityQuery {
 }
 
 /** Domain entity representing an available room. */
-export class RoomAvailable {
+export class AvailableRoom {
   /**
-   * Creates a new `RoomAvailable` instance.
+   * Creates a new `AvailableRoom` instance.
    * @param id - The identifier of the room.
    * @param type - The type of the room.
    * @param address - The address or location of the room.
