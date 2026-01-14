@@ -4,6 +4,8 @@ import assert from "node:assert";
 import { AIAdapter } from "./AIAdapter";
 import { Campus } from "shared/domain/Location";
 import { AvailabilityQuery } from "context/search/domain/Entities";
+import { Slot } from "shared/domain/Slot";
+import { Period } from "shared/domain/Period";
 
 const GEMINI_KEY = process.env["GEMINI_API_KEY"];
 const todayAt = (hour: number) => new Date(new Date().setHours(hour, 0, 0, 0));
@@ -82,6 +84,39 @@ describe(
         15,
         Campus.CESENA,
         "via dell'Università 50",
+      );
+    });
+
+    it("should combine multiple slots to cover the requested period", async () => {
+      const userInput = ["I need a room in Rimini today, from 14 to 16."];
+      const availableSlots: Slot[] = [
+        new Slot("room1", new Period(todayAt(13), todayAt(15))),
+        new Slot("room2", new Period(todayAt(15), todayAt(18))),
+      ];
+      const suggestion = await aiAdapter.getPlanGivenUserInput(
+        userInput,
+        availableSlots,
+      );
+      assert.ok(suggestion);
+      assert.strictEqual(suggestion.plan.slots.length, 2);
+
+      const [firstStep, secondStep] = suggestion.plan.slots;
+      assert.ok(firstStep);
+      assert.ok(secondStep);
+      assert.strictEqual(firstStep.roomId, "room1");
+      assert.strictEqual(
+        firstStep.period.start.getTime(),
+        todayAt(14).getTime(),
+      );
+      assert.strictEqual(firstStep.period.end.getTime(), todayAt(15).getTime());
+      assert.strictEqual(secondStep.roomId, "room2");
+      assert.strictEqual(
+        secondStep.period.start.getTime(),
+        todayAt(15).getTime(),
+      );
+      assert.strictEqual(
+        secondStep.period.end.getTime(),
+        todayAt(16).getTime(),
       );
     });
   },
