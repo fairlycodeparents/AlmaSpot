@@ -3,109 +3,86 @@ import assert from "node:assert";
 
 import { AIAdapter } from "./AIAdapter";
 import { Campus } from "shared/domain/Location";
+import { AvailabilityQuery } from "context/search/domain/Entities";
 
 const GEMINI_KEY = process.env["GEMINI_API_KEY"];
-const aiAdapter = new AIAdapter();
+const todayAt = (hour: number) => new Date(new Date().setHours(hour, 0, 0, 0));
 
 describe(
   "AI Adapter",
   { skip: !GEMINI_KEY ? "Missing GEMINI_API_KEY: Tests are skipped" : false },
   () => {
+    const aiAdapter = new AIAdapter();
+
+    const assertQueryMatches = (
+      query: AvailabilityQuery,
+      startHour: number,
+      endHour: number,
+      campus: Campus,
+      address?: string,
+    ) => {
+      assert.ok(query.period, "Period should be defined");
+      assert.strictEqual(
+        query.period.start.getTime(),
+        todayAt(startHour).getTime(),
+        "Start time mismatch",
+      );
+      assert.strictEqual(
+        query.period.end.getTime(),
+        todayAt(endHour).getTime(),
+        "End time mismatch",
+      );
+      assert.strictEqual(query.campus, campus, "Campus mismatch");
+      if (address) {
+        assert.strictEqual(query.address, address, "Address mismatch");
+      }
+    };
+
     it("should be defined", () => assert.ok(new AIAdapter()));
 
     it("should return an AvailabilityQuery", async () => {
-      const userInput = ["I need a room in Rimini today, from 2 PM to 4 PM."];
+      const userInput = [`I need a room in Rimini today, from 14 to 16.`];
       const query = await aiAdapter.getQueryGivenUserInput(userInput);
-      assert.ok(query.period);
-      assert.ok(query.campus);
+
+      assertQueryMatches(query, 14, 16, Campus.RIMINI);
     });
 
     it("should understand the information contained in the user's query", async () => {
-      const userInput = ["I need a room in Rimini today, from 2 PM to 4 PM."];
+      const userInput = ["I need a room in Rimini today, from 14 to 16."];
       const query = await aiAdapter.getQueryGivenUserInput(userInput);
 
-      const now = new Date();
-      const expectedStart = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        14,
-        0,
-        0,
-      );
-      const expectedEnd = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        16,
-        0,
-        0,
-      );
-
-      assert.strictEqual(query.period.start.getTime(), expectedStart.getTime());
-      assert.strictEqual(query.period.end.getTime(), expectedEnd.getTime());
-      assert.strictEqual(query.campus, Campus.RIMINI);
+      assertQueryMatches(query, 14, 16, Campus.RIMINI);
     });
 
     it("should handle queries with an address", async () => {
       const userInput = [
-        "I need a room in Cesena, at via dell'Università 50, today from 10 AM to 12 PM.",
+        "I need a room in Cesena, at via dell'Università 50, today from 10 to 12.",
       ];
       const query = await aiAdapter.getQueryGivenUserInput(userInput);
 
-      const now = new Date();
-      const expectedStart = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
+      assertQueryMatches(
+        query,
         10,
-        0,
-        0,
-      );
-      const expectedEnd = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
         12,
-        0,
-        0,
+        Campus.CESENA,
+        "via dell'Università 50",
       );
-
-      assert.strictEqual(query.period.start.getTime(), expectedStart.getTime());
-      assert.strictEqual(query.period.end.getTime(), expectedEnd.getTime());
-      assert.strictEqual(query.campus, Campus.CESENA);
-      assert.strictEqual(query.address, "via dell'Università 50");
     });
 
     it("should understand request made on multiple messages", async () => {
       const userInput = [
-        "I need a room in Cesena, at via dell'Università 50, today from 10 AM to 12 PM.",
-        "Forget it! Search it from 1PM to 3PM",
+        "I need a room in Cesena, at via dell'Università 50, today from 10 to 12.",
+        "Forget it! Search it from 13 to 15",
       ];
       const query = await aiAdapter.getQueryGivenUserInput(userInput);
 
-      const now = new Date();
-      const expectedStart = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
+      assertQueryMatches(
+        query,
         13,
-        0,
-        0,
-      );
-      const expectedEnd = new Date(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
         15,
-        0,
-        0,
+        Campus.CESENA,
+        "via dell'Università 50",
       );
-
-      assert.strictEqual(query.period.start.getTime(), expectedStart.getTime());
-      assert.strictEqual(query.period.end.getTime(), expectedEnd.getTime());
-      assert.strictEqual(query.campus, Campus.CESENA);
-      assert.strictEqual(query.address, "via dell'Università 50");
     });
   },
 );
