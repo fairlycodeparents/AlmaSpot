@@ -1,5 +1,9 @@
 import { Slot } from "shared/domain/Slot";
-import { AvailabilityQuery, Suggestion } from "context/search/domain/Entities";
+import {
+  AvailabilityQuery,
+  RoomAvailable,
+  Suggestion,
+} from "context/search/domain/Entities";
 
 /** External port for AI interactions */
 export interface AI {
@@ -29,5 +33,5 @@ export interface RoomAvailability {
    * @param query - The availability query
    * @returns Array of available `Slot`
    */
-  getAvailableSlots(query: AvailabilityQuery): Promise<Slot[]>;
+  getAvailableSlots(query: AvailabilityQuery): Promise<RoomAvailable[]>;
 }

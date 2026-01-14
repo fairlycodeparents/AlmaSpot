@@ -29,3 +29,22 @@ export class AvailabilityQuery {
     public readonly address?: string,
   ) {}
 }
+
+/** Domain entity representing an available room. */
+export class RoomAvailable {
+  /**
+   * Creates a new `RoomAvailable` instance.
+   * @param id - The identifier of the room.
+   * @param type - The type of the room.
+   * @param address - The address or location of the room.
+   * @param from - The start date and time of availability.
+   * @param to - The end date and time of availability.
+   */
+  constructor(
+    public readonly id: string,
+    public readonly type: string,
+    public readonly address: string,
+    public readonly from: Date,
+    public readonly to: Date,
+  ) {}
+}
