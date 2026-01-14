@@ -25,6 +25,6 @@ export interface RoomRepository {
     activities: InternalActivity[],
   ): Promise<void>;
 
-  getLastSyncTime(campus: Campus): Promise<Date | null>;
-  setLastSyncTime(campus: Campus): Promise<void>;
+  getLastSync(campus: Campus, date: Date): Promise<Date | null>;
+  setLastSync(campus: Campus, date: Date): Promise<void>;
 }

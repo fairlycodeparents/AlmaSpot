@@ -1,4 +1,4 @@
-import { Db, MongoClient } from "mongodb";
+import { Db, MongoClient, Collection } from "mongodb";
 import { RoomRepository } from "../../domain/ports/RoomRepository";
 import { Campus, Site } from "../../../../shared/domain/Location";
 import {
@@ -17,13 +17,13 @@ export class RoomRepositoryMongo implements RoomRepository {
     this.db = client.db(dbName);
   }
 
-  private get roomsCol() {
+  private get roomsCol(): Collection<any> {
     return this.db.collection("rooms");
   }
-  private get activitiesCol() {
+  private get activitiesCol(): Collection<any> {
     return this.db.collection("activities");
   }
-  private get metadataCol() {
+  private get metadataCol(): Collection<any> {
     return this.db.collection("metadata");
   }
 
