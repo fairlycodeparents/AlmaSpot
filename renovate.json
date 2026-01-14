@@ -5,7 +5,7 @@
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "ignoreUnstable": true,
-  "schedule": ["* 0-3 * * *"],
+  "automergeSchedule": ["* 0-3 * * *"],
   "timezone": "CET",
   "automerge": true
 }
