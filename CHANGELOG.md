@@ -1,3 +1,31 @@
+## [1.0.1](https://github.com/fairlycodeparents/AlmaSpot/compare/1.0.0...1.0.1) (2026-01-14)
+
+### Dependency updates
+
+- **deps:** update actions/checkout action to v6 ([#7](https://github.com/fairlycodeparents/AlmaSpot/issues/7)) ([6d41844](https://github.com/fairlycodeparents/AlmaSpot/commit/6d418448a718fc8e6d4a3d87991bc4ac33e66d3f))
+- **deps:** update actions/setup-node action to v6 ([#8](https://github.com/fairlycodeparents/AlmaSpot/issues/8)) ([6d90f16](https://github.com/fairlycodeparents/AlmaSpot/commit/6d90f16625a88dc4bfcb2630eb8fe9835837c7e7))
+- **deps:** update actions/upload-pages-artifact action to v4 ([62e2330](https://github.com/fairlycodeparents/AlmaSpot/commit/62e23308f2c510560233d80b019780efbda09be1))
+- **deps:** update commitlint monorepo to v20.3.1 ([#6](https://github.com/fairlycodeparents/AlmaSpot/issues/6)) ([e9b0d38](https://github.com/fairlycodeparents/AlmaSpot/commit/e9b0d386c006ea5ac099b37a0b76dbc2c1e47bee))
+- **deps:** update dependency @types/node to v25.0.5 ([#11](https://github.com/fairlycodeparents/AlmaSpot/issues/11)) ([aed12ed](https://github.com/fairlycodeparents/AlmaSpot/commit/aed12edf030a493b90e920f52a8c272125aa134c))
+- **deps:** update dependency @types/node to v25.0.6 ([#12](https://github.com/fairlycodeparents/AlmaSpot/issues/12)) ([8feb920](https://github.com/fairlycodeparents/AlmaSpot/commit/8feb9202eba9f8ef967578b0794f63d5fec06d8f))
+- **deps:** update dependency @types/node to v25.0.7 ([#14](https://github.com/fairlycodeparents/AlmaSpot/issues/14)) ([56cff56](https://github.com/fairlycodeparents/AlmaSpot/commit/56cff566a4fcc58b153ff05642d97a8af58b23a8))
+- **deps:** update dependency @types/node to v25.0.8 ([#18](https://github.com/fairlycodeparents/AlmaSpot/issues/18)) ([5da01c9](https://github.com/fairlycodeparents/AlmaSpot/commit/5da01c9b5e59d0520b4d66b2467aa6ac87032ace))
+- **deps:** update mongo docker tag to v8 ([#15](https://github.com/fairlycodeparents/AlmaSpot/issues/15)) ([1e3762f](https://github.com/fairlycodeparents/AlmaSpot/commit/1e3762f6e816b29041f8515f6bdff436c40cb558))
+
+### Documentation
+
+- **figures:** update mock ups ([#20](https://github.com/fairlycodeparents/AlmaSpot/issues/20)) ([89a9682](https://github.com/fairlycodeparents/AlmaSpot/commit/89a96820e84f3808167aef28cde3d5f5829b60ac))
+
+### Build and continuous integration
+
+- update pr-checks with testing ([21dd001](https://github.com/fairlycodeparents/AlmaSpot/commit/21dd00126976802285dfc23024ab2fe7e2563867))
+
+### General maintenance
+
+- **docker:** add docker-compose configuration for MongoDB service ([50e6398](https://github.com/fairlycodeparents/AlmaSpot/commit/50e639829c774093a7e1d8c06ac38ee85197a10a))
+- **docker:** add unibo-provider service and configure network ([5c19b28](https://github.com/fairlycodeparents/AlmaSpot/commit/5c19b28b528ae9a51ece7789441e96b2b44c57fa))
+- **renovate:** update schedule configuration ([#19](https://github.com/fairlycodeparents/AlmaSpot/issues/19)) ([bc8c88a](https://github.com/fairlycodeparents/AlmaSpot/commit/bc8c88a7376f836c75d9d507f84ddde6c15eb198))
+
 ## [1.0.0](https://github.com/fairlycodeparents/AlmaSpot/compare/0.2.0...1.0.0) (2026-01-09)
 
 ### ⚠ BREAKING CHANGES
