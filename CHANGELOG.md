@@ -1,3 +1,37 @@
+## [1.1.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.0.1...1.1.0) (2026-01-14)
+
+### Features
+
+- **authentication:** implement login and signup flow ([d9bdb06](https://github.com/fairlycodeparents/AlmaSpot/commit/d9bdb0669e79a786a7914fa707837d9e54dbfb4d))
+- **authentication:** implement mongodb persistence ([f55d5d2](https://github.com/fairlycodeparents/AlmaSpot/commit/f55d5d22485ea830ecab5b34c3c79af976a7e048))
+
+### Bug Fixes
+
+- **authentication:** correct export syntax for AuthFacade ([e736dd3](https://github.com/fairlycodeparents/AlmaSpot/commit/e736dd32634be82bf871b0cefd4668ac69d820ca))
+
+### Tests
+
+- **authentication:** add integration tests for MongoAdminRepository ([ce309b9](https://github.com/fairlycodeparents/AlmaSpot/commit/ce309b963612de5efa23159b7ce7b60e4a370660))
+- **authentication:** add unit tests for AuthSchemas ([9c004ca](https://github.com/fairlycodeparents/AlmaSpot/commit/9c004cad8b8dd7eab29221a7c5f2b68d099f3655))
+- **authentication:** add unit tests for AuthService ([1c0eac5](https://github.com/fairlycodeparents/AlmaSpot/commit/1c0eac590ad8bbed30b4f0f3f60623c03730c3f1))
+
+### Build and continuous integration
+
+- **deps:** add express, zod, jwt, argon2, uuid and dotenv ([24ae5be](https://github.com/fairlycodeparents/AlmaSpot/commit/24ae5be6e02fe1ae2ca8760ab30d595e622ad640))
+- **deps:** add mongoose and setup mongo ([358569c](https://github.com/fairlycodeparents/AlmaSpot/commit/358569c097eb5af9248039ad2bbd3877ad30766e))
+- **deps:** add web-push and google genai dependencies ([7ec85db](https://github.com/fairlycodeparents/AlmaSpot/commit/7ec85dbeab1ea9d503c0a268d74d3051e08766e4))
+- **pr-checks:** add MongoDB service for CI testing ([af02a17](https://github.com/fairlycodeparents/AlmaSpot/commit/af02a17456f20ab90a72783aadf243f5923cd1b6))
+
+### General maintenance
+
+- **config:** add zod validation for environment variables and update env example ([24961c1](https://github.com/fairlycodeparents/AlmaSpot/commit/24961c1cf45d69484682f081a05116bb1cfe1c2c))
+- **config:** update .gitignore and add .env.example for auth setup ([96d6870](https://github.com/fairlycodeparents/AlmaSpot/commit/96d687098c094c9704e3e3a5f587423a43dbd2a1))
+- **config:** update .gitignore and add test coverage configuration ([94bfc27](https://github.com/fairlycodeparents/AlmaSpot/commit/94bfc27117a47e308f5542e7975684a0304769a2))
+
+### Refactoring
+
+- **authentication:** update repository structure ([3b34e62](https://github.com/fairlycodeparents/AlmaSpot/commit/3b34e6262feaac24d061580330bbd572d062b468))
+
 ## [1.0.1](https://github.com/fairlycodeparents/AlmaSpot/compare/1.0.0...1.0.1) (2026-01-14)
 
 ### Dependency updates
