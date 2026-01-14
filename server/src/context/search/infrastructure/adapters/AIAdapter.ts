@@ -3,7 +3,11 @@ import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { Plan } from "shared/domain/Plan";
 import { AI } from "context/search/application/ExternalPorts";
-import { AvailabilityQuery, Suggestion } from "context/search/domain/Entities";
+import {
+  RoomAvailable,
+  AvailabilityQuery,
+  Suggestion,
+} from "context/search/domain/Entities";
 import { GoogleGenAI, Type } from "@google/genai";
 
 export class AIAdapter implements AI {
@@ -80,12 +84,14 @@ export class AIAdapter implements AI {
 
   async getPlanGivenUserInput(
     userInput: string[],
-    availableSlots: Slot[],
+    availableSlots: RoomAvailable[],
   ): Promise<Suggestion> {
     const slotsContext = availableSlots.map((s) => ({
-      roomId: s.roomId,
-      start: s.period.start.toString(),
-      end: s.period.end.toString(),
+      roomId: s.id,
+      roomType: s.type,
+      roomAddress: s.address,
+      availabilityStart: s.from.toString(),
+      availabilityEnd: s.to.toString(),
     }));
 
     const now = new Date();
@@ -134,16 +140,21 @@ export class AIAdapter implements AI {
 
       const originalSlot = availableSlots.find((s) => {
         return (
-          s.roomId === step.roomId &&
-          s.period.start.getTime() <= stepStart.getTime() &&
-          s.period.end.getTime() >= stepEnd.getTime()
+          s.id === step.roomId &&
+          s.from.getTime() <= stepStart.getTime() &&
+          s.to.getTime() >= stepEnd.getTime()
         );
       });
 
       if (originalSlot) {
-        const subPeriod = new Period(stepStart, stepEnd);
-        const plannedSlot = new Slot(originalSlot.roomId, subPeriod);
-        selectedSlots.push(plannedSlot);
+        const plannedSlot = new RoomAvailable(
+          originalSlot.id,
+          originalSlot.type,
+          originalSlot.address,
+          stepStart,
+          stepEnd,
+        );
+        selectedSlots.push(plannedSlot.toSlot());
       } else {
         console.log(
           `AI suggested a slot that fits no available period: ${JSON.stringify(step)}`,

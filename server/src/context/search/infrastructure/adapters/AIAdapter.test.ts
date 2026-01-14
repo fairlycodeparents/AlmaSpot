@@ -1,11 +1,11 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
-
 import { AIAdapter } from "./AIAdapter";
 import { Campus } from "shared/domain/Location";
-import { AvailabilityQuery } from "context/search/domain/Entities";
-import { Slot } from "shared/domain/Slot";
-import { Period } from "shared/domain/Period";
+import {
+  AvailabilityQuery,
+  RoomAvailable,
+} from "context/search/domain/Entities";
 
 const GEMINI_KEY = process.env["GEMINI_API_KEY"];
 const todayAt = (hour: number) => new Date(new Date().setHours(hour, 0, 0, 0));
@@ -89,9 +89,21 @@ describe(
 
     it("should combine multiple slots to cover the requested period", async () => {
       const userInput = ["I need a room in Rimini today, from 14 to 16."];
-      const availableSlots: Slot[] = [
-        new Slot("room1", new Period(todayAt(13), todayAt(15))),
-        new Slot("room2", new Period(todayAt(15), todayAt(18))),
+      const availableSlots: RoomAvailable[] = [
+        new RoomAvailable(
+          "room1",
+          "classroom",
+          "Rimini",
+          todayAt(13),
+          todayAt(15),
+        ),
+        new RoomAvailable(
+          "room2",
+          "classroom",
+          "Rimini",
+          todayAt(15),
+          todayAt(18),
+        ),
       ];
       const suggestion = await aiAdapter.getPlanGivenUserInput(
         userInput,
