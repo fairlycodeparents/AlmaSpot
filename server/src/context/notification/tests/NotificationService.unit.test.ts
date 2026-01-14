@@ -13,7 +13,7 @@ describe("NotificationService", () => {
       send: mock.fn(async () => {}),
     };
     mockRepo = {
-      findAll: mock.fn(async () => []),
+      findByRoomAndPeriod: mock.fn(async () => []),
       delete: mock.fn(async () => {}),
       save: mock.fn(async () => {}),
     };
@@ -28,9 +28,8 @@ describe("NotificationService", () => {
   it("It should send a Notification if the Student is interested in", async () => {
     const interestedSub = {
       studentId: "student-token",
-      isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [
+    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: interestedSub, details: mockDetails },
     ]);
 
@@ -43,7 +42,6 @@ describe("NotificationService", () => {
       },
     };
     await service.handleActivityAdded(event);
-    assert.strictEqual(interestedSub.isInterestedIn.mock.callCount(), 1);
     assert.strictEqual(mockSender.send.mock.callCount(), 1);
     assert.strictEqual(mockRepo.delete.mock.callCount(), 0);
     const callArgs = mockSender.send.mock.calls[0].arguments;
@@ -63,13 +61,7 @@ describe("NotificationService", () => {
   });
 
   it("It should not send anything if the student is not interested in", async () => {
-    const notInterestedSub = {
-      studentId: "student-token2",
-      isInterestedIn: mock.fn(() => false),
-    };
-    mockRepo.findAll.mock.mockImplementation(async () => [
-      { subscription: notInterestedSub, details: mockDetails },
-    ]);
+    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => []);
     const event: any = {
       payload: {
         roomId: "Aula2",
@@ -89,9 +81,8 @@ describe("NotificationService", () => {
   it("It should remove device from DB if receives DEVICE_GONE", async () => {
     const deadSub = {
       studentId: "dead-token",
-      isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [
+    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: deadSub, details: mockDetails },
     ]);
     mockSender.send.mock.mockImplementation(async () => {
@@ -116,9 +107,8 @@ describe("NotificationService", () => {
   it("It should handle generic errors without deleting the device", async () => {
     const sub = {
       studentId: "network-error-token",
-      isInterestedIn: mock.fn(() => true),
     };
-    mockRepo.findAll.mock.mockImplementation(async () => [
+    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: sub, details: mockDetails },
     ]);
     mockSender.send.mock.mockImplementation(async () => {
@@ -127,6 +117,7 @@ describe("NotificationService", () => {
     const event: any = {
       payload: {
         title: "Test",
+        roomId: "Aula3",
         startTime: new Date("2026-01-01T10:00:00Z"),
         endTime: new Date("2026-01-01T11:00:00Z"),
       },
