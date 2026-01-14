@@ -1,0 +1,562 @@
+[
+  {
+    "_id": "mattarelli-fo",
+    "name": "MATTARELLI",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzale della Vittoria, 15"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-1-fo",
+    "name": "AULA 1.1",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-2-fo",
+    "name": "LAB 2",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-1-fo",
+    "name": "AULA 1",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzale della Vittoria, 15"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-2-fo",
+    "name": "AULA 2.2",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-3-fo",
+    "name": "AULA 2.3",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-didattica-2-fo",
+    "name": "AULA DIDATTICA 2",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-di-microscopia-fo",
+    "name": "LABORATORIO DI MICROSCOPIA",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "VIA Carlo Forlanini 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-19-fo",
+    "name": "AULA 19",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-16-fo",
+    "name": "LAB 16",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-3-fo",
+    "name": "LAB 3",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-5-fo",
+    "name": "AULA 5",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-3-fo",
+    "name": "AULA 1.3",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-di-anatomia-e-istologia-fo",
+    "name": "LABORATORIO DI ANATOMIA E ISTOLOGIA",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "VIA Carlo Forlanini 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-13-fo",
+    "name": "AULA 13",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-14-fo",
+    "name": "LAB 14",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-13-fo",
+    "name": "LAB 13",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-2-1-fo",
+    "name": "AULA 2.1",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-fo",
+    "name": "AULA 6",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-7-fo",
+    "name": "LAB 7",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-1-4-fo",
+    "name": "AULA 1.4",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-campostrino-fo",
+    "name": "AULA CAMPOSTRINO",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzetta Campostrino, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-di-biochimica-e-biologia-cellulare-fo",
+    "name": "LABORATORIO DI BIOCHIMICA E BIOLOGIA CELLULARE",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "VIA Carlo Forlanini 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-11-fo",
+    "name": "AULA 11",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-fo",
+    "name": "AULA 2",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzale della Vittoria, 15"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-9-fo",
+    "name": "AULA 9",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-internet-fo",
+    "name": "SALA INTERNET",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-fo",
+    "name": "AULA 7",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-10-fo",
+    "name": "AULA 10",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-10-fo",
+    "name": "LAB 10",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-21-fo",
+    "name": "AULA 21",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-9-fo",
+    "name": "LAB 9",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-didattica-1-labic-fo",
+    "name": "AULA DIDATTICA 1 LABIC",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-1-fo",
+    "name": "LAB 1",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-24-fo",
+    "name": "AULA 24",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-15-fo",
+    "name": "AULA 15",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-carlotta-bartolini-fo",
+    "name": "AULA CARLOTTA BARTOLINI",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-fo",
+    "name": "AULA 3",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzale della Vittoria, 15"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-25-giuseppe-farneti-fo",
+    "name": "AULA 25 GIUSEPPE FARNETI",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-12-fo",
+    "name": "AULA 12",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-11-fo",
+    "name": "LAB 11",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-3-1-fo",
+    "name": "AULA 3.1",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-pieratelli-fo",
+    "name": "AULA PIERATELLI",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "VIA Carlo Forlanini 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magagni-fo",
+    "name": "AULA MAGAGNI",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-20-fo",
+    "name": "AULA 20",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-17-fo",
+    "name": "AULA 17",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-6-fo",
+    "name": "LAB 6",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-5-fo",
+    "name": "LAB 5",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Bartolomeo Lombardini, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-4-fo",
+    "name": "AULA 4",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Piazzale della Vittoria, 15"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-2-fo",
+    "name": "AULA 3.2",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Via Giacomo della Torre, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-26-fo",
+    "name": "AULA 26",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-8-fo",
+    "name": "AULA 8",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-lauree-fo",
+    "name": "SALA LAUREE",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "CORSO della Repubblica 136"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-16-fo",
+    "name": "AULA 16",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-14-fo",
+    "name": "AULA 14",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "Viale Filippo Corridoni, 20"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-consiglio-fo",
+    "name": "SALA CONSIGLIO",
+    "campus": "Forlì",
+    "site": {
+      "campus": "Forlì",
+      "address": "CORSO della Repubblica 136"
+    },
+    "type": "CLASSROOM"
+  }
+]

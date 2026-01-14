@@ -1,0 +1,542 @@
+[
+  {
+    "_id": "laboratorio-cad-ra",
+    "name": "LABORATORIO CAD",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-4-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 4 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-3-ra",
+    "name": "Lab 3",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-1-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 1 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-ra",
+    "name": "AULA B",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-restauro-ra",
+    "name": "LAB. RESTAURO",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via San Vitale, 28 e 30"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-c-ra",
+    "name": "AULA C",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 7 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-accesso-da-via-oberdan-1-ra",
+    "name": "AULA MAGNA (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t7-ra",
+    "name": "Aula T7",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-ra",
+    "name": "AULA 2",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-triossi-ingresso-su-viale-randi-5-ra",
+    "name": "AULA MAGNA TRIOSSI (ingresso su Viale Randi 5)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Viale Vincenzo Randi 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t6-ra",
+    "name": "Aula T6",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-muccioli-ra",
+    "name": "AULA MUCCIOLI",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-gershevitch-ra",
+    "name": "AULA GERSHEVITCH",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Giuseppe Pasolini, 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-v-ra",
+    "name": "AULA V",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Giuseppe Pasolini, 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-ra",
+    "name": "AULA 4",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Viale Vincenzo Randi 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-0-ra",
+    "name": "AULA 2.0",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t2-ra",
+    "name": "Aula T2",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-0-ra",
+    "name": "AULA 1.0",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t5-ra",
+    "name": "Aula T5",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-informatico-accesso-da-via-oberdan-1-ra",
+    "name": "LABORATORIO INFORMATICO (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-t4-ra",
+    "name": "Aula T4",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t1-ra",
+    "name": "Aula T1",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-r-rosati-ra",
+    "name": "AULA R. ROSATI",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via San Vitale, 28 e 30"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-9-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 9 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-i-ra",
+    "name": "AULA I",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Giuseppe Pasolini, 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g-bovini-ra",
+    "name": "AULA G.BOVINI",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via San Vitale, 28 e 30"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-1-ingresso-su-viale-randi-5-ra",
+    "name": "LABORATORIO 1 (ingresso su Viale Randi 5)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Viale Vincenzo Randi 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-informatico-ra",
+    "name": "LAB. INFORMATICO",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-ii-ra",
+    "name": "AULA II",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Giuseppe Pasolini, 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-informatico-microscopia-ra",
+    "name": "LAB. INFORMATICO MICROSCOPIA",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-2-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 2 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-disegno-ra",
+    "name": "AULA DISEGNO",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-ra",
+    "name": "AULA 6",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-ra",
+    "name": "AULA A",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t3-ra",
+    "name": "Aula T3",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e-ra",
+    "name": "AULA E",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-tumidei-ra",
+    "name": "AULA TUMIDEI",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-ra",
+    "name": "AULA MAGNA",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 3 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iv-ra",
+    "name": "AULA IV",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Giuseppe Pasolini, 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-3-ra",
+    "name": "LABORATORIO 3",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Viale Vincenzo Randi 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-casa-matha-ra",
+    "name": "AULA CASA MATHA",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Piazza Andrea Costa, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-8-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 8 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-di-fisica-area-1-ra",
+    "name": "LABORATORIO DI FISICA AREA 1",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-3-ra",
+    "name": "AULA 3",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "VIA Angelo Mariani 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-5-ingresso-su-viale-randi-5-ra",
+    "name": "LABORATORIO 5 (ingresso su Viale Randi 5)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Viale Vincenzo Randi 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-1-2-ra",
+    "name": "AULA 1.2",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-p2-ra",
+    "name": "Aula P2",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-accesso-da-via-oberdan-1-ra",
+    "name": "AULA 5 (accesso da Via Oberdan, 1)",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guglielmo Oberdan, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-1-ra",
+    "name": "AULA 1.1",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Tombesi dall'Ova, 55"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-ra",
+    "name": "AULA D",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via Guaccimanni, 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t8-ra",
+    "name": "Aula T8",
+    "campus": "Ravenna",
+    "site": {
+      "campus": "Ravenna",
+      "address": "Via S. Alberto"
+    },
+    "type": "CLASSROOM"
+  }
+]

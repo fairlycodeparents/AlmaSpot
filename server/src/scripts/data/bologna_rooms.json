@@ -1,0 +1,4222 @@
+[
+  {
+    "_id": "aula-5-bo",
+    "name": "AULA 5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-9-sala-delle-armi-via-zamboni-22-bo",
+    "name": "AULA 9 \"SALA DELLE ARMI\" (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-patologia-generale-aula-1-bo",
+    "name": "AULA MAGNA PATOLOGIA GENERALE - AULA 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-menarini-sala-didattica-di-fisioterapia-bo",
+    "name": "AULA MENARINI - SALA DIDATTICA DI FISIOTERAPIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "salone-marescotti-bo",
+    "name": "SALONE MARESCOTTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g-belmeloro-bo",
+    "name": "AULA G BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-07-bo",
+    "name": "TA-07",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-4-bo",
+    "name": "AULA 7.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "i-bo",
+    "name": "I",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 93/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-5-bo",
+    "name": "AULA 1.5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1i-bo",
+    "name": "1I",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vii-accesso-via-ranzani-1-bo",
+    "name": "AULA VII (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "e-bo",
+    "name": "E",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-4-bo",
+    "name": "AULA 2.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "studio-30-bo",
+    "name": "STUDIO 30",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-t-accesso-da-via-s-giacomo-9-bo",
+    "name": "AULA T (Accesso da via S. Giacomo, 9)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-microbiologia-e-fermentazioni-laboratori-lanfranco-masotti-bo",
+    "name": "LABORATORIO MICROBIOLOGIA E FERMENTAZIONI - Laboratori Lanfranco  Masotti",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della Beverara, 123"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-a-farmacologia-bo",
+    "name": "AULA A (FARMACOLOGIA)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-filopanti-bo",
+    "name": "AULA FILOPANTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Quirico Filopanti 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-specola-bo",
+    "name": "AULA SPECOLA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1d-bo",
+    "name": "1D",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-i-magna-bo",
+    "name": "AULA I - MAGNA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Francesco Selmi 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-6-bo",
+    "name": "AULA 0.6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-1-bo",
+    "name": "AULA 4.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-sfameni-bo",
+    "name": "AULA SFAMENI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-1-colture-cellulari-laboratori-lanfranco-masotti-bo",
+    "name": "LAB 1 - COLTURE CELLULARI - Laboratori Lanfranco  Masotti",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della Beverara, 123"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-magna-igiene-bo",
+    "name": "AULA MAGNA IGIENE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-s-giacomo-bo",
+    "name": "AULA S. GIACOMO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "dmr1-bo",
+    "name": "DMR1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Ugo Foscolo, 7"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-9-bo",
+    "name": "AULA 2.9",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-civ-44-bo",
+    "name": "AULA 3 (civ.44)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-morfologico-navile-bo",
+    "name": "LABORATORIO MORFOLOGICO NAVILE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della Beverara, 123"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-inf-affreschi-accesso-da-via-zamboni-34-bo",
+    "name": "LAB INF AFFRESCHI (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-v-bo",
+    "name": "AULA V",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-5-bo",
+    "name": "AULA 2.5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-grande-bo",
+    "name": "AULA GRANDE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-d-accesso-da-via-zamboni-34-bo",
+    "name": "LAB INF D (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-c-s-cristina-bo",
+    "name": "AULA C S. CRISTINA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "saletta-seminari-bo",
+    "name": "SALETTA SEMINARI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Pier Paolo Pasolini, 5/b"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-i-belmeloro-bo",
+    "name": "AULA I BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-pt-5-via-zanolini-41-bo",
+    "name": "AULA PT. 5 (Via Zanolini, 41)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Antonio Zanolini, 41"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-2-bo",
+    "name": "AULA 1.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g-vitali-bo",
+    "name": "AULA G.VITALI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-m-bo",
+    "name": "LABORATORIO M",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 93/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "az-aula-colonne-ex-osp-roncati-bo",
+    "name": "[AZ] AULA COLONNE - Ex Osp. Roncati",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Sant'Isaia, 90"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "auletta-pediatria-bo",
+    "name": "AULETTA PEDIATRIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 11"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "auletta-ginecologia-bo",
+    "name": "AULETTA GINECOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-informatica-carlo-francioni-bo",
+    "name": "AULA INFORMATICA \"CARLO FRANCIONI\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-belmeloro-bo",
+    "name": "AULA A BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-04-bo",
+    "name": "TA-04",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-accesso-da-via-centotrecento-18-bo",
+    "name": "AULA D (Accesso da via Centotrecento, 18)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Centotrecento, 18"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "polivalente-bo",
+    "name": "POLIVALENTE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via del Pilastro, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-civ-44-46-bo",
+    "name": "AULA MAGNA (civ.44-46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vii-piano-bo",
+    "name": "AULA VII PIANO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-1-bo",
+    "name": "AULA 3.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-sergio-secci-bo",
+    "name": "AULA SERGIO SECCI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-fisiologia-bo",
+    "name": "AULA D FISIOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-ingresso-da-via-beniamino-andreatta-4-bo",
+    "name": "AULA MAGNA (ingresso da Via Beniamino Andreatta 4)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-bo",
+    "name": "AULA A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-31-bo",
+    "name": "AULA 31",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-viii-bo",
+    "name": "AULA VIII",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-bo",
+    "name": "AULA 6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-4-bo",
+    "name": "AULA 0.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-p-h-bo",
+    "name": "AULA 7 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-berti-pichat-bo",
+    "name": "AULA C BERTI PICHAT",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-medicina-legale-bo",
+    "name": "AULA A - MEDICINA LEGALE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 49"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-q-belmeloro-bo",
+    "name": "AULA Q BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1c-bo",
+    "name": "1C",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1b-bo",
+    "name": "1B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p5-fullerene-bo",
+    "name": "LAB P5 FULLERENE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-4-2-bo",
+    "name": "AULA 4.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-arzela-bo",
+    "name": "AULA ARZELA'",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-12-bo",
+    "name": "AULA 12",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p2-graphite-bo",
+    "name": "LAB P2 GRAPHITE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-pisi-bo",
+    "name": "AULA PISI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-pt-accesso-via-ranzani-1-bo",
+    "name": "LAB PT (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-stefano-torresani-bo",
+    "name": "AULA STEFANO TORRESANI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1e-bo",
+    "name": "1E",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-alfonso-traina-accesso-da-via-zamboni-32-bo",
+    "name": "AULA ALFONSO TRAINA (Accesso da Via Zamboni, 32)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-n-toso-montanari-bo",
+    "name": "AULA N \"TOSO MONTANARI\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 85"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clid-1-bo",
+    "name": "CLID 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-fisica-bo",
+    "name": "AULA 2 - FISICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-7b-bo",
+    "name": "AULA 2.7B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-ovest-bo",
+    "name": "AULA A OVEST",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Irnerio 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-baldiserri-via-zamboni-22-bo",
+    "name": "AULA 3 BALDISERRI (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-s-cristina-bo",
+    "name": "AULA A S. CRISTINA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vi-bo",
+    "name": "AULA VI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-bioinformatico-bo",
+    "name": "LAB BIOINFORMATICO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della Beverara, 123"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "open-space-bo",
+    "name": "OPEN SPACE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-03-bo",
+    "name": "TA-03",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-2-ex-cri-bo",
+    "name": "[AZ] AULA 2 ex CRI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giambattista Ercolani 6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ranzani-c-bo",
+    "name": "RANZANI C",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Camillo Ranzani, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-bianca-igiene-bo",
+    "name": "AULA BIANCA IGIENE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-bo",
+    "name": "AULA 2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "auditorium-bo",
+    "name": "AUDITORIUM",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Pier Paolo Pasolini, 5/b"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p3-nanotube-bo",
+    "name": "LAB P3 NANOTUBE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "az-aula-a-osp-bellaria-bo",
+    "name": "[AZ] AULA A - Osp. Bellaria",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Altura 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-informatico-spv-bo",
+    "name": "LABORATORIO INFORMATICO SPV",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Petronio vecchio, 30"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-3-accesso-via-del-guasto-3-bo",
+    "name": "AULA 3 - Accesso via del Guasto 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-informatico-bo",
+    "name": "LABORATORIO INFORMATICO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Guerrazzi, 20"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-5-civ-46-bo",
+    "name": "AULA 5 (civ.46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-2-bo",
+    "name": "AULA 2.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e-bo",
+    "name": "AULA E",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-via-zamboni-22-bo",
+    "name": "AULA 5 (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "d-bo",
+    "name": "D",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-bonora-bo",
+    "name": "AULA BONORA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ranzani-a-bo",
+    "name": "RANZANI A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Camillo Ranzani, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "2e-bo",
+    "name": "2E",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ex-esercizi-bo",
+    "name": "AULA EX ESERCIZI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-10-civ-48-bo",
+    "name": "AULA 10 (civ.48)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-bigari-bo",
+    "name": "AULA BIGARI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-capuzzi-bo",
+    "name": "AULA CAPUZZI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-i-bo",
+    "name": "AULA I",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-s-p-v-bo",
+    "name": "AULA C - S.P.V.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA San Petronio vecchio 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g1-bo",
+    "name": "AULA G1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 67"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-h-belmeloro-bo",
+    "name": "AULA H BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-m2-p-gazzi-bo",
+    "name": "AULA M2 P. GAZZI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-3-bo",
+    "name": "AULA 2.3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ix-bo",
+    "name": "AULA IX",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-2-accesso-da-via-zamboni-34-bo",
+    "name": "LABORATORIO 2 (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "a-bo",
+    "name": "A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-o-belmeloro-bo",
+    "name": "LAB INF O BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-0-8-bo",
+    "name": "AULA 0.8",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-picchi-bo",
+    "name": "AULA PICCHI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p4-diamond-bo",
+    "name": "LAB P4 DIAMOND",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "c-bo",
+    "name": "C",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-2-bo",
+    "name": "AULA 6.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-f-bo",
+    "name": "AULA F",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-ghigi-accesso-da-via-s-giacomo-9-bo",
+    "name": "AULA A. GHIGI (Accesso da via S. Giacomo, 9)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e-accesso-da-via-zamboni-34-bo",
+    "name": "AULA E (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iii-bo",
+    "name": "AULA III",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-g-accesso-via-ranzani-1-bo",
+    "name": "LAB G (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "h-bo",
+    "name": "H",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 93/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-fisica-bo",
+    "name": "AULA 1 - FISICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-bo",
+    "name": "AULA C",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-fisiologia-bo",
+    "name": "AULA C FISIOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-5-bo",
+    "name": "AULA 0.5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-4-bo",
+    "name": "AULA 1.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-v-via-zamboni-38-bo",
+    "name": "AULA V (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-cruciani-bo",
+    "name": "AULA CRUCIANI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-32-bo",
+    "name": "AULA 32",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-pascoli-bo",
+    "name": "AULA PASCOLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g5-bo",
+    "name": "AULA G5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 67"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-lobietti-bo",
+    "name": "AULA LOBIETTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via del Pilastro, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-1-bo",
+    "name": "AULA 5.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-vittorio-capecchi-accesso-via-del-guasto-3-bo",
+    "name": "AULA A VITTORIO CAPECCHI - Accesso via del Guasto 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g-bo",
+    "name": "AULA G",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-leydi-bo",
+    "name": "AULA LEYDI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a2-berti-pichat-bo",
+    "name": "AULA A2 BERTI PICHAT",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-accesso-da-via-centotrecento-18-bo",
+    "name": "AULA A (Accesso da via Centotrecento, 18)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Centotrecento, 18"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-guglielmi-bo",
+    "name": "AULA GUGLIELMI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-1-accesso-da-via-zamboni-34-bo",
+    "name": "LABORATORIO 1 (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-magna-antropologia-accesso-da-via-selmi-3-bo",
+    "name": "AULA MAGNA ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-viii-accesso-via-ranzani-1-bo",
+    "name": "AULA VIII (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-montagna-osp-bellaria-bo",
+    "name": "[AZ] AULA \"MONTAGNA\" - Osp. Bellaria",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Altura 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-golgi-auletta-microscopi-bo",
+    "name": "AULA GOLGI (auletta microscopi)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-p-bo",
+    "name": "AULA P",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 85"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-foscolo-bo",
+    "name": "AULA MAGNA FOSCOLO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Ugo Foscolo, 7"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-informatica-1-civ-46-bo",
+    "name": "AULA INFORMATICA 1 (civ.46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-7-bo",
+    "name": "AULA 0.7",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-9-civ-48-bo",
+    "name": "AULA 9 (civ.48)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-emilio-pasquini-bo",
+    "name": "AULA EMILIO PASQUINI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-7-bo",
+    "name": "AULA 7.7",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-i-via-zamboni-38-bo",
+    "name": "AULA I (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vi-accesso-via-ranzani-1-bo",
+    "name": "AULA VI (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-civ-44-bo",
+    "name": "AULA 4 (civ.44)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-2-bo",
+    "name": "LAB 2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-6-p-h-bo",
+    "name": "AULA 6 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-l-tonelli-bo",
+    "name": "AULA L.TONELLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-12-via-zamboni-22-bo",
+    "name": "AULA 12 (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-p-h-bo",
+    "name": "AULA 4 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-15-civ-44-bo",
+    "name": "AULA 15 (civ.44)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-romei-bo",
+    "name": "AULA ROMEI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-geno-informatico-bo",
+    "name": "LABORATORIO GENO INFORMATICO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della Beverara, 123"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-cremona-bo",
+    "name": "AULA CREMONA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clid-3-bo",
+    "name": "CLID 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-della-specola-bo",
+    "name": "AULA DELLA SPECOLA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Zamboni, 33"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-8-sala-delle-feste-via-zamboni-22-bo",
+    "name": "AULA 8 \"SALA DELLE FESTE\" (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-guarnieri-civ-46-bo",
+    "name": "AULA GUARNIERI (civ.46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-istologia-carinci-accesso-da-via-belmeloro-8-bo",
+    "name": "AULA MAGNA ISTOLOGIA CARINCI (Accesso da via Belmeloro, 8)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-01-bo",
+    "name": "TA-01",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-bo",
+    "name": "AULA D",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-riunioni-bo",
+    "name": "SALA RIUNIONI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-anatomia-olivo-bo",
+    "name": "AULA MAGNA ANATOMIA OLIVO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-09-bo",
+    "name": "TA-09",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-redenti-bo",
+    "name": "AULA 1 REDENTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-patologia-generale-bo",
+    "name": "AULA 2 - PATOLOGIA GENERALE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-7a-bo",
+    "name": "AULA 2.7A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-s-cristina-bo",
+    "name": "AULA B S. CRISTINA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-m-belmeloro-bo",
+    "name": "AULA M BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-7-bo",
+    "name": "AULA 5.7",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-bombelli-bo",
+    "name": "AULA BOMBELLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-10-bo",
+    "name": "TA-10",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-accesso-da-via-centotrecento-18-bo",
+    "name": "AULA B (Accesso da via Centotrecento, 18)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Centotrecento, 18"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a-s-p-v-bo",
+    "name": "AULA A - S.P.V.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA San Petronio vecchio 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-spisa-bo",
+    "name": "AULA 3 SPISA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-linguistica-bo",
+    "name": "AULA LINGUISTICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-6-bo",
+    "name": "LAB 6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-celio-via-zamboni-38-bo",
+    "name": "AULA CELIO (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-jemolo-bo",
+    "name": "AULA JEMOLO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-b-bo",
+    "name": "AULA 7-B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-enriques-bo",
+    "name": "AULA ENRIQUES",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-civ-46-bo",
+    "name": "AULA 7 (civ.46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-1-ex-cri-bo",
+    "name": "[AZ] AULA 1 ex CRI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giambattista Ercolani 6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-ladi-bo",
+    "name": "LABORATORIO LADI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-b-fisiologia-bo",
+    "name": "AULA B FISIOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1h-bo",
+    "name": "1H",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iv-bo",
+    "name": "AULA IV",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clid-2-bo",
+    "name": "CLID 2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-a1-berti-pichat-bo",
+    "name": "AULA A1 BERTI PICHAT",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-farbiomot-accesso-da-via-selmi-3-bo",
+    "name": "AULA FARBIOMOT (Accesso da Via Selmi, 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-bodoniana-accesso-via-san-donato-15-2-bo",
+    "name": "AULA 4 BODONIANA (accesso via San Donato, 15/2)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Donato, 13-19/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-5-bo",
+    "name": "AULA 7.5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-3-bo",
+    "name": "AULA 1.3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-massimo-d-addato-bo",
+    "name": "AULA MASSIMO D'ADDATO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ii-via-zamboni-38-bo",
+    "name": "AULA II (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-0-bo",
+    "name": "LAB 0",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-magna-accesso-da-via-riva-reno-n-55-bo",
+    "name": "AULA MAGNA (accesso da via Riva Reno n.55)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Riva di Reno 57"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-22-bo",
+    "name": "AULA 22",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "studio-53-bo",
+    "name": "STUDIO 53",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-11-ex-cri-bo",
+    "name": "[AZ] AULA 11 ex CRI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giambattista Ercolani 6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-06-bo",
+    "name": "TA-06",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-p-h-bo",
+    "name": "AULA 2 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ranzani-d-bo",
+    "name": "RANZANI D",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Camillo Ranzani, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-bo",
+    "name": "AULA 4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p3-chimica-fisica-bo",
+    "name": "LAB P3 CHIMICA FISICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-a-ruffini-accesso-da-via-belmeloro-8-2-bo",
+    "name": "AULA A. RUFFINI - Accesso da Via Belmeloro 8/2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-pincherle-bo",
+    "name": "AULA PINCHERLE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-8-bo",
+    "name": "AULA 7.8",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "bea-architectural-engineering-bo",
+    "name": "BEA - Architectural Engineering",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Ugo Foscolo, 7"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "2b-bo",
+    "name": "2B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-nuove-patologie-bo",
+    "name": "AULA MAGNA NUOVE PATOLOGIE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-12-civ-46-bo",
+    "name": "AULA 12 (civ. 46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-anatomia-patologica-bo",
+    "name": "AULA MAGNA ANATOMIA PATOLOGICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-6-bo",
+    "name": "AULA 3.6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-mario-lavagetto-ex-aula-b-bo",
+    "name": "Aula Mario Lavagetto (ex Aula B)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-clinica-medica-viola-pad-11-bo",
+    "name": "AULA MAGNA CLINICA MEDICA 'VIOLA' - PAD. 11",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-barbara-bo",
+    "name": "AULA BARBARA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "b-bo",
+    "name": "B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-12-bo",
+    "name": "TA-12",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-fisica-bo",
+    "name": "AULA 4 - FISICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-bo",
+    "name": "AULA 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-2-bo",
+    "name": "AULA 5.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-s-c-bo",
+    "name": "AULA 2 - S.C.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-5-bo",
+    "name": "LAB 5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-a-accesso-da-via-zamboni-34-bo",
+    "name": "AULA A (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-informatica-2-civ-46-bo",
+    "name": "AULA INFORMATICA 2 (civ. 46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-i-maestri-bo",
+    "name": "AULA MAGNA \"I MAESTRI\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-xi-via-zamboni-38-bo",
+    "name": "AULA XI (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-forti-bo",
+    "name": "AULA FORTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-v-accesso-via-ranzani-1-bo",
+    "name": "AULA V (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-reno-bo",
+    "name": "AULA RENO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Azzo Gardino 23"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1a-bo",
+    "name": "1A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-02-bo",
+    "name": "TA-02",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e1-bo",
+    "name": "AULA E1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Quirico Filopanti 1/3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-bodoniana-accesso-via-san-donato-15-2-bo",
+    "name": "AULA 5 BODONIANA (accesso via San Donato, 15/2)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Donato, 13-19/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-13-civ-46-bo",
+    "name": "AULA 13 (civ.46)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-polivalente-spazio-cinema-bo",
+    "name": "SALA POLIVALENTE SPAZIO CINEMA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Pier Paolo Pasolini, 5/b"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g2-bo",
+    "name": "AULA G2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 67"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-3-bo",
+    "name": "LAB 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-t-accesso-via-ranzani-1-bo",
+    "name": "LAB T (accesso Via Ranzani, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "laboratorio-1-bo",
+    "name": "LABORATORIO 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Donato, 13-19/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-4-bo",
+    "name": "LAB 4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-ovidio-capitani-bo",
+    "name": "AULA OVIDIO CAPITANI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-redenti-bo",
+    "name": "AULA 2 REDENTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ii-bo",
+    "name": "AULA II",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vi-via-zamboni-38-bo",
+    "name": "AULA VI (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-maria-luisa-altieri-biagi-bo",
+    "name": "AULA MARIA LUISA ALTIERI BIAGI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vii-bo",
+    "name": "AULA VII",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-spisa-bo",
+    "name": "AULA 1 SPISA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p7-carbon-bo",
+    "name": "LAB P7 CARBON",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-trasporti-accesso-da-viale-risorgimento-2-bo",
+    "name": "AULA TRASPORTI (Accesso da Viale Risorgimento, 2)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Antonio Aldini 210"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-anatomia-bo",
+    "name": "AULA B (ANATOMIA)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-informatica-i-bo",
+    "name": "AULA INFORMATICA I",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-10-bo",
+    "name": "AULA 7.10",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "1l-bo",
+    "name": "1L",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-p6-graphene-bo",
+    "name": "LAB P6 GRAPHENE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 87"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-inf-n-belmeloro-bo",
+    "name": "LAB INF N BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-serra-zanetti-bo",
+    "name": "AULA SERRA ZANETTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-donatoni-bo",
+    "name": "AULA DONATONI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-accesso-da-via-zamboni-32-bo",
+    "name": "LAB INF (Accesso da Via Zamboni, 32)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "auletta-ranzani-bo",
+    "name": "AULETTA RANZANI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Camillo Ranzani, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-berti-pichat-bo",
+    "name": "AULA D BERTI PICHAT",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-bodoniana-accesso-via-san-donato-15-2-bo",
+    "name": "AULA 1 BODONIANA (accesso via San Donato, 15/2)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Donato, 13-19/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-murri-bo",
+    "name": "AULA MURRI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-di-virgilio-accesso-da-via-dei-bersaglieri-6-bo",
+    "name": "AULA DI VIRGILIO (accesso da Via dei Bersaglieri, 6)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-h-bo",
+    "name": "AULA H",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-s-p-v-bo",
+    "name": "AULA B - S.P.V.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA San Petronio vecchio 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-s-c-bo",
+    "name": "AULA 4 - S.C.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-seminario-viii-piano-bo",
+    "name": "AULA SEMINARIO VIII PIANO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ruffilli-bo",
+    "name": "AULA RUFFILLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-p-h-bo",
+    "name": "AULA 5 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "auletta-multimediale-accesso-da-via-belmeloro-8-bo",
+    "name": "AULETTA MULTIMEDIALE (Accesso da via Belmeloro 8)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-10-11-bo",
+    "name": "LAB INF 10-11",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "laboratorio-manichini-bo",
+    "name": "LABORATORIO MANICHINI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 1"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "2d-bo",
+    "name": "2D",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-seminari-bo",
+    "name": "AULA SEMINARI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-11-bo",
+    "name": "AULA 7.11",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-vito-fumagalli-bo",
+    "name": "AULA VITO FUMAGALLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-informatica-zoologia-accesso-da-via-selmi-3-bo",
+    "name": "AULA INFORMATICA ZOOLOGIA (Accesso da via Selmi, 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-bo",
+    "name": "AULA MAGNA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-ostetricia-e-ginecologia-bo",
+    "name": "AULA MAGNA OSTETRICIA E GINECOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-1g-bo",
+    "name": "LAB. INF. 1G",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-8-1-bo",
+    "name": "AULA 8.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-colonne-bo",
+    "name": "AULA COLONNE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-scienze-farmaceutiche-accesso-da-via-belmeloro-6-bo",
+    "name": "AULA 2 SCIENZE FARMACEUTICHE (Accesso da Via Belmeloro 6)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 4/6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-o-ciamician-bo",
+    "name": "AULA O \"CIAMICIAN\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 85"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-rossa-igiene-bo",
+    "name": "AULA ROSSA IGIENE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-d-belmeloro-bo",
+    "name": "AULA D BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-gis-bo",
+    "name": "AULA GIS",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 67"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-s-giobbe-degli-incurabili-bo",
+    "name": "AULA S. GIOBBE DEGLI INCURABILI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 114-116-118"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iv-via-zamboni-38-bo",
+    "name": "AULA IV (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e3-bo",
+    "name": "AULA E3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Quirico Filopanti 1/3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-bodoniana-accesso-via-san-donato-15-2-bo",
+    "name": "AULA 2 BODONIANA (accesso via San Donato, 15/2)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Donato, 13-19/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ranzani-b-bo",
+    "name": "RANZANI B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Camillo Ranzani, 14"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-fisica-bo",
+    "name": "AULA 3 - FISICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-anatomia-comparata-bo",
+    "name": "AULA MAGNA ANATOMIA COMPARATA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-bo",
+    "name": "AULA 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-berti-pichat-bo",
+    "name": "AULA B BERTI PICHAT",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale Carlo Berti Pichat, 6-6/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-berti-bo",
+    "name": "SALA BERTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Lodovico Berti 2/7"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-p-h-bo",
+    "name": "AULA 3 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-fisiologia-bo",
+    "name": "AULA MAGNA FISIOLOGIA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "cartografia-e-telerilevamento-gis-civ-40-bo",
+    "name": "CARTOGRAFIA E TELERILEVAMENTO GIS (civ. 40)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-1-bo",
+    "name": "AULA 6.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-di-scrittura-bo",
+    "name": "LABORATORIO DI SCRITTURA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-l-belmeloro-bo",
+    "name": "AULA L BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-placitelli-bo",
+    "name": "AULA PLACITELLI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "2a-bo",
+    "name": "2A",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "2c-bo",
+    "name": "2C",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-convegni-bo",
+    "name": "SALA CONVEGNI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iii-videolingue-bo",
+    "name": "AULA III - VIDEOLINGUE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Cartoleria, 5"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-bo",
+    "name": "AULA B",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Filippo Re, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-6-bo",
+    "name": "AULA 2.6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-g3-giulio-pisa-bo",
+    "name": "AULA G3 GIULIO PISA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 67"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-informatico-via-zamboni-38-bo",
+    "name": "LABORATORIO INFORMATICO (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-a-est-bo",
+    "name": "AULA A EST",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Irnerio 42"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-p-belmeloro-bo",
+    "name": "AULA P BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-10-aula-magna-via-zamboni-22-bo",
+    "name": "AULA 10 \"AULA MAGNA\" (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-05-bo",
+    "name": "TA-05",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-7-bo",
+    "name": "LAB 7",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-did-sperimentale-area-medica-bo",
+    "name": "LAB DID SPERIMENTALE - AREA MEDICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 14"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "ac-aula-di-anatomia-macroscopica-bo",
+    "name": "[AC] AULA DI ANATOMIA MACROSCOPICA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-camino-bo",
+    "name": "AULA CAMINO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-8-civ-48-bo",
+    "name": "AULA 8 (civ.48)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-6-tribunale-via-zamboni-22-bo",
+    "name": "AULA 6 \"TRIBUNALE\" (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-seminari-sde-bo",
+    "name": "AULA SEMINARI SDE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-accesso-via-del-guasto-3-bo",
+    "name": "AULA 2 - Accesso via del Guasto 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-poeti-bo",
+    "name": "SALA POETI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-biochimica-bo",
+    "name": "AULA B (BIOCHIMICA)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-esercitazioni-antropologia-accesso-da-via-selmi-3-bo",
+    "name": "AULA ESERCITAZIONI ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-biochimica-accesso-dal-i-piano-bo",
+    "name": "AULA MAGNA BIOCHIMICA (Accesso dal I piano)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-8-bo",
+    "name": "AULA 2.8",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ts-01-bo",
+    "name": "TS-01",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-linguistico-1-bo",
+    "name": "LABORATORIO LINGUISTICO 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-m1-c-andreatta-bo",
+    "name": "AULA M1 C. ANDREATTA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-mario-campanacci-bo",
+    "name": "AULA MARIO CAMPANACCI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giulio Cesare Pupilli, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-civ-44-bo",
+    "name": "AULA 2 (civ.44)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-2-bo",
+    "name": "AULA 0.2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-accesso-da-via-zamboni-34-bo",
+    "name": "AULA C (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-3-accesso-da-via-zamboni-34-bo",
+    "name": "LABORATORIO 3 (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "sala-manichini-bo",
+    "name": "SALA MANICHINI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-11-bo",
+    "name": "TA-11",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ferrero-bo",
+    "name": "AULA FERRERO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Barberia 4"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "l-bo",
+    "name": "L",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Piero Gobetti, 93/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-branzi-bo",
+    "name": "AULA MAGNA \"BRANZI\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Vitale, 59-61-61/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-accesso-via-del-guasto-3-bo",
+    "name": "AULA 5 - Accesso via del Guasto 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-11-via-zamboni-22-bo",
+    "name": "AULA 11 (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-spisa-bo",
+    "name": "AULA 2 SPISA",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 10/12"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-4-bo",
+    "name": "AULA 5.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-7-6-bo",
+    "name": "AULA 7.6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Saragozza, 8-10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "2g-bo",
+    "name": "2G",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "f-bo",
+    "name": "F",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via della beverara, 123/1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-via-zamboni-22-bo",
+    "name": "AULA 4 (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-m6-bo",
+    "name": "AULA M6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-italo-scardovi-ex-aula-i-bo",
+    "name": "AULA \"ITALO SCARDOVI \" (ex Aula I)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via delle Belle Arti, 41"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-0-1-bo",
+    "name": "AULA 0.1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "ta-08-bo",
+    "name": "TA-08",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-1-fisioterapisti-bo",
+    "name": "[AZ] AULA 1 FISIOTERAPISTI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-iii-via-zamboni-38-bo",
+    "name": "AULA III (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ardigo-bo",
+    "name": "AULA ARDIGO'",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e2-bo",
+    "name": "AULA E2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Quirico Filopanti 1/3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-didattica-e-piccinini-bo",
+    "name": "AULA DIDATTICA \"E. PICCININI\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-belmeloro-bo",
+    "name": "AULA C BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-m4-microscopi-bo",
+    "name": "AULA M4 MICROSCOPI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-antropologia-accesso-da-via-selmi-3-bo",
+    "name": "AULA ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Selmi, 3"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-ematologia-m-t-chiantore-bo",
+    "name": "AULA MAGNA EMATOLOGIA \"M.T. CHIANTORE\"",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 9"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-dermatologia-accesso-da-via-massarenti-1-bo",
+    "name": "AULA MAGNA DERMATOLOGIA (accesso da Via Massarenti, 1)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giuseppe Massarenti, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-dicam-bo",
+    "name": "LABORATORIO DICAM",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Umberto Terracini, 28"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-giorgio-gualandi-bo",
+    "name": "AULA GIORGIO GUALANDI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-e-belmeloro-bo",
+    "name": "AULA E BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-2-via-zamboni-22-bo",
+    "name": "AULA 2 (Via Zamboni, 22)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "sala-scalo-bo",
+    "name": "SALA SCALO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Lodovico Berti 2/7"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-f-belmeloro-bo",
+    "name": "AULA F BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-1-bo",
+    "name": "LAB 1",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-andrea-battistini-bo",
+    "name": "AULA ANDREA BATTISTINI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-informatico-b-levi-bo",
+    "name": "LABORATORIO INFORMATICO B. LEVI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza di Porta San Donato, 5"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-5-5-bo",
+    "name": "AULA 5.5",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-medicina-legale-bo",
+    "name": "AULA B - MEDICINA LEGALE",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 49"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-san-giacomo-bo",
+    "name": "LAB INF SAN GIACOMO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via San Giacomo, 9/2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-21-bo",
+    "name": "AULA 21",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-biologia-1-civ-44-bo",
+    "name": "LAB BIOLOGIA 1 (civ. 44)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIALE Giuseppe Fanin 40/50"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-9-bo",
+    "name": "LAB 9",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "aula-3-3-bo",
+    "name": "AULA 3.3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-5-6-bo",
+    "name": "AULA 5.6",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-4-accesso-via-del-guasto-3-bo",
+    "name": "AULA 4 - Accesso via del Guasto 3",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 32"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "seminari-2-bo",
+    "name": "SEMINARI 2",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-accesso-da-via-centotrecento-18-bo",
+    "name": "AULA C (Accesso da via Centotrecento, 18)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Centotrecento, 18"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-s-c-bo",
+    "name": "AULA 3 - S.C.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-3-4-bo",
+    "name": "AULA 3.4",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Viale del Risorgimento, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-giorgio-morandi-bo",
+    "name": "AULA GIORGIO MORANDI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-s-c-bo",
+    "name": "AULA 1 - S.C.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazzetta Giorgio Morandi, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-c-anatomia-bo",
+    "name": "AULA C (ANATOMIA)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "az-aula-bacchelli-ior-bo",
+    "name": "[AZ] AULA BACCHELLI IOR",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Giulio Cesare Pupilli, 1"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-11-bo",
+    "name": "AULA 11",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "PIAZZA Antonino Scaravilli 1/2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-lucio-gambi-bo",
+    "name": "AULA LUCIO GAMBI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Piazza S.Giovanni in Monte, 2"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-scienze-farmaceutiche-accesso-da-via-belmeloro-6-bo",
+    "name": "AULA 1 SCIENZE FARMACEUTICHE (Accesso da Via Belmeloro 6)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Belmeloro 4/6"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-belmeloro-bo",
+    "name": "AULA B BELMELORO",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Beniamino Andreatta, 8"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-b-farmacologia-bo",
+    "name": "AULA B (FARMACOLOGIA)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Via Irnerio, 48"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-farneti-bo",
+    "name": "AULA FARNETI",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-tibiletti-via-zamboni-38-bo",
+    "name": "AULA TIBILETTI (via Zamboni 38)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 38"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-1-p-h-bo",
+    "name": "AULA 1 - P.H.",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "Strada Maggiore, 45"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-inf-b-accesso-da-via-zamboni-34-bo",
+    "name": "LAB. INF. B (Accesso da Via Zamboni, 34)",
+    "campus": "Bologna",
+    "site": {
+      "campus": "Bologna",
+      "address": "VIA Zamboni 34"
+    },
+    "type": "LABORATORY"
+  }
+]
