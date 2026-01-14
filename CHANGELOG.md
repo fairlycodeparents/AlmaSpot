@@ -1,3 +1,32 @@
+## [1.3.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.2.0...1.3.0) (2026-01-14)
+
+### Features
+
+- **search:** add entities and external ports ([1987527](https://github.com/fairlycodeparents/AlmaSpot/commit/1987527f03fbe6e868f8b5ca8ed24350a8603681))
+- **search:** impl plan finder in AIAdapter ([d17781a](https://github.com/fairlycodeparents/AlmaSpot/commit/d17781ad1e7d52eff18fa45567f2b3528362e572))
+- **search:** impl query extraction in AIAdapter ([f107f5e](https://github.com/fairlycodeparents/AlmaSpot/commit/f107f5ef464be4fb2e5de0507e524da00afa6efb))
+- **search:** impl RoomAvailabilityAdapter ([b87ae3d](https://github.com/fairlycodeparents/AlmaSpot/commit/b87ae3d67c888938db990b32939a028d59571b43))
+- **search:** impl SearchPlanService ([27de920](https://github.com/fairlycodeparents/AlmaSpot/commit/27de920fd0cbc59f0cd62821d7927f25ac274653))
+
+### Bug Fixes
+
+- **search:** enhance user input with detailed time reference ([d2ad8b2](https://github.com/fairlycodeparents/AlmaSpot/commit/d2ad8b2f44dda910c1adee73e4f8a2771a4582c6))
+- **search:** update AIAdapter to use correct AI version ([487a2c2](https://github.com/fairlycodeparents/AlmaSpot/commit/487a2c294dafc4fc2d3cb8ab9723a74ba8097809))
+- **tests:** remove unnecessary flag from test script ([a1e9c8c](https://github.com/fairlycodeparents/AlmaSpot/commit/a1e9c8c2b9a12b8973d9aa71fb2ff33233ece4c4))
+
+### Tests
+
+- **search:** refactor to improve reusability ([c6b9886](https://github.com/fairlycodeparents/AlmaSpot/commit/c6b9886d2ec3a55bee09ddb215e847ba2ef6f221))
+
+### General maintenance
+
+- **env:** add Gemini API key configuration to .env.example ([45400b8](https://github.com/fairlycodeparents/AlmaSpot/commit/45400b8bb0e398fef73697125a9749cc2bd5b39f))
+
+### Refactoring
+
+- **search:** rename entities/methods for clarity ([aa524e8](https://github.com/fairlycodeparents/AlmaSpot/commit/aa524e87790fc986b03d50d4af0067238485b4de))
+- **search:** update AIAdapter to use RoomAvailable ([a74b604](https://github.com/fairlycodeparents/AlmaSpot/commit/a74b60479f1338de15db3d738478285bc75fcf6f))
+
 ## [1.2.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.1.0...1.2.0) (2026-01-14)
 
 ### Features
