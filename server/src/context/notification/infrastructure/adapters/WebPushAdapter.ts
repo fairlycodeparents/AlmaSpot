@@ -34,8 +34,14 @@ export class WebPushAdapter implements NotificationSender {
         url: "/plan",
       },
     });
+    const urgency = {
+      headers: {
+        Urgency: "high",
+      },
+      TTL: 60,
+    };
     try {
-      await webpush.sendNotification(pushSubscription, payload);
+      await webpush.sendNotification(pushSubscription, payload, urgency);
     } catch (error: any) {
       console.error(
         `[WebPushAdapter] Error sending to ${details.endpoint.slice(0, 20)}...`,
