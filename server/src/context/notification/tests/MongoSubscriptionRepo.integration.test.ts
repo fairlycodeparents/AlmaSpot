@@ -56,15 +56,17 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     );
     const plan = new Plan([slot1, slot2]);
     const subscription = new Subscription(studentId, plan);
+    const fakeEndpoint = "https://fcm.googleapis.com/fcm/send/wd...";
     const details: DeliveryDetails = {
       type: "WEB_PUSH",
-      endpoint: "https://fcm.googleapis.com/fcm/send/wd...",
+      endpoint: fakeEndpoint,
       keys: { p256dh: "fake-key", auth: "fake-auth" },
     };
     await repo.save(subscription, details);
     const savedDoc = await SubscriptionModel.findOne({ studentId });
     assert.ok(savedDoc, "Document should exist in MongoDB");
     assert.strictEqual(savedDoc.studentId, studentId);
+    assert.strictEqual(savedDoc.endpoint, fakeEndpoint);
     assert.strictEqual(savedDoc.keys.p256dh, "fake-key");
     assert.ok(savedDoc.plan, "Plan should be saved");
   });
@@ -88,6 +90,7 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     };
     await SubscriptionModel.create({
       studentId,
+      endpoint: "https://fake-endpoint.com/2",
       keys: { p256dh: "fake-key", auth: "fake-auth" },
       plan: planData,
       updatedAt: new Date(),
@@ -96,12 +99,14 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     const found = results.find((r) => r.subscription.studentId === studentId);
     assert.ok(found, "Should find the subscription we just created");
     assert.strictEqual(found?.details.keys.p256dh, "fake-key");
+    assert.strictEqual(found?.details.endpoint, "https://fake-endpoint.com/2");
   });
 
   it("Should find subscribers by Room and Period", async () => {
     const repo = new MongoSubscriptionRepository();
     await SubscriptionModel.create({
       studentId: "student3",
+      endpoint: "https://fake.com/3",
       keys: { p256dh: "fake-key1", auth: "fake-auth1" },
       plan: {
         slots: [
@@ -115,6 +120,7 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     });
     await SubscriptionModel.create({
       studentId: "student4",
+      endpoint: "https://fake.com/4",
       keys: { p256dh: "fake-key2", auth: "fake-auth2" },
       plan: {
         slots: [
@@ -128,6 +134,7 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     });
     await SubscriptionModel.create({
       studentId: "student5",
+      endpoint: "https://fake.com/5",
       keys: { p256dh: "fake-key3", auth: "fake-auth3" },
       plan: {
         slots: [
@@ -147,6 +154,7 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     const results = await repo.findByRoomAndPeriod(targetRoom, targetPeriod);
     assert.strictEqual(results.length, 1, "Should find exactly one student");
     assert.strictEqual(results[0]?.subscription.studentId, "student3");
+    assert.strictEqual(results[0]?.details.endpoint, "https://fake.com/3");
   });
 
   it("Should delete a subscription", async () => {
@@ -154,6 +162,7 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
     const studentId = "student-to-delete";
     await SubscriptionModel.create({
       studentId,
+      endpoint: "https://fake.com/delete-me",
       keys: { p256dh: "fake-key", auth: "fake-auth" },
       plan: { slots: [] },
       updatedAt: new Date(),

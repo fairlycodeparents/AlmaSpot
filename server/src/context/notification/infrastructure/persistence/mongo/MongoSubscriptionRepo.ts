@@ -28,6 +28,7 @@ export class MongoSubscriptionRepository implements SubscriptionRepository {
       { studentId: subscription.studentId },
       {
         studentId: subscription.studentId,
+        endpoint: details.endpoint,
         keys: details.keys,
         plan: mongoPlan,
         updatedAt: new Date(),
@@ -46,7 +47,7 @@ export class MongoSubscriptionRepository implements SubscriptionRepository {
       const sub = new Subscription(doc.studentId, plan);
       const details: DeliveryDetails = {
         type: "WEB_PUSH",
-        endpoint: doc.studentId,
+        endpoint: doc.endpoint,
         keys: doc.keys,
       };
       return { subscription: sub, details };
@@ -75,7 +76,7 @@ export class MongoSubscriptionRepository implements SubscriptionRepository {
         ),
         details: {
           type: "WEB_PUSH",
-          endpoint: doc.studentId,
+          endpoint: doc.endpoint,
           keys: doc.keys,
         },
       };
