@@ -1,8 +1,5 @@
 import { RoomAvailability } from "context/search/application/ExternalPorts";
-import {
-  AvailabilityQuery,
-  RoomAvailable,
-} from "context/search/domain/Entities";
+import { UserRequest, AvailableRoom } from "context/search/domain/Entities";
 import { CoreFacade } from "context/core";
 
 /**
@@ -16,24 +13,24 @@ export class RoomAvailabilityAdapter implements RoomAvailability {
     this.core = core;
   }
 
-  async getAvailableSlots(query: AvailabilityQuery): Promise<RoomAvailable[]> {
-    const response = query.address
+  async getAvailableRooms(request: UserRequest): Promise<AvailableRoom[]> {
+    const response = request.address
       ? await this.core.findAvailableRoomsBySite(
-          query.campus,
-          query.address,
-          query.period.start,
-          query.period.end,
+          request.campus,
+          request.address,
+          request.period.start,
+          request.period.end,
         )
       : await this.core.findAvailableRoomsByCampus(
-          query.campus,
-          query.period.start,
-          query.period.end,
+          request.campus,
+          request.period.start,
+          request.period.end,
         );
 
     return response.flatMap((roomAvailability) =>
       roomAvailability.availableSlots.map(
         (slot) =>
-          new RoomAvailable(
+          new AvailableRoom(
             roomAvailability.room.id,
             roomAvailability.room.type,
             roomAvailability.room.site.address,

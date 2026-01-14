@@ -1,10 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { RoomAvailabilityAdapter } from "./RoomAvailabilityAdapter";
-import {
-  AvailabilityQuery,
-  RoomAvailable,
-} from "context/search/domain/Entities";
+import { AvailableRoom, UserRequest } from "context/search/domain/Entities";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { CoreFacade } from "context/core";
@@ -33,13 +30,11 @@ describe("RoomAvailabilityAdapter", () => {
       },
     };
     const adapter = new RoomAvailabilityAdapter(trackingCore as CoreFacade);
-    await adapter.getAvailableSlots(
-      new AvailabilityQuery(period, Campus.RIMINI, "Via Roma"),
+    await adapter.getAvailableRooms(
+      new UserRequest(period, Campus.RIMINI, "Via Roma"),
     );
     methodCalled += "-";
-    await adapter.getAvailableSlots(
-      new AvailabilityQuery(period, Campus.RIMINI),
-    );
+    await adapter.getAvailableRooms(new UserRequest(period, Campus.RIMINI));
     assert.strictEqual(methodCalled, "site-campus");
   });
 
@@ -53,17 +48,17 @@ describe("RoomAvailabilityAdapter", () => {
     const adapter = new RoomAvailabilityAdapter(
       createCore(rawCoreResponse) as CoreFacade,
     );
-    const query = new AvailabilityQuery(period, Campus.CESENA);
-    const result = await adapter.getAvailableSlots(query);
+    const query = new UserRequest(period, Campus.CESENA);
+    const result = await adapter.getAvailableRooms(query);
     assert.deepStrictEqual(result, [
-      new RoomAvailable("R1", "Lab", "Via Verdi", period.start, period.end),
+      new AvailableRoom("R1", "Lab", "Via Verdi", period.start, period.end),
     ]);
   });
 
   it("should return empty list when core returns no matches", async () => {
     const adapter = new RoomAvailabilityAdapter(createCore() as CoreFacade);
-    const query = new AvailabilityQuery(period, Campus.BOLOGNA);
-    const result = await adapter.getAvailableSlots(query);
+    const query = new UserRequest(period, Campus.BOLOGNA);
+    const result = await adapter.getAvailableRooms(query);
     assert.deepStrictEqual(result, []);
   });
 });
