@@ -1,3 +1,39 @@
+## [1.2.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.1.0...1.2.0) (2026-01-14)
+
+### Features
+
+- add handleActivityAdded implementation and test ([f8d6a26](https://github.com/fairlycodeparents/AlmaSpot/commit/f8d6a2601d6e7f0345f6becdc767764dac824f8f))
+- **notification:** add controller and subscribe methods ([79c1ca9](https://github.com/fairlycodeparents/AlmaSpot/commit/79c1ca9cd6577336e7c102a110b5333d4bf166c6))
+- **notification:** add data in notification payload ([bf1766d](https://github.com/fairlycodeparents/AlmaSpot/commit/bf1766d26a71dafb7ae7a4cabf546174146ca9f4))
+- **notification:** add findByRoomAndPeriod, typed schema and indexing for efficient queries ([bfa4494](https://github.com/fairlycodeparents/AlmaSpot/commit/bfa4494b1e6086d1cc42067e7b6cde319e3f5518))
+- **notification:** add urgency headers and TTL to web push notifications ([9ab7a86](https://github.com/fairlycodeparents/AlmaSpot/commit/9ab7a86041d2d5aa44f2d925e3eb39dd23c8502c))
+- **notification:** implement and test ActivityAddedListener and InMemoryEventBus for event handling ([bb8525b](https://github.com/fairlycodeparents/AlmaSpot/commit/bb8525b2da8ff7c9d3a0d46fd5df951138d557d6))
+- **notification:** implement and test MongoSubscriptionRepository ([66786a5](https://github.com/fairlycodeparents/AlmaSpot/commit/66786a50f7ac85324a349a5437803ad4d2ed02cf))
+- **notification:** implement WebPushAdapter for browser notifications ([bc7b313](https://github.com/fairlycodeparents/AlmaSpot/commit/bc7b313a3682459f71f60cf22355ca76bfe00f78))
+
+### Bug Fixes
+
+- **notification:** add endpoint field to subscription model and update related tests ([5863c03](https://github.com/fairlycodeparents/AlmaSpot/commit/5863c03d46d54f09063e38910bb35ef3d357a771))
+- **notification:** simplify notification filtering logic and remove redundant date check ([9237629](https://github.com/fairlycodeparents/AlmaSpot/commit/9237629b5a887ea881d0fe487e4a47f70cee1652))
+- **notification:** update test to use findByRoomAndPeriod method instead of findAll ([5bd46f3](https://github.com/fairlycodeparents/AlmaSpot/commit/5bd46f3ba16ec484dde79ca6a58576424a892f1e))
+
+### Documentation
+
+- add Subscription and Plan documentation ([9427ebc](https://github.com/fairlycodeparents/AlmaSpot/commit/9427ebcc414538d85cc72258241958093baf68e5))
+
+### Tests
+
+- **notification:** add unit tests for WebPushAdapter functionality ([35d341d](https://github.com/fairlycodeparents/AlmaSpot/commit/35d341d35aa46e82b3d10323ce993fd1212f83a0))
+- **notification:** relocate unit tests to dedicated directory ([fa6050c](https://github.com/fairlycodeparents/AlmaSpot/commit/fa6050c99046176659339ddc1f897131d043f1fd))
+
+### Build and continuous integration
+
+- **deps:** add express ([4af4bb9](https://github.com/fairlycodeparents/AlmaSpot/commit/4af4bb973db1adbe28e7fb6c0cc43538b25dea21))
+
+### Refactoring
+
+- **notification:** decouple delivery details from domain entity ([e7b405f](https://github.com/fairlycodeparents/AlmaSpot/commit/e7b405f0248626c40046141425575d1f343412db))
+
 ## [1.1.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.0.1...1.1.0) (2026-01-14)
 
 ### Features
