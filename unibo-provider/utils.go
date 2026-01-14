@@ -13,6 +13,6 @@ func (t*transport) RoundTrip(req *http.Request) (*http.Response, error) {
     return t.RoundTripper.RoundTrip(req)
 }
 
-var httpClient = &http.Client{
+var httpClient = http.Client{
     Transport: &transport{http.DefaultTransport},
 }
