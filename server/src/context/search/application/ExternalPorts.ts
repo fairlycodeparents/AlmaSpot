@@ -1,4 +1,3 @@
-import { Slot } from "shared/domain/Slot";
 import {
   AvailabilityQuery,
   RoomAvailable,
@@ -17,12 +16,12 @@ export interface AI {
   /**
    * Get a suggestion by combining multiple slots, considering any specific request from the user.
    * @param userInput - Array of user input strings
-   * @param availableSlots - Array of available room slots
+   * @param availableSlots - Array of available rooms
    * @returns a `Suggestion` containing the plan and response
    */
   getPlanGivenUserInput(
     userInput: string[],
-    availableSlots: Slot[],
+    availableSlots: RoomAvailable[],
   ): Promise<Suggestion>;
 }
 

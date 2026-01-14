@@ -1,6 +1,7 @@
 import { Campus } from "shared/domain/Location";
 import { Period } from "shared/domain/Period";
 import { Plan } from "shared/domain/Plan";
+import { Slot } from "shared/domain/Slot";
 
 /** Domain entity representing a suggestion made by the AI. */
 export class Suggestion {
@@ -47,4 +48,12 @@ export class RoomAvailable {
     public readonly from: Date,
     public readonly to: Date,
   ) {}
+
+  /**
+   * Converts the room's availability into a `Slot` object.
+   * @returns A `Slot` representing the room's availability period.
+   */
+  toSlot(): Slot {
+    return new Slot(this.id, new Period(this.from, this.to));
+  }
 }
