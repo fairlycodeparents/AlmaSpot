@@ -1,0 +1,1866 @@
+[
+  {
+    "room_code": "AULA 5",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 9 \"SALA DELLE ARMI\" (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA PATOLOGIA GENERALE - AULA 1",
+    "address": "Via San Giacomo, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA MENARINI - SALA DIDATTICA DI FISIOTERAPIA",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "SALONE MARESCOTTI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA ANTONIO CUGNINI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA G BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "TA-07",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.4",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "I",
+    "address": "Via Piero Gobetti, 93/2 - Bologna"
+  },
+  {
+    "room_code": "AULA VALENTINO CHIODI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 1.5",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "1I",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA VII (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "E",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "STUDIO 30",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA T (Accesso da via S. Giacomo, 9)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO MICROBIOLOGIA E FERMENTAZIONI - Laboratori Lanfranco  Masotti",
+    "address": "Via della Beverara, 123 - Bologna"
+  },
+  {
+    "room_code": "AULA PIETRO  GHERARDINI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA A (FARMACOLOGIA)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA FILOPANTI",
+    "address": "VIALE Quirico Filopanti 5 - Bologna"
+  },
+  {
+    "room_code": "AULA SPECOLA",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 41",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "1D",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA I - MAGNA",
+    "address": "VIA Francesco Selmi 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.6",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 4.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA SFAMENI",
+    "address": "Via Giuseppe Massarenti, 13 - Bologna"
+  },
+  {
+    "room_code": "LAB 1 - COLTURE CELLULARI - Laboratori Lanfranco  Masotti",
+    "address": "Via della Beverara, 123 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA IGIENE",
+    "address": "Via San Giacomo, 12 - Bologna"
+  },
+  {
+    "room_code": "AULA S. GIACOMO",
+    "address": "Via San Giacomo, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA 10",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "DMR1",
+    "address": "Via Ugo Foscolo, 7 - Bologna"
+  },
+  {
+    "room_code": "AULA 1.1",
+    "address": "Via Giuseppe Garibaldi, 24 - Imola"
+  },
+  {
+    "room_code": "AULA 2.9",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA ANGELO ANTONELLI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 3 (civ.44)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO MORFOLOGICO NAVILE",
+    "address": "Via della Beverara, 123 - Bologna"
+  },
+  {
+    "room_code": "LAB INF AFFRESCHI (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA DISEGNO",
+    "address": "Via Tombesi dall'Ova, 55 - Ravenna"
+  },
+  {
+    "room_code": "AULA V",
+    "address": "Viale del Risorgimento, 4 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.5",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA GRANDE",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "LAB INF D (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA C S. CRISTINA",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "SALETTA SEMINARI",
+    "address": "Piazzetta Pier Paolo Pasolini, 5/b - Bologna"
+  },
+  {
+    "room_code": "AULA I BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA PT. 5 (Via Zanolini, 41)",
+    "address": "Via Antonio Zanolini, 41 - Bologna"
+  },
+  {
+    "room_code": "AULA 1.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO MECCATRONICA 2",
+    "address": "Via Giuseppe Garibaldi, 37 - Imola"
+  },
+  {
+    "room_code": "AULA G.VITALI",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO M",
+    "address": "Via Piero Gobetti, 93/2 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA COLONNE - Ex Osp. Roncati",
+    "address": "Via Sant'Isaia, 90 - Bologna"
+  },
+  {
+    "room_code": "AULETTA PEDIATRIA",
+    "address": "Via Giuseppe Massarenti, 11 - Bologna"
+  },
+  {
+    "room_code": "AULETTA GINECOLOGIA",
+    "address": "Via Giuseppe Massarenti, 13 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA \"CARLO FRANCIONI\"",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA A BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "TA-04",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA D (Accesso da via Centotrecento, 18)",
+    "address": "Via Centotrecento, 18 - Bologna"
+  },
+  {
+    "room_code": "POLIVALENTE",
+    "address": "Via del Pilastro, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA (civ.44-46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA VII PIANO",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 3.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA SERGIO SECCI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA D FISIOLOGIA",
+    "address": "Piazza di Porta San Donato, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA (ingresso da Via Beniamino Andreatta 4)",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "AULA A",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 31",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA VIII",
+    "address": "Viale del Risorgimento, 4 - Bologna"
+  },
+  {
+    "room_code": "AULA 6",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 7 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA C BERTI PICHAT",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA A - MEDICINA LEGALE",
+    "address": "Via Irnerio, 49 - Bologna"
+  },
+  {
+    "room_code": "AULA Q BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "1C",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "1B",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "LAB P5 FULLERENE",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "AULA 4.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA ARZELA'",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 12",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "LAB P2 GRAPHITE",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "AULA 19",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "AULA PISI",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "LAB PT (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA STEFANO TORRESANI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "1E",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA ALFONSO TRAINA (Accesso da Via Zamboni, 32)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA N \"TOSO MONTANARI\"",
+    "address": "Via Piero Gobetti, 85 - Bologna"
+  },
+  {
+    "room_code": "CLID 1",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "LAB 14",
+    "address": "Via Bartolomeo Lombardini, 5 - Forlì"
+  },
+  {
+    "room_code": "[AZ] AULA ESERCITAZIONE - AUSL Romagna (Cesena)",
+    "address": "Via San Lorenzino, 23 - Cesena"
+  },
+  {
+    "room_code": "AULA 2 - FISICA",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA A - Ospedale Civile Vecchio Ausl Imola",
+    "address": "Piazzale Giovanni dalle Bande Nere, 11 - Imola"
+  },
+  {
+    "room_code": "AULA 2.7B",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA A OVEST",
+    "address": "VIA Irnerio 42 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 BALDISERRI (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA A S. CRISTINA",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA VI",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "LAB BIOINFORMATICO",
+    "address": "Via della Beverara, 123 - Bologna"
+  },
+  {
+    "room_code": "OPEN SPACE",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "TA-03",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 2 ex CRI",
+    "address": "VIALE Giambattista Ercolani 6 - Bologna"
+  },
+  {
+    "room_code": "RANZANI C",
+    "address": "Via Camillo Ranzani, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA BIANCA IGIENE",
+    "address": "Via San Giacomo, 12 - Bologna"
+  },
+  {
+    "room_code": "AULA 2",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AUDITORIUM",
+    "address": "Piazzetta Pier Paolo Pasolini, 5/b - Bologna"
+  },
+  {
+    "room_code": "LAB P3 NANOTUBE",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA A - Osp. Bellaria",
+    "address": "VIA Altura 3 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO INFORMATICO SPV",
+    "address": "Via San Petronio vecchio, 30 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 - Accesso via del Guasto 3",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO INFORMATICO",
+    "address": "Via Guerrazzi, 20 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA 2",
+    "address": "VIA Provinciale Cotignola 17 - Lugo"
+  },
+  {
+    "room_code": "AULA 5 (civ.46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA E",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 5 (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "D",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA BONORA",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "RANZANI A",
+    "address": "Via Camillo Ranzani, 14 - Bologna"
+  },
+  {
+    "room_code": "2E",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA EX ESERCIZI",
+    "address": "Via San Giacomo, 12 - Bologna"
+  },
+  {
+    "room_code": "AULA 10 (civ.48)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA BIGARI",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "AULA CAPUZZI",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "AULA I",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA C - S.P.V.",
+    "address": "VIA San Petronio vecchio 32 - Bologna"
+  },
+  {
+    "room_code": "AULA G1",
+    "address": "VIA Zamboni 67 - Bologna"
+  },
+  {
+    "room_code": "AULA H BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA M2 P. GAZZI",
+    "address": "Piazza di Porta San Donato, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.3",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA IX",
+    "address": "Viale del Risorgimento, 4 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO 2 (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "E6",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "A",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "LAB INF O BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.8",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA PICCHI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "LAB P4 DIAMOND",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "C",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA 6.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA F",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA GIUSEPPE BORGATTI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA A. GHIGI (Accesso da via S. Giacomo, 9)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "LABINF",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA E (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA III",
+    "address": "Viale del Risorgimento, 4 - Bologna"
+  },
+  {
+    "room_code": "LAB G (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "H",
+    "address": "Via Piero Gobetti, 93/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1 - FISICA",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA C",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA C FISIOLOGIA",
+    "address": "Piazza di Porta San Donato, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.5",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1.4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA V (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA CRUCIANI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA 32",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA MULTIMEDIALE",
+    "address": "Via Giuseppe Garibaldi, 37 - Imola"
+  },
+  {
+    "room_code": "AULA PASCOLI",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA G5",
+    "address": "VIA Zamboni 67 - Bologna"
+  },
+  {
+    "room_code": "AULA LOBIETTI",
+    "address": "Via del Pilastro, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA A VITTORIO CAPECCHI - Accesso via del Guasto 3)",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA G",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA LEYDI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA A2 BERTI PICHAT",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 7",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "AULA A (Accesso da via Centotrecento, 18)",
+    "address": "Via Centotrecento, 18 - Bologna"
+  },
+  {
+    "room_code": "AULA GUGLIELMI",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO 1 (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA VIII (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA \"MONTAGNA\" - Osp. Bellaria",
+    "address": "VIA Altura 3 - Bologna"
+  },
+  {
+    "room_code": "AULA GOLGI (auletta microscopi)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA P",
+    "address": "Via Piero Gobetti, 85 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA FOSCOLO",
+    "address": "Via Ugo Foscolo, 7 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA 1 (civ.46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.7",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 9 (civ.48)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA CENTRO PROTESI INAIL",
+    "address": "  -  "
+  },
+  {
+    "room_code": "AULA EMILIO PASQUINI",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.7",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "AULA I (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA VI (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 (civ.44)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "LAB 2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 6 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA L.TONELLI",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 12 (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA 15 (civ.44)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA ROMEI",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO GENO INFORMATICO",
+    "address": "Via della Beverara, 123 - Bologna"
+  },
+  {
+    "room_code": "AULA CREMONA",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "CLID 3",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "AULA DELLA SPECOLA",
+    "address": "Via Zamboni, 33 - Bologna"
+  },
+  {
+    "room_code": "AULA 8 \"SALA DELLE FESTE\" (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA GUARNIERI (civ.46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA ISTOLOGIA CARINCI (Accesso da via Belmeloro, 8)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "TA-01",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA D",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "SALA RIUNIONI",
+    "address": "Via Filippo Re, 6 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA ANATOMIA OLIVO",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "TA-09",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA 1 REDENTI",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "E7",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 2 - PATOLOGIA GENERALE",
+    "address": "Via San Giacomo, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.7A",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA B S. CRISTINA",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA M BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.7",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA",
+    "address": "VIA Provinciale Cotignola 17 - Lugo"
+  },
+  {
+    "room_code": "AULA BOMBELLI",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "TA-10",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA B (Accesso da via Centotrecento, 18)",
+    "address": "Via Centotrecento, 18 - Bologna"
+  },
+  {
+    "room_code": "AULA A - S.P.V.",
+    "address": "VIA San Petronio vecchio 32 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 SPISA",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "AULA LINGUISTICA",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "LAB 6",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA CELIO (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA JEMOLO",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA 7-B",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "AULA ENRIQUES",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 7 (civ.46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 1 ex CRI",
+    "address": "VIALE Giambattista Ercolani 6 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO LADI",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA B FISIOLOGIA",
+    "address": "Piazza di Porta San Donato, 2 - Bologna"
+  },
+  {
+    "room_code": "1H",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA IV",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 9",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "CLID 2",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "AULA A1 BERTI PICHAT",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA FARBIOMOT (Accesso da Via Selmi, 3)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 BODONIANA (accesso via San Donato, 15/2)",
+    "address": "Via San Donato, 13-19/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.5",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "AULA 1.3",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO BIO-TOSSICOLOGICO",
+    "address": "Piazzale Giovanni dalle Bande Nere, 11 - Imola"
+  },
+  {
+    "room_code": "AULA MASSIMO D'ADDATO",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA II (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "LAB 0",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA (accesso da via Riva Reno n.55)",
+    "address": "VIA Riva di Reno 57 - Bologna"
+  },
+  {
+    "room_code": "AULA 22",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "STUDIO 53",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 11 ex CRI",
+    "address": "VIALE Giambattista Ercolani 6 - Bologna"
+  },
+  {
+    "room_code": "TA-06",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "RANZANI D",
+    "address": "Via Camillo Ranzani, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA 4",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "LAB P3 CHIMICA FISICA",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "AULA A. RUFFINI - Accesso da Via Belmeloro 8/2",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA PINCHERLE",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.8",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "BEA - Architectural Engineering",
+    "address": "Via Ugo Foscolo, 7 - Bologna"
+  },
+  {
+    "room_code": "2B",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA NUOVE PATOLOGIE",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 2 - AUSL Romagna (Cesena)",
+    "address": "Via San Lorenzino, 23 - Cesena"
+  },
+  {
+    "room_code": "AULA 12 (civ. 46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA ANATOMIA PATOLOGICA",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA 3.6",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "Aula Mario Lavagetto (ex Aula B)",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA CLINICA MEDICA 'VIOLA' - PAD. 11",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA BARBARA",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "B",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "TA-12",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA 13",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "AULA 4 - FISICA",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 - S.C.",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "LAB 5",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA A (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA 2 (civ. 46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA \"I MAESTRI\"",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA XI (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA FORTI",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "E2",
+    "address": "Via Tolara di Sopra, snc - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA V (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA RENO",
+    "address": "VIA Azzo Gardino 23 - Bologna"
+  },
+  {
+    "room_code": "1A",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "TA-02",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA E1",
+    "address": "VIALE Quirico Filopanti 1/3 - Bologna"
+  },
+  {
+    "room_code": "AULA 5 BODONIANA (accesso via San Donato, 15/2)",
+    "address": "Via San Donato, 13-19/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 13 (civ.46)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "SALA POLIVALENTE SPAZIO CINEMA",
+    "address": "Piazzetta Pier Paolo Pasolini, 5/b - Bologna"
+  },
+  {
+    "room_code": "AULA G2",
+    "address": "VIA Zamboni 67 - Bologna"
+  },
+  {
+    "room_code": "LAB 3",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "LAB T (accesso Via Ranzani, 1)",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO 1",
+    "address": "Via San Donato, 13-19/2 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA F - Ospedale Civile Vecchio Ausl Imola",
+    "address": "Piazzale Giovanni dalle Bande Nere, 11 - Imola"
+  },
+  {
+    "room_code": "[AZ] AULA B - Ospedale Civile Vecchio Ausl Imola",
+    "address": "Piazzale Giovanni dalle Bande Nere, 11 - Imola"
+  },
+  {
+    "room_code": "LAB 4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA OVIDIO CAPITANI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 REDENTI",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "AULA II",
+    "address": "Viale del Risorgimento, 4 - Bologna"
+  },
+  {
+    "room_code": "AULA VI (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA MARIA LUISA ALTIERI BIAGI",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULA VII",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA ALFIO FALASCHINI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 1 SPISA",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "LAB P7 CARBON",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "AULA TRASPORTI (Accesso da Viale Risorgimento, 2)",
+    "address": "VIA Antonio Aldini 210 - Bologna"
+  },
+  {
+    "room_code": "AULA B (ANATOMIA)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA I",
+    "address": "Via Filippo Re, 6 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.3",
+    "address": "Via Giuseppe Garibaldi, 24 - Imola"
+  },
+  {
+    "room_code": "AULA 7.10",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "1L",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "LAB P6 GRAPHENE",
+    "address": "Via Piero Gobetti, 87 - Bologna"
+  },
+  {
+    "room_code": "LAB INF N BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA SERRA ZANETTI",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA DONATONI",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "LAB INF (Accesso da Via Zamboni, 32)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "AULETTA RANZANI",
+    "address": "Via Camillo Ranzani, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA D BERTI PICHAT",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA ATTILIO MENSA",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 1 BODONIANA (accesso via San Donato, 15/2)",
+    "address": "Via San Donato, 13-19/2 - Bologna"
+  },
+  {
+    "room_code": "AULA MURRI",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA DI VIRGILIO (accesso da Via dei Bersaglieri, 6)",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA H",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA B - S.P.V.",
+    "address": "VIA San Petronio vecchio 32 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 - S.C.",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA SEMINARIO VIII PIANO",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA RUFFILLI",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA 5 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO MECCATRONICA 1",
+    "address": "Via Giuseppe Garibaldi, 37 - Imola"
+  },
+  {
+    "room_code": "AULETTA MULTIMEDIALE (Accesso da via Belmeloro 8)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "LAB INF 10-11",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO MANICHINI",
+    "address": "Via Giuseppe Massarenti, 1 - Bologna"
+  },
+  {
+    "room_code": "2D",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA SEMINARI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.11",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "AULA VITO FUMAGALLI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA INFORMATICA ZOOLOGIA (Accesso da via Selmi, 3)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA OSTETRICIA E GINECOLOGIA",
+    "address": "Via Giuseppe Massarenti, 13 - Bologna"
+  },
+  {
+    "room_code": "LAB. INF. 1G",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA 8.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA COLONNE",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 SCIENZE FARMACEUTICHE (Accesso da Via Belmeloro 6)",
+    "address": "VIA Belmeloro 4/6 - Bologna"
+  },
+  {
+    "room_code": "AULA 26",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "AULA O \"CIAMICIAN\"",
+    "address": "Via Piero Gobetti, 85 - Bologna"
+  },
+  {
+    "room_code": "AULA ROSSA IGIENE",
+    "address": "Via San Giacomo, 12 - Bologna"
+  },
+  {
+    "room_code": "AULA D BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA DIDATTICA",
+    "address": "VIA Provinciale Cotignola 17 - Lugo"
+  },
+  {
+    "room_code": "AULA GIS",
+    "address": "VIA Zamboni 67 - Bologna"
+  },
+  {
+    "room_code": "AULA S. GIOBBE DEGLI INCURABILI",
+    "address": "Via San Vitale, 114-116-118 - Bologna"
+  },
+  {
+    "room_code": "AULA IV (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA E3",
+    "address": "VIALE Quirico Filopanti 1/3 - Bologna"
+  },
+  {
+    "room_code": "AULA 17",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "SALA INTERNET",
+    "address": "Via Giacomo della Torre, 5 - Forlì"
+  },
+  {
+    "room_code": "AULA 2 BODONIANA (accesso via San Donato, 15/2)",
+    "address": "Via San Donato, 13-19/2 - Bologna"
+  },
+  {
+    "room_code": "RANZANI B",
+    "address": "Via Camillo Ranzani, 14 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 - FISICA",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA ANATOMIA COMPARATA",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA 3",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA B BERTI PICHAT",
+    "address": "Viale Carlo Berti Pichat, 6-6/2 - Bologna"
+  },
+  {
+    "room_code": "SALA BERTI",
+    "address": "VIA Lodovico Berti 2/7 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA FISIOLOGIA",
+    "address": "Piazza di Porta San Donato, 2 - Bologna"
+  },
+  {
+    "room_code": "CARTOGRAFIA E TELERILEVAMENTO GIS (civ. 40)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA 6.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO DI SCRITTURA",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA L BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA PLACITELLI",
+    "address": "Via Giuseppe Massarenti, 1 - Bologna"
+  },
+  {
+    "room_code": "2A",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "2C",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "SALA CONVEGNI",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA III - VIDEOLINGUE",
+    "address": "Via Cartoleria, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA B",
+    "address": "Via Filippo Re, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.6",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1.0",
+    "address": "Via Tombesi dall'Ova, 55 - Ravenna"
+  },
+  {
+    "room_code": "AULA G3 GIULIO PISA",
+    "address": "VIA Zamboni 67 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO INFORMATICO (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA A EST",
+    "address": "VIA Irnerio 42 - Bologna"
+  },
+  {
+    "room_code": "AULA P BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 10 \"AULA MAGNA\" (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "TA-05",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "LAB 7",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "LAB DID SPERIMENTALE - AREA MEDICA",
+    "address": "Via San Giacomo, 14 - Bologna"
+  },
+  {
+    "room_code": "[AC] AULA DI ANATOMIA MACROSCOPICA",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA CAMINO",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "AULA 8 (civ.48)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA 6 \"TRIBUNALE\" (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA SEMINARI SDE",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 - Accesso via del Guasto 3",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "SALA POETI",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA B (BIOCHIMICA)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA ESERCITAZIONI ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA BIOCHIMICA (Accesso dal I piano)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA 2.8",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "TS-01",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO LINGUISTICO 1",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA M1 C. ANDREATTA",
+    "address": "Piazza di Porta San Donato, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA MARIO CAMPANACCI",
+    "address": "Via Giulio Cesare Pupilli, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA ANV",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA 2 (civ.44)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.2",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA C (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO 3 (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "SALA MANICHINI",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "TA-11",
+    "address": "Via Umberto Terracini, 34 - Bologna"
+  },
+  {
+    "room_code": "AULA FERRERO",
+    "address": "VIA Barberia 4 - Bologna"
+  },
+  {
+    "room_code": "L",
+    "address": "Via Piero Gobetti, 93/2 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA \"BRANZI\"",
+    "address": "Via San Vitale, 59-61-61/2 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 1 - AUSL Romagna (Cesena)",
+    "address": "Via San Lorenzino, 23 - Cesena"
+  },
+  {
+    "room_code": "AULA 5 - Accesso via del Guasto 3",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "AULA 11 (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 SPISA",
+    "address": "VIA Belmeloro 10/12 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 7.6",
+    "address": "Via Saragozza, 8-10 - Bologna"
+  },
+  {
+    "room_code": "2G",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "F",
+    "address": "Via della beverara, 123/1 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA G - Ospedale Civile Vecchio Ausl Imola",
+    "address": "Piazzale Giovanni dalle Bande Nere, 11 - Imola"
+  },
+  {
+    "room_code": "AULA M6",
+    "address": "Piazza di Porta San Donato, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA \"ITALO SCARDOVI \" (ex Aula I)",
+    "address": "Via delle Belle Arti, 41 - Bologna"
+  },
+  {
+    "room_code": "AULA 0.1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "TA-08",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA 1 FISIOTERAPISTI",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA III (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA ARDIGO'",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA E2",
+    "address": "VIALE Quirico Filopanti 1/3 - Bologna"
+  },
+  {
+    "room_code": "AULA DIDATTICA \"E. PICCININI\"",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA C BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA M4 MICROSCOPI",
+    "address": "Piazza di Porta San Donato, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA ANTROPOLOGIA (Accesso da via Selmi, 3)",
+    "address": "Via Selmi, 3 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA EMATOLOGIA \"M.T. CHIANTORE\"",
+    "address": "Via Giuseppe Massarenti, 9 - Bologna"
+  },
+  {
+    "room_code": "AULA MAGNA DERMATOLOGIA (accesso da Via Massarenti, 1)",
+    "address": "Via Giuseppe Massarenti, 1 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO DICAM",
+    "address": "Via Umberto Terracini, 28 - Bologna"
+  },
+  {
+    "room_code": "AULA GIORGIO GUALANDI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA E BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA 2 (Via Zamboni, 22)",
+    "address": "VIA Zamboni 22 - Bologna"
+  },
+  {
+    "room_code": "SALA SCALO",
+    "address": "VIA Lodovico Berti 2/7 - Bologna"
+  },
+  {
+    "room_code": "AULA F BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "LAB 1",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA ANDREA BATTISTINI",
+    "address": "VIA Zamboni 34 - Bologna"
+  },
+  {
+    "room_code": "LABORATORIO INFORMATICO B. LEVI",
+    "address": "Piazza di Porta San Donato, 5 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.5",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA B - MEDICINA LEGALE",
+    "address": "Via Irnerio, 49 - Bologna"
+  },
+  {
+    "room_code": "LAB INF SAN GIACOMO",
+    "address": "Via San Giacomo, 9/2 - Bologna"
+  },
+  {
+    "room_code": "AULA 21",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "LAB BIOLOGIA 1 (civ. 44)",
+    "address": "VIALE Giuseppe Fanin 40/50 - Bologna"
+  },
+  {
+    "room_code": "LAB 9",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 3.3",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 5.6",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 4 - Accesso via del Guasto 3",
+    "address": "VIA Zamboni 32 - Bologna"
+  },
+  {
+    "room_code": "SEMINARI 2",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA ALESSANDRO LANFRANCHI",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA C (Accesso da via Centotrecento, 18)",
+    "address": "Via Centotrecento, 18 - Bologna"
+  },
+  {
+    "room_code": "AULA 3 - S.C.",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 3.4",
+    "address": "Viale del Risorgimento, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA GIORGIO MORANDI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1 - S.C.",
+    "address": "Piazzetta Giorgio Morandi, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA C (ANATOMIA)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "[AZ] AULA BACCHELLI IOR",
+    "address": "Via Giulio Cesare Pupilli, 1 - Bologna"
+  },
+  {
+    "room_code": "AULA 11",
+    "address": "PIAZZA Antonino Scaravilli 1/2 - Bologna"
+  },
+  {
+    "room_code": "AULA LUCIO GAMBI",
+    "address": "Piazza S.Giovanni in Monte, 2 - Bologna"
+  },
+  {
+    "room_code": "AULA 1 SCIENZE FARMACEUTICHE (Accesso da Via Belmeloro 6)",
+    "address": "VIA Belmeloro 4/6 - Bologna"
+  },
+  {
+    "room_code": "AULA B BELMELORO",
+    "address": "Via Beniamino Andreatta, 8 - Bologna"
+  },
+  {
+    "room_code": "AULA B (FARMACOLOGIA)",
+    "address": "Via Irnerio, 48 - Bologna"
+  },
+  {
+    "room_code": "AULA FARNETI",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "AULA 20",
+    "address": "Viale Filippo Corridoni, 20 - Forlì"
+  },
+  {
+    "room_code": "E1",
+    "address": "Via Tolara di Sopra, 58 - Ozzano dell'Emilia"
+  },
+  {
+    "room_code": "AULA TIBILETTI (via Zamboni 38)",
+    "address": "VIA Zamboni 38 - Bologna"
+  },
+  {
+    "room_code": "AULA 1 - P.H.",
+    "address": "Strada Maggiore, 45 - Bologna"
+  },
+  {
+    "room_code": "LAB. INF. B (Accesso da Via Zamboni, 34)",
+    "address": "VIA Zamboni 34 - Bologna"
+  }
+]

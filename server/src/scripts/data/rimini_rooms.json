@@ -1,0 +1,462 @@
+[
+  {
+    "_id": "briolini-1-rn",
+    "name": "BRIOLINI 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Corso d'Augusto, 237"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "navigare-2-rn",
+    "name": "NAVIGARE 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "teatini-3-rn",
+    "name": "TEATINI 3",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-3-rn",
+    "name": "ALBERTI 3",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clodia-3-rn",
+    "name": "CLODIA 3",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Clodia, 43"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clodia-1-rn",
+    "name": "CLODIA 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Clodia, 43"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "navigare-1b-rn",
+    "name": "NAVIGARE 1B",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "navigare-4-rn",
+    "name": "NAVIGARE 4",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-10-rn",
+    "name": "ALBERTI 10",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-2-rn",
+    "name": "ALBERTI 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-8-rn",
+    "name": "ALBERTI 8",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "red-lab-rn",
+    "name": "RED LAB",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Domenico Angherà, 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "lab-2-rn",
+    "name": "LAB 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Bastioni Settentrionali 45"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "lab-1-rn",
+    "name": "LAB 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Bastioni Settentrionali 45"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "stadio-palasport-flaminio-2-rn",
+    "name": "STADIO PALASPORT/FLAMINIO 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzale del Popolo, 1, Rimini"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "palestra-euterpe-rn",
+    "name": "PALESTRA EUTERPE",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Euterpe 5, Rimini"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-6-rn",
+    "name": "ALBERTI 6",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-magna-rn",
+    "name": "AULA MAGNA",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Domenico Angherà, 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "teatini-2-rn",
+    "name": "TEATINI 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clodia-2-rn",
+    "name": "CLODIA 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Clodia, 43"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-4-rn",
+    "name": "ALBERTI 4",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-11-rn",
+    "name": "ALBERTI 11",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-5-rn",
+    "name": "ALBERTI 5",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-7-rn",
+    "name": "ALBERTI 7",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "briolini-4-rn",
+    "name": "BRIOLINI 4",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Corso d'Augusto, 237"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "briolini-2-rn",
+    "name": "BRIOLINI 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Corso d'Augusto, 237"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clodia-4-rn",
+    "name": "CLODIA 4",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Clodia, 43"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "anghera-3-rn",
+    "name": "ANGHERA' 3",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Domenico Angherà, 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "anghera-2-rn",
+    "name": "ANGHERA' 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Domenico Angherà, 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "navigare-1a-rn",
+    "name": "NAVIGARE 1A",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "clodia-5-rn",
+    "name": "CLODIA 5",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Clodia, 43"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-9-rn",
+    "name": "ALBERTI 9",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "navigare-5-rn",
+    "name": "NAVIGARE 5",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "palestra-almagym-piazza-malatesta-30-rimini-rn",
+    "name": "PALESTRA ALMAGYM - Piazza Malatesta, 30 Rimini",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazza Malatesta"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "palestra-carim-rn",
+    "name": "PALESTRA CARIM",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Cuneo 11, Rimini"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "grey-lab-rn",
+    "name": "GREY LAB",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-13-rn",
+    "name": "ALBERTI 13",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "circolo-tennis-viserba-rn",
+    "name": "CIRCOLO TENNIS VISERBA",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Marconi 78, Rimini"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-14-rn",
+    "name": "ALBERTI 14",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "VIA Quintino Sella snc"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "aula-ergo-2-rn",
+    "name": "AULA ERGO 2",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Roma, 47"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "teatini-1-rn",
+    "name": "TEATINI 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 10"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "green-lab-rn",
+    "name": "GREEN LAB",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via Domenico Angherà, 22"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "alberti-1-rn",
+    "name": "ALBERTI 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzetta Teatini, 13"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "laboratorio-sartoriale-rn",
+    "name": "LABORATORIO SARTORIALE",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Corso d'Augusto, 237"
+    },
+    "type": "LABORATORY"
+  },
+  {
+    "_id": "navigare-3-rn",
+    "name": "NAVIGARE 3",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Via dei Mille, 39"
+    },
+    "type": "CLASSROOM"
+  },
+  {
+    "_id": "stadio-palasport-flaminio-1-rn",
+    "name": "STADIO PALASPORT/FLAMINIO 1",
+    "campus": "Rimini",
+    "site": {
+      "campus": "Rimini",
+      "address": "Piazzale del Popolo, 1, Rimini"
+    },
+    "type": "CLASSROOM"
+  }
+]
