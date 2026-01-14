@@ -24,10 +24,7 @@ export class NotificationService {
       event.payload.roomId,
       eventPeriod,
     );
-    const validatedRecords = interestedRecords.filter((r) =>
-      r.subscription.isInterestedIn(event.payload.roomId, eventPeriod),
-    );
-    if (validatedRecords.length === 0) return;
+    if (interestedRecords.length === 0) return;
     const notificationPromises = interestedRecords.map(async (record) => {
       const { subscription, details } = record;
       const message = `Una nuova attività '${event.payload.title}' si sovrappone con il tuo piano`;
