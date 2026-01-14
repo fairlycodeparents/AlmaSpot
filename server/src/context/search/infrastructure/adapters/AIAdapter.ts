@@ -54,7 +54,8 @@ export class AIAdapter implements AI {
     userInput: string[],
   ): Promise<AvailabilityQuery> {
     const input = [
-      "Current time is ${new Date().toISOString()}. Use this to resolve relative dates like 'tomorrow'",
+      `Current time is ${new Date().toString()}.
+      Use this to resolve relative dates like 'tomorrow' and to better understand the user's time references.`,
       ...userInput,
     ];
 
