@@ -33,7 +33,9 @@ export class MongoRoomRepository implements RoomRepository {
   }
 
   async getRoomsBySite(site: Site): Promise<Room[]> {
-    const docs = await this.roomsCol.find({ site: site }).toArray();
+    const docs = await this.roomsCol
+      .find({ "site.campus": site.campus, "site.address": site.address })
+      .toArray();
     return docs.map(this.toRoomEntity);
   }
 
@@ -92,14 +94,14 @@ export class MongoRoomRepository implements RoomRepository {
 
   async deleteExternalActivity(activityId: string): Promise<void> {
     await this.activitiesCol.deleteOne({
-      id: activityId,
+      _id: activityId,
       type: ActivityType.EXTERNAL_ACTIVITY,
     });
   }
 
   async saveExternalActivity(activityId: ExternalActivity): Promise<void> {
     const doc = {
-      _id: activityId,
+      _id: activityId.id,
       roomId: activityId.roomId,
       campus: activityId.campus,
       title: activityId.title,
@@ -109,7 +111,11 @@ export class MongoRoomRepository implements RoomRepository {
       period: { start: activityId.period.start, end: activityId.period.end },
     };
 
-    await this.activitiesCol.insertOne(doc);
+    await this.activitiesCol.updateOne(
+      { _id: activityId.id },
+      { $set: doc },
+      { upsert: true },
+    );
   }
 
   async updateInternalActivities(
@@ -122,8 +128,7 @@ export class MongoRoomRepository implements RoomRepository {
     await this.activitiesCol.deleteMany({
       type: ActivityType.INTERNAL_ACTIVITY,
       campus: campus,
-      "period.start": { $lt: end },
-      "period.end": { $gt: start },
+      "period.start": { $gte: start, $lte: end },
     });
 
     if (activities.length > 0) {
@@ -132,23 +137,32 @@ export class MongoRoomRepository implements RoomRepository {
         _id: act.id,
         period: { start: act.period.start, end: act.period.end },
       }));
-      await this.activitiesCol.insertMany(docs);
+      try {
+        await this.activitiesCol.insertMany(docs, { ordered: false });
+      } catch (e) {
+        console.warn("Duplicate keys during bulk insert", e);
+      }
     }
   }
 
-  async getLastSync(_campus: Campus, _date: Date): Promise<Date | null> {
-    const doc = await this.metadataCol.findOne({
-      id: `sync_${_campus}_${_date}`,
-    });
+  async getLastSync(campus: Campus, date: Date): Promise<Date | null> {
+    const id = this.getSyncKey(campus, date);
+    const doc = await this.metadataCol.findOne({ _id: id });
     return doc ? new Date(doc["lastSync"]) : null;
   }
 
-  async setLastSync(_campus: Campus, _date: Date): Promise<void> {
+  async setLastSync(campus: Campus, date: Date): Promise<void> {
+    const id = this.getSyncKey(campus, date);
     await this.metadataCol.updateOne(
-      { id: `sync_${_campus}_${_date}` },
+      { _id: id },
       { $set: { lastSync: new Date() } },
       { upsert: true },
     );
+  }
+
+  private getSyncKey(campus: Campus, date: Date): string {
+    const dateStr = date.toISOString().split("T")[0];
+    return `sync_${campus}_${dateStr}`;
   }
 
   private getDayRange(date: Date) {
