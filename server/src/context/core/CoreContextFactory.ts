@@ -3,7 +3,7 @@ import { ActivityManagementService } from "./application/services/ActivityManage
 import { MongoClient } from "mongodb";
 import { AuthService } from "./domain/ports/ServicePorts";
 import { EventBus } from "../../shared/domain/EventBus";
-import { RoomRepositoryMongo } from "./infrastructure/adapters/RoomRepositoryMongo";
+import { MongoRoomRepository } from "./infrastructure/persistence/mongo/MongoRoomRepository";
 import { UniboProviderHTTP } from "./infrastructure/adapters/UniboProviderHTTP";
 import { CoreFacade } from "./application/CoreFacade";
 
@@ -14,7 +14,7 @@ export class CoreContextFactory {
     eventBus: EventBus,
   ): CoreFacade {
     const dbName = process.env["MONGO_DB_NAME"] || "almaspot";
-    const roomRepository = new RoomRepositoryMongo(mongoClient, dbName);
+    const roomRepository = new MongoRoomRepository(mongoClient, dbName);
     const uniboProvider = new UniboProviderHTTP();
 
     const activityManagementService = new ActivityManagementService(
