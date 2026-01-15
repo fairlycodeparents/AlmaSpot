@@ -6,8 +6,6 @@ import { Administrator } from "../../../domain/model/Administrator";
 import { AdminModel } from "./MongoAdminSchema";
 import { env } from "../../../../../shared/config/env";
 
-const TEST_DB_URI = env.MONGO_URI.replace(/\/[^/?]+(\?|$)/, "/almaspot_test$1");
-
 describe("MongoAdminRepository (Integration)", () => {
   let repo: MongoAdminRepository;
 
@@ -15,7 +13,9 @@ describe("MongoAdminRepository (Integration)", () => {
     if (mongoose.connection.readyState !== 0) {
       await mongoose.disconnect();
     }
-    await mongoose.connect(TEST_DB_URI);
+    await mongoose.connect(env.MONGO_URI, {
+      dbName: "almaspot_test",
+    });
     repo = new MongoAdminRepository();
   });
 
