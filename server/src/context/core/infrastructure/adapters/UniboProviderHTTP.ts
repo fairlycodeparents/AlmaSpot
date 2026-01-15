@@ -25,7 +25,10 @@ export class UniboProviderHTTP implements UniboProvider {
 
     try {
       const res = await fetch(url);
-      if (!res.ok) throw new Error(`Status: ${res.status}`);
+      if (!res.ok)
+        throw new Error(
+          `[UniboProvider] Error while fetching data: Error: Status: ${res.status}`,
+        );
 
       const data = (await res.json()) as GoActivityDTO[];
       const activities: InternalActivity[] = [];
@@ -45,7 +48,7 @@ export class UniboProviderHTTP implements UniboProvider {
       return activities;
     } catch (err) {
       console.error("[UniboProvider] Error while fetching data:", err);
-      return [];
+      throw err;
     }
   }
 }
