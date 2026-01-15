@@ -1,16 +1,16 @@
 import { Db, MongoClient, Collection } from "mongodb";
-import { RoomRepository } from "../../domain/ports/RoomRepository";
-import { Campus, Site } from "../../../../shared/domain/Location";
+import { RoomRepository } from "../../../domain/ports/RoomRepository";
+import { Campus, Site } from "../../../../../shared/domain/Location";
 import {
   Activity,
   ActivityType,
   ExternalActivity,
   InternalActivity,
-} from "../../domain/model/Activity";
-import { Room, RoomType } from "../../domain/model/Room";
-import { Period } from "../../../../shared/domain/Period";
+} from "../../../domain/model/Activity";
+import { Room, RoomType } from "../../../domain/model/Room";
+import { Period } from "../../../../../shared/domain/Period";
 
-export class RoomRepositoryMongo implements RoomRepository {
+export class MongoRoomRepository implements RoomRepository {
   private db: Db;
 
   constructor(client: MongoClient, dbName: string) {

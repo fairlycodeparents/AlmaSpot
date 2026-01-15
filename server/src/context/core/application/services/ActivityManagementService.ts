@@ -7,12 +7,12 @@ import { AuthService } from "../../domain/ports/ServicePorts";
 import { EventBus } from "../../../../shared/domain/EventBus";
 import { ActivityAddedEvent } from "../../domain/events/ActivityAddedEvent";
 import { UniboProviderHTTP } from "../../infrastructure/adapters/UniboProviderHTTP";
-import { RoomRepositoryMongo } from "../../infrastructure/adapters/RoomRepositoryMongo";
+import { MongoRoomRepository } from "../../infrastructure/persistence/mongo/MongoRoomRepository";
 
 export class ActivityManagementService {
   private activeFetches: Map<string, Promise<void>> = new Map();
   constructor(
-    private roomRepository: RoomRepositoryMongo,
+    private roomRepository: MongoRoomRepository,
     private uniboProvider: UniboProviderHTTP,
     private authService: AuthService,
     private eventBus: EventBus,

@@ -1,4 +1,4 @@
-import { RoomRepositoryMongo } from "../../infrastructure/adapters/RoomRepositoryMongo";
+import { MongoRoomRepository } from "../../infrastructure/persistence/mongo/MongoRoomRepository";
 import { ActivityManagementService } from "./ActivityManagementService";
 import { Period } from "../../../../shared/domain/Period";
 import { Campus, Site } from "../../../../shared/domain/Location";
@@ -10,7 +10,7 @@ import { Room, RoomType } from "../../domain/model/Room";
 
 export class RoomSearchService {
   constructor(
-    private roomRepository: RoomRepositoryMongo,
+    private roomRepository: MongoRoomRepository,
     private activityManagementService: ActivityManagementService,
   ) {}
 
