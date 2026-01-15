@@ -7,5 +7,13 @@
   "ignoreUnstable": true,
   "automergeSchedule": ["* 0-3 * * *"],
   "timezone": "CET",
-  "automerge": true
+  "automerge": true,
+  "packageRules": [
+    {
+      "description": "Updates to the dependencies should trigger a new patch release",
+      "matchPaths": ["**/package.json"],
+      "matchDepTypes": ["dependencies"],
+      "semanticCommitScope": "core-deps"
+    }
+  ]
 }
