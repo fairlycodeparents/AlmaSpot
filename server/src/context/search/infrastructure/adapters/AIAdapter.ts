@@ -115,7 +115,7 @@ export class AIAdapter implements AI {
     const input = [...conversation, systemInstruction];
 
     const response = await this.ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: input.map((text) => ({ role: "user", parts: [{ text }] })),
       config: {
         tools: [{ functionDeclarations: [this.definePlanDeclaration as any] }],
@@ -173,7 +173,7 @@ export class AIAdapter implements AI {
     ];
 
     const response = await this.ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-2.5-flash-lite",
       contents: input,
       config: {
         tools: [
