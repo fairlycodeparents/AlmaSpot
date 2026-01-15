@@ -96,6 +96,27 @@ export class ActivityManagementService {
     await this.notifyEvent(domainEvent, event.id);
   }
 
+  async deleteEvent(token: string, activityId: string): Promise<void> {
+    if (!this.authService.validateAdminToken(token)) {
+      throw new Error("Unauthorized: Invalid admin token.");
+    }
+
+    const activity = await this.roomRepository.getActivityById(activityId);
+    if (!activity) {
+      throw new Error("Not Found: External activity does not exist.");
+    }
+    if (activity.type !== "EXTERNAL_ACTIVITY") {
+      throw new Error("Bad Request: Cannot delete internal activities.");
+    }
+    const now = new Date();
+    if (activity.period.start.getTime() <= now.getTime()) {
+      throw new Error("Bad Request: Cannot delete past or ongoing activities.");
+    }
+
+    await this.roomRepository.deleteExternalActivity(activityId);
+    console.log("[Event Deleted] External event deleted with ID:", activityId);
+  }
+
   async notifyEvent(
     event: ActivityAddedEvent,
     id: string | undefined,

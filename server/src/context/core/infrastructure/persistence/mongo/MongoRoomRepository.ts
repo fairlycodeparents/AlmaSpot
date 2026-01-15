@@ -85,6 +85,11 @@ export class MongoRoomRepository implements RoomRepository {
     return docs.map(this.toActivityEntity);
   }
 
+  async getActivityById(activityId: string): Promise<Activity | null> {
+    const doc = await this.activitiesCol.findOne({ id: activityId });
+    return doc ? this.toActivityEntity(doc) : null;
+  }
+
   async deleteExternalActivity(activityId: string): Promise<void> {
     await this.activitiesCol.deleteOne({
       id: activityId,
