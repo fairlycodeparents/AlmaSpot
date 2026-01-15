@@ -48,6 +48,7 @@ jobs:
         env:
           MONGO_URI: mongodb://localhost:27017/test_db_ci
           JWT_SECRET: ${{ secrets.JWT_SECRET }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: npm run test:ci --if-present
 
       - name: Build Project
