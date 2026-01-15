@@ -1,4 +1,5 @@
 import {
+  ActivityType,
   ExternalActivity,
   InternalActivity,
 } from "../../domain/model/Activity";
@@ -105,7 +106,7 @@ export class ActivityManagementService {
     if (!activity) {
       throw new Error("Not Found: External activity does not exist.");
     }
-    if (activity.type !== "EXTERNAL_ACTIVITY") {
+    if (activity.type !== ActivityType.EXTERNAL_ACTIVITY) {
       throw new Error("Bad Request: Cannot delete internal activities.");
     }
     const now = new Date();

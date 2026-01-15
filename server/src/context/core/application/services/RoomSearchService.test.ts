@@ -82,7 +82,7 @@ describe("RoomSearchService Test", () => {
   });
 
   it(
-    "findSlotsByCampus: Con aula occupata parzialmente, restituisce più slot liberi" +
+    "findSlotsByCampus: Con aula occupata parzialmente, restituisce più slot liberi " +
       "senza il periodo occupato",
     async () => {
       const cesenaSite = new Site(Campus.CESENA, "Via Università");

@@ -1,18 +1,18 @@
 package main
 
 import (
-    "net/http"
+	"net/http"
 )
 
 type transport struct {
-    http.RoundTripper
+	http.RoundTripper
 }
 
-func (t*transport) RoundTrip(req *http.Request) (*http.Response, error) {
-    req.Header.Set("User-Agent", "Calendar-Bot")
-    return t.RoundTripper.RoundTrip(req)
+func (t *transport) RoundTrip(req *http.Request) (*http.Response, error) {
+	req.Header.Set("User-Agent", "Calendar-Bot")
+	return t.RoundTripper.RoundTrip(req)
 }
 
 var httpClient = http.Client{
-    Transport: &transport{http.DefaultTransport},
+	Transport: &transport{http.DefaultTransport},
 }

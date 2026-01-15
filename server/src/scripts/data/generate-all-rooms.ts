@@ -68,7 +68,7 @@ const run = () => {
       const roomType = nameUpper.startsWith("LAB") ? "LABORATORY" : "CLASSROOM";
 
       const addressParts = event.address.split(" - ");
-      let streetAddress = event.address;
+      let streetAddress: string;
 
       if (addressParts.length > 1) {
         addressParts.pop();
