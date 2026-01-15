@@ -16,6 +16,7 @@ export interface RoomRepository {
   getRoomSite(roomId: string): Promise<Site | null>;
 
   getActivitiesByCampusAndDate(campus: Campus, date: Date): Promise<Activity[]>;
+  getActivityById(activityId: string): Promise<Activity | null>;
 
   saveExternalActivity(activity: ExternalActivity): Promise<void>;
   deleteExternalActivity(activityId: string): Promise<void>;

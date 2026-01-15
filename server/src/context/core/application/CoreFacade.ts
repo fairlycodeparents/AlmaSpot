@@ -63,6 +63,13 @@ export class CoreFacade {
     await this.activityManagementService.createEvent(token, activityDomain);
   }
 
+  async deleteExternalActivity(
+    token: string,
+    activityId: string,
+  ): Promise<void> {
+    await this.activityManagementService.deleteEvent(token, activityId);
+  }
+
   async getActivitiesByDate(
     campusName: string,
     date: Date,
