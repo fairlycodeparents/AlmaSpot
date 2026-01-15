@@ -6,6 +6,7 @@ import { UniboProviderHTTP } from "../../infrastructure/adapters/UniboProviderHT
 import { EventBus } from "../../../../shared/domain/EventBus";
 import { AuthService } from "../../domain/ports/ServicePorts";
 import {
+  ActivityType,
   ExternalActivity,
   InternalActivity,
 } from "../../domain/model/Activity";
@@ -193,7 +194,7 @@ describe("ActivityManagementService Test", () => {
 
     const internalActivity = {
       id: "int-1",
-      type: "INTERNAL",
+      type: ActivityType.INTERNAL_ACTIVITY,
       period: { start: new Date("2030-01-01") },
     };
     mockRoomRepository.getActivityById.mock.mockImplementation(
