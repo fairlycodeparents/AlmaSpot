@@ -105,13 +105,11 @@ export class CoreController {
         !dto.campus ||
         !dto.site
       ) {
-        res
-          .status(400)
-          .json({
-            error:
-              "Invalid body: " +
-              "missing required fields (roomId, title, startTime, endTime, campus, site)",
-          });
+        res.status(400).json({
+          error:
+            "Invalid body: " +
+            "missing required fields (roomId, title, startTime, endTime, campus, site)",
+        });
         return;
       }
 
