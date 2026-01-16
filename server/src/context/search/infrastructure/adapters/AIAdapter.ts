@@ -18,7 +18,7 @@ export const ERROR_MESSAGE =
 
 export class AIAdapter implements AI {
   private ai = new GoogleGenAI({ apiKey: process.env["GEMINI_API_KEY"] });
-  private readonly MODEL_NAME = "gemini-2.5-flash"; // TODO: lite
+  private readonly MODEL_NAME = "gemini-2.5-flash-lite";
 
   private readonly QUERY_DECLARATION = {
     name: "extract_availability_query",
