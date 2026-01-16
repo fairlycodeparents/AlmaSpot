@@ -65,7 +65,9 @@ export class CoreController {
       const { campus, date } = req.query;
 
       if (!campus || !date) {
-        res.status(400).json({ error: "Missing campus or date" });
+        res
+          .status(400)
+          .json({ error: "Missing required query params: campus, date" });
         return;
       }
 
@@ -95,8 +97,21 @@ export class CoreController {
 
       const dto = req.body as CreateActivityDTO;
 
-      if (!dto.roomId || !dto.title || !dto.startTime || !dto.endTime) {
-        res.status(400).json({ error: "Invalid body" });
+      if (
+        !dto.roomId ||
+        !dto.title ||
+        !dto.startTime ||
+        !dto.endTime ||
+        !dto.campus ||
+        !dto.site
+      ) {
+        res
+          .status(400)
+          .json({
+            error:
+              "Invalid body: " +
+              "missing required fields (roomId, title, startTime, endTime, campus, site)",
+          });
         return;
       }
 

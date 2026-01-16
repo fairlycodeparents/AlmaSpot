@@ -9,9 +9,12 @@ export class CoreRoutes {
   }
 
   private initRoutes() {
-    this.router.get("/rooms/free", this.controller.findFreeRoomsByCampus);
+    this.router.get(
+      "/rooms/free-by-campus",
+      this.controller.findFreeRoomsByCampus,
+    );
 
-    this.router.get("/rooms/free/site", this.controller.findFreeRoomsBySite);
+    this.router.get("/rooms/free-by-site", this.controller.findFreeRoomsBySite);
 
     this.router.get("/activities", this.controller.getActivities);
 
