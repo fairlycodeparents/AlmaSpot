@@ -1,3 +1,24 @@
+## [1.4.1](https://github.com/fairlycodeparents/AlmaSpot/compare/1.4.0...1.4.1) (2026-01-16)
+
+### Bug Fixes
+
+- **search:** integrate AI tests in GH workflow ([a747f0e](https://github.com/fairlycodeparents/AlmaSpot/commit/a747f0e79e247f6e97451c02735a4f43fa26a441))
+- **search:** update AIAdapter model version ([3a2670a](https://github.com/fairlycodeparents/AlmaSpot/commit/3a2670ac40e2fb78b305391cb4c7d03690f3a052))
+- **tests:** update test command for CI environment ([2333203](https://github.com/fairlycodeparents/AlmaSpot/commit/233320352cd53f61243a0947a82def05758f17d2))
+
+### Build and continuous integration
+
+- conditionally set GEMINI_API_KEY based on PR title ([afbc3d1](https://github.com/fairlycodeparents/AlmaSpot/commit/afbc3d1f127582fcba6978cd8f4e7f7331f785be))
+
+### General maintenance
+
+- **env:** add VAPID key and Mongo configuration to .env.example ([#33](https://github.com/fairlycodeparents/AlmaSpot/issues/33)) ([863e63a](https://github.com/fairlycodeparents/AlmaSpot/commit/863e63ac7d2a58e839a73dc3fe7b57cf49bcc596))
+- update .gitignore ([5e1933f](https://github.com/fairlycodeparents/AlmaSpot/commit/5e1933fa3efe67754f0307cf71276c5076d9ef45))
+
+### Refactoring
+
+- **search:** enhance AIAdapter to handle errors ([bbccbb9](https://github.com/fairlycodeparents/AlmaSpot/commit/bbccbb9d3e432ab7b86a802a83694226f037ca25))
+
 ## [1.4.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.3.0...1.4.0) (2026-01-16)
 
 ### Features
