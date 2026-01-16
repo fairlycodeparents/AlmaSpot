@@ -14,12 +14,16 @@ describe(
     const aiAdapter = new AIAdapter();
 
     const assertQueryMatches = (
-      query: UserRequest,
+      query: UserRequest | string,
       startHour: number,
       endHour: number,
       campus: Campus,
       address?: string,
     ) => {
+      assert.ok(
+        typeof query !== "string",
+        "Expected UserRequest object but received error string: " + query,
+      );
       assert.ok(query.period, "Period should be defined");
       assert.strictEqual(
         query.period.start.getTime(),
