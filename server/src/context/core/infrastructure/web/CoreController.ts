@@ -41,11 +41,9 @@ export class CoreController {
       const { campus, address, start, end } = req.query;
 
       if (!campus || !address || !start || !end) {
-        res
-          .status(400)
-          .json({
-            error: "Missing required params: campus, address, start, end",
-          });
+        res.status(400).json({
+          error: "Missing required params: campus, address, start, end",
+        });
         return;
       }
 
