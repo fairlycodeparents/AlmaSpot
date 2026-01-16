@@ -20,7 +20,8 @@ build/
 node_modules/
 
 # Environment variables
-.env
+server/.env
+client/.env
 
 # Log files
 coverage/
