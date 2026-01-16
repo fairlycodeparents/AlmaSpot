@@ -9,19 +9,19 @@ export interface AI {
   /**
    * Get a query by interpreting the user input (which is written in natural language).
    * @param conversation - Array of user input strings
-   * @returns an `UserRequest` constructed from user input
+   * @returns an `UserRequest` constructed from user input or a string error message
    */
-  extractRequest(conversation: string[]): Promise<UserRequest>;
+  extractRequest(conversation: string[]): Promise<UserRequest | string>;
 
   /**
    * Get a suggestion by combining multiple slots, considering any specific request from the user.
    * @param conversation - Array of user input strings
-   * @param availableSlots - Array of available rooms
+   * @param availableRooms - Array of available rooms
    * @returns a `Suggestion` containing the plan and response
    */
   getSuggestion(
     conversation: string[],
-    availableSlots: AvailableRoom[],
+    availableRooms: AvailableRoom[],
   ): Promise<Suggestion>;
 }
 

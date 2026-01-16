@@ -1,5 +1,7 @@
 import { SearchRequestDTO, SuggestionDTO } from "./DTOs";
 import { AI, RoomAvailability } from "./ExternalPorts";
+import { Suggestion } from "../domain/Entities";
+import { Plan } from "../../../shared/domain/Plan";
 
 /**
  * Service responsible for handling the search of plans based on user input.
@@ -26,6 +28,11 @@ export class SearchPlanService {
    */
   async search(request: SearchRequestDTO): Promise<SuggestionDTO> {
     const query = await this.ai.extractRequest(request.userMessages);
+
+    if (typeof query === "string") {
+      return new Suggestion(new Plan([]), query);
+    }
+
     const availableRooms = await this.availability.getAvailableRooms(query);
     return await this.ai.getSuggestion(request.userMessages, availableRooms);
   }

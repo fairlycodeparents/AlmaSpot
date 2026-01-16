@@ -9,29 +9,29 @@ import {
   Suggestion,
 } from "context/search/domain/Entities";
 import { GoogleGenAI, Type } from "@google/genai";
+import { z } from "zod";
+
+export const DEFAULT_RESPONSE =
+  "I'm sorry, I couldn't process your request at the moment.";
+export const ERROR_MESSAGE =
+  "I couldn't process your request at the moment. Please check your API key and try again.";
 
 export class AIAdapter implements AI {
   private ai = new GoogleGenAI({ apiKey: process.env["GEMINI_API_KEY"] });
+  private readonly MODEL_NAME = "gemini-2.5-flash"; // TODO: lite
 
-  private setAvailabilityQueryDeclaration = {
+  private readonly QUERY_DECLARATION = {
     name: "extract_availability_query",
-    description:
-      "Extracts structured availability query parameters from natural language.",
+    description: "Extracts structured availability query parameters.",
     parameters: {
       type: Type.OBJECT,
       properties: {
-        start: {
-          type: Type.STRING,
-          description: "Start datetime in ISO 8601",
-        },
-        end: {
-          type: Type.STRING,
-          description: "End datetime in ISO 8601",
-        },
+        start: { type: Type.STRING, description: "Start datetime in ISO 8601" },
+        end: { type: Type.STRING, description: "End datetime in ISO 8601" },
         campus: {
           type: Type.STRING,
           enum: Object.values(Campus),
-          description: "Campus where the user wants to find a room",
+          description: "Campus where to find a room",
         },
         address: {
           type: Type.STRING,
@@ -42,17 +42,15 @@ export class AIAdapter implements AI {
     },
   };
 
-  private definePlanDeclaration = {
+  private readonly PLAN_DECLARATION = {
     name: "define_plan",
     description:
       "Defines a plan composed of one or more slots to cover the user's requested time period.",
     parameters: {
       type: Type.OBJECT,
       properties: {
-        steps: {
+        slots: {
           type: Type.ARRAY,
-          description:
-            "List of selected slots. Empty if no suitable slots match the request.",
           items: {
             type: Type.OBJECT,
             properties: {
@@ -62,11 +60,11 @@ export class AIAdapter implements AI {
               },
               start: {
                 type: Type.STRING,
-                description: "Start time for this step (ISO 8601)",
+                description: "Start datetime for this step (ISO 8601)",
               },
               end: {
                 type: Type.STRING,
-                description: "End time for this step (ISO 8601)",
+                description: "End datetime for this step (ISO 8601)",
               },
             },
             required: ["roomId", "start", "end"],
@@ -75,74 +73,93 @@ export class AIAdapter implements AI {
         explanation: {
           type: Type.STRING,
           description:
-            "A message to the user describing the plan or explaining why no plan was found.",
+            "Answer to the user's last message, or explain why no plan could be made.",
         },
       },
-      required: ["steps", "explanation"],
+      required: ["slots", "explanation"],
     },
   };
 
+  private readonly QUERY_SCHEMA = z.object({
+    start: z.string(),
+    end: z.string(),
+    campus: z.enum(Campus),
+    address: z.string().optional(),
+  });
+
+  private readonly PLAN_SCHEMA = z.object({
+    slots: z.array(
+      z.object({
+        roomId: z.string(),
+        start: z.string(),
+        end: z.string(),
+      }),
+    ),
+    explanation: z.string(),
+  });
+
   async getSuggestion(
     conversation: string[],
-    availableSlots: AvailableRoom[],
+    availableRooms: AvailableRoom[],
   ): Promise<Suggestion> {
-    const slotsContext = availableSlots.map((s) => ({
-      roomId: s.id,
-      roomType: s.type,
-      roomAddress: s.address,
-      availabilityStart: s.from.toString(),
-      availabilityEnd: s.to.toString(),
+    const availabilityContext = availableRooms.map((room) => ({
+      roomId: room.id,
+      roomType: room.type,
+      roomAddress: room.address,
+      availabilityStart: room.from.toString(),
+      availabilityEnd: room.to.toString(),
     }));
 
-    const now = new Date();
-
     const systemInstruction = `
-    You are a smart room booking assistant.
-    Current Reference Time: ${now.toString()}.
-    Use this to resolve relative dates like 'tomorrow' or understand the user's time references.
-    
-    Here is the list of ACTUALLY AVAILABLE slots:
-    ${JSON.stringify(slotsContext)}
+    Here is the list of AVAILABLE rooms, with their availability periods:
+    ${JSON.stringify(availabilityContext)}
 
     INSTRUCTIONS:
-      1. Analyze the user's request (time range) and the available slots.
-      2. If one slot covers the whole period, select it.
-      3. If no single slot works, try to combine multiple slots (e.g., Room A from 9-11, Room B from 11-13) to minimize room switches.
-      4. If no valid combination exists, return an empty "steps" list.
-      5. Always provide a clear "explanation" (e.g., "I couldn't find a single room, but you can use Room A then move to Room B").
-      `;
+      1. Analyze the user's request (time range) and the available rooms.
+      2. If one room covers the whole period, select it.
+      3. If no single room works, try to combine multiple rooms (e.g., Room A from 9-11, Room B from 11-13) to minimize room switches.
+      4. If no valid combination exists, return an empty "slots" list.
+      5. Always provide a clear "explanation" (e.g., "I couldn't find a single room, but you can use Room A then move to Room B").`;
 
-    const input = [...conversation, systemInstruction];
-
-    const response = await this.ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
-      contents: input.map((text) => ({ role: "user", parts: [{ text }] })),
-      config: {
-        tools: [{ functionDeclarations: [this.definePlanDeclaration as any] }],
-      },
-    });
-
-    const funCall = response.functionCalls?.[0];
-
-    if (!funCall || !funCall.args) {
-      throw new Error("AI failed to generate a structured plan.");
+    let response;
+    try {
+      response = await this.ai.models.generateContent({
+        model: this.MODEL_NAME,
+        contents: this.buildPrompt([...conversation, systemInstruction]),
+        config: {
+          tools: [{ functionDeclarations: [this.PLAN_DECLARATION] }],
+        },
+      });
+    } catch (error) {
+      console.error("Failed to generate content from AI model:", error);
+      return new Suggestion(new Plan([]), ERROR_MESSAGE);
     }
 
-    const args = funCall.args as any;
-    const stepsData = args.steps || [];
-    const explanation = args.explanation || "No plan description provided.";
+    const args = response.functionCalls?.[0]?.args;
+
+    if (!args) {
+      return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
+    }
+
+    const parsed = this.PLAN_SCHEMA.safeParse(args);
+
+    if (!parsed.success) {
+      return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
+    }
+
+    const data = parsed.data;
 
     const selectedSlots: Slot[] = [];
 
-    for (const step of stepsData) {
-      const stepStart = new Date(step.start);
-      const stepEnd = new Date(step.end);
+    for (const slot of data.slots) {
+      const start = new Date(slot.start);
+      const end = new Date(slot.end);
 
-      const originalSlot = availableSlots.find((s) => {
+      const originalSlot = availableRooms.find((s) => {
         return (
-          s.id === step.roomId &&
-          s.from.getTime() <= stepStart.getTime() &&
-          s.to.getTime() >= stepEnd.getTime()
+          s.id === slot.roomId &&
+          s.from.getTime() <= start.getTime() &&
+          s.to.getTime() >= end.getTime()
         );
       });
 
@@ -151,68 +168,71 @@ export class AIAdapter implements AI {
           originalSlot.id,
           originalSlot.type,
           originalSlot.address,
-          stepStart,
-          stepEnd,
+          start,
+          end,
         );
         selectedSlots.push(plannedSlot.toSlot());
       } else {
-        console.log(
-          `AI suggested a slot that fits no available period: ${JSON.stringify(step)}`,
+        console.warn(
+          `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
+           Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
         );
       }
     }
 
-    return new Suggestion(new Plan(selectedSlots), explanation);
+    return new Suggestion(new Plan(selectedSlots), data.explanation);
   }
 
-  async extractRequest(conversation: string[]): Promise<UserRequest> {
-    const input = [
-      `Current time is ${new Date().toString()}.
-      Use this to resolve relative dates like 'tomorrow' and to better understand the user's time references.`,
-      ...conversation,
-    ];
-
-    const response = await this.ai.models.generateContent({
-      model: "gemini-2.5-flash-lite",
-      contents: input,
-      config: {
-        tools: [
-          {
-            functionDeclarations: [this.setAvailabilityQueryDeclaration as any],
-          },
-        ],
-      },
-    });
-
-    const funCall = response.functionCalls?.[0];
-
-    if (!funCall || !funCall.args) {
-      throw new Error("AI did not return a valid function call.");
+  async extractRequest(conversation: string[]): Promise<UserRequest | string> {
+    let response;
+    try {
+      response = await this.ai.models.generateContent({
+        model: this.MODEL_NAME,
+        contents: this.buildPrompt(conversation),
+        config: {
+          tools: [{ functionDeclarations: [this.QUERY_DECLARATION] }],
+        },
+      });
+    } catch (error) {
+      console.error("Failed to generate content from AI model:", error);
+      return ERROR_MESSAGE;
     }
 
-    const args = funCall.args as any;
+    const args = response.functionCalls?.[0]?.args;
 
-    if (!args.start || !args.end || !args.campus) {
-      throw new Error(
-        `Missing required fields in AI response: ${JSON.stringify(args)}`,
-      );
+    if (!args) {
+      return DEFAULT_RESPONSE;
     }
 
-    const startDate = new Date(args.start);
-    const endDate = new Date(args.end);
+    const parsed = this.QUERY_SCHEMA.safeParse(args);
 
-    const campusValue = Object.values(Campus).includes(args.campus)
-      ? (args.campus as Campus)
-      : null;
-
-    if (!campusValue) {
-      throw new Error(`Unrecognized campus value: ${args.campus}`);
+    if (!parsed.success) {
+      return DEFAULT_RESPONSE;
     }
+
+    const data = parsed.data;
 
     return new UserRequest(
-      new Period(startDate, endDate),
-      campusValue,
-      args.address,
+      new Period(new Date(data.start), new Date(data.end)),
+      data.campus,
+      data.address,
     );
+  }
+
+  /**
+   * Builds the prompt for the AI model by appending the current system time.
+   * @param parts - The parts of the prompt
+   * @returns The complete prompt, formatted for the AI model, including current time information.
+   */
+  private buildPrompt(
+    parts: string[],
+  ): Array<{ role: string; parts: Array<{ text: string }> }> {
+    const systemTime = `
+      Current Time: ${new Date().toString()}.
+      Use it to understand the current date and time, and relative references like 'tomorrow'.`;
+    return [...parts, systemTime].map((text) => ({
+      role: "user",
+      parts: [{ text }],
+    }));
   }
 }
