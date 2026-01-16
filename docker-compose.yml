@@ -1,8 +1,6 @@
-version: "3.8"
-
 services:
   mongo:
-    image: mongo:8.2
+    image: mongo:6.0
     container_name: almaspot-mongo
     restart: always
     ports:
@@ -27,10 +25,6 @@ services:
       - almaspot-network
     restart: unless-stopped
 
-networks:
-  almaspot-network:
-    driver: bridge
-
   mongo-express:
     image: mongo-express
     restart: always
@@ -42,6 +36,12 @@ networks:
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
       ME_CONFIG_MONGODB_SERVER: mongo
+    networks:
+      - almaspot-network
+
+networks:
+  almaspot-network:
+    driver: bridge
 
 volumes:
   mongo_data:
