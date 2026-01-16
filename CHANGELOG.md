@@ -1,3 +1,44 @@
+## [1.4.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.3.0...1.4.0) (2026-01-16)
+
+### Features
+
+- add implementation for Unibo Provider (Go) ([500cdf1](https://github.com/fairlycodeparents/AlmaSpot/commit/500cdf1b291c42c2d1ef302835c5a050e65dce33))
+- add mongodb as a dependency in package.json and update package-lock.json ([35d4495](https://github.com/fairlycodeparents/AlmaSpot/commit/35d4495337103bfd0191620348f0fca44d2fb8eb))
+- add unibo-go dependency ([88f38c3](https://github.com/fairlycodeparents/AlmaSpot/commit/88f38c3fab88c5ece350dd5b3c28a971cbfcbb7d))
+- added rooms data for populate db ([22ef490](https://github.com/fairlycodeparents/AlmaSpot/commit/22ef4908215e6305b691262c22f5b0175d7ab773))
+- **core:** add adapter for token validation ([dd8ce18](https://github.com/fairlycodeparents/AlmaSpot/commit/dd8ce18964c764e31d712cbb0c05883aab363602))
+- enhance ActivityManagementService with synchronization and event handling improvements ([9c42ecf](https://github.com/fairlycodeparents/AlmaSpot/commit/9c42ecf71adabcc014bdc1d765101b3750de49e7))
+- fixed go unibo-provider for room and activity search ([ec7e2c5](https://github.com/fairlycodeparents/AlmaSpot/commit/ec7e2c5321ef3b2af138edf6ce6f98c46adeca71))
+- implement deleteExternalActivity functionality with validation checks ([312fb84](https://github.com/fairlycodeparents/AlmaSpot/commit/312fb8487502fc28c88c03dc18c73135e406fdf7))
+- implement RoomRepositoryMongo and UniboProviderHTTP for room and activity management ([736b409](https://github.com/fairlycodeparents/AlmaSpot/commit/736b4097e8030f24d5c619c3d9817cc5c1d80746))
+
+### Bug Fixes
+
+- **docker-compose:** downgrade MongoDB version and restore network configuration ([a6de5e8](https://github.com/fairlycodeparents/AlmaSpot/commit/a6de5e8443e87a0d85f3028b60cfef1b3d7b39e6))
+- **docker-compose:** update port mapping syntax for mongo-express ([1de42c6](https://github.com/fairlycodeparents/AlmaSpot/commit/1de42c6f112932f34e65a510e4894b80003fcb86))
+- **UniboProvider:** enhance error handling for fetch failures ([dfdb9a8](https://github.com/fairlycodeparents/AlmaSpot/commit/dfdb9a830d86043c6da5b668ee7609b842750c00))
+
+### Tests
+
+- add integration tests for MongoRoomRepository and UniboProvider ([0a4d74c](https://github.com/fairlycodeparents/AlmaSpot/commit/0a4d74cb526f5a878f01566909387d1731bb961c))
+- add unit tests for core context ([eb8ef7f](https://github.com/fairlycodeparents/AlmaSpot/commit/eb8ef7f9d90548888163e8b265eb77decba71733))
+- update MongoAdminRepository integration tests to use dbName option ([540f1c2](https://github.com/fairlycodeparents/AlmaSpot/commit/540f1c2b3586cfecef3ea25f9bae0e21460d3d23))
+
+### General maintenance
+
+- **Go:** remove unneeded unibo-go dependency from go.mod ([c73218c](https://github.com/fairlycodeparents/AlmaSpot/commit/c73218c9d241372bd3a3e75887308c2dea904359))
+- **renovate:** add package rules ([#28](https://github.com/fairlycodeparents/AlmaSpot/issues/28)) ([d2f05e6](https://github.com/fairlycodeparents/AlmaSpot/commit/d2f05e6944e334baa14bb66d1be230da4f52ac00))
+
+### Refactoring
+
+- improved querying and error handling ([76285f9](https://github.com/fairlycodeparents/AlmaSpot/commit/76285f9e3ff40cec9d814009f403bfd79dd64908))
+- minor changes for pr ([ffaf925](https://github.com/fairlycodeparents/AlmaSpot/commit/ffaf925c1d41ccd9e7dc795d6f7a4fc7be1613d3))
+- remove unused NotificationService interface from ServicePorts ([b4997cc](https://github.com/fairlycodeparents/AlmaSpot/commit/b4997cc1ce1ce1d527c8fc350fd30e105e5c61b6))
+- rename RoomRepositoryMongo to MongoRoomRepository and update imports ([e0b6479](https://github.com/fairlycodeparents/AlmaSpot/commit/e0b6479ab40aa1b978e7f5099f8aa4bfc7fd55bb))
+- update database name environment variable ([8351589](https://github.com/fairlycodeparents/AlmaSpot/commit/8351589cc08da349ca94a925ebe1ef1b297739c6))
+- update RoomRepository interface and enhance RoomRepositoryMongo type definitions ([c6bfc6e](https://github.com/fairlycodeparents/AlmaSpot/commit/c6bfc6e4a9af87366ee9537a6c90a43c76023209))
+- update RoomSearchService to use RoomRepositoryMongo ([ac218a3](https://github.com/fairlycodeparents/AlmaSpot/commit/ac218a3ff3def91d918839569f45ae40aad1d02f))
+
 ## [1.3.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.2.0...1.3.0) (2026-01-14)
 
 ### Features
