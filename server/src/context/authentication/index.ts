@@ -1,3 +1,2 @@
-import { AuthFacade } from "./infrastructure/api/AuthFacade";
-
-export { AuthFacade };
+export { AuthenticationContextFactory } from "./AuthenticationContextFactory";
+export { AuthFacade } from "./application/AuthFacade";

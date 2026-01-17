@@ -1,14 +1,10 @@
 import { env } from "./shared/config/env";
 import express from "express";
 import mongoose from "mongoose";
-//import { MongoClient } from "mongodb";
+import { AuthenticationContextFactory } from "./context/authentication";
+import { MongoClient } from "mongodb";
 
 import { InMemoryEventBus } from "./shared/infrastructure/bus/InMemoryEventBus";
-
-import { MongoAdminRepository } from "./context/authentication/infrastructure/persistence/mongo/MongoAdminRepository";
-import { AuthService } from "./context/authentication/application/services/AuthService";
-import { AuthController } from "./context/authentication/infrastructure/web/AuthController";
-import { createAuthRouter } from "./context/authentication/infrastructure/web/AuthRoutes";
 import { WebPushAdapter } from "./context/notification/infrastructure/adapters/WebPushAdapter";
 import { MongoSubscriptionRepository } from "./context/notification/infrastructure/persistence/mongo/MongoSubscriptionRepo";
 import { NotificationService } from "./context/notification/application/NotificationService";
@@ -17,10 +13,10 @@ import { NotificationController } from "./context/notification/infrastructure/de
 
 import {
   ActivityAddedEvent,
-  //CoreContextFactory,
-  //CoreController,
-  //CoreRoutes,
-  //AuthContextAdapter,
+  CoreContextFactory,
+  CoreController,
+  CoreRoutes,
+  AuthContextAdapter,
 } from "./context/core";
 
 const app = express();
@@ -31,23 +27,21 @@ async function bootstrap() {
   try {
     await mongoose.connect(env.MONGO_URI);
     const eventBus = new InMemoryEventBus();
-    //const mongoClient = mongoose.connection.getClient() as unknown as MongoClient;
+    const mongoClient =
+      mongoose.connection.getClient() as unknown as MongoClient;
 
     console.log("Connesso a MongoDB");
 
-    const adminRepo = new MongoAdminRepository();
-    const authService = new AuthService(adminRepo);
-    const authController = new AuthController(authService);
-    const authRouter = createAuthRouter(authController);
+    const authModule = AuthenticationContextFactory.create();
 
-    /*const authAdapter = new AuthContextAdapter(authFacade);
+    const authAdapter = new AuthContextAdapter(authModule.facade);
     const coreContext = CoreContextFactory.create(
-        mongoClient,
-        authAdapter,
-        eventBus,
-    );*/
-    //const coreController = new CoreController(coreContext);
-    //const coreRoutes = new CoreRoutes(coreController);
+      mongoClient,
+      authAdapter,
+      eventBus,
+    );
+    const coreController = new CoreController(coreContext);
+    const coreRoutes = new CoreRoutes(coreController);
 
     const notificationSender = new WebPushAdapter();
     const subscriptionRepo = new MongoSubscriptionRepository();
@@ -71,8 +65,8 @@ async function bootstrap() {
     );
 
     app.use("/api/notifications", notificationRouter);
-    app.use("/api/auth", authRouter);
-    //app.use("/api/core", coreRoutes.getRouter());
+    app.use("/api/auth", authModule.router);
+    app.use("/api/core", coreRoutes.getRouter());
 
     app.listen(env.PORT, () => {
       console.log(`
