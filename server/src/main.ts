@@ -1,16 +1,10 @@
 import { env } from "./shared/config/env";
 import express from "express";
 import mongoose from "mongoose";
-import { AuthenticationContextFactory } from "./context/authentication";
 import { MongoClient } from "mongodb";
 
 import { InMemoryEventBus } from "./shared/infrastructure/bus/InMemoryEventBus";
-import { WebPushAdapter } from "./context/notification/infrastructure/adapters/WebPushAdapter";
-import { MongoSubscriptionRepository } from "./context/notification/infrastructure/persistence/mongo/MongoSubscriptionRepo";
-import { NotificationService } from "./context/notification/application/NotificationService";
-import { ActivityAddedListener } from "./context/notification/application/subscribers/ActivityAddedListener";
-import { NotificationController } from "./context/notification/infrastructure/delivery/http/NotificationController";
-
+import { AuthenticationContextFactory } from "./context/authentication";
 import {
   ActivityAddedEvent,
   CoreContextFactory,
@@ -18,6 +12,13 @@ import {
   CoreRoutes,
   AuthContextAdapter,
 } from "./context/core";
+import {
+  WebPushAdapter,
+  MongoSubscriptionRepository,
+  NotificationService,
+  ActivityAddedListener,
+  NotificationController,
+} from "./context/notification";
 
 const app = express();
 
