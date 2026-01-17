@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 import { MongoClient } from "mongodb";
 
 import { InMemoryEventBus } from "./shared/infrastructure/bus/InMemoryEventBus";
-import { AuthenticationContextFactory } from "./context/authentication";
+import {
+  AuthenticationContextFactory,
+  AuthController,
+  AuthRoutes,
+} from "./context/authentication";
 import {
   ActivityAddedEvent,
   CoreContextFactory,
@@ -33,9 +37,11 @@ async function bootstrap() {
 
     console.log("Connesso a MongoDB");
 
-    const authModule = AuthenticationContextFactory.create();
+    const authContext = AuthenticationContextFactory.create();
+    const authController = new AuthController(authContext.authPort);
+    const authRoutes = new AuthRoutes(authController);
 
-    const authAdapter = new AuthContextAdapter(authModule.facade);
+    const authAdapter = new AuthContextAdapter(authContext.facade);
     const coreContext = CoreContextFactory.create(
       mongoClient,
       authAdapter,
@@ -66,7 +72,7 @@ async function bootstrap() {
     );
 
     app.use("/api/notifications", notificationRouter);
-    app.use("/api/auth", authModule.router);
+    app.use("/api/auth", authRoutes.getRouter());
     app.use("/api/core", coreRoutes.getRouter());
 
     app.listen(env.PORT, () => {

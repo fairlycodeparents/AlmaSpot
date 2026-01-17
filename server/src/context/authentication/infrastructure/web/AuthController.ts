@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { AuthService } from "../../application/services/AuthService";
 import { signUpSchema, loginSchema } from "./schemas/AuthSchemas";
+import { AuthInputPort } from "../../application/ports/AuthInputPort";
 
 export class AuthController {
-  constructor(private service: AuthService) {}
+  constructor(private readonly service: AuthInputPort) {}
 
   async signUp(req: Request, res: Response) {
     const result = signUpSchema.safeParse(req.body);
