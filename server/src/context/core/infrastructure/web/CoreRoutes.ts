@@ -1,0 +1,35 @@
+import { Router } from "express";
+import { CoreController } from "./CoreController";
+
+export class CoreRoutes {
+  private router = Router();
+
+  constructor(private controller: CoreController) {
+    this.initRoutes();
+  }
+
+  private initRoutes() {
+    this.router.get(
+      "/rooms/free-by-campus",
+      this.controller.findFreeRoomsByCampus,
+    );
+
+    this.router.get("/rooms/free-by-site", this.controller.findFreeRoomsBySite);
+
+    this.router.get("/activities", this.controller.getActivities);
+
+    this.router.post(
+      "/activities/external",
+      this.controller.createExternalActivity,
+    );
+
+    this.router.delete(
+      "/activities/external/:id",
+      this.controller.deleteExternalActivity,
+    );
+  }
+
+  getRouter() {
+    return this.router;
+  }
+}
