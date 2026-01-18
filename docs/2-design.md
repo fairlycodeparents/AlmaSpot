@@ -56,24 +56,25 @@ asynchronously without coupling the logic.
 
 ![Search Context diagram](figures/search-context.png)
 
-This context acts as the intelligent interface between the user's needs and the system's data.
-The logic is encapsulated within the **Search Orchestrator**, a Domain Service that manages the
-resolution strategy. Upon receiving a query, the orchestrator first interacts with the
-**RoomSearchService** (located in the [Core context](#21-core-context)) to find immediate
-availability.
+This context acts as the intelligent interface between users' needs and the system's data.
+The logic is encapsulated within the **Search Service**, a Domain Service that manages the
+resolution strategy. Upon receiving a query (as a list of messages), the service first interacts with the
+**AI Service** to extract structured parameters, such as the desired time slot and campus location.
 
-If a direct match is not found, the orchestrator delegates the complexity to the **AIService**.
-This service processes a **Request**, which wraps the user's prompt and the relevant
-**ContextData** (the list of currently occupied **Slots**). The output is a **Suggestion** value
-object,
-which aggregates a natural language explanation and a structured **Plan**. This plan is composed of
-one or more **Slots**, offering the student a compound itinerary.
+Using these parameters, the service queries the **Room Search Service** in the [Core Context](#21-core-context)
+to identify currently available **Slots** that match the user's criteria. If a perfect match is found,
+it is immediately returned as a **Solution** value object, which includes both a natural-language
+explanation and the structured data.
 
-Finally, to facilitate integration, this context relies on a _Shared Kernel_ strategy. The
-fundamental concept of **Period** is shared globally with the Core and Notification contexts to
-ensure temporal consistency. Furthermore,
-the **Plan** and **Slot** value objects are shared specifically with
-the [Notification context](#23-notification-context).
+If no direct match exists, the service escalates the request to the **AI Service** again.
+This time it provides both the original user prompt and the list of currently available slots.
+The AI processes this information to generate a **Suggestion** value object, which contains
+a natural-language explanation and a structured **Plan** (a collection of one or more slots),
+offering the student a compound itinerary.
+
+To facilitate integration, this context relies on a _shared kernel_ strategy. The fundamental concept of
+**Period** is shared globally with the core and notification contexts to ensure temporal consistency. Furthermore,
+the **Plan** and **Slot** value objects are shared specifically with the [Notification Context](#23-notification-context).
 This decision allows the **Solution** generated here to be directly persisted as a
 **Subscription** in the Notification module without requiring complex data mapping or translation.
 
