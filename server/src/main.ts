@@ -23,6 +23,8 @@ import {
   ActivityAddedListener,
   NotificationController,
 } from "./context/notification";
+import { SearchController, SearchRoutes } from "./context/search";
+import { SearchContextFactory } from "./context/search/SearchContextFactory";
 
 const app = express();
 
@@ -71,9 +73,14 @@ async function bootstrap() {
       notificationController.subscribe(req, res),
     );
 
+    const searchService = SearchContextFactory.create(coreContext);
+    const searchController = new SearchController(searchService);
+    const searchRoutes = new SearchRoutes(searchController);
+
     app.use("/api/notifications", notificationRouter);
     app.use("/api/auth", authRoutes.getRouter());
     app.use("/api/core", coreRoutes.getRouter());
+    app.use("/api/search", searchRoutes.getRouter());
 
     app.listen(env.PORT, () => {
       console.log(`
@@ -85,6 +92,7 @@ async function bootstrap() {
       - Auth: http://localhost:${env.PORT}/api/auth
       - Core: http://localhost:${env.PORT}/api/core
       - Notifications: http://localhost:${env.PORT}/api/notifications
+      - Search: http://localhost:${env.PORT}/api/search
       ------------------------------------------
       `);
     });
