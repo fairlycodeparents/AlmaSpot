@@ -2,7 +2,7 @@ import { describe, it, beforeEach } from "node:test";
 import assert from "node:assert";
 import { Request, Response, NextFunction } from "express";
 import { SearchController } from "./SearchController";
-import { SearchUseCase } from "../../domain/InboundPorts";
+import { SearchUseCase } from "../../application/ports/InboundPorts";
 import { SearchRequestDTO, SuggestionDTO } from "../../application/DTOs";
 
 describe("SearchController", () => {

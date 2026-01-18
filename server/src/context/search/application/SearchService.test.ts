@@ -1,14 +1,14 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { SearchService } from "./SearchService";
-import { AI, RoomAvailability } from "./OutboundPorts";
+import { AI, RoomAvailability } from "./ports/OutboundPorts";
 import { SearchRequestDTO } from "./DTOs";
 import { UserRequest, AvailableRoom, Suggestion } from "../domain/Entities";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { Plan } from "shared/domain/Plan";
 
-describe("SearchPlanService", () => {
+describe("SearchService", () => {
   it("must execute steps in strict sequence: extract -> availability -> suggestion", async () => {
     const messages = ["I need a room for a study session."];
     const request: SearchRequestDTO = { userMessages: messages };

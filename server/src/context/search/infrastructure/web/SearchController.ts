@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { SearchUseCase } from "../../domain/InboundPorts";
+import { SearchUseCase } from "../../application/ports/InboundPorts";
 import { SearchRequestDTO } from "../../application/DTOs";
 
 /** Controller for handling search requests. */
