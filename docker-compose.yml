@@ -13,6 +13,37 @@ services:
       - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
     networks:
       - almaspot-network
+    healthcheck:
+      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  server:
+    build: ./server
+    container_name: almaspot-server
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/${MONGO_DB_NAME}?authSource=admin
+      - PORT=${PORT}
+      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+      - NODE_ENV=${NODE_ENV}
+      - HOST=0.0.0.0
+
+    command: npm run dev
+
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+
+    networks:
+      - almaspot-network
+
+    depends_on:
+      mongo:
+        condition: service_healthy
 
   unibo-provider:
     build:

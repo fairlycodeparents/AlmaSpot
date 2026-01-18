@@ -13,8 +13,10 @@
   },
   "scripts": {
     "dev": "tsx watch src/main.ts",
-    "build": "tsc --noEmit",
-    "test": "tsx --test \"**/*.test.ts\" \"**/*.spec.ts\"",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "test": "find src -name '*.test.ts' -o -name '*.spec.ts' | xargs tsx --test",
     "test:coverage": "c8 npm test"
   },
   "devDependencies": {
