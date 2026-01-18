@@ -47,7 +47,7 @@ services:
 
   unibo-provider:
     build:
-      context: server/unibo-provider
+      context: unibo-provider
       dockerfile: Dockerfile
     container_name: almaspot-unibo-provider
     ports:
