@@ -1,14 +1,14 @@
 import { Request, Response, NextFunction } from "express";
-import { SearchPlanService } from "../../application/SearchPlanService";
+import { SearchUseCase } from "../../domain/InboundPorts";
 import { SearchRequestDTO } from "../../application/DTOs";
 
 /** Controller for handling search requests. */
 export class SearchController {
   /**
-   * Creates an instance of SearchController.
-   * @param service - The search plan service to handle search logic.
+   * Constructor for `SearchController`.
+   * @param useCase - An instance of `SearchUseCase` to handle search logic.
    */
-  constructor(private service: SearchPlanService) {}
+  constructor(private useCase: SearchUseCase) {}
 
   /**
    * Handles search requests.
@@ -33,7 +33,7 @@ export class SearchController {
       }
 
       const request: SearchRequestDTO = { userMessages };
-      const suggestion = await this.service.search(request);
+      const suggestion = await this.useCase.search(request);
 
       res.json(suggestion);
     } catch (error) {

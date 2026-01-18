@@ -23,8 +23,7 @@ import {
   ActivityAddedListener,
   NotificationController,
 } from "./context/notification";
-import { SearchController, SearchRoutes } from "./context/search";
-import { SearchContextFactory } from "./context/search/SearchContextFactory";
+import * as SearchContext from "./context/search";
 
 const app = express();
 
@@ -51,6 +50,7 @@ async function bootstrap() {
     );
     const coreController = new CoreController(coreContext);
     const coreRoutes = new CoreRoutes(coreController);
+    const searchRoutes = SearchContext.create(coreContext);
 
     const notificationSender = new WebPushAdapter();
     const subscriptionRepo = new MongoSubscriptionRepository();
@@ -72,10 +72,6 @@ async function bootstrap() {
     notificationRouter.post("/subscribe", (req, res) =>
       notificationController.subscribe(req, res),
     );
-
-    const searchService = SearchContextFactory.create(coreContext);
-    const searchController = new SearchController(searchService);
-    const searchRoutes = new SearchRoutes(searchController);
 
     app.use("/api/notifications", notificationRouter);
     app.use("/api/auth", authRoutes.getRouter());
