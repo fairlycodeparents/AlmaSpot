@@ -1,6 +1,4 @@
-import { Period } from "../../../../shared/domain/Period";
 import { Campus, Site } from "../../../../shared/domain/Location";
-import { Activity } from "./Activity";
 
 export enum RoomType {
   CLASSROOM = "CLASSROOM",
@@ -15,11 +13,4 @@ export class Room {
     public campus: Campus,
     public site: Site,
   ) {}
-
-  isFreeInPeriod(period: Period, activities: Activity[]): boolean {
-    const conflict = activities.some((activity) =>
-      activity.period.overlaps(period),
-    );
-    return !conflict;
-  }
 }
