@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { after, before, beforeEach, describe, it } from "node:test";
 import assert from "node:assert";
 import { MongoClient } from "mongodb";
@@ -11,9 +12,7 @@ import {
 } from "../../../domain/model/Activity";
 import { Period } from "../../../../../shared/domain/Period";
 
-const TEST_DB_URL =
-  process.env["MONGO_URI"] ||
-  "mongodb://root:password@localhost:27017/almaspot?authSource=admin";
+const TEST_DB_URL = process.env["MONGO_URI"];
 const TEST_DB_NAME = "almaspot_integration_test";
 
 describe("MongoRoomRepository Integration Test", async () => {
@@ -21,7 +20,9 @@ describe("MongoRoomRepository Integration Test", async () => {
   let repo: MongoRoomRepository;
 
   before(async () => {
-    client = new MongoClient(TEST_DB_URL);
+    if (TEST_DB_URL != null) {
+      client = new MongoClient(TEST_DB_URL);
+    }
     await client.connect();
     repo = new MongoRoomRepository(client, TEST_DB_NAME);
   });
