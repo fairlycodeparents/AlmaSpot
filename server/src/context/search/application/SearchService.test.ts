@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
-import { SearchPlanService } from "./SearchPlanService";
-import { AI, RoomAvailability } from "./ExternalPorts";
+import { SearchService } from "./SearchService";
+import { AI, RoomAvailability } from "./OutboundPorts";
 import { SearchRequestDTO } from "./DTOs";
 import { UserRequest, AvailableRoom, Suggestion } from "../domain/Entities";
 import { Period } from "shared/domain/Period";
@@ -46,7 +46,7 @@ describe("SearchPlanService", () => {
       },
     };
 
-    const service = new SearchPlanService(mockAI, mockAvailability);
+    const service = new SearchService(mockAI, mockAvailability);
     const result = await service.search(request);
     assert.deepStrictEqual(executionOrder, [
       "extractRequest",

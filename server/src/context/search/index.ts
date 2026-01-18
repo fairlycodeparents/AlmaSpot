@@ -1,5 +1,5 @@
 import { CoreFacade } from "context/core";
-import { SearchPlanService } from "./application/SearchPlanService";
+import { SearchService } from "./application/SearchService";
 import { AIAdapter } from "./infrastructure/adapters/AIAdapter";
 import { RoomAvailabilityAdapter } from "./infrastructure/adapters/RoomAvailabilityAdapter";
 import { SearchController } from "./infrastructure/web/SearchController";
@@ -16,7 +16,7 @@ export { SearchRoutes } from "./infrastructure/web/SearchRoutes";
 export function create(coreFacade: CoreFacade): SearchRoutes {
   const aiAdapter = new AIAdapter();
   const roomAdapter = new RoomAvailabilityAdapter(coreFacade);
-  const service = new SearchPlanService(aiAdapter, roomAdapter);
+  const service = new SearchService(aiAdapter, roomAdapter);
   const controller = new SearchController(service);
   return new SearchRoutes(controller);
 }

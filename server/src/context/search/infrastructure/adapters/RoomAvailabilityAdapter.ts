@@ -1,4 +1,4 @@
-import { RoomAvailability } from "context/search/application/ExternalPorts";
+import { RoomAvailability } from "context/search/application/OutboundPorts";
 import { UserRequest, AvailableRoom } from "context/search/domain/Entities";
 import { CoreFacade } from "context/core";
 
