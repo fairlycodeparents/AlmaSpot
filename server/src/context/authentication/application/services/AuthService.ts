@@ -3,9 +3,10 @@ import * as jwt from "jsonwebtoken";
 import { v4 as uuid4 } from "uuid";
 import type { AdminRepository } from "../../domain/ports/AdminRepository";
 import { Administrator } from "../../domain/model/Administrator";
+import { AuthInputPort } from "../ports/AuthInputPort";
 import { env } from "../../../../shared/config/env";
 
-export class AuthService {
+export class AuthService implements AuthInputPort {
   private readonly JWT_SECRET = env.JWT_SECRET;
 
   private readonly HASH_CONFIG = {

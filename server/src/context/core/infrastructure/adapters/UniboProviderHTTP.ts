@@ -13,8 +13,7 @@ interface GoActivityDTO {
 }
 
 export class UniboProviderHTTP implements UniboProvider {
-  private baseUrl =
-    process.env["UNIBO_SERVICE_URL"] || "http://unibo-provider:8080";
+  private baseUrl = process.env["UNIBO_SERVICE_URL"];
 
   async fetchInternalActivities(
     campus: Campus,

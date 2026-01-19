@@ -44,22 +44,6 @@ export class MongoRoomRepository implements RoomRepository {
     return docs.map(this.toRoomEntity);
   }
 
-  async getRoomCampus(roomId: string): Promise<Campus> {
-    const doc = await this.roomsCol.findOne({ id: roomId });
-    if (!doc) {
-      throw new Error(`Room with id ${roomId} not found`);
-    }
-    return doc["campus"];
-  }
-
-  async getRoomSite(roomId: string): Promise<Site> {
-    const doc = await this.roomsCol.findOne({ id: roomId });
-    if (!doc) {
-      throw new Error(`Room with id ${roomId} not found`);
-    }
-    return doc["site"];
-  }
-
   async getEventsPerRoom(roomId: string, date?: Date): Promise<Activity[]> {
     const query: any = { roomId: roomId };
     if (date) {

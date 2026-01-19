@@ -2,7 +2,7 @@ import { Slot } from "shared/domain/Slot";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { Plan } from "shared/domain/Plan";
-import { AI } from "context/search/application/ExternalPorts";
+import { AI } from "context/search/application/ports/OutboundPorts";
 import {
   AvailableRoom,
   UserRequest,

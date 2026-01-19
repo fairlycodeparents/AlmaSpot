@@ -6,7 +6,7 @@ import riminiRooms from "./data/rimini_rooms.json";
 import ravennaRooms from "./data/ravenna_rooms.json";
 
 const MONGO_URL = "mongodb://localhost:27017";
-const DB_NAME = process.env["MONGO_DB_NAME"] || "almaspot";
+const MONGO_DB_NAME = process.env["MONGO_DB_NAME"] || "almaspot";
 
 const ROOMS = [
   ...cesenaRooms,
@@ -22,7 +22,7 @@ async function run() {
     await client.connect();
     console.log("Connected to Mongo");
 
-    const db = client.db(DB_NAME);
+    const db = client.db(MONGO_DB_NAME);
     const collection = db.collection("rooms");
 
     for (const room of ROOMS) {

@@ -1,18 +1,22 @@
 import { SearchRequestDTO, SuggestionDTO } from "./DTOs";
-import { AI, RoomAvailability } from "./ExternalPorts";
-import { Suggestion } from "../domain/Entities";
-import { Plan } from "../../../shared/domain/Plan";
+import {
+  AI,
+  RoomAvailability,
+} from "context/search/application/ports/OutboundPorts";
+import { Suggestion } from "context/search/domain/Entities";
+import { Plan } from "shared/domain/Plan";
+import { SearchUseCase } from "context/search/application/ports/InboundPorts";
 
 /**
  * Service responsible for handling the search of plans based on user input.
  * It interacts with AI and RoomAvailability to process user requests and provide suitable room suggestions.
  */
-export class SearchPlanService {
+export class SearchService implements SearchUseCase {
   private ai: AI;
   private availability: RoomAvailability;
 
   /**
-   * Constructor for `SearchPlanService`.
+   * Constructor for `SearchService`.
    * @param ai - An instance of `AI` port, used to process user input and generate plans.
    * @param availability - An instance of `RoomAvailability` port, to check for available rooms.
    */

@@ -1,16 +1,16 @@
 import { RoomSearchService } from "./application/services/RoomSearchService";
 import { ActivityManagementService } from "./application/services/ActivityManagementService";
 import { MongoClient } from "mongodb";
-import { AuthService } from "./domain/ports/ServicePorts";
 import { EventBus } from "../../shared/domain/EventBus";
 import { MongoRoomRepository } from "./infrastructure/persistence/mongo/MongoRoomRepository";
 import { UniboProviderHTTP } from "./infrastructure/adapters/UniboProviderHTTP";
 import { CoreFacade } from "./application/CoreFacade";
+import { AuthContextAdapter } from "./infrastructure/adapters/AuthContextAdapter";
 
 export class CoreContextFactory {
   static create(
     mongoClient: MongoClient,
-    authService: AuthService,
+    authService: AuthContextAdapter,
     eventBus: EventBus,
   ): CoreFacade {
     const dbName = process.env["MONGO_DB_NAME"] || "almaspot";

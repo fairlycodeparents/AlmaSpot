@@ -1,11 +1,19 @@
 import { Router } from "express";
 import { AuthController } from "./AuthController";
 
-export const createAuthRouter = (controller: AuthController) => {
-  const router = Router();
+export class AuthRoutes {
+  private router = Router();
 
-  router.post("/signup", (req, res) => controller.signUp(req, res));
-  router.post("/login", (req, res) => controller.login(req, res));
+  constructor(private readonly controller: AuthController) {
+    this.initRoutes();
+  }
 
-  return router;
-};
+  private initRoutes() {
+    this.router.post("/signup", (req, res) => this.controller.signUp(req, res));
+    this.router.post("/login", (req, res) => this.controller.login(req, res));
+  }
+
+  public getRouter(): Router {
+    return this.router;
+  }
+}
