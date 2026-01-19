@@ -1,3 +1,65 @@
+## 2.0.0 (2026-01-19)
+
+- feat!: restructure architecture to client-server and expose HTTP API (#37) ([d6c22c1](https://github.com/fairlycodeparents/AlmaSpot/commit/d6c22c1)), closes [#37](https://github.com/fairlycodeparents/AlmaSpot/issues/37)
+- chore(deps): update dependency @types/node to v25.0.9 (#30) ([6b9c4ce](https://github.com/fairlycodeparents/AlmaSpot/commit/6b9c4ce)), closes [#30](https://github.com/fairlycodeparents/AlmaSpot/issues/30)
+
+### BREAKING CHANGE
+
+- backend API are now exposed using HTTP
+- refactor: reorganize project structure to enforce client-server division
+
+- chore(package): update and split package.json between root and server
+
+- feat(notification): integrate notification context into application boostrap
+
+- fix(env): add Unibo Provider service URL to environment example and rename DB_NAME variable
+
+- fix: rerun npm install and prettier
+
+- feat(core): implement core controller and routes for room and activity management
+
+- feat(core): add CoreController, CoreRoutes, and AuthContextAdapter exports
+
+- feat: setup main for core context (to uncomment)
+
+- refactor(authentication): implement authentication factory and cleanup main
+
+- ci: update CI configuration to separate server build and test jobs
+
+- refactor(notification): streamline notification imports in main module
+
+- refactor(authentication): add input ports and standardize router class
+
+- feat(search): impl controller and routes for search functionality
+
+- refactor(authentication): correct type definitions
+
+- feat(search): implement SearchUseCase interface and refactor SearchController to use it
+
+- refactor(search): rename SearchPlanService to SearchService and ExternalPorts to OutboundPorts
+
+- fix(authentication): correct property name for identifier
+
+- refactor(search): update packages structure
+
+- docs(figures): update notification context design diagram
+
+- feat: update environment variable handling in MongoRoomRepository and UniboProviderHTTP
+
+- refactor(core): remove unused methods for campus and site retrieval
+
+- docs(core): updated core-context diagram
+
+- docs(figures): update authentication context diagram
+
+- build(docker): dockerize server and update CI pipeline
+
+- refactor: move unibo-provider off the server
+
+- docs(figures): updated core-context diagram
+
+- docs: update terminology and clarify search service logic in design documents
+
 ## [1.4.3](https://github.com/fairlycodeparents/AlmaSpot/compare/1.4.2...1.4.3) (2026-01-18)
 
 ### Bug Fixes
