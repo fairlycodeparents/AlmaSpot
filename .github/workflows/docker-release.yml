@@ -36,9 +36,13 @@ jobs:
             echo "TAG_NAME=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
             echo "Mode: caused by release event"
           else
-            LATEST_TAG=$(gh release view --json tagName --jq .tagName --repo ${{ github.repository }})
-            echo "TAG_NAME=$LATEST_TAG" >> $GITHUB_OUTPUT
-            echo "Mode: manual"
+            if LATEST_TAG=$(gh release view --json tagName --jq .tagName --repo ${{ github.repository }}); then
+              echo "TAG_NAME=$LATEST_TAG" >> $GITHUB_OUTPUT
+              echo "Mode: manual (using latest release tag)"
+            else
+              echo "Error: Failed to determine Docker tag. No releases found in repository '${{ github.repository }}'. Please create at least one release before running this workflow manually." >&2
+              exit 1
+            fi
           fi
 
       - name: Build and push
