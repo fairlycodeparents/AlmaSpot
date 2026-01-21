@@ -1,3 +1,9 @@
+## <small>2.0.1 (2026-01-21)</small>
+
+- chore(core-deps): update dependency mongoose to v9.1.5 (#42) ([4f4c905](https://github.com/fairlycodeparents/AlmaSpot/commit/4f4c905)), closes [#42](https://github.com/fairlycodeparents/AlmaSpot/issues/42)
+- chore(deps): update golang docker tag to v1.25 (#32) ([f7adeb0](https://github.com/fairlycodeparents/AlmaSpot/commit/f7adeb0)), closes [#32](https://github.com/fairlycodeparents/AlmaSpot/issues/32)
+- ci: add GHA workflow for Docker release (#39) ([288daa2](https://github.com/fairlycodeparents/AlmaSpot/commit/288daa2)), closes [#39](https://github.com/fairlycodeparents/AlmaSpot/issues/39)
+
 ## 2.0.0 (2026-01-19)
 
 - feat!: restructure architecture to client-server and expose HTTP API (#37) ([d6c22c1](https://github.com/fairlycodeparents/AlmaSpot/commit/d6c22c1)), closes [#37](https://github.com/fairlycodeparents/AlmaSpot/issues/37)
