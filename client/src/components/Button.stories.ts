@@ -16,16 +16,38 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const OnlyText: Story = {
+export const TextOnly: Story = {
   args: {
     label: "Counter",
     action: fn(),
   },
 };
 
-export const WithIcon: Story = {
+export const TextAndIcon: Story = {
   args: {
     label: "Next",
+    icon: {
+      src: "/icons/arrow-right.svg",
+      alt: "Right arrow icon",
+    },
+    action: fn(),
+  },
+};
+
+export const IconAndText: Story = {
+  args: {
+    label: "Back",
+    icon: {
+      src: "/icons/arrow-left.svg",
+      alt: "Left arrow icon",
+    },
+    action: fn(),
+    isIconLeft: false,
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
     icon: {
       src: "/icons/arrow-right.svg",
       alt: "Right arrow icon",
