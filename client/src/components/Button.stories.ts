@@ -9,7 +9,11 @@ const meta = {
   argTypes: {
     action: { action: "clicked" },
     label: { control: "text" },
-    icon: { control: "text" },
+    icon: {
+      src: { control: "text" },
+      alt: { control: "text" },
+    },
+    isIconRight: { control: "boolean" },
   },
 } satisfies Meta<typeof Button>;
 
@@ -42,7 +46,7 @@ export const IconAndText: Story = {
       alt: "Left arrow icon",
     },
     action: fn(),
-    isIconLeft: false,
+    isIconRight: false,
   },
 };
 
