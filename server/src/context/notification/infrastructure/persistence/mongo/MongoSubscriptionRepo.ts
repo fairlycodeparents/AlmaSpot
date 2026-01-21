@@ -62,7 +62,7 @@ export class MongoSubscriptionRepository implements SubscriptionRepository {
       "plan.slots": {
         $elemMatch: {
           roomId: roomId,
-          startTime: { $lte: period.start },
+          startTime: { $lt: period.end },
           endTime: { $gt: period.start },
         },
       },
