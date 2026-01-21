@@ -40,7 +40,6 @@ withDefaults(defineProps<ButtonConfig>(), {
         :src="icon.src"
         :alt="icon.alt"
         class="size-6 object-cover rounded-full shrink-0"
-        :aria-hidden="label ? 'true' : 'false'"
     />
   </button>
 </template>
