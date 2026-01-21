@@ -8,19 +8,21 @@ export class NotificationController {
 
   async subscribe(req: Request, res: Response) {
     try {
-      const { subscription, plan } = req.body;
-      if (!subscription || !subscription.endpoint || !plan) {
-        return res.status(400).json({ error: "Missing subscription or plan" });
+      const { subscription, details } = req.body;
+      if (!subscription || !details) {
+        return res
+          .status(400)
+          .json({ error: "Missing subscription or details" });
       }
-      if (!subscription.keys?.p256dh || !subscription.keys?.auth) {
+      if (!details.keys?.p256dh || !details.keys?.auth) {
         return res.status(400).json({ error: "Missing Encryption Keys" });
       }
-      const studentId = subscription.endpoint;
-      const domainPlan = Plan.fromPrimitives(plan);
+      const studentId = subscription.studentId;
+      const domainPlan = Plan.fromPrimitives(subscription.plan.slots);
       const deliveryDetails: DeliveryDetails = {
         type: "WEB_PUSH",
-        endpoint: subscription.endpoint,
-        keys: subscription.keys,
+        endpoint: details.endpoint,
+        keys: details.keys,
       };
       await this.service.subscribe(studentId, domainPlan, deliveryDetails);
       return res.status(201).send();
