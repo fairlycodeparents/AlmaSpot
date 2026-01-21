@@ -3,11 +3,24 @@ export default {
   theme: {
     extend: {
       colors: {
-        almaRed: "#C81E28",
-        almaDark: "#1A1A1A",
-      },
-      borderRadius: {
-        "3xl": "1.5rem",
+        brand: {
+          DEFAULT: "#BB2E29",
+          dark: "#A02622",
+          text: "#FFFFFF",
+        },
+
+        base: {
+          background: "#FFFFFF",
+          text: "#000000",
+        },
+
+        ui: {
+          card: "#E5E4E4",
+        },
+
+        accent: {
+          DEFAULT: "#FFCC00",
+        },
       },
     },
   },
