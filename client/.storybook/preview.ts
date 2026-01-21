@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/vue3-vite";
+// @ts-ignore
+import "../src/style.css";
 
 const preview: Preview = {
   parameters: {
