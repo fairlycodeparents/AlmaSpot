@@ -3,6 +3,7 @@ import express from "express";
 import mongoose from "mongoose";
 import { MongoClient } from "mongodb";
 
+import { seedRooms } from "./scripts/SeedRooms";
 import { InMemoryEventBus } from "./shared/infrastructure/bus/InMemoryEventBus";
 import {
   AuthenticationContextFactory,
@@ -35,6 +36,7 @@ async function bootstrap() {
     const eventBus = new InMemoryEventBus();
     const mongoClient =
       mongoose.connection.getClient() as unknown as MongoClient;
+    await seedRooms(mongoClient.db());
 
     console.log("Connesso a MongoDB");
 
