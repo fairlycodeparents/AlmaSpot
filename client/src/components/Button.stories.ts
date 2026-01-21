@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const OnlyText: Story = {
   args: {
-    label: "Cliccami",
+    label: "Counter",
     action: fn(),
   },
 };
@@ -26,7 +26,10 @@ export const OnlyText: Story = {
 export const WithIcon: Story = {
   args: {
     label: "Next",
-    icon: "/icons/arrow-right.svg",
+    icon: {
+      src: "/icons/arrow-right.svg",
+      alt: "Right arrow icon",
+    },
     action: fn(),
   },
 };
