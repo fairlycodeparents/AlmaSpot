@@ -1,18 +1,16 @@
 <script setup lang="ts">
-type Icon = {
-  src: string
-  alt: string
-}
-
-type ButtonConfig = {
+export type ButtonConfig = {
   action: () => void
   label?: string
-  icon?: Icon
-  isIconLeft?: boolean
+  icon?: {
+    src: string
+    alt: string
+  }
+  isIconRight?: boolean
 }
 
 withDefaults(defineProps<ButtonConfig>(), {
-  isIconLeft: true
+  isIconRight: true
 })
 </script>
 
@@ -30,7 +28,7 @@ withDefaults(defineProps<ButtonConfig>(), {
       gap-2
       shadow-sm active:scale-99
     "
-      :class="{ 'flex-row-reverse': !isIconLeft, 'justify-center': !icon || !label }"
+      :class="{ 'flex-row-reverse': !isIconRight, 'justify-center': !icon || !label }"
       @click="action"
   >
     <span v-if="label">{{ label }}</span>
