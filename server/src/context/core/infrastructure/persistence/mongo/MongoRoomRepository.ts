@@ -44,6 +44,18 @@ export class MongoRoomRepository implements RoomRepository {
     return docs.map(this.toRoomEntity);
   }
 
+  async getSitesByCampus(campus: Campus): Promise<Site[]> {
+    const sites = await this.roomsCol
+      .aggregate([
+        { $match: { campus: campus } },
+        { $group: { _id: "$site" } },
+        { $replaceRoot: { newRoot: "$_id" } },
+      ])
+      .toArray();
+
+    return sites.map((s) => new Site(s["campus"], s["address"]));
+  }
+
   async getEventsPerRoom(roomId: string, date?: Date): Promise<Activity[]> {
     const query: any = { roomId: roomId };
     if (date) {
@@ -78,25 +90,24 @@ export class MongoRoomRepository implements RoomRepository {
 
   async deleteExternalActivity(activityId: string): Promise<void> {
     await this.activitiesCol.deleteOne({
-      _id: activityId,
+      id: activityId,
       type: ActivityType.EXTERNAL_ACTIVITY,
     });
   }
 
   async saveExternalActivity(activityId: ExternalActivity): Promise<void> {
     const doc = {
-      _id: activityId.id,
+      id: activityId.id,
       roomId: activityId.roomId,
       campus: activityId.campus,
       title: activityId.title,
       type: ActivityType.EXTERNAL_ACTIVITY,
-      description: activityId.description,
       authorId: activityId.authorId,
       period: { start: activityId.period.start, end: activityId.period.end },
     };
 
     await this.activitiesCol.updateOne(
-      { _id: activityId.id },
+      { id: activityId.id },
       { $set: doc },
       { upsert: true },
     );
@@ -118,7 +129,7 @@ export class MongoRoomRepository implements RoomRepository {
     if (activities.length > 0) {
       const docs = activities.map((act) => ({
         ...act,
-        _id: act.id,
+        id: act.id,
         period: { start: act.period.start, end: act.period.end },
       }));
       try {
@@ -131,14 +142,14 @@ export class MongoRoomRepository implements RoomRepository {
 
   async getLastSync(campus: Campus, date: Date): Promise<Date | null> {
     const id = this.getSyncKey(campus, date);
-    const doc = await this.metadataCol.findOne({ _id: id });
+    const doc = await this.metadataCol.findOne({ id: id });
     return doc ? new Date(doc["lastSync"]) : null;
   }
 
   async setLastSync(campus: Campus, date: Date): Promise<void> {
     const id = this.getSyncKey(campus, date);
     await this.metadataCol.updateOne(
-      { _id: id },
+      { id: id },
       { $set: { lastSync: new Date() } },
       { upsert: true },
     );
@@ -159,7 +170,7 @@ export class MongoRoomRepository implements RoomRepository {
 
   private toRoomEntity(doc: any): Room {
     return new Room(
-      doc._id,
+      doc.id,
       doc.name,
       doc.type as RoomType,
       doc.campus as Campus,
@@ -174,7 +185,7 @@ export class MongoRoomRepository implements RoomRepository {
     );
 
     const base = {
-      id: doc._id,
+      id: doc.id,
       roomId: doc.roomId,
       campus: doc.campus,
       title: doc.title,
