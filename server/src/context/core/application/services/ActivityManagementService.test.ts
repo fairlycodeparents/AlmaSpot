@@ -157,7 +157,6 @@ describe("ActivityManagementService Test", () => {
       roomId: "AULA A",
       campus: "Cesena",
       title: "Hackathon",
-      description: "Coding",
       period: new Period(date(14), date(18)),
     } as ExternalActivity;
 
