@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import Dropdown from "./Dropdown.vue";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
 type OptionObj = { label: string; value: string };
 
@@ -32,6 +32,8 @@ const meta = {
   argTypes: {
     modelValue: { control: "text" },
     isFullWidth: { control: "boolean" },
+    placeholder: { control: "text" },
+    options: { control: "object" },
   },
 } satisfies Meta<typeof Dropdown>;
 
@@ -42,18 +44,24 @@ const renderTemplate = (args: any) => ({
   components: { Dropdown },
   setup() {
     const selected = ref(args.modelValue || "");
+
+    watch(
+      () => args.modelValue,
+      (newVal) => {
+        selected.value = newVal;
+      },
+    );
+
     return { args, selected };
   },
   template: `
-    <div class="p-4 bg-gray-50 min-h-37.5">
+    <div class="p-2 bg-gray-50 min-h-40 flex flex-col items-start gap-6">
       <Dropdown
-          v-model="selected"
           v-bind="args"
+          v-model="selected"
       />
-
-      <div class="mt-4 text-xs text-gray-500">
-        Valore reale (Model): <span class="font-mono font-bold">{{ selected || '(vuoto)' }}</span>
-      </div>
+      
+      <span class="font-mono">{{ selected || '(vuoto)' }}</span>
     </div>
   `,
 });
@@ -83,7 +91,7 @@ export const TimeSelection: Story = {
   args: {
     options: generateTimeSlots(),
     placeholder: "Ora Inizio",
-    modelValue: "09:00", // Esempio pre-selezionato
+    modelValue: "09:00",
     isFullWidth: false,
   },
 };
