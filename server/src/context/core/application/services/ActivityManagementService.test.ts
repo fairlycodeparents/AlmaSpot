@@ -54,58 +54,77 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: Non deve scaricare se sync fatto meno di 1 ora fa", async () => {
-    const now = new Date();
-    const recentSync = new Date(now.getTime() - 1000 * 60 * 30);
-
-    mockRoomRepository.getLastSync.mock.mockImplementation(
-      async () => recentSync,
+  it("syncEvent: NON deve scaricare dati se sono 'FRESH' (< 45 min)", async () => {
+    const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
+    (mockRoomRepository.getLastSync as any).mock.mockImplementation(
+      async () => tenMinutesAgo,
     );
-    await service.syncEvent(Campus.CESENA, new Date("2026-03-20"));
+
+    await service.syncEvent(Campus.CESENA, new Date());
 
     assert.strictEqual(
-      mockProvider.fetchInternalActivities.mock.calls.length,
+      (mockProvider.fetchInternalActivities as any).mock.calls.length,
       0,
     );
     assert.strictEqual(
-      mockRoomRepository.updateInternalActivities.mock.calls.length,
+      (mockRoomRepository.updateInternalActivities as any).mock.calls.length,
       0,
     );
   });
 
-  it("syncEvent: Deve scaricare, aggiornare DB e settare lastSync se sync mai fatto o vecchio", async () => {
-    mockRoomRepository.getLastSync.mock.mockImplementation(async () => null);
-
-    const fakeActivities = [{ title: "Lezione" }] as InternalActivity[];
-    mockProvider.fetchInternalActivities.mock.mockImplementation(
-      async () => fakeActivities,
+  it("syncEvent: DEVE scaricare in background se dati 'STALE' (es. 1 ora fa)", async () => {
+    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+    (mockRoomRepository.getLastSync as any).mock.mockImplementation(
+      async () => oneHourAgo,
     );
-    await service.syncEvent(Campus.CESENA, new Date("2026-03-20"));
+
+    await service.syncEvent(Campus.CESENA, new Date());
+
+    await new Promise((resolve) => setTimeout(resolve, 10));
 
     assert.strictEqual(
-      mockProvider.fetchInternalActivities.mock.calls.length,
+      (mockProvider.fetchInternalActivities as any).mock.calls.length,
       1,
     );
     assert.strictEqual(
-      mockRoomRepository.updateInternalActivities.mock.calls.length,
+      (mockRoomRepository.updateInternalActivities as any).mock.calls.length,
       1,
     );
-    assert.strictEqual(mockRoomRepository.setLastSync.mock.calls.length, 1);
+    assert.strictEqual(
+      (mockRoomRepository.setLastSync as any).mock.calls.length,
+      1,
+    );
   });
 
-  it("syncEvent: Deve evitare chiamate doppie simultanee", async () => {
-    mockRoomRepository.getLastSync.mock.mockImplementation(async () => null);
-    mockProvider.fetchInternalActivities.mock.mockImplementation(async () => {
-      await new Promise((r) => setTimeout(r, 50));
-      return [];
-    });
+  it("syncEvent: DEVE scaricare e attendere se dati 'EXPIRED' (> 24h o null)", async () => {
+    (mockRoomRepository.getLastSync as any).mock.mockImplementation(
+      async () => null,
+    );
 
-    const p1 = service.syncEvent(Campus.CESENA, new Date("2026-03-20"));
-    const p2 = service.syncEvent(Campus.CESENA, new Date("2026-03-20"));
-    await Promise.all([p1, p2]);
+    await service.syncEvent(Campus.CESENA, new Date());
 
     assert.strictEqual(
-      mockProvider.fetchInternalActivities.mock.calls.length,
+      (mockProvider.fetchInternalActivities as any).mock.calls.length,
+      1,
+    );
+    assert.strictEqual(
+      (mockRoomRepository.updateInternalActivities as any).mock.calls.length,
+      1,
+    );
+  });
+
+  it("syncEvent: NON deve eseguire fetch doppie se chiamato simultaneamente", async () => {
+    (mockRoomRepository.getLastSync as any).mock.mockImplementation(
+      async () => null,
+    );
+
+    await Promise.all([
+      service.syncEvent(Campus.CESENA, new Date()),
+      service.syncEvent(Campus.CESENA, new Date()),
+    ]);
+
+    assert.strictEqual(
+      (mockProvider.fetchInternalActivities as any).mock.calls.length,
       1,
     );
   });
