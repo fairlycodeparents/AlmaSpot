@@ -1,108 +1,65 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ChevronDown } from 'lucide-vue-next';
 
-type DropdownConfig = {
-  options: string[]
-  modelValue?: string
-  placeholder?: string
-  isFullWidth?: boolean
-  label?: string
+type Option = string | { label: string; value: string | number };
+
+interface Props {
+  modelValue: string | number;
+  options: Option[];
+  placeholder?: string;
+  isFullWidth?: boolean;
 }
 
-withDefaults(defineProps<DropdownConfig>(), {
-  options: () => [],
-  modelValue: '',
-  placeholder: 'Select...',
-  isFullWidth: false,
-  label: 'Options menu'
-})
+withDefaults(defineProps<Props>(), {
+  isFullWidth: true
+});
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
-}>()
+const emit = defineEmits(['update:modelValue']);
 
-const isOpen = ref(false)
-const containerRef = ref<HTMLElement | null>(null)
+const handleChange = (event: Event) => {
+  const target = event.target as HTMLSelectElement;
+  emit('update:modelValue', target.value);
+};
 
-const toggle = () => { isOpen.value = !isOpen.value }
-
-const select = (option: string) => {
-  emit('update:modelValue', option)
-  isOpen.value = false
-}
-
-const handleClickOutside = (e: MouseEvent) => {
-  if (containerRef.value && !containerRef.value.contains(e.target as Node)) {
-    isOpen.value = false
-  }
-}
-
-onMounted(() => document.addEventListener('click', handleClickOutside))
-onUnmounted(() => document.removeEventListener('click', handleClickOutside))
+const getValue = (opt: Option) => (typeof opt === 'object' ? opt.value : opt);
+const getLabel = (opt: Option) => (typeof opt === 'object' ? opt.label : opt);
 </script>
 
 <template>
   <div
-      ref="containerRef"
-      class="relative text-base"
-      :class="[isFullWidth ? 'w-full' : 'min-w-16 inline-block']"
+      class="relative group"
+      :class="isFullWidth ? 'w-full' : 'w-40'"
   >
-    <button
-        type="button"
-        @click="toggle"
+    <select
+        :value="modelValue"
+        @change="handleChange"
         class="
-        flex items-center justify-between
-        w-full px-5 py-3
-        bg-base-grey hover:bg-ui-card
+        peer w-full h-12 px-4 pr-10
+        appearance-none
+        bg-ui-card
+        border border-ui-border hover:border-gray-400
+        rounded-lg
         text-base-text font-medium
-        rounded-2xl
+        focus:outline-none focus:ring-1 focus:ring-brand
+        transition-all duration-200
         cursor-pointer
-        transition-colors duration-200
       "
+        :class="{ 'text-gray-800': !modelValue }"
     >
-      <span v-if="modelValue" class="truncate">{{ modelValue }}</span>
-      <span v-else class="truncate">{{ placeholder }}</span>
+      <option value="" disabled selected hidden>{{ placeholder || 'Seleziona...' }}</option>
 
-      <img
-          src="/icons/chevron-down.svg"
-          alt=""
-          class="w-5 h-5 ml-3"
-          :class="{ 'rotate-180': isOpen }"
-          aria-hidden="true"
-      />
-    </button>
+      <option
+          v-for="opt in options"
+          :key="String(getValue(opt))"
+          :value="getValue(opt)"
+          class="text-base-text"
+      >
+        {{ getLabel(opt) }}
+      </option>
+    </select>
 
-    <div
-        v-if="isOpen"
-        role="listbox"
-        class="
-        absolute z-50 mt-2 w-full
-        bg-base-grey
-        rounded-2xl shadow-lg border border-ui-border
-        max-h-60 overflow-y-auto
-      "
-    >
-      <ul>
-        <li
-            v-for="option in options"
-            :key="option"
-            role="option"
-            :aria-selected="option === modelValue"
-            @click="select(option)"
-            class="
-            px-5 py-2.5
-            cursor-pointer
-            text-base-text
-            transition-colors duration-150
-          "
-            :class="{
-              'bg-base-background': option === modelValue,
-              'hover:bg-ui-border': option !== modelValue
-            }"
-        >
-          {{ option }}
-        </li>
-      </ul>
+    <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-500 peer-focus:rotate-180 transition-all duration-200">
+      <ChevronDown :size="20" />
     </div>
   </div>
 </template>
