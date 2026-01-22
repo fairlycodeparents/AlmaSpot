@@ -19,19 +19,13 @@ export interface InternalActivityDTO extends BaseActivityDTO {
 
 export interface ExternalActivityDTO extends BaseActivityDTO {
   type: ActivityTypeDTO.EXTERNAL_ACTIVITY;
-  description?: string;
+  authorId?: string;
+}
+
+export interface CreateActivityDTO extends BaseActivityDTO {
+  campus: string;
+  site: string;
   authorId?: string;
 }
 
 export type ActivityDTO = InternalActivityDTO | ExternalActivityDTO;
-
-export interface CreateActivityDTO {
-  roomId: string;
-  title: string;
-  campus: string;
-  site: string;
-  startTime: Date;
-  endTime: Date;
-  description?: string;
-  authorId?: string;
-}

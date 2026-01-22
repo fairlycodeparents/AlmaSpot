@@ -34,7 +34,6 @@ type ActivityResponse struct {
 	Start      string   `json:"start"`
 	End        string   `json:"end"`
 	RoomCode   string   `json:"room_code"`
-	Address    string   `json:"address"`
 	Professors []string `json:"professors"`
 	CourseId   string   `json:"course_id"`
 }

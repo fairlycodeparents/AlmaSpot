@@ -12,7 +12,6 @@ export class ActivityAddedEvent implements DomainEvent {
     title: string;
     startTime: Date;
     endTime: Date;
-    description?: string;
   };
 
   constructor(data: {
@@ -22,7 +21,6 @@ export class ActivityAddedEvent implements DomainEvent {
     title: string;
     startTime: Date;
     endTime: Date;
-    description?: string;
   }) {
     this.ocurredOn = new Date();
     this.payload = data;
