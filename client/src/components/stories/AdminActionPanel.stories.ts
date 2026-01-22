@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import AdminActionPanel from "./AdminActionPanel.vue";
+import AdminActionPanel from "../AdminActionPanel.vue";
 import { fn } from "storybook/test";
 
 const meta = {

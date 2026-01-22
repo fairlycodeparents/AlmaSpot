@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import DurationSelector from "../components/DurationSelector.vue";
+import DurationSelector from "../DurationSelector.vue";
 import { ref } from "vue";
 
 const meta = {
