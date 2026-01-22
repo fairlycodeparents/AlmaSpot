@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { fn } from "storybook/test";
-import RoomCard from "./RoomCard.vue";
+import RoomCard from "../RoomCard.vue";
 
 const meta: Meta<typeof RoomCard> = {
   title: "Components/RoomCard",
