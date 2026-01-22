@@ -7,10 +7,12 @@ export type ButtonConfig = {
     alt: string
   }
   isIconRight?: boolean
+  isFullWidth?: boolean
 }
 
 withDefaults(defineProps<ButtonConfig>(), {
-  isIconRight: true
+  isIconRight: true,
+  isFullWidth: false
 })
 </script>
 
@@ -28,7 +30,11 @@ withDefaults(defineProps<ButtonConfig>(), {
       gap-2
       shadow-sm active:scale-99
     "
-      :class="{ 'flex-row-reverse': !isIconRight, 'justify-center': !icon || !label }"
+      :class="{
+        'flex-row-reverse': !isIconRight,
+        'justify-center': !icon || !label,
+        'w-full': isFullWidth
+      }"
       @click="action"
   >
     <span v-if="label">{{ label }}</span>
