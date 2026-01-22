@@ -107,7 +107,6 @@ describe("MongoRoomRepository Integration Test", async () => {
       roomId: "AULA-TEST-1",
       title: "Evento Studenti",
       type: ActivityType.EXTERNAL_ACTIVITY,
-      description: "Party",
       period: new Period(d(14), d(16)),
       campus: Campus.CESENA,
       authorId: "user-123",
