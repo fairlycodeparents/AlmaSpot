@@ -1,65 +1,128 @@
 <script setup lang="ts">
-import { ChevronDown } from 'lucide-vue-next';
+import { ref, onMounted, onUnmounted } from 'vue'
+import { ChevronDown } from 'lucide-vue-next'
 
-type Option = string | { label: string; value: string | number };
+type OptionItem = { label: string; value: string | number }
+type Option = string | OptionItem
 
-interface Props {
-  modelValue: string | number;
-  options: Option[];
-  placeholder?: string;
-  isFullWidth?: boolean;
+type DropdownConfig = {
+  options: Option[]
+  modelValue?: string | number
+  placeholder?: string
+  isFullWidth?: boolean
+  label?: string
 }
 
-withDefaults(defineProps<Props>(), {
-  isFullWidth: true
-});
+const props = withDefaults(defineProps<DropdownConfig>(), {
+  options: () => [],
+  modelValue: '',
+  placeholder: 'Seleziona...',
+  isFullWidth: false,
+  label: 'Dropdown options'
+})
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: string | number): void
+}>()
 
-const handleChange = (event: Event) => {
-  const target = event.target as HTMLSelectElement;
-  emit('update:modelValue', target.value);
-};
+const isOpen = ref(false)
+const containerRef = ref<HTMLElement | null>(null)
+const listboxId = 'dropdown-listbox'
 
-const getValue = (opt: Option) => (typeof opt === 'object' ? opt.value : opt);
-const getLabel = (opt: Option) => (typeof opt === 'object' ? opt.label : opt);
+const getValue = (opt: Option) => (typeof opt === 'object' ? opt.value : opt)
+const getLabel = (opt: Option) => (typeof opt === 'object' ? opt.label : opt)
+
+const toggle = () => { isOpen.value = !isOpen.value }
+
+const select = (option: Option) => {
+  emit('update:modelValue', getValue(option))
+  isOpen.value = false
+}
+
+const handleClickOutside = (e: MouseEvent) => {
+  if (containerRef.value && !containerRef.value.contains(e.target as Node)) {
+    isOpen.value = false
+  }
+}
+
+onMounted(() => document.addEventListener('click', handleClickOutside))
+onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 </script>
 
 <template>
   <div
-      class="relative group"
-      :class="isFullWidth ? 'w-full' : 'w-40'"
+      ref="containerRef"
+      class="relative text-base"
+      :class="[isFullWidth ? 'w-full' : 'min-w-40 inline-block']"
   >
-    <select
-        :value="modelValue"
-        @change="handleChange"
+    <button
+        type="button"
+        @click="toggle"
         class="
-        peer w-full h-12 px-4 pr-10
-        appearance-none
+        flex items-center justify-between
+        w-full px-4 py-3 h-12
         bg-ui-card
-        border border-ui-border hover:border-gray-400
-        rounded-lg
         text-base-text font-medium
-        focus:outline-none focus:ring-1 focus:ring-brand
-        transition-all duration-200
+        rounded-2xl
         cursor-pointer
+        transition-all duration-200
+        border border-transparent
+        focus:outline-none focus:ring-2 focus:ring-brand
+        hover:bg-gray-300
       "
-        :class="{ 'text-gray-800': !modelValue }"
+        :class="{ 'ring-2 ring-brand': isOpen }"
+        :aria-expanded="isOpen"
+        :aria-label="props.label"
+        aria-haspopup="listbox"
+        :aria-controls="listboxId"
     >
-      <option value="" disabled selected hidden>{{ placeholder || 'Seleziona...' }}</option>
+      <span class="truncate">
+        {{
+          modelValue
+              ? getLabel(options.find(o => getValue(o) === modelValue) || modelValue.toString())
+              : placeholder
+        }}
+      </span>
 
-      <option
-          v-for="opt in options"
-          :key="String(getValue(opt))"
-          :value="getValue(opt)"
-          class="text-base-text"
-      >
-        {{ getLabel(opt) }}
-      </option>
-    </select>
+      <ChevronDown
+          class="w-5 h-5 ml-3 text-gray-500 transition-transform duration-200"
+          :class="{ 'rotate-180': isOpen}"
+      />
+    </button>
 
-    <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-gray-500 peer-focus:rotate-180 transition-all duration-200">
-      <ChevronDown :size="20" />
+    <div
+        v-if="isOpen"
+        :id="listboxId"
+        role="listbox"
+        class="
+        absolute z-50 mt-1 w-full
+        bg-ui-card
+        rounded-2xl shadow-xl border border-ui-border
+        max-h-60 overflow-y-auto
+        overflow-hidden
+      "
+    >
+      <ul class="py-1">
+        <li
+            v-for="option in options"
+            :key="String(getValue(option))"
+            role="option"
+            :aria-selected="getValue(option) === modelValue"
+            @click="select(option)"
+            class="
+            px-5 py-3
+            cursor-pointer
+            text-base-text
+            transition-colors duration-150
+          "
+            :class="{
+              'font-semibold': getValue(option) === modelValue,
+              'hover:bg-gray-300': getValue(option) !== modelValue
+            }"
+        >
+          {{ getLabel(option) }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
