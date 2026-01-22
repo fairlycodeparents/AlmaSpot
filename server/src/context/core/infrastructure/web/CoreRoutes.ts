@@ -13,6 +13,8 @@ export class CoreRoutes {
 
     this.router.get("/metadata/sites", this.controller.getSites);
 
+    this.router.get("/rooms/exact-free", this.controller.findExactFreeRooms);
+
     this.router.get(
       "/rooms/free-by-campus",
       this.controller.findFreeRoomsByCampus,
