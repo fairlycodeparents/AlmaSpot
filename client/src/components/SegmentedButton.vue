@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Check } from "lucide-vue-next";
-
 type Icon = {
   src: string;
   alt: string;
@@ -13,16 +11,21 @@ export interface SegmentedOption {
   icon?: Icon;
 }
 
-const props = defineProps<{
-  modelValue: string | number;
-  options: SegmentedOption[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue: string | number;
+    options: SegmentedOption[];
+    containerClass?: string;
+  }>(),
+  {
+    containerClass: "w-full",
+  },
+);
 
 const emit = defineEmits(["update:modelValue"]);
 
 const select = (option: SegmentedOption) => {
   emit("update:modelValue", option.value);
-
   if (option.action) {
     option.action();
   }
@@ -31,26 +34,26 @@ const select = (option: SegmentedOption) => {
 
 <template>
   <div
-    class="inline-flex border border-gray-300 rounded-xl overflow-hidden shadow-sm divide-x divide-gray-200 w-fit"
+    class="flex border border-ui-border rounded-xl overflow-hidden shadow-sm divide-x divide-ui-border"
+    :class="containerClass"
   >
     <button
       v-for="option in props.options"
       :key="option.value"
       @click="select(option)"
       type="button"
-      class="flex items-center justify-center px-6 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out min-w-[100px] gap-2 cursor-pointer focus:outline-none"
+      class="flex-1 flex items-center justify-center px-6 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out gap-2 cursor-pointer focus:outline-none min-w-[80px]"
       :class="[
         modelValue === option.value
-          ? 'bg-brand text-white'
-          : 'bg-white text-gray-600 hover:bg-gray-50',
+          ? 'bg-brand text-brand-text'
+          : 'bg-base-background text-base-text hover:bg-ui-card',
       ]"
     >
       <img
         v-if="option.icon && modelValue === option.value"
         :src="option.icon.src"
         :alt="option.icon.alt"
-        class="size-4 object-cover rounded-full shrink-0"
-        :class="[modelValue === option.value ? 'invert brightness-0' : '']"
+        class="size-4 object-cover rounded-full shrink-0 invert brightness-0"
       />
 
       <span>{{ option.label }}</span>
