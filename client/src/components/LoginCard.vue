@@ -45,23 +45,19 @@ const handleSubmit = () => {
     </div>
 
     <div class="flex justify-center w-full">
-      <Button
-        label="Sign In"
-        :action="handleSubmit"
-        :is-full-width="true"
-      />
+      <Button label="Accedi" :action="handleSubmit" :is-full-width="true" />
     </div>
 
     <div
       class="flex w-full justify-center items-center gap-1 text-xs font-medium text-gray-500"
     >
-      <span>You don't have an account?</span>
+      <span>Non hai un account?</span>
       <a
         href="#"
         @click.prevent="$emit('signup')"
         class="text-base-text underline underline-offset-2 hover:decoration-base-text transition-all"
       >
-        Sign up
+        Registrati
       </a>
     </div>
   </div>

@@ -32,7 +32,7 @@ type Story = StoryObj<typeof meta>;
 
 export const DefaultCard: Story = {
   args: {
-    minHeight: "min-h-[800px]",
+    minHeight: "min-h-[200px]",
   },
   decorators: [
     () => ({
