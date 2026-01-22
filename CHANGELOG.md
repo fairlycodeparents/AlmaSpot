@@ -1,3 +1,7 @@
+## <small>2.0.2 (2026-01-22)</small>
+
+- fix(deps): update github.com/vaiton/unibocalendar digest to 2d2a972 (#43) ([f6a436d](https://github.com/fairlycodeparents/AlmaSpot/commit/f6a436d)), closes [#43](https://github.com/fairlycodeparents/AlmaSpot/issues/43)
+
 ## <small>2.0.1 (2026-01-21)</small>
 
 - chore(core-deps): update dependency mongoose to v9.1.5 (#42) ([4f4c905](https://github.com/fairlycodeparents/AlmaSpot/commit/4f4c905)), closes [#42](https://github.com/fairlycodeparents/AlmaSpot/issues/42)
