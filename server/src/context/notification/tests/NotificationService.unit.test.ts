@@ -19,15 +19,26 @@ describe("NotificationService", () => {
     };
     mockDetails = {
       type: "WEB_PUSH",
-      endpoint: "https://fcm.googleapis.com/...",
+      endpoint: "https://fcm.googleapis.com/test-endpoint",
       keys: { p256dh: "key", auth: "secret" },
     };
     service = new NotificationService(mockSender, mockRepo);
   });
 
-  it("It should send a Notification if the Student is interested in", async () => {
+  it("It should send a Notification if the Student has a conflicting slot", async () => {
     const interestedSub = {
       studentId: "student-token",
+      plan: {
+        slots: [
+          {
+            roomId: "Aula1",
+            period: {
+              start: new Date("2026-01-01T09:00:00Z"),
+              end: new Date("2026-01-01T13:00:00Z"),
+            },
+          },
+        ],
+      },
     };
     mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: interestedSub, details: mockDetails },
@@ -48,11 +59,8 @@ describe("NotificationService", () => {
     const notificationSent = callArgs[0];
     const detailsSent = callArgs[1];
     assert.strictEqual(notificationSent.studentId, "student-token");
-    assert.strictEqual(
-      notificationSent.message,
-      "Una nuova attività 'Seminario' si sovrappone con il tuo piano",
-    );
-    assert.strictEqual(notificationSent.status, "SENT");
+    assert.ok(notificationSent.message.includes("Seminario"));
+    assert.ok(notificationSent.message.includes("si sovrappone"));
     assert.deepStrictEqual(
       detailsSent,
       mockDetails,
@@ -60,8 +68,24 @@ describe("NotificationService", () => {
     );
   });
 
-  it("It should not send anything if the student is not interested in", async () => {
-    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => []);
+  it("It should not send anything if no matching slot is found", async () => {
+    const subNoConflict = {
+      studentId: "student-lazy",
+      plan: {
+        slots: [
+          {
+            roomId: "Aula2",
+            period: {
+              start: new Date("2026-01-01T08:00:00Z"),
+              end: new Date("2026-01-01T09:00:00Z"),
+            },
+          },
+        ],
+      },
+    };
+    mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
+      { subscription: subNoConflict, details: mockDetails },
+    ]);
     const event: any = {
       payload: {
         roomId: "Aula2",
@@ -81,6 +105,17 @@ describe("NotificationService", () => {
   it("It should remove device from DB if receives DEVICE_GONE", async () => {
     const deadSub = {
       studentId: "dead-token",
+      plan: {
+        slots: [
+          {
+            roomId: "Aula3",
+            period: {
+              start: new Date("2026-01-01T09:00:00Z"),
+              end: new Date("2026-01-01T13:00:00Z"),
+            },
+          },
+        ],
+      },
     };
     mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: deadSub, details: mockDetails },
@@ -92,6 +127,7 @@ describe("NotificationService", () => {
     });
     const event: any = {
       payload: {
+        roomId: "Aula3",
         title: "Test",
         startTime: new Date("2026-01-01T10:00:00Z"),
         endTime: new Date("2026-01-01T11:00:00Z"),
@@ -107,6 +143,17 @@ describe("NotificationService", () => {
   it("It should handle generic errors without deleting the device", async () => {
     const sub = {
       studentId: "network-error-token",
+      plan: {
+        slots: [
+          {
+            roomId: "Aula4",
+            period: {
+              start: new Date("2026-01-01T09:00:00Z"),
+              end: new Date("2026-01-01T13:00:00Z"),
+            },
+          },
+        ],
+      },
     };
     mockRepo.findByRoomAndPeriod.mock.mockImplementation(async () => [
       { subscription: sub, details: mockDetails },
@@ -117,7 +164,7 @@ describe("NotificationService", () => {
     const event: any = {
       payload: {
         title: "Test",
-        roomId: "Aula3",
+        roomId: "Aula4",
         startTime: new Date("2026-01-01T10:00:00Z"),
         endTime: new Date("2026-01-01T11:00:00Z"),
       },

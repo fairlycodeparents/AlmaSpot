@@ -27,7 +27,27 @@ export class NotificationService {
     if (interestedRecords.length === 0) return;
     const notificationPromises = interestedRecords.map(async (record) => {
       const { subscription, details } = record;
-      const message = `Una nuova attività '${event.payload.title}' si sovrappone con il tuo piano`;
+      const conflictingSlot = subscription.plan.slots.find((slot) => {
+        return (
+          slot.roomId === event.payload.roomId &&
+          slot.period.start < eventPeriod.end &&
+          slot.period.end > eventPeriod.start
+        );
+      });
+      const formatTime = (date: Date) =>
+        date.toLocaleTimeString("it-IT", {
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+      if (!conflictingSlot) {
+        console.warn(`[Warn] No slot found for ${subscription.studentId}`);
+        return;
+      }
+      const slotStart = formatTime(conflictingSlot.period.start);
+      const slotEnd = formatTime(conflictingSlot.period.end);
+
+      const message = `Una nuova attività '${event.payload.title}' si sovrappone al tuo studio delle ${slotStart}-${slotEnd}.`;
       const notification = new Notification(
         subscription.studentId,
         message,
