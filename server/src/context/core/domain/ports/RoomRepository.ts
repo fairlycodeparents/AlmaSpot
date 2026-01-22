@@ -10,6 +10,7 @@ export interface RoomRepository {
   getRooms(): Promise<Room[]>;
   getRoomsByCampus(campus: Campus): Promise<Room[]>;
   getRoomsBySite(site: Site): Promise<Room[]>;
+  getSitesByCampus(campus: Campus): Promise<Site[]>;
   getEventsPerRoom(roomId: string, date?: Date): Promise<Activity[]>;
 
   getActivitiesByCampusAndDate(campus: Campus, date: Date): Promise<Activity[]>;

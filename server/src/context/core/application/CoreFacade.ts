@@ -16,12 +16,25 @@ import {
   InternalActivity,
 } from "../domain/model/Activity";
 import { RoomAvailabilityDTO } from "./dtos/RoomAvailabilityDTO";
+import { RoomRepository } from "../domain/ports/RoomRepository";
 
 export class CoreFacade {
   constructor(
     private roomSearchService: RoomSearchService,
     private activityManagementService: ActivityManagementService,
+    private roomRepository: RoomRepository,
   ) {}
+
+  getCampuses(): string[] {
+    return Object.values(Campus);
+  }
+
+  async getSites(campusName: string): Promise<Site[]> {
+    const campus = Object.values(Campus).find((c) => c === campusName);
+    if (!campus) throw new Error("Invalid campus");
+
+    return this.roomRepository.getSitesByCampus(campus);
+  }
 
   async findAvailableRoomsByCampus(
     campusName: string,
@@ -51,12 +64,12 @@ export class CoreFacade {
     const period = new Period(dto.startTime, dto.endTime);
 
     const activityDomain: ExternalActivity = {
+      id: dto.id,
       roomId: dto.roomId,
       campus: dto.campus,
       title: dto.title,
       period,
       type: ActivityType.EXTERNAL_ACTIVITY,
-      description: dto.description,
       authorId: dto.authorId,
     };
 
@@ -104,7 +117,6 @@ export class CoreFacade {
       return {
         ...base,
         type: ActivityTypeDTO.EXTERNAL_ACTIVITY,
-        description: externalActivity.description,
         authorId: externalActivity.authorId,
       } as ExternalActivityDTO;
     }

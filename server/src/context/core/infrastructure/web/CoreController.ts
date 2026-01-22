@@ -1,9 +1,34 @@
-import { Request, Response, NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 import { CoreFacade } from "../../application/CoreFacade";
 import { CreateActivityDTO } from "../../application/dtos/ActivityDTO";
 
 export class CoreController {
   constructor(private facade: CoreFacade) {}
+
+  getCampuses = async (_req: Request, res: Response, next: NextFunction) => {
+    try {
+      const campuses = this.facade.getCampuses();
+      res.json(campuses);
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  getSites = async (_req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { campus } = _req.query;
+
+      if (!campus || typeof campus !== "string") {
+        res.status(400).json({ error: "Campus parameter is required" });
+        return;
+      }
+
+      const sites = await this.facade.getSites(campus);
+      res.json(sites);
+    } catch (error) {
+      next(error);
+    }
+  };
 
   findFreeRoomsByCampus = async (
     req: Request,
@@ -96,6 +121,10 @@ export class CoreController {
       }
 
       const dto = req.body as CreateActivityDTO;
+      dto.id = this.generateExternalActivityId(
+        dto.title,
+        new Date(dto.startTime),
+      );
 
       if (
         !dto.roomId ||
@@ -149,4 +178,11 @@ export class CoreController {
       next(error);
     }
   };
+
+  private generateExternalActivityId(activityId: string, start: Date): string {
+    const dateStr = start.toISOString().slice(0, 10).replace(/-/g, ""); // 20241025
+    const timeStr = start.toISOString().slice(11, 16).replace(/:/g, ""); // 0930
+
+    return `ext-${activityId}-${dateStr}-${timeStr}`;
+  }
 }
