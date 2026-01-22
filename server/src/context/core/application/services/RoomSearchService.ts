@@ -14,6 +14,30 @@ export class RoomSearchService {
     private activityManagementService: ActivityManagementService,
   ) {}
 
+  async findExactSlotsByCampus(
+    campus: Campus,
+    searchPeriod: Period,
+  ): Promise<RoomAvailabilityDTO[]> {
+    await this.activityManagementService.syncEvent(campus, searchPeriod.date);
+    const allRooms = await this.roomRepository.getRoomsByCampus(campus);
+    const allActivities =
+      await this.roomRepository.getActivitiesByCampusAndDate(
+        campus,
+        searchPeriod.date,
+      );
+    return this.getRoomAvailability(
+      allRooms,
+      allActivities,
+      searchPeriod,
+    ).filter((roomAvailability) =>
+      roomAvailability.availableSlots.some(
+        (slot) =>
+          slot.period.start <= searchPeriod.start &&
+          slot.period.end >= searchPeriod.end,
+      ),
+    );
+  }
+
   async findSlotsByCampus(
     campus: Campus,
     searchPeriod: Period,

@@ -36,6 +36,16 @@ export class CoreFacade {
     return this.roomRepository.getSitesByCampus(campus);
   }
 
+  async findExactlyAvailableRooms(
+    campusName: string,
+    start: Date,
+    end: Date,
+  ): Promise<RoomAvailabilityDTO[]> {
+    const period = new Period(start, end);
+    const campus = campusName as Campus;
+    return this.roomSearchService.findExactSlotsByCampus(campus, period);
+  }
+
   async findAvailableRoomsByCampus(
     campusName: string,
     start: Date,
