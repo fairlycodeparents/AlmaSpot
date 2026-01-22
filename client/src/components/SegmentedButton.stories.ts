@@ -8,18 +8,23 @@ const meta = {
   component: SegmentedButton,
   tags: ["autodocs"],
   argTypes: {
-    modelValue: {
-      control: "text",
-      description: "Il valore attualmente selezionato",
-    },
-    options: {
-      control: "object",
-      description: "Lista delle opzioni disponibili",
+    modelValue: { control: "text" },
+    options: { control: "object" },
+    containerClass: {
+      control: "select",
+      options: ["w-full", "w-fit", "w-64", "w-full max-w-sm"],
+      description: "Larghezza del componente",
     },
   },
   args: {
     "onUpdate:modelValue": fn(),
+    containerClass: "w-full",
   },
+  decorators: [
+    () => ({
+      template: '<div class="flex justify-center w-full p-4"><story /></div>',
+    }),
+  ],
 } satisfies Meta<typeof SegmentedButton>;
 
 export default meta;
@@ -67,15 +72,16 @@ export const InteractiveDemo: Story = {
       return { args, currentVal };
     },
     template: `
-      <div class="p-8 space-y-4">
-        <h3 class="text-sm text-gray-500 font-bold uppercase">Anteprima Interattiva</h3>
-        
-        <SegmentedButton 
-          v-model="currentVal" 
-          :options="args.options" 
+      <div class="p-8 space-y-4 flex flex-col items-center w-full">
+        <h3 class="text-sm text-base-text font-bold uppercase">Anteprima Interattiva</h3>
+
+        <SegmentedButton
+          v-model="currentVal"
+          :options="args.options"
+          :container-class="args.containerClass"
         />
 
-        <div class="mt-4 p-3 bg-gray-100 rounded text-xs font-mono text-gray-600">
+        <div class="mt-4 p-3 bg-gray-100 rounded text-xs font-mono text-base-text">
           Valore selezionato: <strong>{{ currentVal }}</strong>
         </div>
       </div>
