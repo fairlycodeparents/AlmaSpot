@@ -6,7 +6,7 @@ export enum ActivityType {
 }
 
 export interface Activity {
-  id?: string;
+  id: string;
   roomId: string;
   campus: string;
   title: string;
@@ -17,11 +17,10 @@ export interface Activity {
 export interface InternalActivity extends Activity {
   type: ActivityType.INTERNAL_ACTIVITY;
   courseId?: string;
-  professor: string[];
+  professor?: string[];
 }
 
 export interface ExternalActivity extends Activity {
   type: ActivityType.EXTERNAL_ACTIVITY;
-  description?: string;
   authorId?: string;
 }

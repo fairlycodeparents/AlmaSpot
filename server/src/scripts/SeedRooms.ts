@@ -33,20 +33,20 @@ export async function seedRooms(db: Db) {
         if (Array.isArray(rooms) && rooms.length > 0) {
           const operations = rooms
             .map((room) => {
-              const uniqueId = room._id || room.id || room.roomId;
+              const uniqueId = room.id;
               if (!uniqueId) {
                 console.warn(`Skipping room without ID in ${file}:`, room.name);
                 return null;
               }
-              const { _id, id, ...roomData } = room;
+              const { id, ...roomData } = room;
 
               return {
                 updateOne: {
-                  filter: { _id: uniqueId },
+                  filter: { id: uniqueId },
                   update: {
                     $set: {
                       ...roomData,
-                      roomId: uniqueId,
+                      id: uniqueId,
                     },
                   },
                   upsert: true,
