@@ -9,7 +9,7 @@ type DropdownConfig = {
   label?: string
 }
 
-const props = withDefaults(defineProps<DropdownConfig>(), {
+withDefaults(defineProps<DropdownConfig>(), {
   options: () => [],
   modelValue: '',
   placeholder: 'Select...',
@@ -23,7 +23,6 @@ const emit = defineEmits<{
 
 const isOpen = ref(false)
 const containerRef = ref<HTMLElement | null>(null)
-const listboxId = 'dropdown-listbox'
 
 const toggle = () => { isOpen.value = !isOpen.value }
 
@@ -60,10 +59,6 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
         cursor-pointer
         transition-colors duration-200
       "
-        :aria-expanded="isOpen"
-        :aria-label="props.label"
-        aria-haspopup="listbox"
-        :aria-controls="listboxId"
     >
       <span v-if="modelValue" class="truncate">{{ modelValue }}</span>
       <span v-else class="truncate">{{ placeholder }}</span>
@@ -79,7 +74,6 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 
     <div
         v-if="isOpen"
-        :id="listboxId"
         role="listbox"
         class="
         absolute z-50 mt-2 w-full
