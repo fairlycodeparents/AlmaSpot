@@ -30,6 +30,33 @@ export class CoreController {
     }
   };
 
+  findExactFreeRooms = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ) => {
+    try {
+      const { campus, start, end } = req.query;
+
+      if (!campus || !start || !end) {
+        res
+          .status(400)
+          .json({ error: "Missing required query params: campus, start, end" });
+        return;
+      }
+
+      const rooms = await this.facade.findExactlyAvailableRooms(
+        campus as string,
+        new Date(start as string),
+        new Date(end as string),
+      );
+
+      res.json(rooms);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   findFreeRoomsByCampus = async (
     req: Request,
     res: Response,
