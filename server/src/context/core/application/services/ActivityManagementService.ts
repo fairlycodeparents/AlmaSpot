@@ -1,8 +1,4 @@
-import {
-  ActivityType,
-  ExternalActivity,
-  InternalActivity,
-} from "../../domain/model/Activity";
+import { ActivityType, ExternalActivity } from "../../domain/model/Activity";
 import { Campus } from "../../../../shared/domain/Location";
 import { AuthService } from "../../domain/ports/ServicePorts";
 import { EventBus } from "../../../../shared/domain/EventBus";
@@ -19,48 +15,60 @@ export class ActivityManagementService {
     private eventBus: EventBus,
   ) {}
 
+  private readonly FRESH_THRESHOLD = 45 * 60 * 1000;
+  private readonly EXPIRED_THRESHOLD = 24 * 60 * 60 * 1000;
+
   async syncEvent(campus: Campus, date: Date): Promise<void> {
-    const lastSync = await this.roomRepository.getLastSync(campus, date);
-    const now = new Date();
-    if (lastSync && now.getTime() - lastSync.getTime() < 3600000) {
-      console.log("Sync skipped, caching.");
-      return;
-    }
-
     const dateKey = date.toISOString().split("T")[0];
-    const lockKey = `${campus}_${dateKey}`;
+    const syncKey = `${campus}-${dateKey}`;
 
-    if (this.activeFetches.has(lockKey)) {
-      console.log("Sync already in progress for", lockKey);
-      return this.activeFetches.get(lockKey)!;
-    }
+    const lastSyncDate = await this.roomRepository.getLastSync(campus, date);
+    const now = Date.now();
 
-    const syncTask = (async () => {
+    const lastSyncTime = lastSyncDate ? lastSyncDate.getTime() : 0;
+    const age = now - lastSyncTime;
+
+    const syncTask = async () => {
       try {
-        console.log(
-          "[Sync] Fetching internal activities for campus:",
+        const activities = await this.uniboProvider.fetchInternalActivities(
           campus,
-          "on date:",
           date,
         );
-        const internalActivities: InternalActivity[] =
-          await this.uniboProvider.fetchInternalActivities(campus, date);
         await this.roomRepository.updateInternalActivities(
           campus,
           date,
-          internalActivities,
+          activities,
         );
-        await this.roomRepository.setLastSync(campus, date);
-        console.log("[Sync] Completed for campus:", campus);
       } catch (error) {
-        console.error("[Sync] Error during synchronization:", error);
-        throw error;
+        console.error(`[SYNC ERROR] Fallita sync per ${campus}:`, error);
       } finally {
-        this.activeFetches.delete(lockKey);
+        this.activeFetches.delete(syncKey);
       }
-    })();
-    this.activeFetches.set(lockKey, syncTask);
-    await syncTask;
+    };
+
+    if (lastSyncDate && age < this.FRESH_THRESHOLD) {
+      return;
+    }
+
+    if (this.activeFetches.has(syncKey)) {
+      const existingPromise = this.activeFetches.get(syncKey)!;
+      if (!lastSyncDate || age > this.EXPIRED_THRESHOLD) {
+        await existingPromise;
+      }
+      return;
+    }
+
+    if (!lastSyncDate || age > this.EXPIRED_THRESHOLD) {
+      const promise = syncTask();
+      this.activeFetches.set(syncKey, promise);
+      await promise;
+      return;
+    }
+
+    const promise = syncTask();
+    this.activeFetches.set(syncKey, promise);
+
+    return Promise.resolve();
   }
 
   async createEvent(token: string, event: ExternalActivity): Promise<void> {
