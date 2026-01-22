@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import AlertCard from "./AlertCard.vue";
+import AlertCard from "../AlertCard.vue";
 
 const meta: Meta<typeof AlertCard> = {
   title: "Components/AlertCard",

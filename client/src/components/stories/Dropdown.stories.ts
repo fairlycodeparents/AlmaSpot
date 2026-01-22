@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Dropdown from "./Dropdown.vue";
+import Dropdown from "../Dropdown.vue";
 import { ref, watch } from "vue";
 
 type OptionObj = { label: string; value: string };

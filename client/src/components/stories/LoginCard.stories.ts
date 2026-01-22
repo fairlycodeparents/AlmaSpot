@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { fn } from "storybook/test";
-import LoginCard from "./LoginCard.vue";
+import LoginCard from "../LoginCard.vue";
 
 const meta = {
   title: "Components/LoginCard",

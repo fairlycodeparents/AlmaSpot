@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import ScheduleCard from "./ScheduleCard.vue";
+import ScheduleCard from "../ScheduleCard.vue";
 
 const meta: Meta<typeof ScheduleCard> = {
   title: "Components/ScheduleCard",

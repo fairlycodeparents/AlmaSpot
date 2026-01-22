@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite";
 import { fn } from "storybook/test";
-import Button from "./Button.vue";
+import Button from "../Button.vue";
 
 const meta = {
   title: "Components/Button",
