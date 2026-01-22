@@ -32,29 +32,29 @@ type Story = StoryObj<typeof meta>;
 
 export const AddSelected: Story = {
   args: {
-    modelValue: "add",
+    modelValue: "aggiungi",
     options: [
       {
-        label: "Add",
-        value: "add",
+        label: "Aggiungi",
+        value: "aggiungi",
         icon: {
           src: "https://api.iconify.design/lucide:check.svg",
           alt: "Check",
         },
       },
-      { label: "Remove", value: "remove" },
+      { label: "Rimuovi", value: "rimuovi" },
     ],
   },
 };
 
 export const RemoveSelected: Story = {
   args: {
-    modelValue: "remove",
+    modelValue: "rimuovi",
     options: [
-      { label: "Add", value: "add" },
+      { label: "Aggiungi", value: "aggiungi" },
       {
-        label: "Remove",
-        value: "remove",
+        label: "Rimuovi",
+        value: "rimuovi",
         icon: {
           src: "https://api.iconify.design/lucide:check.svg",
           alt: "Check",
@@ -88,11 +88,11 @@ export const InteractiveDemo: Story = {
     `,
   }),
   args: {
-    modelValue: "add",
+    modelValue: "aggiungi",
     options: [
       {
-        label: "Add",
-        value: "add",
+        label: "Aggiungi",
+        value: "aggiungi",
         action: fn(),
         icon: {
           src: "https://api.iconify.design/lucide:check.svg",
@@ -100,8 +100,8 @@ export const InteractiveDemo: Story = {
         },
       },
       {
-        label: "Remove",
-        value: "remove",
+        label: "Rimuovi",
+        value: "rimuovi",
         action: fn(),
         icon: {
           src: "https://api.iconify.design/lucide:check.svg",
