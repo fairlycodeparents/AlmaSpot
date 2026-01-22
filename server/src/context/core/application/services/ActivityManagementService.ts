@@ -85,13 +85,12 @@ export class ActivityManagementService {
     await this.roomRepository.saveExternalActivity(event);
 
     const domainEvent = new ActivityAddedEvent({
-      activityId: event.id || "generated-id",
+      activityId: event.id,
       roomId: event.roomId,
       campus: event.campus,
       title: event.title,
       startTime: event.period.start,
       endTime: event.period.end,
-      description: event.description,
     });
     console.log("[Event Created] External event created with ID:", event.id);
     await this.notifyEvent(domainEvent, event.id);

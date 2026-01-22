@@ -1,6 +1,6 @@
 [
   {
-    "_id": "aula-b-ce",
+    "id": "aula-b-ce",
     "name": "AULA B",
     "campus": "Cesena",
     "site": {
@@ -10,7 +10,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "laboratorio-didattico-ce",
+    "id": "laboratorio-didattico-ce",
     "name": "LABORATORIO DIDATTICO",
     "campus": "Cesena",
     "site": {
@@ -20,7 +20,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-g-ce",
+    "id": "aula-g-ce",
     "name": "AULA G",
     "campus": "Cesena",
     "site": {
@@ -30,7 +30,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-magna-ce",
+    "id": "aula-magna-ce",
     "name": "AULA MAGNA",
     "campus": "Cesena",
     "site": {
@@ -40,7 +40,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-3-6-ce",
+    "id": "lab-3-6-ce",
     "name": "LAB. 3.6",
     "campus": "Cesena",
     "site": {
@@ -50,7 +50,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-3-9-ce",
+    "id": "lab-3-9-ce",
     "name": "LAB. 3.9",
     "campus": "Cesena",
     "site": {
@@ -60,7 +60,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-c-ce",
+    "id": "aula-c-ce",
     "name": "AULA C",
     "campus": "Cesena",
     "site": {
@@ -70,7 +70,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-4-1-ce",
+    "id": "aula-4-1-ce",
     "name": "AULA 4.1",
     "campus": "Cesena",
     "site": {
@@ -80,7 +80,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-3-4-magna-carmen-tura-ce",
+    "id": "aula-3-4-magna-carmen-tura-ce",
     "name": "AULA (3.4) MAGNA \"CARMEN TURA\"",
     "campus": "Cesena",
     "site": {
@@ -90,7 +90,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-3-7-ce",
+    "id": "aula-3-7-ce",
     "name": "AULA 3.7",
     "campus": "Cesena",
     "site": {
@@ -100,7 +100,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-2-2-vela-ce",
+    "id": "lab-2-2-vela-ce",
     "name": "LAB. 2.2 VELA",
     "campus": "Cesena",
     "site": {
@@ -110,7 +110,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-2-6-ce",
+    "id": "aula-2-6-ce",
     "name": "AULA 2.6",
     "campus": "Cesena",
     "site": {
@@ -120,7 +120,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-e-ce",
+    "id": "aula-e-ce",
     "name": "AULA E",
     "campus": "Cesena",
     "site": {
@@ -130,7 +130,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-europa-2-ce",
+    "id": "aula-europa-2-ce",
     "name": "AULA EUROPA 2",
     "campus": "Cesena",
     "site": {
@@ -140,7 +140,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-4-2-cad-ce",
+    "id": "lab-4-2-cad-ce",
     "name": "LAB. 4.2 CAD",
     "campus": "Cesena",
     "site": {
@@ -150,7 +150,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-2-14-ce",
+    "id": "lab-2-14-ce",
     "name": "LAB. 2.14",
     "campus": "Cesena",
     "site": {
@@ -160,7 +160,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-lib-i-ce",
+    "id": "lab-lib-i-ce",
     "name": "LAB. LIB (I)",
     "campus": "Cesena",
     "site": {
@@ -170,7 +170,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-2-5-ce",
+    "id": "aula-2-5-ce",
     "name": "AULA 2.5",
     "campus": "Cesena",
     "site": {
@@ -180,7 +180,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-13-ce",
+    "id": "aula-2-13-ce",
     "name": "AULA 2.13",
     "campus": "Cesena",
     "site": {
@@ -190,7 +190,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-informatica-1-ce",
+    "id": "lab-informatica-1-ce",
     "name": "LAB  INFORMATICA 1",
     "campus": "Cesena",
     "site": {
@@ -200,7 +200,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "laboratorio-didattico-chimico-ce",
+    "id": "laboratorio-didattico-chimico-ce",
     "name": "LABORATORIO DIDATTICO CHIMICO",
     "campus": "Cesena",
     "site": {
@@ -210,7 +210,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-lib-m-ce",
+    "id": "lab-lib-m-ce",
     "name": "LAB. LIB (M)",
     "campus": "Cesena",
     "site": {
@@ -220,7 +220,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-3-10-ce",
+    "id": "aula-3-10-ce",
     "name": "AULA 3.10",
     "campus": "Cesena",
     "site": {
@@ -230,7 +230,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-3-8-ce",
+    "id": "lab-3-8-ce",
     "name": "LAB. 3.8",
     "campus": "Cesena",
     "site": {
@@ -240,7 +240,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-europa-3-ce",
+    "id": "aula-europa-3-ce",
     "name": "AULA EUROPA 3",
     "campus": "Cesena",
     "site": {
@@ -250,7 +250,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-europa-1-ce",
+    "id": "aula-europa-1-ce",
     "name": "AULA EUROPA 1",
     "campus": "Cesena",
     "site": {
@@ -260,7 +260,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-anfiteatro-pombeni-ce",
+    "id": "aula-anfiteatro-pombeni-ce",
     "name": "AULA ANFITEATRO POMBENI",
     "campus": "Cesena",
     "site": {
@@ -270,7 +270,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-4-ce",
+    "id": "aula-2-4-ce",
     "name": "AULA 2.4",
     "campus": "Cesena",
     "site": {
@@ -280,7 +280,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-12-ce",
+    "id": "aula-2-12-ce",
     "name": "AULA 2.12",
     "campus": "Cesena",
     "site": {
@@ -290,7 +290,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-9-ce",
+    "id": "aula-2-9-ce",
     "name": "AULA 2.9",
     "campus": "Cesena",
     "site": {
@@ -300,7 +300,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-3-2-lele-ce",
+    "id": "lab-3-2-lele-ce",
     "name": "LAB. 3.2 LELE",
     "campus": "Cesena",
     "site": {
@@ -310,7 +310,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-2-10-ce",
+    "id": "aula-2-10-ce",
     "name": "AULA 2.10",
     "campus": "Cesena",
     "site": {
@@ -320,7 +320,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-a-ce",
+    "id": "aula-a-ce",
     "name": "AULA A",
     "campus": "Cesena",
     "site": {
@@ -330,7 +330,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-3-1-ce",
+    "id": "lab-3-1-ce",
     "name": "LAB. 3.1",
     "campus": "Cesena",
     "site": {
@@ -340,7 +340,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-2-3-ce",
+    "id": "aula-2-3-ce",
     "name": "AULA 2.3",
     "campus": "Cesena",
     "site": {
@@ -350,7 +350,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-7-ce",
+    "id": "aula-2-7-ce",
     "name": "AULA 2.7",
     "campus": "Cesena",
     "site": {
@@ -360,7 +360,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-d-ce",
+    "id": "aula-d-ce",
     "name": "AULA D",
     "campus": "Cesena",
     "site": {
@@ -370,7 +370,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-8-ce",
+    "id": "aula-2-8-ce",
     "name": "AULA 2.8",
     "campus": "Cesena",
     "site": {
@@ -380,7 +380,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-2-11-ce",
+    "id": "aula-2-11-ce",
     "name": "AULA 2.11",
     "campus": "Cesena",
     "site": {
@@ -390,7 +390,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "aula-3-11-ce",
+    "id": "aula-3-11-ce",
     "name": "AULA 3.11",
     "campus": "Cesena",
     "site": {
@@ -400,7 +400,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-2-15-ce",
+    "id": "lab-2-15-ce",
     "name": "LAB. 2.15",
     "campus": "Cesena",
     "site": {
@@ -410,7 +410,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-3-5-ce",
+    "id": "lab-3-5-ce",
     "name": "LAB. 3.5",
     "campus": "Cesena",
     "site": {
@@ -420,7 +420,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-2-16-ce",
+    "id": "lab-2-16-ce",
     "name": "LAB. 2.16",
     "campus": "Cesena",
     "site": {
@@ -430,7 +430,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "lab-2-17-ce",
+    "id": "lab-2-17-ce",
     "name": "LAB. 2.17",
     "campus": "Cesena",
     "site": {
@@ -440,7 +440,7 @@
     "type": "LABORATORY"
   },
   {
-    "_id": "aula-f-ce",
+    "id": "aula-f-ce",
     "name": "AULA F",
     "campus": "Cesena",
     "site": {
@@ -450,7 +450,7 @@
     "type": "CLASSROOM"
   },
   {
-    "_id": "lab-3-3-ce",
+    "id": "lab-3-3-ce",
     "name": "LAB. 3.3",
     "campus": "Cesena",
     "site": {
