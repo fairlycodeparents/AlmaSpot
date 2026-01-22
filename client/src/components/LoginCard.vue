@@ -48,8 +48,7 @@ const handleSubmit = () => {
       <Button
         label="Sign In"
         :action="handleSubmit"
-        class="mt-4 hover:opacity-90! bg-base-text! text-base-background!"
-        :class="buttonClass"
+        :is-full-width="true"
       />
     </div>
 
