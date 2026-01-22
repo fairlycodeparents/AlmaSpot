@@ -28,6 +28,10 @@ export class CoreContextFactory {
       activityManagementService,
     );
 
-    return new CoreFacade(roomSearchService, activityManagementService);
+    return new CoreFacade(
+      roomSearchService,
+      activityManagementService,
+      roomRepository,
+    );
   }
 }
