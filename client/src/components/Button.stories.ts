@@ -59,3 +59,11 @@ export const IconOnly: Story = {
     action: fn(),
   },
 };
+
+export const FullWidth: Story = {
+  args: {
+    label: "Submit",
+    action: fn(),
+    isFullWidth: true,
+  },
+};
