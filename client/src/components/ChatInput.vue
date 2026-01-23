@@ -24,8 +24,8 @@ const handleSend = () => {
 <template>
   <div
       class="
-          flex items-start gap-2 p-3 w-full
-          bg-ui-card rounded-2xl border border-transparent
+          flex items-start w-full p-2
+          bg-ui-card rounded-4xl border border-transparent
           focus-within:ring-2 focus-within:ring-brand transition-all"
       :class="{ 'opacity-50 pointer-events-none': disabled }"
   >
@@ -36,7 +36,7 @@ const handleSend = () => {
         aria-label="Input testuale per inviare messaggi"
         rows="1"
         class="
-        block w-full p-0
+        block w-full p-2
         bg-transparent text-base-text
         resize-none overflow-y-auto
         border-none focus:outline-none focus:ring-0
@@ -44,7 +44,7 @@ const handleSend = () => {
         @keydown.enter.exact.prevent="handleSend"
     />
 
-    <div class="shrink-0">
+    <div class="shrink-0 p-2">
       <Button
           :action="handleSend"
           :disabled="isInvalid"
