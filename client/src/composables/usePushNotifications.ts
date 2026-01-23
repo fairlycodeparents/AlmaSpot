@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 /**
  * Converts a Vapid Key (base64 string) to a Uint8Array used by the browser.
@@ -38,6 +38,17 @@ export function usePushNotifications() {
   const isSubscribed = ref(false);
   const isLoading = ref(false);
   const error = ref<string | null>(null);
+
+  const checkSubscription = async () => {
+    if (!isSupported.value) return;
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      const subscription = await registration.pushManager.getSubscription();
+      isSubscribed.value = !!subscription;
+    } catch (err) {
+      console.error("Errore controllo sottoscrizione:", err);
+    }
+  };
 
   const subscribeToPush = async (userPlan: any) => {
     isLoading.value = true;
@@ -89,6 +100,10 @@ export function usePushNotifications() {
       isLoading.value = false;
     }
   };
+
+  onMounted(() => {
+    checkSubscription();
+  });
 
   return {
     isSupported,
