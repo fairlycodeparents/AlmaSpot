@@ -1,3 +1,7 @@
+## <small>2.0.3 (2026-01-23)</small>
+
+- chore(core-deps): update dependency zod to v4.3.6 (#45) ([e9a1aca](https://github.com/fairlycodeparents/AlmaSpot/commit/e9a1aca)), closes [#45](https://github.com/fairlycodeparents/AlmaSpot/issues/45)
+
 ## <small>2.0.2 (2026-01-22)</small>
 
 - fix(deps): update github.com/vaiton/unibocalendar digest to 2d2a972 (#43) ([f6a436d](https://github.com/fairlycodeparents/AlmaSpot/commit/f6a436d)), closes [#43](https://github.com/fairlycodeparents/AlmaSpot/issues/43)
