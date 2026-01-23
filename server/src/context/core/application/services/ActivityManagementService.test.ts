@@ -54,7 +54,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: NON deve scaricare dati se sono 'FRESH' (< 45 min)", async () => {
+  it("syncEvent: shouldn't download new data if 'FRESH' (< 45 min)", async () => {
     const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => tenMinutesAgo,
@@ -72,7 +72,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: DEVE scaricare in background se dati 'STALE' (es. 1 ora fa)", async () => {
+  it("syncEvent: should download new data in background if 'STALE' (ex. 1 hour ago)", async () => {
     const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => oneHourAgo,
@@ -96,7 +96,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: DEVE scaricare e attendere se dati 'EXPIRED' (> 24h o null)", async () => {
+  it("syncEvent: should download new data and wait for it if 'EXPIRED' (> 24h or null)", async () => {
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => null,
     );
@@ -113,7 +113,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: NON deve eseguire fetch doppie se chiamato simultaneamente", async () => {
+  it("syncEvent: shoudln't run more concurrent fetches", async () => {
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => null,
     );
@@ -129,7 +129,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("createEvent: Errore Auth se token invalido", async () => {
+  it("createEvent: authentication error if token isn't valid", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => false);
     const event = { roomId: "AULA A" } as ExternalActivity;
 
@@ -143,7 +143,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("createEvent: Errore Conflict se sovrapposizione temporale", async () => {
+  it("createEvent: conflict error if overlaps", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
 
     const conflictPeriod = new Period(date(9), date(11));
@@ -167,7 +167,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("createEvent: Salva e Pubblica se tutto ok", async () => {
+  it("createEvent: save and publish if everything ok", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
     mockRoomRepository.getEventsPerRoom.mock.mockImplementation(async () => []);
 
@@ -196,7 +196,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("deleteEvent: Errore se attività non trovata", async () => {
+  it("deleteEvent: error if activity doesn't exist", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
     mockRoomRepository.getActivityById.mock.mockImplementation(
       async () => null,
@@ -207,7 +207,7 @@ describe("ActivityManagementService Test", () => {
     }, "Error: Not Found: External activity does not exist.");
   });
 
-  it("deleteEvent: Errore se si prova a cancellare attività INTERNAL", async () => {
+  it("deleteEvent: error if deleting internal activities", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
 
     const internalActivity = {
@@ -229,7 +229,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("deleteEvent: Errore se attività è passata o in corso", async () => {
+  it("deleteEvent: error if activities in the past or currently ongoing", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
 
     const pastDate = new Date();
@@ -254,7 +254,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("deleteEvent: Cancella se EXTERNAL e nel futuro (non passata o in corso)", async () => {
+  it("deleteEvent: delete successfully if external and in the future", async () => {
     mockAuthService.validateAdminToken.mock.mockImplementation(() => true);
 
     const futureDate = new Date();
