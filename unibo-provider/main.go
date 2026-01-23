@@ -185,7 +185,6 @@ func getActivitiesHandler(c *gin.Context) {
 							Start:      event.Start.Format(time.RFC3339),
 							End:        event.End.Format(time.RFC3339),
 							RoomCode:   room.ResourceDesc,
-							Address:    room.AddressDesc,
 							Professors: []string{event.Teacher},
 							CourseId:   strconv.Itoa(course.Codice),
 						})
