@@ -44,20 +44,18 @@ describe("MongoRoomRepository Integration Test", async () => {
   await it("Dovrebbe salvare e recuperare le aule per Campus", async () => {
     const db = client.db(TEST_DB_NAME);
     const roomDoc = {
-      _id: "AULA-TEST-1",
-      name: "Aula Test",
+      id: "aula-test-1-ce",
+      name: "Aula Test 1",
       type: "CLASSROOM",
       campus: "Cesena",
       site: { campus: "Cesena", address: "Via X" },
-      capacity: 50,
-      equipment: [],
     };
     await db.collection("rooms").insertOne(roomDoc as any);
     const rooms = await repo.getRoomsByCampus(Campus.CESENA);
 
     assert.strictEqual(rooms.length, 1);
     assert.ok(rooms[0] instanceof Room);
-    assert.strictEqual(rooms[0].id, "AULA-TEST-1");
+    assert.strictEqual(rooms[0].id, "aula-test-1-ce");
     assert.strictEqual(rooms[0].campus, Campus.CESENA);
   });
 
@@ -65,22 +63,22 @@ describe("MongoRoomRepository Integration Test", async () => {
     const date = new Date("2026-03-20");
     const internalActivities: InternalActivity[] = [
       {
-        id: "act-1",
-        roomId: "AULA-TEST-1",
+        id: "int-123-20260320-0900",
+        roomId: "aula-test-1-ce",
         title: "Lezione 1",
         type: ActivityType.INTERNAL_ACTIVITY,
-        period: new Period(d(9), d(11)),
+        period: new Period(d(9), d(11), date),
         professor: ["Prof. Rossi"],
         courseId: "123",
         campus: Campus.CESENA,
       },
       {
-        id: "act-2",
-        roomId: "AULA-TEST-2",
+        id: "int-456-20260320-0900",
+        roomId: "aula-test-2-ce",
         title: "Lezione 2",
         type: ActivityType.INTERNAL_ACTIVITY,
-        period: new Period(d(9), d(11)),
-        professor: [],
+        period: new Period(d(9), d(11), date),
+        professor: ["Prof. Bianchi"],
         courseId: "456",
         campus: Campus.CESENA,
       },
@@ -99,12 +97,14 @@ describe("MongoRoomRepository Integration Test", async () => {
     assert.strictEqual(retrieved.length, 2);
     assert.ok(retrieved[0]);
     assert.strictEqual(retrieved[0].title, "Lezione 1");
+    assert.ok(retrieved[1]);
+    assert.strictEqual(retrieved[1].title, "Lezione 2");
   });
 
   await it("Dovrebbe salvare e cancellare una Activity Esterna", async () => {
     const extActivity: ExternalActivity = {
-      id: "ext-1",
-      roomId: "AULA-TEST-1",
+      id: "ext-evento-studenti-20260320-1400",
+      roomId: "aula-test-1-ce",
       title: "Evento Studenti",
       type: ActivityType.EXTERNAL_ACTIVITY,
       period: new Period(d(14), d(16)),
@@ -115,16 +115,19 @@ describe("MongoRoomRepository Integration Test", async () => {
     await repo.saveExternalActivity(extActivity);
 
     let events = await repo.getEventsPerRoom(
-      "AULA-TEST-1",
+      "aula-test-1-ce",
       new Date("2026-03-20"),
     );
     assert.strictEqual(events.length, 1);
     assert.ok(events[0]);
-    assert.strictEqual(events[0].id, "ext-1");
+    assert.strictEqual(events[0].id, "ext-evento-studenti-20260320-1400");
 
-    await repo.deleteExternalActivity("ext-1");
+    await repo.deleteExternalActivity("ext-evento-studenti-20260320-1400");
 
-    events = await repo.getEventsPerRoom("AULA-TEST-1", new Date("2026-03-20"));
+    events = await repo.getEventsPerRoom(
+      "aula-test-1-ce",
+      new Date("2026-03-20"),
+    );
     assert.strictEqual(events.length, 0);
   });
 

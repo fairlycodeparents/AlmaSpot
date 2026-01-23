@@ -39,8 +39,9 @@ export class ActivityManagementService {
           date,
           activities,
         );
+        await this.roomRepository.setLastSync(campus, new Date());
       } catch (error) {
-        console.error(`[SYNC ERROR] Fallita sync per ${campus}:`, error);
+        console.error(`[SYNC ERROR] Sync failed for ${campus}:`, error);
       } finally {
         this.activeFetches.delete(syncKey);
       }

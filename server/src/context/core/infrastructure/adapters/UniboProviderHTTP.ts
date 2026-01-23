@@ -57,20 +57,31 @@ export class UniboProviderHTTP implements UniboProvider {
   private generateRoomId(roomName: string, campus: Campus): string {
     const roomSlug = roomName
       .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-")
-      .replace(/[^\w\-]+/g, "")
-      .replace(/--+/g, "-");
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
 
-    const campusPrefix = campus.toLowerCase();
+    const campusCodeMap: Record<Campus, string> = {
+      [Campus.BOLOGNA]: "bo",
+      [Campus.CESENA]: "ce",
+      [Campus.FORLI]: "fo",
+      [Campus.RAVENNA]: "ra",
+      [Campus.RIMINI]: "rn",
+    };
 
-    return `${campusPrefix}-${roomSlug}`;
+    const suffix = campusCodeMap[campus] || "xx";
+
+    return `${roomSlug}-${suffix}`;
   }
 
   private generateInternalActivityId(courseId: string, start: Date): string {
-    const dateStr = start.toISOString().slice(0, 10).replace(/-/g, ""); // 20241025
-    const timeStr = start.toISOString().slice(11, 16).replace(/:/g, ""); // 0930
+    const slugCourseId = courseId
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const dateStr = start.toISOString().slice(0, 10).replace(/-/g, "");
+    const timeStr = start.toISOString().slice(11, 16).replace(/:/g, "");
 
-    return `int-${courseId}-${dateStr}-${timeStr}`;
+    return `int-${slugCourseId}-${dateStr}-${timeStr}`;
   }
 }

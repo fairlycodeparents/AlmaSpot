@@ -207,9 +207,14 @@ export class CoreController {
   };
 
   private generateExternalActivityId(activityId: string, start: Date): string {
-    const dateStr = start.toISOString().slice(0, 10).replace(/-/g, ""); // 20241025
-    const timeStr = start.toISOString().slice(11, 16).replace(/:/g, ""); // 0930
+    const slugActivityId = activityId
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const dateStr = start.toISOString().slice(0, 10).replace(/-/g, "");
+    const timeStr = start.toISOString().slice(11, 16).replace(/:/g, "");
 
-    return `ext-${activityId}-${dateStr}-${timeStr}`;
+    return `ext-${slugActivityId}-${dateStr}-${timeStr}`;
   }
 }
