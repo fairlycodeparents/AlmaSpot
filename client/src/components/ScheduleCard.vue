@@ -12,13 +12,13 @@ defineProps<ScheduleCardConfig>();
 <template>
   <div class="flex w-full max-w-md gap-4">
     <div class="flex flex-col items-center justify-between shrink-0 w-14">
-      <span class="text-lg font-bold text-base-text leading-none">
+      <span class="font-bold text-base-text leading-none">
         {{ startTime }}
       </span>
 
       <div class="w-0.75 bg-base-text grow my-1 rounded-full"></div>
 
-      <span class="text-lg font-bold text-base-text leading-none">
+      <span class="font-bold text-base-text leading-none">
         {{ endTime }}
       </span>
     </div>
@@ -30,11 +30,11 @@ defineProps<ScheduleCardConfig>();
         {{ roomName }}
       </h4>
 
-      <p class="text-lg text-base-text font-normal leading-snug">
+      <p class="text-base-text leading-snug">
         {{ campusName }}
       </p>
 
-      <p class="text-base text-base-text mt-1 leading-snug">
+      <p class="text-base-text mt-1 leading-snug">
         {{ address }}
       </p>
     </div>

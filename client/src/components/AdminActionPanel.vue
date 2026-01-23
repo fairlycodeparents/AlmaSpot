@@ -85,7 +85,6 @@ const handleSubmit = () => {
         label="Cerca"
         :action="handleSubmit"
         :is-full-width="true"
-        class="mt-2 h-14! text-lg! bg-brand"
       />
     </div>
   </div>
