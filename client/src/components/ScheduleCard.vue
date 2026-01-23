@@ -26,7 +26,7 @@ defineProps<ScheduleCardConfig>();
     <div
       class="bg-base-grey rounded-2xl p-6 w-full flex flex-col justify-center shadow-sm"
     >
-      <h4 class="text-4xl font-bold text-base-text mb-1 leading-tight">
+      <h4 class="text-2xl font-bold text-base-text mb-1 leading-tight">
         {{ roomName }}
       </h4>
 
