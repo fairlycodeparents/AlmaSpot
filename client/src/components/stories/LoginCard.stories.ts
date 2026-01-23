@@ -9,6 +9,17 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    () => ({
+      template: `
+        <div class="flex items-center justify-center min-h-screen bg-brand p-4">
+          <div class="w-full max-w-sm">
+            <story />
+          </div>
+        </div>
+      `,
+    }),
+  ],
   argTypes: {
     minHeight: {
       control: "text",
@@ -19,28 +30,34 @@ const meta = {
       options: ["w-full", "w-fit px-8", "w-1/2", "w-64"],
       description: "Larghezza del bottone Sign In",
     },
+    isRegister: {
+      control: "boolean",
+      description: "Modalità registrazione (3 campi)",
+    },
   },
   args: {
     onLogin: fn(),
     onSignup: fn(),
+    onToLogin: fn(),
+    onRegisterSubmit: fn(),
     buttonClass: "w-full",
+    isRegister: false,
   },
 } satisfies Meta<typeof LoginCard>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultCard: Story = {
+export const LoginMode: Story = {
   args: {
+    isRegister: false,
     minHeight: "min-h-[200px]",
   },
-  decorators: [
-    () => ({
-      template: `
-        <div class="flex items-center justify-center min-h-screen bg-brand p-4">
-          <story />
-        </div>
-      `,
-    }),
-  ],
+};
+
+export const RegisterMode: Story = {
+  args: {
+    isRegister: true,
+    minHeight: "min-h-[200px]",
+  },
 };
