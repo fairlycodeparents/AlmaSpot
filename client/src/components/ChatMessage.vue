@@ -33,8 +33,8 @@ withDefaults(defineProps<ChatMessageConfig>(), {
           class="px-4 py-3 leading-tight shadow-sm border-ui-border border text-base-text"
           :class="[
           isMine
-            ? 'bg-ui-card rounded-xl rounded-tr-sm'
-            : 'bg-white rounded-xl rounded-tl-sm'
+            ? 'bg-ui-card rounded-2xl rounded-tr-sm'
+            : 'bg-white rounded-2xl rounded-tl-sm'
         ]"
       >
         {{ text }}

@@ -12,19 +12,19 @@ defineProps<ScheduleCardConfig>();
 <template>
   <div class="flex w-full max-w-md gap-4">
     <div class="flex flex-col items-center justify-between shrink-0 w-14">
-      <span class="font-bold text-base-text leading-none">
+      <span class="text-base-text leading-none">
         {{ startTime }}
       </span>
 
-      <div class="w-0.75 bg-base-text grow my-1 rounded-full"></div>
+      <div class="w-0.5 bg-base-text grow my-1 rounded-2xl"></div>
 
-      <span class="font-bold text-base-text leading-none">
+      <span class="text-base-text leading-none">
         {{ endTime }}
       </span>
     </div>
 
     <div
-      class="bg-base-grey rounded-3xl p-6 w-full flex flex-col justify-center shadow-sm"
+      class="bg-base-grey rounded-2xl p-6 w-full flex flex-col justify-center shadow-sm"
     >
       <h4 class="text-4xl font-bold text-base-text mb-1 leading-tight">
         {{ roomName }}

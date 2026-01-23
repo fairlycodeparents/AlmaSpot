@@ -23,7 +23,7 @@ withDefaults(defineProps<ButtonConfig>(), {
       max-w-5xl min-w-20 min-h-10
       px-4 py-2
       bg-brand hover:bg-brand-dark text-brand-text
-      rounded-full
+      rounded-4xl
       cursor-pointer
       transition-colors duration-200 ease-in-out
       gap-2
@@ -42,7 +42,7 @@ withDefaults(defineProps<ButtonConfig>(), {
         v-if="icon"
         :src="icon.src"
         :alt="icon.alt"
-        class="size-6 object-cover rounded-full shrink-0"
+        class="size-6 object-cover rounded-4xl shrink-0"
     />
   </button>
 </template>
