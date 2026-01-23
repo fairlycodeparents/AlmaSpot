@@ -32,6 +32,7 @@ export class RoomAvailabilityAdapter implements RoomAvailability {
         (slot) =>
           new AvailableRoom(
             roomAvailability.room.id,
+            roomAvailability.room.name,
             roomAvailability.room.type,
             roomAvailability.room.site.address,
             slot.period.start,

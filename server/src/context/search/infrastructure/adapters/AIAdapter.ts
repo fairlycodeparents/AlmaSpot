@@ -104,6 +104,7 @@ export class AIAdapter implements AI {
   ): Promise<Suggestion> {
     const availabilityContext = availableRooms.map((room) => ({
       roomId: room.id,
+      roomName: room.name,
       roomType: room.type,
       roomAddress: room.address,
       availabilityStart: room.from.toString(),
@@ -116,10 +117,11 @@ export class AIAdapter implements AI {
 
     INSTRUCTIONS:
       1. Analyze the user's request (time range) and the available rooms.
-      2. If one room covers the whole period, select it.
-      3. If no single room works, try to combine multiple rooms (e.g., Room A from 9-11, Room B from 11-13) to minimize room switches.
-      4. If no valid combination exists, return an empty "slots" list.
-      5. Always provide a clear "explanation" (e.g., "I couldn't find a single room, but you can use Room A then move to Room B").`;
+      2. Try to combine multiple rooms (e.g., Room A from 9-11, Room B from 11-13) to cover the whole period requested by the user.
+      3. If no valid combination exists, return an empty "slots" list.
+      4. Always provide a clear "explanation" (e.g., "There is no room for the whole period", or "Here is a plan using rooms X, Y, Z").
+      5. Always refer to rooms by their "roomName" in the explanation and format times in 24h format.
+      6. If you find multiple valid plans, choose just one of them to return (usually, the one with the fewest room changes).`;
 
     let response;
     try {
@@ -138,44 +140,39 @@ export class AIAdapter implements AI {
     const args = response.functionCalls?.[0]?.args;
 
     if (!args) {
-      return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
+      return new Suggestion(
+        new Plan([]),
+        response.text ? response.text : DEFAULT_RESPONSE,
+      );
     }
 
     const parsed = this.PLAN_SCHEMA.safeParse(args);
-
     if (!parsed.success) {
       return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
     }
 
     const data = parsed.data;
-
     const selectedSlots: Slot[] = [];
 
     for (const slot of data.slots) {
+      const roomId = slot.roomId;
       const start = new Date(slot.start);
       const end = new Date(slot.end);
 
       const originalSlot = availableRooms.find((s) => {
         return (
-          s.id === slot.roomId &&
+          s.id === roomId &&
           s.from.getTime() <= start.getTime() &&
           s.to.getTime() >= end.getTime()
         );
       });
 
       if (originalSlot) {
-        const plannedSlot = new AvailableRoom(
-          originalSlot.id,
-          originalSlot.type,
-          originalSlot.address,
-          start,
-          end,
-        );
-        selectedSlots.push(plannedSlot.toSlot());
+        selectedSlots.push(new Slot(roomId, new Period(start, end)));
       } else {
         console.warn(
           `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
-           Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
+             Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
         );
       }
     }
@@ -188,7 +185,10 @@ export class AIAdapter implements AI {
     try {
       response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: this.buildPrompt(conversation),
+        contents: this.buildPrompt([
+          "If the user asks for a room before 8 or after 19, tell them the university is closed at that time.",
+          ...conversation,
+        ]),
         config: {
           tools: [{ functionDeclarations: [this.QUERY_DECLARATION] }],
         },
@@ -197,11 +197,10 @@ export class AIAdapter implements AI {
       console.error("Failed to generate content from AI model:", error);
       return ERROR_MESSAGE;
     }
-
     const args = response.functionCalls?.[0]?.args;
 
     if (!args) {
-      return DEFAULT_RESPONSE;
+      return response.text ? response.text : DEFAULT_RESPONSE;
     }
 
     const parsed = this.QUERY_SCHEMA.safeParse(args);
@@ -221,16 +220,22 @@ export class AIAdapter implements AI {
 
   /**
    * Builds the prompt for the AI model by appending the current system time.
-   * @param parts - The parts of the prompt
+   * @param data - Array of strings containing user messages, past responses, or instructions.
    * @returns The complete prompt, formatted for the AI model, including current time information.
    */
   private buildPrompt(
-    parts: string[],
+    data: string[],
   ): Array<{ role: string; parts: Array<{ text: string }> }> {
-    const systemTime = `
-      Current Time: ${new Date().toString()}.
-      Use it to understand the current date and time, and relative references like 'tomorrow'.`;
-    return [...parts, systemTime].map((text) => ({
+    return [
+      `
+      You are an AI assistant responsible for helping users search for rooms in a university context.
+      Your job is to provide a plan (i.e., a list of one or more rooms) that satisfies the user's request.  
+      The user may eventually subscribe to the plan, meaning they'll be notified if a room in their plan becomes unavailable.
+      Only ask for information if it is missing. If the user's request is unclear, do your best with the information you have.
+      Current date/time is ${new Date().toString()}. Use it to understand references like 'today' or 'tomorrow'.
+      Respond in the language used by the user.`,
+      ...data,
+    ].map((text) => ({
       role: "user",
       parts: [{ text }],
     }));
