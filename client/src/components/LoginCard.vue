@@ -3,23 +3,41 @@ import { ref } from "vue";
 import InputText from "./InputText.vue";
 import Button from "./Button.vue";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     minHeight?: string;
     buttonClass?: string;
+    isRegister?: boolean;
   }>(),
   {
     minHeight: "",
     buttonClass: "w-full",
+    isRegister: false,
   },
 );
-
-const emit = defineEmits(["login", "signup"]);
+const emit = defineEmits(["login", "signup", "toLogin", "registerSubmit"]);
 const email = ref("");
 const password = ref("");
+const confirmPassword = ref("");
 
 const handleSubmit = () => {
-  emit("login", { email: email.value, password: password.value });
+  if (props.isRegister) {
+    if (password.value !== confirmPassword.value) {
+      alert("Le password non coincidono!");
+      return;
+    }
+
+    emit("registerSubmit", {
+      email: email.value,
+      password: password.value,
+      confirmPassword: confirmPassword.value,
+    });
+  } else {
+    emit("login", {
+      email: email.value,
+      password: password.value,
+    });
+  }
 };
 </script>
 
@@ -42,22 +60,36 @@ const handleSubmit = () => {
         type="password"
         v-model="password"
       />
+
+      <InputText
+        v-if="isRegister"
+        label="Conferma Password"
+        placeholder="Reinserisci la tua password"
+        type="password"
+        v-model="confirmPassword"
+      />
     </div>
 
     <div class="flex justify-center w-full">
-      <Button label="Accedi" :action="handleSubmit" :is-full-width="true" />
+      <Button
+        :label="isRegister ? 'Registrati' : 'Accedi'"
+        :action="handleSubmit"
+        :is-full-width="true"
+      />
     </div>
 
     <div
-      class="flex w-full justify-center items-center gap-1 text-xs font-medium text-gray-500"
+      class="flex w-full justify-center items-center gap-1 text-xs font-medium text-base-text"
     >
-      <span>Non hai un account?</span>
+      <span>
+        {{ isRegister ? "Hai già un account?" : "Non hai un account?" }}
+      </span>
       <a
         href="#"
-        @click.prevent="$emit('signup')"
+        @click.prevent="isRegister ? $emit('toLogin') : $emit('signup')"
         class="text-base-text underline underline-offset-2 hover:decoration-base-text transition-all"
       >
-        Registrati
+        {{ isRegister ? "Accedi" : "Registrati" }}
       </a>
     </div>
   </div>
