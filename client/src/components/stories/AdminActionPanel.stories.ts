@@ -21,7 +21,7 @@ export const Default: Story = {
   decorators: [
     () => ({
       template: `
-        <div class="min-h-screen bg-brand flex flex-col justify-end">
+        <div class="bg-brand flex flex-col justify-end">
           <div class="flex-1 flex items-center justify-center text-base-background opacity-50 pb-20">
           </div>
           <story />
@@ -35,7 +35,7 @@ export const Isolated: Story = {
   decorators: [
     () => ({
       template: `
-        <div class="min-h-screen bg-ui-card flex items-center justify-center p-4">
+        <div class="bg-ui-card flex items-center justify-center p-4">
           <div class="w-full max-w-md">
              <story />
           </div>
