@@ -22,8 +22,7 @@ withDefaults(defineProps<ButtonConfig>(), {
       flex items-center justify-between
       max-w-5xl min-w-20 min-h-10
       px-4 py-2
-      bg-brand hover:bg-brand-dark text-white
-      text-sm font-medium
+      bg-brand hover:bg-brand-dark text-brand-text
       rounded-full
       cursor-pointer
       transition-colors duration-200 ease-in-out

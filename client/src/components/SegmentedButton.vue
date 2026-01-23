@@ -42,7 +42,7 @@ const select = (option: SegmentedOption) => {
       :key="option.value"
       @click="select(option)"
       type="button"
-      class="flex-1 flex items-center justify-center px-6 py-2.5 text-sm font-medium transition-colors duration-200 ease-in-out gap-2 cursor-pointer focus:outline-none min-w-[80px]"
+      class="flex-1 flex items-center justify-center px-6 py-2.5 transition-colors duration-200 ease-in-out gap-2 cursor-pointer focus:outline-none min-w-[80px]"
       :class="[
         modelValue === option.value
           ? 'bg-brand text-brand-text'

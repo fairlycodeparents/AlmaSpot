@@ -13,10 +13,10 @@ defineProps<CardConfig>();
     class="flex max-w-87.5 flex-row items-center gap-4 rounded-xl bg-ui-card p-2.5 shadow-md transition-all duration-200 ease-in-out hover:-translate-y-0.5 hover:shadow-lg"
   >
     <div class="flex-1">
-      <h3 class="text-[1.1rem] font-bold text-base-text">
+      <h3 class="font-bold text-base-text">
         {{ title }}
       </h3>
-      <p class="mt-1 text-sm text-base-text">
+      <p class="mt-1 text-base-text">
         {{ subtitle }}
       </p>
     </div>

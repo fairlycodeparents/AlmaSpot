@@ -11,7 +11,7 @@ defineEmits(["update:modelValue"]);
 
 <template>
   <div class="flex flex-col gap-1.5 w-full">
-    <label class="text-sm font-medium text-base-text">
+    <label class="text-base-text">
       {{ label }}
     </label>
 
