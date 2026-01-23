@@ -52,7 +52,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
 <template>
   <div
       ref="containerRef"
-      class="relative text-base"
+      class="relative"
       :class="[isFullWidth ? 'w-full' : 'min-w-40 inline-block']"
   >
     <button
@@ -62,7 +62,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
         flex items-center justify-between
         w-full px-4 py-3 h-12
         bg-ui-card
-        text-base-text font-medium
+        text-base-text
         rounded-2xl
         cursor-pointer
         transition-all duration-200
@@ -85,7 +85,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
       </span>
 
       <ChevronDown
-          class="w-5 h-5 ml-3 text-gray-500 transition-transform duration-200"
+          class="w-5 h-5 ml-3 transition-transform duration-200"
           :class="{ 'rotate-180': isOpen}"
       />
     </button>

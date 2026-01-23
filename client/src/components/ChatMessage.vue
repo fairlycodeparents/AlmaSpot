@@ -15,7 +15,7 @@ withDefaults(defineProps<ChatMessageConfig>(), {
 
 <template>
   <div
-      class="flex items-start gap-3 mb-5 font-sans w-full"
+      class="flex items-start gap-3 mb-5 w-full"
       :class="{ 'flex-row-reverse': isMine }"
   >
     <img
@@ -30,7 +30,7 @@ withDefaults(defineProps<ChatMessageConfig>(), {
         :class="{ 'items-end': isMine }"
     >
       <div
-          class="px-4 py-3 text-base leading-tight shadow-sm border-ui-border border text-black"
+          class="px-4 py-3 leading-tight shadow-sm border-ui-border border text-base-text"
           :class="[
           isMine
             ? 'bg-ui-card rounded-xl rounded-tr-sm'

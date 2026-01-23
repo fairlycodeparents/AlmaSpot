@@ -23,9 +23,9 @@ withDefaults(defineProps<AlertConfig>(), {
       {{ title }}
     </h2>
 
-    <div class="text-lg leading-snug space-y-1">
+    <div class="leading-snug space-y-1">
       <p class="opacity-90">{{ intro }}</p>
-      <p class="font-medium">
+      <p>
         {{ message }} <span v-if="timeSlot">{{ timeSlot }} </span>
       </p>
     </div>

@@ -39,27 +39,27 @@ const isMax = computed(() => props.modelValue >= props.max);
 
 <template>
   <div class="flex items-center justify-between bg-ui-card border border-ui-border
-  rounded-lg shadow-sm w-full max-w-75 overflow-hidden">
+rounded-lg shadow-sm w-full max-w-75 overflow-hidden">
 
     <button
         @click="decrement"
         :disabled="isMin"
-        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center"
-        :class="isMin ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-brand hover:bg-brand-dark text-brand-text'"
+        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+        :class="isMin ? 'opacity-50 cursor-not-allowed': 'cursor-pointer'"
         aria-label="Diminuisci durata"
     >
       <Minus :size="20" />
     </button>
 
-    <span class="font-semibold text-base-text text-lg select-none min-w-20 text-center">
-      {{ formattedText }}
-    </span>
+    <span class="text-base-text select-none min-w-20 text-center">
+{{ formattedText }}
+</span>
 
     <button
         @click="increment"
         :disabled="isMax"
-        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center"
-        :class="isMax ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-brand hover:bg-brand-dark text-brand-text'"
+        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+        :class="isMax ? 'opacity-50 cursor-not-allowed': 'cursor-pointer'"
         aria-label="Aumenta durata"
     >
       <Plus :size="20" />
