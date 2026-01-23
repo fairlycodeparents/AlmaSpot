@@ -39,12 +39,12 @@ const isMax = computed(() => props.modelValue >= props.max);
 
 <template>
   <div class="flex items-center justify-between bg-ui-card border border-ui-border
-rounded-lg shadow-sm w-full max-w-75 overflow-hidden">
+rounded-2xl shadow-sm w-full max-w-75 overflow-hidden">
 
     <button
         @click="decrement"
         :disabled="isMin"
-        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+        class="p-3 rounded-2xl transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
         :class="isMin ? 'opacity-50 cursor-not-allowed': 'cursor-pointer'"
         aria-label="Diminuisci durata"
     >
@@ -58,7 +58,7 @@ rounded-lg shadow-sm w-full max-w-75 overflow-hidden">
     <button
         @click="increment"
         :disabled="isMax"
-        class="p-3 rounded-md transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+        class="p-3 rounded-2xl transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
         :class="isMax ? 'opacity-50 cursor-not-allowed': 'cursor-pointer'"
         aria-label="Aumenta durata"
     >
