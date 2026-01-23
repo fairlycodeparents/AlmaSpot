@@ -56,3 +56,10 @@ export const LongText: Story = {
     isMine: false,
   },
 };
+
+export const WithoutAvatar: Story = {
+  args: {
+    text: "This message has no avatar.",
+    isMine: true,
+  },
+};
