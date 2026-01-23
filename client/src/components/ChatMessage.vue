@@ -4,7 +4,7 @@ import Button from './Button.vue'
 
 type ChatMessageConfig = {
   text: string
-  avatar: string
+  avatar?: string
   isMine?: boolean
   callToAction?: ButtonConfig
 }
@@ -19,6 +19,7 @@ withDefaults(defineProps<ChatMessageConfig>(), {
       :class="{ 'flex-row-reverse': isMine }"
   >
     <img
+        v-if="avatar"
         :src="avatar"
         alt="User Avatar"
         class="w-12 h-12 rounded-full object-cover shrink-0"
