@@ -34,7 +34,7 @@ const select = (option: SegmentedOption) => {
 
 <template>
   <div
-    class="flex border border-ui-border rounded-xl overflow-hidden shadow-sm divide-x divide-ui-border"
+    class="flex border border-ui-border rounded-4xl overflow-hidden shadow-sm divide-x divide-ui-border"
     :class="containerClass"
   >
     <button

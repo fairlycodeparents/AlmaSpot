@@ -43,7 +43,7 @@ const handleSubmit = () => {
 
 <template>
   <div
-    class="bg-base-background rounded-xl p-8 w-full shadow-xl flex flex-col gap-6 justify-center"
+    class="bg-base-background rounded-2xl p-8 w-full shadow-xl flex flex-col gap-6 justify-center"
     :class="minHeight"
   >
     <div class="space-y-4">

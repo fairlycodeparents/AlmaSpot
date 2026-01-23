@@ -22,7 +22,7 @@ defineEmits(["update:modelValue"]);
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "
       :placeholder="placeholder"
-      class="w-full px-4 py-2.5 border rounded-lg bg-base-background text-base-text border-ui-border placeholder-base-grey focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all duration-200"
+      class="w-full px-4 py-2.5 border rounded-2xl bg-base-background text-base-text border-ui-border placeholder-base-grey focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent transition-all duration-200"
     />
   </div>
 </template>
