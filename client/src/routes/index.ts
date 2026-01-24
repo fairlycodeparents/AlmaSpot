@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import LoginPage from "@/views/LoginPage.vue";
 import RegisterPage from "@/views/RegisterPage.vue";
 import AssistantView from "@/views/AssistantView.vue";
+import PlanView from "@/views/PlanView.vue";
 
 const routes = createRouter({
   history: createWebHistory(),
@@ -20,6 +21,11 @@ const routes = createRouter({
       path: "/assistant",
       name: "assistant",
       component: AssistantView,
+    },
+    {
+      path: "/plan",
+      name: "plan",
+      component: PlanView,
     },
   ],
 });
