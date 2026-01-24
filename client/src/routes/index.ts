@@ -3,6 +3,8 @@ import LoginPage from "@/views/LoginPage.vue";
 import RegisterPage from "@/views/RegisterPage.vue";
 import AssistantView from "@/views/AssistantView.vue";
 import PlanView from "@/views/PlanView.vue";
+import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
+import AdminResultsPage from "@/views/AdminResultsPage.vue";
 
 const routes = createRouter({
   history: createWebHistory(),
@@ -27,6 +29,18 @@ const routes = createRouter({
       name: "plan",
       component: PlanView,
     },
+    {
+      path: "/admin",
+      component: AdminDashboardPage,
+      beforeEnter: (_to, _from, next) => {
+        if (localStorage.getItem("authToken")) {
+          next();
+        } else {
+          next("/login");
+        }
+      },
+    },
+    { path: "/admin/results", component: AdminResultsPage },
   ],
 });
 
