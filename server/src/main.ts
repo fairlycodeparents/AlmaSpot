@@ -38,8 +38,6 @@ async function bootstrap() {
       mongoose.connection.getClient() as unknown as MongoClient;
     await seedRooms(mongoClient.db());
 
-    console.log("Connesso a MongoDB");
-
     const authContext = AuthenticationContextFactory.create();
     const authController = new AuthController(authContext.authPort);
     const authRoutes = new AuthRoutes(authController);
@@ -82,9 +80,9 @@ async function bootstrap() {
 
     app.listen(env.PORT, () => {
       console.log(`
-      Server avviato su http://localhost:${env.PORT}
+      Server started on http://localhost:${env.PORT}
       ------------------------------------------
-      Status DB: CONNESSO
+      Status DB: CONNECTED
       Mode: ${env.NODE_ENV}
       Endpoints:
       - Auth: http://localhost:${env.PORT}/api/auth
@@ -95,7 +93,7 @@ async function bootstrap() {
       `);
     });
   } catch (error) {
-    console.error("Errore durante l'avvio:", error);
+    console.error("Error starting the server:", error);
     process.exit(1);
   }
 }

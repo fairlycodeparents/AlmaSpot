@@ -8,9 +8,7 @@ import { ActivityAddedEvent } from "../../core";
 describe("EventBus and ActivityAddedListener integration", () => {
   it("Should activate the service when an event is published on the bus", async () => {
     const mockService = {
-      handleActivityAdded: mock.fn(async () => {
-        console.log("Command received!");
-      }),
+      handleActivityAdded: mock.fn(async () => {}),
     } as any;
 
     const listener = new ActivityAddedListener(mockService);
@@ -19,7 +17,6 @@ describe("EventBus and ActivityAddedListener integration", () => {
       ActivityAddedEvent.EVENT_NAME,
       listener.on.bind(listener),
     );
-    console.log("Event publication...");
     const testEvent = new ActivityAddedEvent({
       activityId: "123",
       title: "Test Integration",
@@ -39,6 +36,5 @@ describe("EventBus and ActivityAddedListener integration", () => {
 
     const callArgs = mockService.handleActivityAdded.mock.calls[0].arguments;
     assert.strictEqual(callArgs[0].payload.roomId, "Aula1");
-    console.log("Message sent to listener!");
   });
 });

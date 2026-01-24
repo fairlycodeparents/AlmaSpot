@@ -12,26 +12,24 @@ describe("AuthService", () => {
     authService = new AuthService(adminRepo);
   });
 
-  // Test SignUp
-
-  it("dovrebbe registrare un utente correttamente e hashare la password", async () => {
+  it("signUp: should register any new user correctly and hash password", async () => {
     const email = "admin.prova@unibo.it";
     const password = "Password1";
 
     await authService.signUp(email, password);
 
     const savedUser = await adminRepo.findByEmail(email);
-    assert.ok(savedUser, "L'utente dovrebbe esistere nel DB");
+    assert.ok(savedUser, "User should exist in the repository");
 
     assert.notStrictEqual(
       savedUser?.hashedPassword,
       password,
-      "La password deve essere hashata",
+      "Password should be hashed",
     );
     assert.strictEqual(savedUser?.email, email);
   });
 
-  it("dovrebbe impedire la registrazione se l'email esiste già", async () => {
+  it("signUp: should fail if email already taken", async () => {
     const email = "admin.prova@unibo.it";
 
     await authService.signUp(email, "Password1");
@@ -47,9 +45,7 @@ describe("AuthService", () => {
     );
   });
 
-  // Test Login
-
-  it("dovrebbe restituire un token JWT se le credenziali sono corrette", async () => {
+  it("login: should return JWT token if credentials are correct", async () => {
     const email = "admin.prova@unibo.it";
     const password = "Password1";
 
@@ -62,7 +58,7 @@ describe("AuthService", () => {
     assert.strictEqual(token.split(".").length, 3);
   });
 
-  it("dovrebbe fallire il login se l'utente non esiste", async () => {
+  it("login: should fail if user doesn't exist", async () => {
     await assert.rejects(
       async () => {
         await authService.login("nonesiste@unibo.it", "Password1");
@@ -71,7 +67,7 @@ describe("AuthService", () => {
     );
   });
 
-  it("dovrebbe fallire il login se la password è sbagliata", async () => {
+  it("login: should fail if password is incorrect", async () => {
     const email = "admin.prova@unibo.it";
     await authService.signUp(email, "PasswordGiusta");
 
@@ -83,9 +79,7 @@ describe("AuthService", () => {
     );
   });
 
-  // Test Token
-
-  it("dovrebbe verificare un token valido", async () => {
+  it("verifyToken: should verify token validity", async () => {
     await authService.signUp("token@test.it", "pass");
     const token = await authService.login("token@test.it", "pass");
 
@@ -93,7 +87,7 @@ describe("AuthService", () => {
     assert.strictEqual(isValid, true);
   });
 
-  it("dovrebbe rifiutare un token manipolato", async () => {
+  it("verifyToken: should block compromised token", async () => {
     const fakeToken = "header.payload.signature_falsa";
     const isValid = authService.verifyToken(fakeToken);
     assert.strictEqual(isValid, false);

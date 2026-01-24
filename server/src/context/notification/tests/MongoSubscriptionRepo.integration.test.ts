@@ -22,7 +22,6 @@ describe("MongoSubscriptionRepository", { timeout: 10000 }, () => {
       await mongoose.connect(TEST_MONGO_URI, {
         serverSelectionTimeoutMS: 3000,
       });
-      console.log("Connected to test DB");
     } catch (err) {
       console.error("DB Connection Failed. Is Docker running?");
       throw err;

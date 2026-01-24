@@ -43,7 +43,7 @@ describe("RoomSearchService Test", () => {
     );
   });
 
-  it("findSlotsByCampus: Deve chiamare syncEvent prima di cercare", async () => {
+  it("findSlotsByCampus: should call syncEvent before searching", async () => {
     const period = new Period(d(9), d(13));
     mockRoomRepository.getRoomsByCampus.mock.mockImplementation(async () => []);
     mockRoomRepository.getActivitiesByCampusAndDate.mock.mockImplementation(
@@ -55,7 +55,7 @@ describe("RoomSearchService Test", () => {
     assert.strictEqual(mockActivityService.syncEvent.mock.calls.length, 1);
   });
 
-  it("findSlotsByCampus: Con aula libera restituisce intero slot", async () => {
+  it("findSlotsByCampus: if room is free all day, only one slot is returned", async () => {
     const cesenaSite = new Site(Campus.CESENA, "Via Università");
     const room = makeRoom("AULA-1", cesenaSite);
 
@@ -82,8 +82,8 @@ describe("RoomSearchService Test", () => {
   });
 
   it(
-    "findSlotsByCampus: Con aula occupata parzialmente, restituisce più slot liberi " +
-      "senza il periodo occupato",
+    "findSlotsByCampus: if room partially occupied, should return two or more free slots " +
+      "divided by the occupied period",
     async () => {
       const cesenaSite = new Site(Campus.CESENA, "Via Università");
       const room = makeRoom("AULA-1", cesenaSite);
@@ -118,7 +118,7 @@ describe("RoomSearchService Test", () => {
     },
   );
 
-  it("findSlotsBySite: Deve filtrare le aule per l'indirizzo del Site specifico", async () => {
+  it("findSlotsBySite: should filter rooms by site", async () => {
     const targetSite = new Site(Campus.CESENA, "Via Dell'Università 50");
     const otherSite = new Site(Campus.CESENA, "Villa Almerici");
 
@@ -142,7 +142,7 @@ describe("RoomSearchService Test", () => {
     assert.strictEqual(result[0].room.id, "ROOM-RIGHT");
   });
 
-  it("getActivitiesInDateAndCampus: Chiama sync e fetch", async () => {
+  it("getActivitiesInDateAndCampus: should call sync and fetch", async () => {
     const expectedActivities = [makeActivity("A1", 9, 10)];
     mockRoomRepository.getActivitiesByCampusAndDate.mock.mockImplementation(
       async () => expectedActivities,

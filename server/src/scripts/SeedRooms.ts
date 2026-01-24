@@ -6,8 +6,6 @@ export async function seedRooms(db: Db) {
   const collection = db.collection("rooms");
 
   const dataDir = path.join(__dirname, "data");
-  console.log("Starting room seeding from directory: ", dataDir);
-
   try {
     if (!fs.existsSync(dataDir)) {
       console.warn("Data folder not found in: ", dataDir);
@@ -56,18 +54,13 @@ export async function seedRooms(db: Db) {
             .filter((op) => op !== null);
 
           if (operations.length > 0) {
-            const result = await collection.bulkWrite(operations);
-            console.log(
-              `Processed ${file}: Matched ${result.matchedCount}, Upserted ${result.upsertedCount}`,
-            );
+            await collection.bulkWrite(operations);
           }
         }
       } catch (parseError) {
         console.error(`Error parsing JSON ${file}:`, parseError);
       }
     }
-
-    console.log("Room seeding completed.");
   } catch (error) {
     console.error("Critical error during seed:", error);
   }
