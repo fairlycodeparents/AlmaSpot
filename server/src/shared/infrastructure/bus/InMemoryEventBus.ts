@@ -10,11 +10,9 @@ export class InMemoryEventBus implements EventBus {
 
   async publish(event: DomainEvent): Promise<void> {
     this.bus.emit(event.eventName, event);
-    console.log(`[EventBus] Published: ${event.eventName}`);
   }
 
   subscribe(eventName: string, callback: (event: any) => Promise<void>): void {
     this.bus.on(eventName, callback);
-    console.log(`[EventBus] Subscribed to: ${eventName}`);
   }
 }

@@ -101,8 +101,7 @@ export class ActivityManagementService {
       startTime: event.period.start,
       endTime: event.period.end,
     });
-    console.log("[Event Created] External event created with ID:", event.id);
-    await this.notifyEvent(domainEvent, event.id);
+    await this.notifyEvent(domainEvent);
   }
 
   async deleteEvent(token: string, activityId: string): Promise<void> {
@@ -123,17 +122,9 @@ export class ActivityManagementService {
     }
 
     await this.roomRepository.deleteExternalActivity(activityId);
-    console.log("[Event Deleted] External event deleted with ID:", activityId);
   }
 
-  async notifyEvent(
-    event: ActivityAddedEvent,
-    id: string | undefined,
-  ): Promise<void> {
+  async notifyEvent(event: ActivityAddedEvent): Promise<void> {
     await this.eventBus.publish(event);
-    console.log(
-      "[Event Published] External event published on event bus with ID:",
-      id,
-    );
   }
 }
