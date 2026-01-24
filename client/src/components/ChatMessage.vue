@@ -2,7 +2,7 @@
 import type { ButtonConfig } from './Button.vue'
 import Button from './Button.vue'
 
-type ChatMessageConfig = {
+export type ChatMessageConfig = {
   text: string
   avatar?: string
   isMine?: boolean
