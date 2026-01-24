@@ -101,10 +101,7 @@ export class AIAdapter implements AI {
     try {
       response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: conversation.map((text) => ({
-          role: "user",
-          parts: [{ text }],
-        })),
+        contents: this.buildContents(conversation),
         config: {
           tools: [
             {
@@ -171,10 +168,7 @@ export class AIAdapter implements AI {
     try {
       const response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: conversation.map((text) => ({
-          role: "user",
-          parts: [{ text }],
-        })),
+        contents: this.buildContents(conversation),
         config: {
           systemInstruction: this.buildSystemInstruction("EXTRACTOR"),
           tools: [
@@ -204,6 +198,13 @@ export class AIAdapter implements AI {
       console.error("Failed to generate content from AI model:", error);
       return ERROR_MESSAGE;
     }
+  }
+
+  private buildContents(conversation: string[]) {
+    return conversation.map((text) => ({
+      role: "user",
+      parts: [{ text }],
+    }));
   }
 
   private buildSystemInstruction(
