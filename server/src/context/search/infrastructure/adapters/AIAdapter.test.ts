@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { AIAdapter } from "./AIAdapter";
@@ -93,6 +94,7 @@ describe(
       const availableSlots: AvailableRoom[] = [
         new AvailableRoom(
           "room1",
+          "Room 1",
           "classroom",
           "Rimini",
           todayAt(13),
@@ -100,6 +102,7 @@ describe(
         ),
         new AvailableRoom(
           "room2",
+          "Room 2",
           "classroom",
           "Rimini",
           todayAt(15),

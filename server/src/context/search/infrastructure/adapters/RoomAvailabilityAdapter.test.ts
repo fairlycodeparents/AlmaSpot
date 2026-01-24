@@ -41,7 +41,12 @@ describe("RoomAvailabilityAdapter", () => {
   it("should map core response to RoomAvailable objects correctly", async () => {
     const rawCoreResponse = [
       {
-        room: { id: "R1", type: "Lab", site: { address: "Via Verdi" } },
+        room: {
+          id: "R1",
+          name: "Room 1",
+          type: "Lab",
+          site: { address: "Via Verdi" },
+        },
         availableSlots: [{ period: { start: period.start, end: period.end } }],
       },
     ];
@@ -51,7 +56,14 @@ describe("RoomAvailabilityAdapter", () => {
     const query = new UserRequest(period, Campus.CESENA);
     const result = await adapter.getAvailableRooms(query);
     assert.deepStrictEqual(result, [
-      new AvailableRoom("R1", "Lab", "Via Verdi", period.start, period.end),
+      new AvailableRoom(
+        "R1",
+        "Room 1",
+        "Lab",
+        "Via Verdi",
+        period.start,
+        period.end,
+      ),
     ]);
   });
 

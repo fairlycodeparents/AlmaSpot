@@ -8,7 +8,7 @@ import {
   UserRequest,
   Suggestion,
 } from "context/search/domain/Entities";
-import { GoogleGenAI, Type } from "@google/genai";
+import { FunctionCallingConfigMode, GoogleGenAI, Type } from "@google/genai";
 import { z } from "zod";
 
 export const DEFAULT_RESPONSE =
@@ -21,31 +21,30 @@ export class AIAdapter implements AI {
   private readonly MODEL_NAME = "gemini-2.5-flash-lite";
 
   private readonly QUERY_DECLARATION = {
-    name: "extract_availability_query",
-    description: "Extracts structured availability query parameters.",
+    name: "availability_query",
+    description: "Extracts university room search parameters.",
     parameters: {
       type: Type.OBJECT,
       properties: {
-        start: { type: Type.STRING, description: "Start datetime in ISO 8601" },
-        end: { type: Type.STRING, description: "End datetime in ISO 8601" },
-        campus: {
+        start: { type: Type.STRING, description: "ISO 8601 start datetime" },
+        end: { type: Type.STRING, description: "ISO 8601 end datetime" },
+        city: {
           type: Type.STRING,
           enum: Object.values(Campus),
-          description: "Campus where to find a room",
+          description: "City to search in",
         },
         address: {
           type: Type.STRING,
-          description: "Optional address within the campus to find a room",
+          description: "Optional address within the city",
         },
       },
-      required: ["start", "end", "campus"],
+      required: ["start", "end", "city"],
     },
   };
 
   private readonly PLAN_DECLARATION = {
     name: "define_plan",
-    description:
-      "Defines a plan composed of one or more slots to cover the user's requested time period.",
+    description: "Proposed room allocation plan.",
     parameters: {
       type: Type.OBJECT,
       properties: {
@@ -56,34 +55,30 @@ export class AIAdapter implements AI {
             properties: {
               roomId: {
                 type: Type.STRING,
-                description: "The ID of the selected room for this step",
+                description: "Identifier of the room",
               },
               start: {
                 type: Type.STRING,
-                description: "Start datetime for this step (ISO 8601)",
+                description: "ISO 8601 start datetime",
               },
-              end: {
-                type: Type.STRING,
-                description: "End datetime for this step (ISO 8601)",
-              },
+              end: { type: Type.STRING, description: "ISO 8601 end datetime" },
             },
             required: ["roomId", "start", "end"],
           },
         },
-        explanation: {
+        message_to_user: {
           type: Type.STRING,
-          description:
-            "Answer to the user's last message, or explain why no plan could be made.",
+          description: "Answer for the user: explain the plan briefly",
         },
       },
-      required: ["slots", "explanation"],
+      required: ["slots", "message_to_user"],
     },
   };
 
   private readonly QUERY_SCHEMA = z.object({
     start: z.string(),
     end: z.string(),
-    campus: z.enum(Campus),
+    city: z.enum(Campus),
     address: z.string().optional(),
   });
 
@@ -95,144 +90,159 @@ export class AIAdapter implements AI {
         end: z.string(),
       }),
     ),
-    explanation: z.string(),
+    message_to_user: z.string(),
   });
 
   async getSuggestion(
     conversation: string[],
     availableRooms: AvailableRoom[],
   ): Promise<Suggestion> {
-    const availabilityContext = availableRooms.map((room) => ({
-      roomId: room.id,
-      roomType: room.type,
-      roomAddress: room.address,
-      availabilityStart: room.from.toString(),
-      availabilityEnd: room.to.toString(),
-    }));
-
-    const systemInstruction = `
-    Here is the list of AVAILABLE rooms, with their availability periods:
-    ${JSON.stringify(availabilityContext)}
-
-    INSTRUCTIONS:
-      1. Analyze the user's request (time range) and the available rooms.
-      2. If one room covers the whole period, select it.
-      3. If no single room works, try to combine multiple rooms (e.g., Room A from 9-11, Room B from 11-13) to minimize room switches.
-      4. If no valid combination exists, return an empty "slots" list.
-      5. Always provide a clear "explanation" (e.g., "I couldn't find a single room, but you can use Room A then move to Room B").`;
-
     let response;
     try {
       response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: this.buildPrompt([...conversation, systemInstruction]),
+        contents: this.buildContents(conversation),
         config: {
-          tools: [{ functionDeclarations: [this.PLAN_DECLARATION] }],
+          tools: [
+            {
+              functionDeclarations: [this.PLAN_DECLARATION],
+            },
+          ],
+          systemInstruction: this.buildSystemInstruction(
+            "SUGGESTER",
+            availableRooms,
+          ),
+          toolConfig: {
+            functionCallingConfig: {
+              mode: FunctionCallingConfigMode.ANY,
+              allowedFunctionNames: ["define_plan"],
+            },
+          },
         },
       });
+
+      const args = response.functionCalls?.[0]?.args;
+      if (!args) {
+        return new Suggestion(
+          new Plan([]),
+          response.text ? response.text : DEFAULT_RESPONSE,
+        );
+      }
+
+      const parsed = this.PLAN_SCHEMA.safeParse(args);
+      if (!parsed.success) {
+        return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
+      }
+
+      const data = parsed.data;
+      const selectedSlots: Slot[] = [];
+      for (const slot of data.slots) {
+        const roomId = slot.roomId;
+        const start = new Date(slot.start);
+        const end = new Date(slot.end);
+        const originalSlot = availableRooms.find((s) => {
+          return (
+            s.id === roomId &&
+            s.from.getTime() <= start.getTime() &&
+            s.to.getTime() >= end.getTime()
+          );
+        });
+        if (originalSlot) {
+          selectedSlots.push(new Slot(roomId, new Period(start, end)));
+        } else {
+          console.warn(
+            `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
+               Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
+          );
+        }
+      }
+
+      return new Suggestion(new Plan(selectedSlots), data.message_to_user);
     } catch (error) {
       console.error("Failed to generate content from AI model:", error);
       return new Suggestion(new Plan([]), ERROR_MESSAGE);
     }
-
-    const args = response.functionCalls?.[0]?.args;
-
-    if (!args) {
-      return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
-    }
-
-    const parsed = this.PLAN_SCHEMA.safeParse(args);
-
-    if (!parsed.success) {
-      return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
-    }
-
-    const data = parsed.data;
-
-    const selectedSlots: Slot[] = [];
-
-    for (const slot of data.slots) {
-      const start = new Date(slot.start);
-      const end = new Date(slot.end);
-
-      const originalSlot = availableRooms.find((s) => {
-        return (
-          s.id === slot.roomId &&
-          s.from.getTime() <= start.getTime() &&
-          s.to.getTime() >= end.getTime()
-        );
-      });
-
-      if (originalSlot) {
-        const plannedSlot = new AvailableRoom(
-          originalSlot.id,
-          originalSlot.type,
-          originalSlot.address,
-          start,
-          end,
-        );
-        selectedSlots.push(plannedSlot.toSlot());
-      } else {
-        console.warn(
-          `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
-           Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
-        );
-      }
-    }
-
-    return new Suggestion(new Plan(selectedSlots), data.explanation);
   }
 
   async extractRequest(conversation: string[]): Promise<UserRequest | string> {
-    let response;
     try {
-      response = await this.ai.models.generateContent({
+      const response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: this.buildPrompt(conversation),
+        contents: this.buildContents(conversation),
         config: {
-          tools: [{ functionDeclarations: [this.QUERY_DECLARATION] }],
+          systemInstruction: this.buildSystemInstruction("EXTRACTOR"),
+          tools: [
+            {
+              functionDeclarations: [this.QUERY_DECLARATION],
+            },
+          ],
         },
       });
+
+      const args = response.functionCalls?.[0]?.args;
+      if (!args) {
+        return response.text ? response.text : DEFAULT_RESPONSE;
+      }
+
+      const parsed = this.QUERY_SCHEMA.safeParse(args);
+      if (!parsed.success) {
+        return DEFAULT_RESPONSE;
+      }
+
+      return new UserRequest(
+        new Period(new Date(parsed.data.start), new Date(parsed.data.end)),
+        parsed.data.city,
+        parsed.data.address,
+      );
     } catch (error) {
       console.error("Failed to generate content from AI model:", error);
       return ERROR_MESSAGE;
     }
-
-    const args = response.functionCalls?.[0]?.args;
-
-    if (!args) {
-      return DEFAULT_RESPONSE;
-    }
-
-    const parsed = this.QUERY_SCHEMA.safeParse(args);
-
-    if (!parsed.success) {
-      return DEFAULT_RESPONSE;
-    }
-
-    const data = parsed.data;
-
-    return new UserRequest(
-      new Period(new Date(data.start), new Date(data.end)),
-      data.campus,
-      data.address,
-    );
   }
 
-  /**
-   * Builds the prompt for the AI model by appending the current system time.
-   * @param parts - The parts of the prompt
-   * @returns The complete prompt, formatted for the AI model, including current time information.
-   */
-  private buildPrompt(
-    parts: string[],
-  ): Array<{ role: string; parts: Array<{ text: string }> }> {
-    const systemTime = `
-      Current Time: ${new Date().toString()}.
-      Use it to understand the current date and time, and relative references like 'tomorrow'.`;
-    return [...parts, systemTime].map((text) => ({
+  private buildContents(conversation: string[]) {
+    return conversation.map((text) => ({
       role: "user",
       parts: [{ text }],
     }));
+  }
+
+  private buildSystemInstruction(
+    mode: "EXTRACTOR" | "SUGGESTER",
+    rooms?: AvailableRoom[],
+  ): string {
+    const now = new Date();
+    const context = `
+      CURRENT_TIME: ${now.toString()}
+      TIMEZONE: Europe/Rome
+      LOCALE: Italian
+      
+      BEHAVIOR:
+      - Use ONLY the provided tools for structured data.
+      - If data is missing for a tool, ask for it briefly.
+      - If data is not missing but unclear, make your best guess. Do NOT ask for clarification/confirmation.
+    `;
+
+    if (mode === "EXTRACTOR") {
+      return `
+        ${context}
+        TASK: Extract search parameters (campus, start, end). Resolve relative times like 'tomorrow' or 'in 2 hours' based on CURRENT_TIME.
+      `;
+    }
+    return `
+      ${context}
+      AVAILABLE_ROOMS: ${JSON.stringify(
+        rooms?.map((room) => ({
+          id: room.id,
+          name: room.name,
+          from: room.from.toString(),
+          to: room.to.toString(),
+          address: room.address,
+        })),
+      )}
+      TASK: Create a plan, allocating rooms from AVAILABLE_ROOMS to cover the entire requested period.
+      If more plans are possible, choose the one with fewer room changes.
+      In message_to_user, only use room name from the provided list (never the id).
+    `;
   }
 }

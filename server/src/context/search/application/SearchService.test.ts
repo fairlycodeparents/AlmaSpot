@@ -17,7 +17,9 @@ describe("SearchService", () => {
     const end = new Date(now.setHours(2));
     const period = new Period(start, end);
     const expectedRequest = new UserRequest(period, Campus.CESENA);
-    const expectedRooms = [new AvailableRoom("1", "Lab", "Via X", start, end)];
+    const expectedRooms = [
+      new AvailableRoom("1", "Room 1", "Lab", "Via X", start, end),
+    ];
     const expectedSuggestion = new Suggestion(
       new Plan([]),
       "Here is a suggested plan.",
