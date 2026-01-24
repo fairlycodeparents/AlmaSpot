@@ -34,4 +34,18 @@ export class NotificationController {
       return res.status(500).send();
     }
   }
+
+  async unsubscribe(req: Request, res: Response) {
+    try {
+      const { studentId } = req.body;
+      if (!studentId) {
+        return res.status(400).json({ error: "Missing studentId" });
+      }
+      await this.service.unsubscribe(studentId);
+      return res.status(200).send();
+    } catch (e: any) {
+      console.error("Unsubscribe error:", e);
+      return res.status(500).send();
+    }
+  }
 }

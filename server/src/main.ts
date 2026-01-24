@@ -23,6 +23,7 @@ import {
   NotificationService,
   ActivityAddedListener,
   NotificationController,
+  NotificationRoutes,
 } from "./context/notification";
 import * as SearchContext from "./context/search";
 
@@ -64,16 +65,13 @@ async function bootstrap() {
     const notificationController = new NotificationController(
       notificationService,
     );
-    const notificationRouter = express.Router();
+    const notificationRoutes = new NotificationRoutes(notificationController);
     eventBus.subscribe(
       ActivityAddedEvent.EVENT_NAME,
       sendNotificationListener.on.bind(sendNotificationListener),
     );
-    notificationRouter.post("/subscribe", (req, res) =>
-      notificationController.subscribe(req, res),
-    );
 
-    app.use("/api/notifications", notificationRouter);
+    app.use("/api/notifications", notificationRoutes.getRouter());
     app.use("/api/auth", authRoutes.getRouter());
     app.use("/api/core", coreRoutes.getRouter());
     app.use("/api/search", searchRoutes.getRouter());

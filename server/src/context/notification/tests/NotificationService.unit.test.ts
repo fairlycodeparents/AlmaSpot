@@ -27,7 +27,7 @@ describe("NotificationService", () => {
 
   it("It should send a Notification if the Student has a conflicting slot", async () => {
     const interestedSub = {
-      studentId: "student-token",
+      studentId: "student1",
       plan: {
         slots: [
           {
@@ -58,7 +58,7 @@ describe("NotificationService", () => {
     const callArgs = mockSender.send.mock.calls[0].arguments;
     const notificationSent = callArgs[0];
     const detailsSent = callArgs[1];
-    assert.strictEqual(notificationSent.studentId, "student-token");
+    assert.strictEqual(notificationSent.studentId, "student1");
     assert.ok(notificationSent.message.includes("Seminario"));
     assert.ok(notificationSent.message.includes("si sovrappone"));
     assert.deepStrictEqual(
@@ -70,7 +70,7 @@ describe("NotificationService", () => {
 
   it("It should not send anything if no matching slot is found", async () => {
     const subNoConflict = {
-      studentId: "student-lazy",
+      studentId: "student2",
       plan: {
         slots: [
           {
@@ -89,7 +89,7 @@ describe("NotificationService", () => {
     const event: any = {
       payload: {
         roomId: "Aula2",
-        title: "Recupero lezione C",
+        title: "Recupero lezione",
         startTime: new Date("2026-01-01T10:00:00Z"),
         endTime: new Date("2026-01-01T13:00:00Z"),
       },
@@ -174,5 +174,21 @@ describe("NotificationService", () => {
     });
     assert.strictEqual(mockSender.send.mock.callCount(), 1);
     assert.strictEqual(mockRepo.delete.mock.callCount(), 0);
+  });
+
+  it("It should correctly unsubscribe a student by calling delete on repository", async () => {
+    const studentIdToRemove = "student-to-remove";
+    await service.unsubscribe(studentIdToRemove);
+    assert.strictEqual(
+      mockRepo.delete.mock.callCount(),
+      1,
+      "Repository delete should be called once",
+    );
+    const deleteArgs = mockRepo.delete.mock.calls[0].arguments;
+    assert.strictEqual(
+      deleteArgs[0],
+      studentIdToRemove,
+      "Should pass the correct studentId to the repository",
+    );
   });
 });
