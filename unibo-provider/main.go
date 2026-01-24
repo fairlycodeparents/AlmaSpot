@@ -47,11 +47,9 @@ func main() {
 	fmt.Println("Unibo Provider listening on :8080")
 
 	go func() {
-		fmt.Println("Pre-fetching courses data...")
 		if _, err := getCourses(); err != nil {
 			fmt.Printf("Failed to pre-fetch: %v\n\n", err)
 		} else {
-			fmt.Println("Courses data pre-fetched successfully.")
 		}
 	}()
 

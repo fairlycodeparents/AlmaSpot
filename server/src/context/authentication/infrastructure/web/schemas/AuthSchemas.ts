@@ -4,26 +4,26 @@ import { LoginDto, SignUpDto } from "../../../application/dtos/AuthDtos";
 export const loginSchema = z
   .object({
     email: z
-      .string({ message: "L'email è obbligatoria" })
-      .email("Formato email non valido"),
+      .string({ message: "Email is required" })
+      .email("Invalid email format"),
 
-    password: z.string({ message: "La password è obbligatoria" }),
+    password: z.string({ message: "Password is required" }),
   })
   .strict() satisfies z.ZodType<LoginDto>;
 
 export const signUpSchema = z
   .object({
     email: z
-      .string({ message: "L'email è obbligatoria" })
-      .email("Devi inserire un indirizzo email valido")
+      .string({ message: "Email is required" })
+      .email("Invalid email format")
       .endsWith("@unibo.it", {
-        message: "Puoi registrarti solo con la mail istituzionale",
+        message: "Email must be a unibo.it address",
       }),
 
     password: z
-      .string({ message: "La password è obbligatoria" })
-      .min(8, "La password deve essere di almeno 8 caratteri")
-      .max(100, "La password è troppo lunga")
-      .regex(/\d/, "La password deve contenere almeno un numero"),
+      .string({ message: "Password is required" })
+      .min(8, "Password must be at least 8 characters long")
+      .max(100, "Password too long")
+      .regex(/\d/, "Password must contain at least one number"),
   })
   .strict() satisfies z.ZodType<SignUpDto>;

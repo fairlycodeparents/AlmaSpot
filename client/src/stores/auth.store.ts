@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
+import { computed, ref } from "vue";
 import { authService } from "@/services/auth.service";
 import { useRouter } from "vue-router";
 
@@ -39,17 +39,16 @@ export const useAuthStore = defineStore("auth", () => {
       await authService.signUp(payload);
       return true;
     } catch (err: any) {
-      console.log("Errore catturato:", err);
+      console.error("Error catched:", err);
 
       if (err.errors) {
-        const firstError =
+        error.value =
           err.errors.email?._errors?.[0] ||
           err.errors.password?._errors?.[0] ||
-          "Dati non validi";
-        error.value = firstError;
+          "Invalid data provided";
       } else {
         error.value =
-          err.message || err.error || "Errore durante la registrazione";
+          err.message || err.error || "An error occurred during sign up";
       }
       return false;
     } finally {

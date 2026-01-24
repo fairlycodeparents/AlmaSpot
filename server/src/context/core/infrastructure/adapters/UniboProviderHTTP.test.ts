@@ -16,7 +16,7 @@ describe("UniboProviderHTTP Test", () => {
     global.fetch = originalFetch;
   });
 
-  it("fetchInternalActivities: Deve parsare correttamente la risposta JSON", async () => {
+  it("fetchInternalActivities: should parse JSON response correctly", async () => {
     const mockResponse = [
       {
         title: "Lezione di Prova",
@@ -53,7 +53,7 @@ describe("UniboProviderHTTP Test", () => {
     );
   });
 
-  it("fetchInternalActivities: Deve lanciare errore se la risposta HTTP non è ok", async () => {
+  it("fetchInternalActivities: should throw an error if HTTP response not valid", async () => {
     global.fetch = mock.fn(
       async () =>
         ({
@@ -73,7 +73,7 @@ describe("UniboProviderHTTP Test", () => {
     );
   });
 
-  it("fetchInternalActivities: Deve gestire errori di rete", async () => {
+  it("fetchInternalActivities: should manage network errors", async () => {
     global.fetch = mock.fn(async () => {
       throw new Error("Connection Refused");
     });

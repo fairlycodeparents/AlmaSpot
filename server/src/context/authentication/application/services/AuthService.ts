@@ -40,7 +40,7 @@ export class AuthService implements AuthInputPort {
       throw new Error("Invalid credentials");
     }
 
-    const token = jwt.sign(
+    return jwt.sign(
       {
         sub: admin.id,
         email: admin.email,
@@ -49,8 +49,6 @@ export class AuthService implements AuthInputPort {
       this.JWT_SECRET,
       { expiresIn: env.JWT_EXPIRES_IN } as jwt.SignOptions,
     );
-
-    return token;
   }
 
   verifyToken(token: string): boolean {

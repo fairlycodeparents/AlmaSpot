@@ -15,7 +15,7 @@ import { Period } from "../../../../../shared/domain/Period";
 const TEST_DB_URL = process.env["MONGO_URI"];
 const TEST_DB_NAME = "almaspot_integration_test";
 
-describe("MongoRoomRepository Integration Test", async () => {
+describe("MongoRoomRepository Test", async () => {
   let client: MongoClient;
   let repo: MongoRoomRepository;
 
@@ -41,7 +41,7 @@ describe("MongoRoomRepository Integration Test", async () => {
   const d = (h: number) =>
     new Date(`2026-03-20T${h.toString().padStart(2, "0")}:00:00`);
 
-  await it("Dovrebbe salvare e recuperare le aule per Campus", async () => {
+  await it("getRoomsByCampus: should retrieve rooms by specified campus", async () => {
     const db = client.db(TEST_DB_NAME);
     const roomDoc = {
       id: "aula-test-1-ce",
@@ -59,7 +59,7 @@ describe("MongoRoomRepository Integration Test", async () => {
     assert.strictEqual(rooms[0].campus, Campus.CESENA);
   });
 
-  await it("Dovrebbe fetchare Activities Interne e recuperarle per data", async () => {
+  await it("updateInternalActivities: should update internal activities without errors", async () => {
     const date = new Date("2026-03-20");
     const internalActivities: InternalActivity[] = [
       {
@@ -101,7 +101,7 @@ describe("MongoRoomRepository Integration Test", async () => {
     assert.strictEqual(retrieved[1].title, "Lezione 2");
   });
 
-  await it("Dovrebbe salvare e cancellare una Activity Esterna", async () => {
+  await it("save and delete ExternalActivity: should correctly save and delete an external activity", async () => {
     const extActivity: ExternalActivity = {
       id: "ext-evento-studenti-20260320-1400",
       roomId: "aula-test-1-ce",
@@ -131,13 +131,13 @@ describe("MongoRoomRepository Integration Test", async () => {
     assert.strictEqual(events.length, 0);
   });
 
-  await it("getLastSync deve tornare null se mai sincronizzato", async () => {
+  await it("getLastSync: should return null if never synchronized", async () => {
     const date = new Date("2099-01-01");
     const lastSync = await repo.getLastSync(Campus.CESENA, date);
     assert.strictEqual(lastSync, null);
   });
 
-  await it("setLastSync deve salvare la data e getLastSync recuperarla", async () => {
+  await it("setLastSync: should set last sync date", async () => {
     const date = new Date("2026-03-20");
     await repo.setLastSync(Campus.CESENA, date);
 

@@ -40,16 +40,12 @@ const run = () => {
   const inputPath = path.resolve(inputFileName);
 
   if (!fs.existsSync(inputPath)) {
-    console.error(`❌ Non trovo il file ${inputFileName}`);
     return;
   }
 
   const rawData: UniboEvent[] = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
-  console.log(`Input caricato: ${rawData.length} eventi totali.\n`);
 
   TARGET_CITIES.forEach((cityConfig) => {
-    console.log(`Elaborazione ${cityConfig.name}...`);
-
     const uniqueRooms = new Map<string, RoomOutput>();
     const searchString = cityConfig.name.toLowerCase();
 
@@ -105,10 +101,7 @@ const run = () => {
     const outputPath = path.resolve(cityConfig.filename);
 
     fs.writeFileSync(outputPath, JSON.stringify(finalOutput, null, 2));
-    console.log(`Generato ${cityConfig.filename} (${finalOutput.length} aule)`);
   });
-
-  console.log(`\nElaborazione completata per tutte le sedi.`);
 };
 
 run();
