@@ -220,7 +220,7 @@ export class AIAdapter implements AI {
       BEHAVIOR:
       - Use ONLY the provided tools for structured data.
       - If data is missing for a tool, ask for it briefly.
-      - If data is not missing but unclear, make your best guess. Do not ask for clarification/confirmation.
+      - If data is not missing but unclear, make your best guess. Do NOT ask for clarification/confirmation.
     `;
 
     if (mode === "EXTRACTOR") {
@@ -231,8 +231,16 @@ export class AIAdapter implements AI {
     }
     return `
       ${context}
-      AVAILABLE_ROOMS: ${JSON.stringify(rooms)}
-      TASK: Create a plan. Minimize room changes. If a time gap exists, explain it.
+      AVAILABLE_ROOMS: ${JSON.stringify(
+        rooms?.map((room) => ({
+          id: room.id,
+          name: room.name,
+          from: room.from.toString(),
+          to: room.to.toString(),
+          address: room.address,
+        })),
+      )}
+      TASK: Create a plan, allocating rooms from AVAILABLE_ROOMS to cover the entire requested period.
       If more plans are possible, choose the one with fewer room changes.
       In message_to_user, only use room name from the provided list (never the id).
     `;
