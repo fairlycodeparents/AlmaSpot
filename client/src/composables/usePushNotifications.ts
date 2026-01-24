@@ -101,6 +101,31 @@ export function usePushNotifications() {
     }
   };
 
+  const unsubscribeFromPush = async () => {
+    isLoading.value = true;
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      const subscription = await registration.pushManager.getSubscription();
+      if (subscription) {
+        await subscription.unsubscribe();
+      }
+
+      const studentId = getOrCreateDeviceId();
+      await fetch("/api/notifications/unsubscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ studentId }),
+      });
+
+      isSubscribed.value = false;
+    } catch (err) {
+      console.error("Unsubscrtiption error", err);
+      error.value = "Impossibile to unsubscribe";
+    } finally {
+      isLoading.value = false;
+    }
+  };
+
   onMounted(() => {
     checkSubscription();
   });
@@ -111,5 +136,6 @@ export function usePushNotifications() {
     isLoading,
     error,
     subscribeToPush,
+    unsubscribeFromPush,
   };
 }
