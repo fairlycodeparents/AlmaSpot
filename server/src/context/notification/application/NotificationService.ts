@@ -87,4 +87,8 @@ export class NotificationService {
     const subscription = new Subscription(studentId, planData);
     await this.subRepo.save(subscription, details);
   }
+
+  async unsubscribe(studentId: string): Promise<void> {
+    await this.subRepo.delete(studentId);
+  }
 }
