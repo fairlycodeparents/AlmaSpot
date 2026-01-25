@@ -10,7 +10,7 @@ export class Suggestion {
    * @param response - The AI's textual response to the user's request.
    */
   constructor(
-    public readonly plan: AvailableRoom[],
+    public readonly plan: RoomSlot[],
     public readonly response: string,
   ) {}
 }
@@ -30,17 +30,17 @@ export class UserRequest {
   ) {}
 }
 
-/** Domain entity representing an available room. */
-export class AvailableRoom {
+/** Domain entity representing a room slot. */
+export class RoomSlot {
   /**
-   * Creates a new `AvailableRoom` instance.
+   * Creates a new `RoomSlot` instance.
    * @param id - The identifier of the room.
    * @param name - The name of the room.
    * @param type - The type of the room.
    * @param campus - The campus where the room is located.
    * @param address - The address or location of the room.
-   * @param from - The start date and time of availability.
-   * @param to - The end date and time of availability.
+   * @param from - The start date and time of the slot.
+   * @param to - The end date and time of the slot.
    */
   constructor(
     public readonly id: string,

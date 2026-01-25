@@ -1,5 +1,5 @@
 import { RoomAvailability } from "context/search/application/ports/OutboundPorts";
-import { UserRequest, AvailableRoom } from "context/search/domain/Entities";
+import { UserRequest, RoomSlot } from "context/search/domain/Entities";
 import { CoreFacade } from "context/core";
 
 /**
@@ -13,7 +13,7 @@ export class RoomAvailabilityAdapter implements RoomAvailability {
     this.core = core;
   }
 
-  async getAvailableRooms(request: UserRequest): Promise<AvailableRoom[]> {
+  async getAvailableRooms(request: UserRequest): Promise<RoomSlot[]> {
     const response = request.address
       ? await this.core.findAvailableRoomsBySite(
           request.campus,
@@ -30,7 +30,7 @@ export class RoomAvailabilityAdapter implements RoomAvailability {
     return response.flatMap((roomAvailability) =>
       roomAvailability.availableSlots.map(
         (slot) =>
-          new AvailableRoom(
+          new RoomSlot(
             roomAvailability.room.id,
             roomAvailability.room.name,
             roomAvailability.room.type,

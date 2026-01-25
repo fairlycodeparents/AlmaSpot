@@ -2,7 +2,7 @@ import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { AI } from "context/search/application/ports/OutboundPorts";
 import {
-  AvailableRoom,
+  RoomSlot,
   UserRequest,
   Suggestion,
 } from "context/search/domain/Entities";
@@ -93,7 +93,7 @@ export class AIAdapter implements AI {
 
   async getSuggestion(
     conversation: string[],
-    availableRooms: AvailableRoom[],
+    availableRooms: RoomSlot[],
   ): Promise<Suggestion> {
     let response;
     try {
@@ -133,7 +133,7 @@ export class AIAdapter implements AI {
       }
 
       const data = parsed.data;
-      const selectedRooms: AvailableRoom[] = [];
+      const selectedRooms: RoomSlot[] = [];
       for (const slot of data.slots) {
         const roomId = slot.roomId;
         const start = new Date(slot.start);
@@ -147,7 +147,7 @@ export class AIAdapter implements AI {
         });
         if (originalSlot) {
           selectedRooms.push(
-            new AvailableRoom(
+            new RoomSlot(
               roomId,
               originalSlot.name,
               originalSlot.type,
@@ -217,7 +217,7 @@ export class AIAdapter implements AI {
 
   private buildSystemInstruction(
     mode: "EXTRACTOR" | "SUGGESTER",
-    rooms?: AvailableRoom[],
+    rooms?: RoomSlot[],
   ): string {
     const now = new Date();
     const context = `

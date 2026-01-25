@@ -1,10 +1,10 @@
-import { AvailableRoom } from "../domain/Entities";
+import { RoomSlot } from "../domain/Entities";
 
 /**
  * DTOs for Suggestion response
  */
 export interface SuggestionDTO {
-  readonly plan: AvailableRoom[];
+  readonly plan: RoomSlot[];
   readonly response: string;
 }
 
