@@ -13,7 +13,9 @@ const searchStore = useSearchStore();
 const today = new Date();
 const tomorrow = new Date(today);
 tomorrow.setDate(tomorrow.getDate() + 1);
+// @ts-ignore
 const formatDate = (d: Date): string => d.toISOString().split('T')[0];
+
 const dateOptions: { label: string; value: string }[] = [
   { label: 'Oggi', value: formatDate(today) },
   { label: 'Domani', value: formatDate(tomorrow) }
@@ -23,24 +25,38 @@ const timeOptions = Array.from({ length: 12 }, (_, i) => {
   const time = `${hour.toString().padStart(2, '0')}:00`;
   return { label: time, value: time };
 });
+
 const campus = ref(searchStore.selectedCampus || '');
+// @ts-ignore
 const date = ref(searchStore.selectedDate || dateOptions[0].value);
 const time = ref(searchStore.selectedTime || '09:00');
 const duration = ref(searchStore.selectedDuration || 2);
 
+const errorMessage = ref('');
+
 onMounted(async () => {
   await searchStore.fetchCampuses();
-  if (!campus.value && searchStore.campusOptions.length > 0) {
-    campus.value = searchStore.campusOptions[0]?.value || '';
-  }
 });
 
 const handleSearch = () => {
+  errorMessage.value = '';
   if (!campus.value || !date.value || !time.value) {
-    alert("Per favore compila tutti i campi");
+    errorMessage.value = "Compila tutti i campi per procedere.";
     return;
   }
 
+  const now = new Date();
+  const todayStr = now.toISOString().split('T')[0];
+
+  if (date.value === todayStr) {
+    const currentHour = now.getHours();
+    // @ts-ignore
+    const selectedHour = parseInt(time.value.split(':')[0], 10);
+    if (currentHour > selectedHour) {
+      errorMessage.value = "Orario già passato! Seleziona un'ora valida.";
+      return;
+    }
+  }
   searchStore.setSearchCriteria(campus.value, date.value, time.value, duration.value);
   router.push({ name: 'student-results' });
 };
@@ -55,34 +71,36 @@ const goToAI = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col relative font-sans">
+  <div class="min-h-screen bg-brand flex flex-col relative">
 
     <div class="absolute top-6 right-6 z-10">
       <button
           type="button"
           @click="goToLogin"
-          class="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-sm rounded-full transition-all text-white group"
-          title="Admin"
-      >
+          class="flex items-center gap-2 px-4 py-2"
+          title="Admin">
         <img
             src="/icons/profile_login.png"
             alt="Profile Icon"
-            class="w-6 h-6 rounded-full object-cover opacity-60"
+            class="w-8 h-8"
         />
       </button>
     </div>
 
+    <header class="pt-12">
+      <span
+          class="text-brand-text font-semibold text-lg tracking-wide opacity-90"
+      >AlmaSpot</span
+      >
+    </header>
+
     <main class="grow flex flex-col items-center justify-center p-4">
       <div class="w-full max-w-md">
+        <h1 class="text-4xl font-bold text-brand-text text-center leading-tight">
+          Troviamo il tuo prossimo spot.
+        </h1>
 
-        <div class="text-center mb-8 text-white">
-          <h1 class="text-5xl font-bold mb-4 tracking-tight">AlmaSpot</h1>
-          <p class="text-white/90 text-lg font-light">
-            Troviamo il tuo prossimo spot.
-          </p>
-        </div>
-
-        <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-8 space-y-6">
+        <div class="bg-white w-full rounded-2xl shadow-2xl p-6 md:p-8 space-y-5 grow md:grow-0">
 
           <div>
             <Dropdown :options="searchStore.campusOptions" v-model="campus" placeholder="Seleziona Campus" class="w-full"/>
@@ -101,9 +119,12 @@ const goToAI = () => {
             <DurationSelector v-model="duration" />
           </div>
 
+          <div v-if="errorMessage" class="text-red-500 text-sm text-center animate-pulse bg-red-50 p-2">
+            ⚠️ {{ errorMessage }}
+          </div>
+
           <div class="pt-2">
-            <MyButton variant="primary" size="lg" class="w-full justify-center py-4 text-lg shadow-lg" :action="handleSearch">
-              Cerca
+            <MyButton variant="primary" size="lg" class="w-full font-bold justify-center py-4 text-lg shadow-lg" :action="handleSearch" label="Cerca">
             </MyButton>
           </div>
 
@@ -118,11 +139,10 @@ const goToAI = () => {
               Chiedi un'aula all'AI
             </button>
           </div>
-
         </div>
       </div>
     </main>
 
-    <footer class="py-6 text-center text-gray-400 text-sm">&copy; &copy; {{ new Date().getFullYear() }} AlmaSpot • Made for students</footer>
+    <footer class="py-6 text-center text-white text-sm">&copy; {{ new Date().getFullYear() }} AlmaSpot • Made for students</footer>
   </div>
 </template>
