@@ -6,6 +6,14 @@ import PlanView from "@/views/PlanView.vue";
 import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
 import AdminResultsPage from "@/views/AdminResultsPage.vue";
 
+const requireAuth = (_to: any, _from: any, next: any) => {
+  if (localStorage.getItem("authToken")) {
+    next();
+  } else {
+    next("/login");
+  }
+};
+
 const routes = createRouter({
   history: createWebHistory(),
   routes: [
@@ -32,15 +40,13 @@ const routes = createRouter({
     {
       path: "/admin",
       component: AdminDashboardPage,
-      beforeEnter: (_to, _from, next) => {
-        if (localStorage.getItem("authToken")) {
-          next();
-        } else {
-          next("/login");
-        }
-      },
+      beforeEnter: requireAuth,
     },
-    { path: "/admin/results", component: AdminResultsPage },
+    {
+      path: "/admin/results",
+      component: AdminResultsPage,
+      beforeEnter: requireAuth,
+    },
   ],
 });
 
