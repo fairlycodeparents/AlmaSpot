@@ -33,12 +33,13 @@ const time = ref(searchStore.selectedTime || '09:00');
 const duration = ref(searchStore.selectedDuration || 2);
 
 const errorMessage = ref('');
+const loadingMessage = ref("Cerco aule libere...");
 
 onMounted(async () => {
   await searchStore.fetchCampuses();
 });
 
-const handleSearch = () => {
+const handleSearch = async () => {
   errorMessage.value = '';
   if (!campus.value || !date.value || !time.value) {
     errorMessage.value = "Compila tutti i campi per procedere.";
@@ -58,7 +59,13 @@ const handleSearch = () => {
     }
   }
   searchStore.setSearchCriteria(campus.value, date.value, time.value, duration.value);
-  router.push({ name: 'student-results' });
+  loadingMessage.value = "Cerco aule libere...";
+  const found = await searchStore.searchRooms();
+  if (found) {
+    await router.push('student-results');
+  } else {
+    alert("Errore ricerca: " + searchStore.error);
+  }
 };
 
 const goToLogin = () => {
@@ -144,5 +151,19 @@ const goToAI = () => {
     </main>
 
     <footer class="py-6 text-center text-white text-sm">&copy; {{ new Date().getFullYear() }} AlmaSpot • Made for students</footer>
+  </div>
+
+  <div
+      v-if="searchStore.isLoading"
+      class="absolute inset-0 z-60 flex items-center justify-center backdrop-blur-sm"
+  >
+    <div
+        class="bg-brand-text p-6 rounded-2xl shadow-xl flex flex-col items-center gap-3"
+    >
+      <div
+          class="animate-spin rounded-full h-10 w-10 border-4 border-b-ui-border border-t-brand"
+      ></div>
+      <span class="text-brand font-semibold text-lg">{{ loadingMessage }}</span>
+    </div>
   </div>
 </template>
