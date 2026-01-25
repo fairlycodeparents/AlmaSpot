@@ -39,12 +39,11 @@ type ActivityResponse struct {
 }
 
 func main() {
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	r.GET("/api/v1/rooms-discovery", getRoomsDiscoveryHandler)
 	r.GET("/api/v1/activities", getActivitiesHandler)
-
-	fmt.Println("Unibo Provider listening on :8080")
 
 	go func() {
 		if _, err := getCourses(); err != nil {
