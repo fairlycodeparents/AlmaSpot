@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import { useAdminStore } from "@/stores/admin.store";
@@ -8,6 +9,7 @@ import Button from "@/components/Button.vue";
 const router = useRouter();
 const authStore = useAuthStore();
 const adminStore = useAdminStore();
+const loadingMessage = ref("Cerco aule libere...");
 const handleLogout = () => {
   authStore.logout();
   router.push("/login");
@@ -15,6 +17,7 @@ const handleLogout = () => {
 
 const handlePanelSubmit = async (payload: any) => {
   if (payload.mode === "aggiungi") {
+    loadingMessage.value = "Cerco aule libere...";
     const found = await adminStore.searchAvailableRooms(payload);
     if (found) {
       router.push("/admin/results");
@@ -64,7 +67,7 @@ const handlePanelSubmit = async (payload: any) => {
       <div
         class="animate-spin rounded-full h-10 w-10 border-4 border-b-ui-border border-t-brand"
       ></div>
-      <span class="text-brand font-semibold text-lg">Cerco aule libere...</span>
+      <span class="text-brand font-semibold text-lg">{{ loadingMessage }}</span>
     </div>
   </div>
 </template>

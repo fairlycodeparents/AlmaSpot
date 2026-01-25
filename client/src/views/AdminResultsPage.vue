@@ -15,7 +15,15 @@ const X_ICON_PATH = "/icons/x_small.svg";
 
 const handleSelectRoom = async (item: any) => {
   try {
-    // TODO
+    const success = await adminStore.confirmRoomSelection(item);
+    if (success) {
+      alert(
+        `Attività "${adminStore.pendingActivity.title}" creata con successo in ${item.room.name}!`,
+      );
+      router.push("/admin");
+    } else {
+      if (adminStore.error) alert(adminStore.error);
+    }
   } catch (error: any) {
     alert(error.message || "Errore generico");
     router.push("/admin");
