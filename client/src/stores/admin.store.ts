@@ -19,6 +19,7 @@ export const useAdminStore = defineStore("admin", () => {
     CLASSROOM: "Aula",
     LABORATORY: "Laboratorio",
   };
+  const scheduledActivities = ref<any[]>([]);
 
   const availableTypes = computed(() => {
     const types = new Set(
@@ -149,6 +150,72 @@ export const useAdminStore = defineStore("admin", () => {
     }
   }
 
+  // Delete activities
+  const getDateFromLabel = (label: string) => {
+    const d = new Date();
+    if (label === "Domani") d.setDate(d.getDate() + 1);
+    return d.toISOString();
+  };
+
+  async function searchActivities(payload: any) {
+    isLoading.value = true;
+    error.value = null;
+    scheduledActivities.value = [];
+
+    try {
+      const { start: rangeStartStr, end: rangeEndStr } = calculateTimeRange(
+        payload.date,
+        payload.time,
+        payload.duration,
+      );
+
+      const searchStart = new Date(rangeStartStr).getTime();
+      const searchEnd = new Date(rangeEndStr).getTime();
+
+      const dateIso = getDateFromLabel(payload.date);
+      const activities = await adminService.getActivities(
+        payload.location,
+        dateIso,
+      );
+
+      scheduledActivities.value = activities.filter((a: any) => {
+        const actStart = new Date(a.startTime).getTime();
+        const actEnd = new Date(a.endTime).getTime();
+
+        return actStart < searchEnd && actEnd > searchStart;
+      });
+
+      return true;
+    } catch (err: any) {
+      error.value = err.message || "Errore nel caricamento attività";
+      return false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  async function deleteActivity(activityId: string) {
+    if (!confirm("Sei sicuro di voler eliminare questa attività?"))
+      return false;
+
+    isLoading.value = true;
+    try {
+      await adminService.deleteActivity(activityId);
+
+      scheduledActivities.value = scheduledActivities.value.filter(
+        (a) => a.id !== activityId,
+      );
+
+      alert("Attività eliminata con successo");
+      return true;
+    } catch (e: any) {
+      alert(e.message || "Errore durante l'eliminazione");
+      return false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
   return {
     isLoading,
     error,
@@ -162,5 +229,8 @@ export const useAdminStore = defineStore("admin", () => {
     resetFilters,
     searchAvailableRooms,
     confirmRoomSelection,
+    scheduledActivities,
+    searchActivities,
+    deleteActivity,
   };
 });
