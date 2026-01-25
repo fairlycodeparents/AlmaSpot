@@ -6,6 +6,8 @@ import PlanView from "@/views/PlanView.vue";
 import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
 import AdminResultsPage from "@/views/AdminResultsPage.vue";
 import AdminActivitiesPage from "@/views/AdminActivitiesPage.vue";
+import StudentHomePage from "@/views/StudentHomePage.vue";
+import StudentResultsPage from "@/views/StudentResultsPage.vue";
 
 const requireAuth = (_to: any, _from: any, next: any) => {
   if (localStorage.getItem("authToken")) {
@@ -18,6 +20,16 @@ const requireAuth = (_to: any, _from: any, next: any) => {
 const routes = createRouter({
   history: createWebHistory(),
   routes: [
+    {
+      path: "/",
+      name: "home",
+      component: StudentHomePage,
+    },
+    {
+      path: "/results",
+      name: "student-results",
+      component: StudentResultsPage,
+    },
     {
       path: "/login",
       name: "login",
