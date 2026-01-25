@@ -39,4 +39,39 @@ export const adminService = {
     if (!response.ok) throw data;
     return data;
   },
+
+  async getActivities(campus: string, date: string) {
+    const query = new URLSearchParams({ campus, date }).toString();
+
+    const response = await fetch(`${API_BASE}/activities?${query}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+      },
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw data;
+    console.log(data);
+    return data;
+  },
+
+  async deleteActivity(activityId: string) {
+    const response = await fetch(
+      `${API_BASE}/activities/external/${activityId}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      },
+    );
+
+    if (!response.ok) {
+      const data = await response.json();
+      throw data;
+    }
+    return true;
+  },
 };
