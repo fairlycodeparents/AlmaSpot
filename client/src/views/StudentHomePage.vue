@@ -62,7 +62,7 @@ const handleSearch = async () => {
   loadingMessage.value = "Cerco aule libere...";
   const found = await searchStore.searchRooms();
   if (found) {
-    await router.push('student-results');
+    await router.push({ name: 'student-results' });
   } else {
     alert("Errore ricerca: " + searchStore.error);
   }
@@ -94,16 +94,15 @@ const goToAI = () => {
       </button>
     </div>
 
-    <header class="pt-12">
-      <span
-          class="text-brand-text font-semibold text-lg tracking-wide opacity-90"
-      >AlmaSpot</span
-      >
+    <header class="pt-20 w-full flex justify-center">
+      <span class="text-brand-text font-semibold text-lg">
+        AlmaSpot
+      </span>
     </header>
 
     <main class="grow flex flex-col items-center justify-center p-4">
-      <div class="w-full max-w-md">
-        <h1 class="text-4xl font-bold text-brand-text text-center leading-tight">
+      <div class="w-full">
+        <h1 class="text-4xl font-bold text-brand-text text-left mb-8">
           Troviamo il tuo prossimo spot.
         </h1>
 

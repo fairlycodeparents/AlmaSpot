@@ -3,7 +3,7 @@ import {ref} from 'vue';
 import {useRouter} from 'vue-router';
 import {useSearchStore} from '../stores/search.store';
 import RoomCard from '../components/RoomCard.vue';
-import Button from '../components/Button.vue';
+import MyButton from '../components/Button.vue';
 import FilterPanel from "@/components/FilterPanel.vue";
 
 const router = useRouter();
@@ -22,10 +22,13 @@ const goBack = () => {
   router.push({ name: 'home' });
 };
 
-const handleSelectRoom = (_item: any) => {
-  router.push("plan");
+const goToAI = () => {
+  router.push({ name: 'assistant' });
 };
 
+const handleSelectRoom = (_item: any) => {
+  router.push({ name: "plan" });
+};
 </script>
 
 <template>
@@ -34,19 +37,19 @@ const handleSelectRoom = (_item: any) => {
   >
     <div class="mb-6">
       <h1 class="text-4xl font-bold text-brand leading-tight">
-        Soluzioni<br />disponibili
+        Soluzioni disponibili
       </h1>
     </div>
 
     <div class="mb-6 flex items-center gap-3">
-      <Button
+      <MyButton
           label="Filtra risultati"
           :action="() => (isFilterOpen = true)"
           :icon="{ src: FILTER_ICON_PATH, alt: 'Icona filtro' }"
           :is-icon-right="false"
       />
 
-      <Button
+      <MyButton
           label="Rimuovi filtri"
           :action="searchStore.resetFilters"
           :icon="{ src: X_ICON_PATH, alt: 'Icona Elimina filtro' }"
@@ -61,9 +64,21 @@ const handleSelectRoom = (_item: any) => {
     <div class="flex flex-col gap-4 flex-1 overflow-y-auto pb-20">
       <div
           v-if="searchStore.filteredRooms.length === 0"
-          class="text-center text-base-text mt-10"
+          class="text-center mt-10 flex flex-col items-center gap-2"
       >
-        Nessuna aula corrisponde ai filtri.
+        <p class="text-base-text font-bold text-lg">
+          Nessuna aula disponibile nel periodo e campus selezionato
+        </p>
+
+        <button
+            type="button"
+            @click="goToAI"
+            class="text-primary font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-red-700">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+          </svg>
+          Chiedi un'aula all'AI
+        </button>
       </div>
 
       <RoomCard
@@ -78,7 +93,7 @@ const handleSelectRoom = (_item: any) => {
     </div>
 
     <div class="mt-auto pt-4 flex justify-center">
-      <Button label="Torna alla ricerca" :action="goBack" />
+      <MyButton label="Torna alla ricerca" :action="goBack" />
     </div>
 
     <FilterPanel
