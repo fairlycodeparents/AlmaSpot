@@ -8,7 +8,7 @@ export const adminService = {
       end: params.end,
     }).toString();
 
-    const response = await fetch(`${API_BASE}/rooms/free-by-campus?${query}`, {
+    const response = await fetch(`${API_BASE}/rooms/exact-free?${query}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
