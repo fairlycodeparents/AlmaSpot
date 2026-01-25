@@ -1,23 +1,32 @@
-interface AssistantSearchResponse {
-  plan: {
-    slots: Array<{
-      roomId: string;
-      start: string;
-      end: string;
-    }>;
-    explanation: string;
-  };
+export interface AssistantSlot {
+  id: string;
+  name: string;
+  type: string;
+  campus: string;
+  address: string;
+  from: string;
+  to: string;
+}
+
+export interface AssistantSearchResponse {
+  plan: AssistantSlot[];
   response: string;
 }
 
 class AssistantService {
-  async search(userMessages: string[]): Promise<AssistantSearchResponse> {
+  async search(
+    userMessages: string[],
+    modelMessages: string[] = [],
+  ): Promise<AssistantSearchResponse> {
     const response = await fetch("/api/search", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ userMessages }),
+      body: JSON.stringify({
+        userMessages,
+        modelMessages,
+      }),
     });
     if (!response.ok) {
       if (response.status === 401) {

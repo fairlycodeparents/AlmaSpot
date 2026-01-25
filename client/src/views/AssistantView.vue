@@ -41,22 +41,29 @@ const handleSendMessage = async (text: string) => {
   isLoading.value = true;
 
   try {
-    const messageHistory = messages.value.map((message) => message.text);
-    const data = await assistantService.search(messageHistory);
+    const userMessages = messages.value
+        .filter((m) => m.isMine)
+        .map((m) => m.text);
+
+    const modelMessages = messages.value
+        .filter((m) => !m.isMine)
+        .map((m) => m.text);
+
+    const data = await assistantService.search(userMessages, modelMessages);
     const botResponse: Message = {
       text: data.response,
       avatar: "/icons/bot-avatar.png",
       isMine: false,
     };
-    if (data.plan.slots.length > 0) {
+    if (data.plan.length > 0) {
       botResponse.callToAction = {
         label: "Visualizza il piano",
         action: async () => {
           try {
             await unsubscribeFromPush();
-            store.setPlan({
-              slots: data.plan.slots,
-            });
+            // store.setPlan({
+            //   slots: data.plan.slots,
+            // });
             await router.push({ name: "plan" });
           } catch (e) {
             console.error("Errore durante il cambio piano:", e);
@@ -118,12 +125,8 @@ onMounted(() => {
           class="bg-base-background rounded-2xl rounded-tl-sm p-4 flex items-center gap-1 h-12 border border-ui-border animate-pulse"
         >
           <div class="w-2 h-2 bg-base-text rounded-full animate-bounce"></div>
-          <div
-            class="w-2 h-2 bg-base-text rounded-full animate-bounce delay-100"
-          ></div>
-          <div
-            class="w-2 h-2 bg-base-text rounded-full animate-bounce delay-200"
-          ></div>
+          <div class="w-2 h-2 bg-base-text rounded-full animate-bounce"></div>
+          <div class="w-2 h-2 bg-base-text rounded-full animate-bounce"></div>
         </div>
       </div>
     </main>
