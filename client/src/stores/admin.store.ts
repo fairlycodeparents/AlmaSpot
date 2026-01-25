@@ -119,6 +119,36 @@ export const useAdminStore = defineStore("admin", () => {
     }
   }
 
+  // Create activities
+  async function confirmRoomSelection(selectedRoomWrapper: any) {
+    const actualRoom = selectedRoomWrapper.room;
+
+    if (!pendingActivity.value.title) {
+      alert("Dati attività mancanti. Effettua nuovamente la ricerca.");
+      return false;
+    }
+
+    const apiPayload = {
+      title: pendingActivity.value.title,
+      campus: actualRoom.campus,
+      startTime: pendingActivity.value.start,
+      endTime: pendingActivity.value.end,
+      roomId: actualRoom.id,
+      site: actualRoom.site.address,
+    };
+    isLoading.value = true;
+    try {
+      await adminService.addActivity(apiPayload);
+      return true;
+    } catch (e: any) {
+      console.error(e);
+      error.value = e.message || "Errore durante la creazione dell'attività";
+      return false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
   return {
     isLoading,
     error,
@@ -131,5 +161,6 @@ export const useAdminStore = defineStore("admin", () => {
     setFilters,
     resetFilters,
     searchAvailableRooms,
+    confirmRoomSelection,
   };
 });
