@@ -25,7 +25,13 @@ const handlePanelSubmit = async (payload: any) => {
       alert("Errore ricerca: " + adminStore.error);
     }
   } else {
-    // TODO
+    loadingMessage.value = "Cerco attività...";
+    const found = await adminStore.searchActivities(payload);
+    if (found) {
+      router.push("/admin/activities");
+    } else {
+      alert("Errore ricerca: " + adminStore.error);
+    }
   }
 };
 </script>
