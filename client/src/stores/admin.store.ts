@@ -163,15 +163,11 @@ export const useAdminStore = defineStore("admin", () => {
     scheduledActivities.value = [];
 
     try {
-      const { start: rangeStartStr, end: rangeEndStr } = calculateTimeRange(
-        payload.date,
-        payload.time,
-        payload.duration,
-      );
-
-      const searchStart = new Date(rangeStartStr).getTime();
-      const searchEnd = new Date(rangeEndStr).getTime();
-
+      const [userHour, userMinute] = payload.time
+        .replace(".", ":")
+        .split(":")
+        .map(Number);
+      const maxDuration = Number(payload.duration);
       const dateIso = getDateFromLabel(payload.date);
       const activities = await adminService.getActivities(
         payload.location,
@@ -179,10 +175,16 @@ export const useAdminStore = defineStore("admin", () => {
       );
 
       scheduledActivities.value = activities.filter((a: any) => {
-        const actStart = new Date(a.startTime).getTime();
-        const actEnd = new Date(a.endTime).getTime();
+        const actStart = new Date(a.startTime);
+        const actEnd = new Date(a.endTime);
+        const isSameStartTime =
+          actStart.getHours() === userHour &&
+          actStart.getMinutes() === (userMinute || 0);
+        const diffMs = actEnd.getTime() - actStart.getTime();
+        const durationInHours = diffMs / (1000 * 60 * 60);
+        const isDurationValid = durationInHours <= maxDuration;
 
-        return actStart < searchEnd && actEnd > searchStart;
+        return isSameStartTime && isDurationValid;
       });
 
       return true;
