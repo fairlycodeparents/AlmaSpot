@@ -4,6 +4,53 @@ import { searchService } from "../services/search.service";
 
 export const useSearchStore = defineStore("search", () => {
   const availableCampuses = ref<string[]>([]);
+  const availableRooms = ref<any[]>([]);
+  const isLoading = ref(false);
+  const error = ref<string | null>(null);
+
+  const filters = ref({
+    type: "Qualsiasi",
+    site: "Qualsiasi",
+  });
+  const TYPE_TRANSLATIONS: Record<string, string> = {
+    CLASSROOM: "Aula",
+    LABORATORY: "Laboratorio",
+  };
+
+  const availableTypes = computed(() => {
+    const types = new Set(
+      availableRooms.value.map((i: any) => getLabelForType(i.room.type)),
+    );
+    return ["Qualsiasi", ...types];
+  });
+
+  const availableSites = computed(() => {
+    const sites = new Set(
+      availableRooms.value.map((i: any) => i.room.site.address),
+    );
+    return ["Qualsiasi", ...sites];
+  });
+
+  const filteredRooms = computed(() => {
+    return availableRooms.value.filter((item: any) => {
+      const room = item.room;
+      const roomLabel = getLabelForType(room.type);
+
+      const matchType =
+        filters.value.type === "Qualsiasi" || roomLabel === filters.value.type;
+
+      const currentSiteName = room.site.address;
+      const matchSite =
+        filters.value.site === "Qualsiasi" ||
+        currentSiteName === filters.value.site;
+
+      return matchType && matchSite;
+    });
+  });
+
+  const getLabelForType = (dbType: string) => {
+    return TYPE_TRANSLATIONS[dbType] || dbType;
+  };
 
   const selectedCampus = ref<string>("");
   const selectedDate = ref<string>(
@@ -45,6 +92,37 @@ export const useSearchStore = defineStore("search", () => {
     }
   }
 
+  async function searchRooms() {
+    resetFilters();
+    isLoading.value = true;
+    error.value = null;
+    availableRooms.value = [];
+
+    try {
+      availableRooms.value = await searchService.findExactRooms({
+        campus: searchPayload.value.campus,
+        start: searchPayload.value.start,
+        end: searchPayload.value.end,
+      });
+      return true;
+    } catch (err: any) {
+      console.error("Errore ricerca:", err);
+      error.value =
+        err.message || "Nessuna aula disponibile con questi criteri.";
+      return false;
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
+  function setFilters(newFilters: { type: string; site: string }) {
+    filters.value = newFilters;
+  }
+
+  function resetFilters() {
+    filters.value = { type: "Qualsiasi", site: "Qualsiasi" };
+  }
+
   function setSearchCriteria(
     campus: string,
     date: string,
@@ -67,5 +145,15 @@ export const useSearchStore = defineStore("search", () => {
     searchPayload,
     fetchCampuses,
     setSearchCriteria,
+    searchRooms,
+    availableRooms,
+    filteredRooms,
+    isLoading,
+    error,
+    filters,
+    availableTypes,
+    availableSites,
+    setFilters,
+    resetFilters,
   };
 });
