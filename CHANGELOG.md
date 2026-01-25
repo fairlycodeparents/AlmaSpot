@@ -1,3 +1,19 @@
+## 3.0.0 (2026-01-25)
+
+- feat(search)!: add room information to search context output (#48) ([969dcfd](https://github.com/fairlycodeparents/AlmaSpot/commit/969dcfd)), closes [#48](https://github.com/fairlycodeparents/AlmaSpot/issues/48)
+- chore(deps): update dependency prettier to v3.8.1 (#27) ([2324bc0](https://github.com/fairlycodeparents/AlmaSpot/commit/2324bc0)), closes [#27](https://github.com/fairlycodeparents/AlmaSpot/issues/27)
+- ci(docker): update workflow for Docker publishing (#47) ([ae1823b](https://github.com/fairlycodeparents/AlmaSpot/commit/ae1823b)), closes [#47](https://github.com/fairlycodeparents/AlmaSpot/issues/47)
+
+### BREAKING CHANGE
+
+- edit search context API
+
+- feat(search): refactor AIAdapter output
+
+- refactor: rename AvailableRoom to RoomSlot
+
+- refactor: update SuggestionDTO to use PlanSlotDTO
+
 ## 2.1.0 (2026-01-24)
 
 - feat(search): update AvailableRoom to include names and improve AIAdapter prompt handling (#46) ([1968831](https://github.com/fairlycodeparents/AlmaSpot/commit/1968831)), closes [#46](https://github.com/fairlycodeparents/AlmaSpot/issues/46)
