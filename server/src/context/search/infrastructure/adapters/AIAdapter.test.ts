@@ -96,6 +96,7 @@ describe(
           "room1",
           "Room 1",
           "classroom",
+          Campus.RIMINI,
           "Rimini",
           todayAt(13),
           todayAt(15),
@@ -104,6 +105,7 @@ describe(
           "room2",
           "Room 2",
           "classroom",
+          Campus.RIMINI,
           "Rimini",
           todayAt(15),
           todayAt(18),
@@ -114,26 +116,17 @@ describe(
         availableSlots,
       );
       assert.ok(suggestion);
-      assert.strictEqual(suggestion.plan.slots.length, 2);
+      assert.strictEqual(suggestion.plan.length, 2);
 
-      const [firstStep, secondStep] = suggestion.plan.slots;
+      const [firstStep, secondStep] = suggestion.plan;
       assert.ok(firstStep);
       assert.ok(secondStep);
-      assert.strictEqual(firstStep.roomId, "room1");
-      assert.strictEqual(
-        firstStep.period.start.getTime(),
-        todayAt(14).getTime(),
-      );
-      assert.strictEqual(firstStep.period.end.getTime(), todayAt(15).getTime());
-      assert.strictEqual(secondStep.roomId, "room2");
-      assert.strictEqual(
-        secondStep.period.start.getTime(),
-        todayAt(15).getTime(),
-      );
-      assert.strictEqual(
-        secondStep.period.end.getTime(),
-        todayAt(16).getTime(),
-      );
+      assert.strictEqual(firstStep.id, "room1");
+      assert.strictEqual(firstStep.from.getTime(), todayAt(14).getTime());
+      assert.strictEqual(firstStep.to.getTime(), todayAt(15).getTime());
+      assert.strictEqual(secondStep.id, "room2");
+      assert.strictEqual(secondStep.from.getTime(), todayAt(15).getTime());
+      assert.strictEqual(secondStep.to.getTime(), todayAt(16).getTime());
     });
   },
 );
