@@ -4,7 +4,6 @@ import {
   RoomAvailability,
 } from "context/search/application/ports/OutboundPorts";
 import { Suggestion } from "context/search/domain/Entities";
-import { Plan } from "shared/domain/Plan";
 import { SearchUseCase } from "context/search/application/ports/InboundPorts";
 
 /**
@@ -34,7 +33,7 @@ export class SearchService implements SearchUseCase {
     const query = await this.ai.extractRequest(request.userMessages);
 
     if (typeof query === "string") {
-      return new Suggestion(new Plan([]), query);
+      return new Suggestion([], query);
     }
 
     const availableRooms = await this.availability.getAvailableRooms(query);

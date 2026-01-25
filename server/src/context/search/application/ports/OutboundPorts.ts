@@ -1,6 +1,6 @@
 import {
   UserRequest,
-  AvailableRoom,
+  RoomSlot,
   Suggestion,
 } from "context/search/domain/Entities";
 
@@ -21,7 +21,7 @@ export interface AI {
    */
   getSuggestion(
     conversation: string[],
-    availableRooms: AvailableRoom[],
+    availableRooms: RoomSlot[],
   ): Promise<Suggestion>;
 }
 
@@ -30,7 +30,7 @@ export interface RoomAvailability {
   /**
    * Get an array of available rooms, based on the provided request criteria.
    * @param request - The availability request
-   * @returns an array of `AvailableRoom` matching the request
+   * @returns an array of `RoomSlot` matching the request
    */
-  getAvailableRooms(request: UserRequest): Promise<AvailableRoom[]>;
+  getAvailableRooms(request: UserRequest): Promise<RoomSlot[]>;
 }

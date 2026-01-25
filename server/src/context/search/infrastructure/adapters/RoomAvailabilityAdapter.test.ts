@@ -1,7 +1,7 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { RoomAvailabilityAdapter } from "./RoomAvailabilityAdapter";
-import { AvailableRoom, UserRequest } from "context/search/domain/Entities";
+import { RoomSlot, UserRequest } from "context/search/domain/Entities";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
 import { CoreFacade } from "context/core";
@@ -45,6 +45,7 @@ describe("RoomAvailabilityAdapter", () => {
           id: "R1",
           name: "Room 1",
           type: "Lab",
+          campus: Campus.CESENA,
           site: { address: "Via Verdi" },
         },
         availableSlots: [{ period: { start: period.start, end: period.end } }],
@@ -56,10 +57,11 @@ describe("RoomAvailabilityAdapter", () => {
     const query = new UserRequest(period, Campus.CESENA);
     const result = await adapter.getAvailableRooms(query);
     assert.deepStrictEqual(result, [
-      new AvailableRoom(
+      new RoomSlot(
         "R1",
         "Room 1",
         "Lab",
+        Campus.CESENA,
         "Via Verdi",
         period.start,
         period.end,

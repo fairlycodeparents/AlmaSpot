@@ -3,10 +3,9 @@ import assert from "node:assert";
 import { SearchService } from "./SearchService";
 import { AI, RoomAvailability } from "./ports/OutboundPorts";
 import { SearchRequestDTO } from "./DTOs";
-import { UserRequest, AvailableRoom, Suggestion } from "../domain/Entities";
+import { UserRequest, RoomSlot, Suggestion } from "../domain/Entities";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
-import { Plan } from "shared/domain/Plan";
 
 describe("SearchService", () => {
   it("must execute steps in strict sequence: extract -> availability -> suggestion", async () => {
@@ -18,12 +17,9 @@ describe("SearchService", () => {
     const period = new Period(start, end);
     const expectedRequest = new UserRequest(period, Campus.CESENA);
     const expectedRooms = [
-      new AvailableRoom("1", "Room 1", "Lab", "Via X", start, end),
+      new RoomSlot("1", "Room 1", "Lab", Campus.RIMINI, "Via X", start, end),
     ];
-    const expectedSuggestion = new Suggestion(
-      new Plan([]),
-      "Here is a suggested plan.",
-    );
+    const expectedSuggestion = new Suggestion([], "Here is a suggested plan.");
     const executionOrder: string[] = [];
 
     const mockAI: AI = {

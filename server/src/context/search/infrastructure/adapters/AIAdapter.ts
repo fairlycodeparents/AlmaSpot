@@ -1,10 +1,8 @@
-import { Slot } from "shared/domain/Slot";
 import { Period } from "shared/domain/Period";
 import { Campus } from "shared/domain/Location";
-import { Plan } from "shared/domain/Plan";
 import { AI } from "context/search/application/ports/OutboundPorts";
 import {
-  AvailableRoom,
+  RoomSlot,
   UserRequest,
   Suggestion,
 } from "context/search/domain/Entities";
@@ -95,7 +93,7 @@ export class AIAdapter implements AI {
 
   async getSuggestion(
     conversation: string[],
-    availableRooms: AvailableRoom[],
+    availableRooms: RoomSlot[],
   ): Promise<Suggestion> {
     let response;
     try {
@@ -124,18 +122,18 @@ export class AIAdapter implements AI {
       const args = response.functionCalls?.[0]?.args;
       if (!args) {
         return new Suggestion(
-          new Plan([]),
+          [],
           response.text ? response.text : DEFAULT_RESPONSE,
         );
       }
 
       const parsed = this.PLAN_SCHEMA.safeParse(args);
       if (!parsed.success) {
-        return new Suggestion(new Plan([]), DEFAULT_RESPONSE);
+        return new Suggestion([], DEFAULT_RESPONSE);
       }
 
       const data = parsed.data;
-      const selectedSlots: Slot[] = [];
+      const selectedRooms: RoomSlot[] = [];
       for (const slot of data.slots) {
         const roomId = slot.roomId;
         const start = new Date(slot.start);
@@ -148,7 +146,17 @@ export class AIAdapter implements AI {
           );
         });
         if (originalSlot) {
-          selectedSlots.push(new Slot(roomId, new Period(start, end)));
+          selectedRooms.push(
+            new RoomSlot(
+              roomId,
+              originalSlot.name,
+              originalSlot.type,
+              originalSlot.campus,
+              originalSlot.address,
+              start,
+              end,
+            ),
+          );
         } else {
           console.warn(
             `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
@@ -157,10 +165,10 @@ export class AIAdapter implements AI {
         }
       }
 
-      return new Suggestion(new Plan(selectedSlots), data.message_to_user);
+      return new Suggestion(selectedRooms, data.message_to_user);
     } catch (error) {
       console.error("Failed to generate content from AI model:", error);
-      return new Suggestion(new Plan([]), ERROR_MESSAGE);
+      return new Suggestion([], ERROR_MESSAGE);
     }
   }
 
@@ -209,7 +217,7 @@ export class AIAdapter implements AI {
 
   private buildSystemInstruction(
     mode: "EXTRACTOR" | "SUGGESTER",
-    rooms?: AvailableRoom[],
+    rooms?: RoomSlot[],
   ): string {
     const now = new Date();
     const context = `
