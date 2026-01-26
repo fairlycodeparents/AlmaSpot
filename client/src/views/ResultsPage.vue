@@ -199,7 +199,7 @@ const handleSelectRoom = async (item: any) => {
         v-for="item in resultStore.filteredRooms"
         :key="item.id"
         :title="item.title"
-        :subtitle="`Aula ${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
+        :subtitle="`${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
         :button-icon="TRASH_ICON_PATH"
         :button-action="() => handleDelete(item)"
         class="w-full max-w-none bg-ui-card"
