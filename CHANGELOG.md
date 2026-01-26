@@ -1,3 +1,7 @@
+## <small>3.0.1 (2026-01-26)</small>
+
+- chore(core-deps): update dependency @google/genai to v1.38.0 (#26) ([62b6c1b](https://github.com/fairlycodeparents/AlmaSpot/commit/62b6c1b)), closes [#26](https://github.com/fairlycodeparents/AlmaSpot/issues/26)
+
 ## 3.0.0 (2026-01-25)
 
 - feat(search)!: add room information to search context output (#48) ([969dcfd](https://github.com/fairlycodeparents/AlmaSpot/commit/969dcfd)), closes [#48](https://github.com/fairlycodeparents/AlmaSpot/issues/48)
