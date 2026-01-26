@@ -5,16 +5,18 @@ import RoomCard from "@/components/RoomCard.vue";
 import Button from "@/components/Button.vue";
 import { ref } from "vue";
 import FilterPanel from "@/components/FilterPanel.vue";
+import { useResultStore } from "@/stores/result.store.ts";
 
 const router = useRouter();
 const adminStore = useAdminStore();
+const resultStore = useResultStore();
 const isFilterOpen = ref(false);
 
 const TRASH_ICON_PATH = "/icons/delete.svg";
 const FILTER_ICON_PATH = "/icons/filter.svg";
 
 const onApplyFilters = (newFilters: { type: string; site: string }) => {
-  adminStore.setFilters(newFilters);
+  resultStore.setFilters(newFilters);
 };
 
 const formatTime = (start: string, end: string) => {
@@ -32,7 +34,7 @@ const formatTime = (start: string, end: string) => {
 const handleDelete = async (item: any) => {
   await adminStore.deleteActivity(item.id);
   if (adminStore.scheduledActivities.length === 0) {
-    router.push("/admin");
+    await router.push("/admin");
   }
 };
 </script>
@@ -77,10 +79,10 @@ const handleDelete = async (item: any) => {
 
     <FilterPanel
       :is-open="isFilterOpen"
-      :available-types="adminStore.availableTypes"
-      :available-sites="adminStore.availableSites"
-      :current-type="adminStore.filters.type"
-      :current-site="adminStore.filters.site"
+      :available-types="resultStore.availableTypes"
+      :available-sites="resultStore.availableSites"
+      :current-type="resultStore.filters.type"
+      :current-site="resultStore.filters.site"
       @close="isFilterOpen = false"
       @apply="onApplyFilters"
     />
