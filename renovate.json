@@ -8,6 +8,7 @@
   "automergeSchedule": ["* 0-7 * * *"],
   "timezone": "CET",
   "automerge": true,
+  "prHourlyLimit": 10,
   "packageRules": [
     {
       "description": "Updates to the dependencies should trigger a new patch release",
