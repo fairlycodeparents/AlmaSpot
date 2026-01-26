@@ -1,13 +1,21 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import {useRouter} from 'vue-router';
-import {useSearchStore} from '../stores/search.store';
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useSearchStore } from '../stores/search.store';
+import { useAdminStore } from '../stores/admin.store';
+import { useResultStore } from "@/stores/result.store.ts";
 import RoomCard from '../components/RoomCard.vue';
 import MyButton from '../components/Button.vue';
 import FilterPanel from "@/components/FilterPanel.vue";
 
 const router = useRouter();
+const resultStore = useResultStore();
 const searchStore = useSearchStore();
+const adminStore = useAdminStore();
+
+const props = defineProps<{
+  variant: 'student' | 'admin'
+}>();
 
 const isFilterOpen = ref(false);
 const ARROW_ICON_PATH = "/icons/arrow-right.svg";
@@ -15,13 +23,17 @@ const FILTER_ICON_PATH = "/icons/filter.svg";
 const X_ICON_PATH = "/icons/x_small.svg";
 
 const onApplyFilters = (newFilters: { type: string; site: string }) => {
-  searchStore.setFilters(newFilters);
+  resultStore.setFilters(newFilters);
 };
 
 const { campus, start, end } = searchStore.searchPayload;
 
 const goBack = () => {
-  router.push({ name: 'home' });
+  if (props.variant === 'admin') {
+    router.push({ name: 'admin-home' });
+  } else {
+    router.push({ name: 'home' });
+  }
 };
 
 const goToAI = () => {
@@ -34,11 +46,23 @@ const goToAI = () => {
     }});
 };
 
-const handleSelectRoom = (item: any) => {
-  router.push({
-    name: "plan",
-    query: item.room.id
-  });
+const handleSelectRoom = async (item: any) => {
+  if (props.variant === 'admin') {
+    try {
+      const success = await adminStore.confirmRoomSelection(item);
+      if (success) {
+        alert(
+            `Attività "${adminStore.pendingActivity.title}" creata con successo in ${item.room.name}!`,
+        );
+        await router.push({ name: "admin-home" });
+      } else if (adminStore.error)
+          alert(adminStore.error);
+    } catch (error: any) {
+      alert(error.message || "Errore generico");
+      await router.push({ name: "admin-home" });
+    }
+  } else
+      await router.push({ name: "plan" });
 };
 </script>
 
@@ -62,26 +86,27 @@ const handleSelectRoom = (item: any) => {
 
       <MyButton
           label="Rimuovi filtri"
-          :action="searchStore.resetFilters"
+          :action="resultStore.resetFilters"
           :icon="{ src: X_ICON_PATH, alt: 'Icona Elimina filtro' }"
           :is-icon-right="false"
           v-if="
-          searchStore.filters.type !== 'Qualsiasi' ||
-          searchStore.filters.site !== 'Qualsiasi'
-        "
+          resultStore.filters.type !== 'Qualsiasi' ||
+          resultStore.filters.site !== 'Qualsiasi'
+          "
       />
     </div>
 
     <div class="flex flex-col gap-4 flex-1 overflow-y-auto pb-20">
       <div
-          v-if="searchStore.filteredRooms.length === 0"
+          v-if="(resultStore.filteredRooms.length === 0)"
           class="text-center mt-10 flex flex-col items-center gap-2"
       >
         <p class="text-base-text font-bold text-lg">
-          Nessuna aula disponibile nel periodo e campus selezionato
+          Nessuna aula disponibile per i criteri selezionati.
         </p>
 
         <button
+            v-if="variant === 'student'"
             type="button"
             @click="goToAI"
             class="text-primary font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-red-700">
@@ -93,7 +118,7 @@ const handleSelectRoom = (item: any) => {
       </div>
 
       <RoomCard
-          v-for="item in searchStore.filteredRooms"
+          v-for="item in resultStore.filteredRooms"
           :key="item.room.id"
           :title="item.room.name"
           :subtitle="`${item.room.campus} - ${item.room.site?.address || item.room.site?.name}`"
@@ -109,10 +134,10 @@ const handleSelectRoom = (item: any) => {
 
     <FilterPanel
         :is-open="isFilterOpen"
-        :available-types="searchStore.availableTypes"
-        :available-sites="searchStore.availableSites"
-        :current-type="searchStore.filters.type"
-        :current-site="searchStore.filters.site"
+        :available-types="resultStore.availableTypes"
+        :available-sites="resultStore.availableSites"
+        :current-type="resultStore.filters.type"
+        :current-site="resultStore.filters.site"
         @close="isFilterOpen = false"
         @apply="onApplyFilters"
     />
