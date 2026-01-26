@@ -6,39 +6,6 @@ import Button from "@/components/Button.vue";
 import { ref } from "vue";
 import FilterPanel from "@/components/FilterPanel.vue";
 import { useResultStore } from "@/stores/result.store.ts";
-import MyButton from "@/components/Button.vue";
-
-const router = useRouter();
-const adminStore = useAdminStore();
-const resultStore = useResultStore();
-const isFilterOpen = ref(false);
-
-const TRASH_ICON_PATH = "/icons/delete.svg";
-const FILTER_ICON_PATH = "/icons/filter.svg";
-const X_ICON_PATH = "/icons/x_small.svg";
-
-const onApplyFilters = (newFilters: { type: string; site: string }) => {
-  resultStore.setFilters(newFilters);
-};
-
-const formatTime = (start: string, end: string) => {
-  const s = new Date(start).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  const e = new Date(end).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-  return `${s} - ${e}`;
-};
-
-const handleDelete = async (item: any) => {
-  await adminStore.deleteActivity(item.id);
-  if (adminStore.scheduledActivities.length === 0) {
-    await router.push("/admin");
-  }
-};
 </script>
 
 <template>

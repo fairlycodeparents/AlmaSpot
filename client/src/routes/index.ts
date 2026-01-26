@@ -4,7 +4,6 @@ import RegisterPage from "@/views/RegisterPage.vue";
 import AssistantView from "@/views/AssistantView.vue";
 import PlanView from "@/views/PlanView.vue";
 import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
-import AdminActivitiesPage from "@/views/AdminActivitiesPage.vue";
 import StudentHomePage from "@/views/StudentHomePage.vue";
 import ResultsPage from "@/views/ResultsPage.vue";
 
@@ -66,7 +65,8 @@ const routes = createRouter({
     {
       path: "/admin/activities",
       name: "admin-activities",
-      component: AdminActivitiesPage,
+      component: ResultsPage,
+      props: { variant: "delete" },
       beforeEnter: requireAuth,
     },
   ],
