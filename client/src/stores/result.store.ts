@@ -13,27 +13,52 @@ export const useResultStore = defineStore("result", () => {
     CLASSROOM: "Aula",
     LABORATORY: "Laboratorio",
   };
+
+  const detectType = (item: any) => {
+    if (item.room && item.room.type) {
+      return getLabelForType(item.room.type);
+    }
+
+    if (item.roomId) {
+      const idLower = item.roomId.toLowerCase();
+      if (idLower.includes("lab")) {
+        return "Laboratorio";
+      }
+      return "Aula";
+    }
+    return "Aula";
+  };
+
+  const detectSite = (item: any) => {
+    if (item.room && item.room.site) {
+      return item.room.site.address;
+    }
+    return null;
+  };
+
   const availableTypes = computed(() => {
-    const types = new Set(
-      allRooms.value.map((i: any) => getLabelForType(i.room.type)),
-    );
-    return ["Qualsiasi", ...types];
+    const types = new Set(allRooms.value.map((i: any) => detectType(i)));
+    return ["Qualsiasi", ...types].filter((t) => t !== "Sconosciuto");
   });
 
   const availableSites = computed(() => {
-    const sites = new Set(allRooms.value.map((i: any) => i.room.site.address));
+    const sites = new Set(
+      allRooms.value
+        .map((i: any) => detectSite(i))
+        .filter((s: any) => s !== null),
+    );
     return ["Qualsiasi", ...sites];
   });
 
   const filteredRooms = computed(() => {
     return allRooms.value.filter((item: any) => {
+      const itemType = detectType(item);
+      const itemSite = detectSite(item);
       const matchType =
-        filters.value.type === "Qualsiasi" ||
-        getLabelForType(item.room.type) === filters.value.type;
-
+        filters.value.type === "Qualsiasi" || itemType === filters.value.type;
       const matchSite =
         filters.value.site === "Qualsiasi" ||
-        item.room.site.address === filters.value.site;
+        (itemSite && itemSite === filters.value.site);
 
       return matchType && matchSite;
     });
