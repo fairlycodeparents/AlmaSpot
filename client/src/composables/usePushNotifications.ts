@@ -72,7 +72,13 @@ export function usePushNotifications() {
       const payload = {
         subscription: {
           studentId: getOrCreateDeviceId(),
-          plan: userPlan,
+          plan: {
+            slots: userPlan.slots.map((slot: any) => ({
+              roomId: slot.id,
+              startTime: slot.from,
+              endTime: slot.to,
+            })),
+          },
         },
         details: {
           type: "WEB_PUSH",
