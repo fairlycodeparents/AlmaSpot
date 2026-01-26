@@ -9,6 +9,8 @@ import { usePushNotifications } from "@/composables/usePushNotifications";
 import { usePlanStore } from "@/stores/plan.store.ts";
 
 const store = usePlanStore();
+const route = useRouter().currentRoute;
+const { campus, start, end } = route.value.query;
 
 const isLoading = ref(false);
 const scrollContainer = ref<HTMLElement | null>(null);
@@ -18,7 +20,9 @@ const { unsubscribeFromPush } = usePushNotifications();
 
 const messages = ref<Message[]>([
   {
-    text: "Ciao! Come posso aiutarti a trovare un'aula oggi?",
+    text: "Ciao! Come posso aiutarti a trovare un'aula oggi?" +
+        "I parametri sono giusti? " +
+        `Campus di ${campus} dalle ${start} alle ${end}?`,
     avatar: "/icons/bot-avatar.png",
     isMine: false,
   },
