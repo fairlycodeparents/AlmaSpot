@@ -82,15 +82,15 @@ const getFormattedTime = (param: any): string => {
 };
 
 onMounted(async () => {
-  const { campus, start, end } = route.query;
+  const { campus, date, start, duration } = route.query;
   const startString = getFormattedTime(start);
-  const endString = getFormattedTime(end);
-  if (campus && start && end) {
+  if (campus && date && start && duration) {
     const autoQuery =
       "Vorrei trovare un'aula oggi" +
       (campus ? ` nel campus di ${campus}` : "") +
+      (date ? ` il ${date}` : "") +
       (startString ? ` dalle ${startString}` : "") +
-      (endString ? ` alle ${endString}` : "");
+      (duration ? ` per ${duration} ore` : "");
     await handleSendMessage(autoQuery);
   } else {
     messages.value.push({

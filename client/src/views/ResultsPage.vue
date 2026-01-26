@@ -27,7 +27,10 @@ const onApplyFilters = (newFilters: { type: string; site: string }) => {
   resultStore.setFilters(newFilters);
 };
 
-const { campus, start, end } = searchStore.searchPayload;
+const campus = searchStore.selectedCampus;
+const start = searchStore.selectedTime;
+const date = searchStore.selectedDate;
+const duration = searchStore.selectedDuration;
 
 const goBack = () => {
   if (props.variant === 'admin' || props.variant === 'delete') {
@@ -42,8 +45,9 @@ const goToAI = () => {
     name: 'assistant',
     query: {
       campus,
+      date,
       start,
-      end
+      duration
     }});
 };
 
