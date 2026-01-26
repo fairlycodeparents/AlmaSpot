@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useSearchStore } from "../stores/search.store";
 import { useAdminStore } from "../stores/admin.store";
@@ -8,7 +8,7 @@ import RoomCard from "../components/RoomCard.vue";
 import MyButton from "../components/Button.vue";
 import FilterPanel from "@/components/FilterPanel.vue";
 import { usePlanSession } from "@/composables/usePlanSession.ts";
-import type { RoomAvailabilityDTO } from "@/types/api";
+import type { ActivityDTO, RoomAvailabilityDTO } from "@/types/api";
 
 const router = useRouter();
 const { activatePlan } = usePlanSession();
@@ -19,6 +19,14 @@ const adminStore = useAdminStore();
 const props = defineProps<{
   variant: "student" | "admin" | "delete";
 }>();
+
+const roomResults = computed(() => {
+  return resultStore.filteredRooms as RoomAvailabilityDTO[];
+});
+
+const activityResults = computed(() => {
+  return resultStore.filteredRooms as ActivityDTO[];
+});
 
 const isFilterOpen = ref(false);
 const ARROW_ICON_PATH = "/icons/arrow-right.svg";
@@ -62,7 +70,7 @@ const handleDelete = async (item: any) => {
   }
 };
 
-const formatTime = (start: string, end: string) => {
+const formatTime = (start: string | Date, end: string | Date) => {
   const s = new Date(start).toLocaleTimeString([], {
     hour: "2-digit",
     minute: "2-digit",
@@ -97,7 +105,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
         id: item.room.id,
         name: item.room.name,
         campus: item.room.campus,
-        address: item.room.site?.address || item.room.site?.name || "",
+        address: item.room.site?.address || "",
         from: startDate.toISOString(),
         to: endDate.toISOString(),
       },
@@ -187,17 +195,17 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
 
       <RoomCard
         v-if="variant === 'admin' || variant === 'student'"
-        v-for="item in resultStore.filteredRooms"
+        v-for="item in roomResults"
         :key="item.room.id"
         :title="item.room.name"
-        :subtitle="`${item.room.campus} - ${item.room.site?.address || item.room.site?.name}`"
+        :subtitle="`${item.room.campus} - ${item.room.site?.address}`"
         :button-icon="ARROW_ICON_PATH"
         :button-action="() => handleSelectRoom(item)"
         class="w-full max-w-none bg-ui-card"
       />
       <RoomCard
         v-if="variant === 'delete'"
-        v-for="item in resultStore.filteredRooms"
+        v-for="item in activityResults"
         :key="item.id"
         :title="item.title"
         :subtitle="`${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
