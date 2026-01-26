@@ -2,6 +2,7 @@
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import LoginCard from "@/components/LoginCard.vue";
+import type { SignUpDto } from "@/types/api";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -10,7 +11,7 @@ const goBack = () => {
   router.push("/login");
 };
 
-const handleRegistration = async (formData: any) => {
+const handleRegistration = async (formData: SignUpDto) => {
   const payload = {
     email: formData.email,
     password: formData.password,

@@ -1,13 +1,19 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { adminService } from "@/services/admin.service";
-import { useResultStore } from "@/stores/result.store.ts";
+import { useResultStore } from "@/stores/result.store";
+import type {
+  SearchPayload,
+  RoomAvailabilityDTO,
+  ActivityDTO,
+  CreateActivityDTO,
+} from "@/types/api";
 
 export const useAdminStore = defineStore("admin", () => {
   const isLoading = ref(false);
   const error = ref<string | null>(null);
-  const availableRooms = ref<any[]>([]);
-  const scheduledActivities = ref<any[]>([]);
+  const availableRooms = ref<RoomAvailabilityDTO[]>([]);
+  const scheduledActivities = ref<ActivityDTO[]>([]);
 
   const resultStore = useResultStore();
 
@@ -35,7 +41,7 @@ export const useAdminStore = defineStore("admin", () => {
     return { start: startDate.toISOString(), end: endDate.toISOString() };
   };
 
-  async function searchAvailableRooms(rawPayload: any) {
+  async function searchAvailableRooms(rawPayload: SearchPayload) {
     resultStore.resetFilters();
     isLoading.value = true;
     error.value = null;
@@ -72,8 +78,9 @@ export const useAdminStore = defineStore("admin", () => {
     }
   }
 
-  // Create activities
-  async function confirmRoomSelection(selectedRoomWrapper: any) {
+  async function confirmRoomSelection(
+    selectedRoomWrapper: RoomAvailabilityDTO,
+  ) {
     const actualRoom = selectedRoomWrapper.room;
 
     if (!pendingActivity.value.title) {
@@ -81,11 +88,13 @@ export const useAdminStore = defineStore("admin", () => {
       return false;
     }
 
-    const apiPayload = {
+    const apiPayload: CreateActivityDTO = {
+      id: "",
+      authorId: "admin",
       title: pendingActivity.value.title,
       campus: actualRoom.campus,
-      startTime: pendingActivity.value.start,
-      endTime: pendingActivity.value.end,
+      startTime: new Date(pendingActivity.value.start),
+      endTime: new Date(pendingActivity.value.end),
       roomId: actualRoom.id,
       site: actualRoom.site.address,
     };
@@ -109,7 +118,7 @@ export const useAdminStore = defineStore("admin", () => {
     return d.toISOString();
   };
 
-  async function searchActivities(payload: any) {
+  async function searchActivities(payload: SearchPayload) {
     isLoading.value = true;
     error.value = null;
 
@@ -125,7 +134,7 @@ export const useAdminStore = defineStore("admin", () => {
         dateIso,
       );
 
-      scheduledActivities.value = activities.filter((a: any) => {
+      scheduledActivities.value = activities.filter((a: ActivityDTO) => {
         const actStart = new Date(a.startTime);
         const actEnd = new Date(a.endTime);
         const isSameStartTime =

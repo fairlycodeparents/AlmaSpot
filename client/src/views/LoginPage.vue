@@ -2,11 +2,12 @@
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import LoginCard from "@/components/LoginCard.vue";
+import type { LoginDto } from "@/types/api";
 
 const router = useRouter();
 const authStore = useAuthStore();
 
-const handleLogin = async (creds: any) => {
+const handleLogin = async (creds: LoginDto) => {
   const success = await authStore.login(creds);
 
   if (success) {

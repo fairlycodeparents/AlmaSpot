@@ -8,6 +8,7 @@ import RoomCard from "../components/RoomCard.vue";
 import MyButton from "../components/Button.vue";
 import FilterPanel from "@/components/FilterPanel.vue";
 import { usePlanSession } from "@/composables/usePlanSession.ts";
+import type { RoomAvailabilityDTO } from "@/types/api";
 
 const router = useRouter();
 const { activatePlan } = usePlanSession();
@@ -73,7 +74,7 @@ const formatTime = (start: string, end: string) => {
   return `${s} - ${e}`;
 };
 
-const handleSelectRoom = async (item: any) => {
+const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
   if (props.variant === "admin") {
     try {
       const success = await adminStore.confirmRoomSelection(item);
