@@ -14,13 +14,14 @@ const searchStore = useSearchStore();
 const adminStore = useAdminStore();
 
 const props = defineProps<{
-  variant: 'student' | 'admin'
+  variant: 'student' | 'admin' | 'delete';
 }>();
 
 const isFilterOpen = ref(false);
 const ARROW_ICON_PATH = "/icons/arrow-right.svg";
 const FILTER_ICON_PATH = "/icons/filter.svg";
 const X_ICON_PATH = "/icons/x_small.svg";
+const TRASH_ICON_PATH = "/icons/delete.svg";
 
 const onApplyFilters = (newFilters: { type: string; site: string }) => {
   resultStore.setFilters(newFilters);
@@ -29,7 +30,7 @@ const onApplyFilters = (newFilters: { type: string; site: string }) => {
 const { campus, start, end } = searchStore.searchPayload;
 
 const goBack = () => {
-  if (props.variant === 'admin') {
+  if (props.variant === 'admin' || props.variant === 'delete') {
     router.push({ name: 'admin-home' });
   } else {
     router.push({ name: 'home' });
@@ -44,6 +45,25 @@ const goToAI = () => {
       start,
       end
     }});
+};
+
+const handleDelete = async (item: any) => {
+  await adminStore.deleteActivity(item.id);
+  if (adminStore.scheduledActivities.length === 0) {
+    await router.push({ name: 'admin-home'});
+  }
+};
+
+const formatTime = (start: string, end: string) => {
+  const s = new Date(start).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const e = new Date(end).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  return `${s} - ${e}`;
 };
 
 const handleSelectRoom = async (item: any) => {
@@ -61,8 +81,9 @@ const handleSelectRoom = async (item: any) => {
       alert(error.message || "Errore generico");
       await router.push({ name: "admin-home" });
     }
-  } else
-      await router.push({ name: "plan" });
+  } else if (props.variant === 'student') {
+      await router.push({name: "plan"});
+  }
 };
 </script>
 
@@ -71,8 +92,13 @@ const handleSelectRoom = async (item: any) => {
       class="min-h-screen bg-brand-text flex flex-col px-6 pt-12 pb-6 relative"
   >
     <div class="mb-6">
-      <h1 class="text-4xl font-bold text-brand leading-tight">
+      <h1 v-if="variant === 'admin' || variant === 'student'"
+          class="text-4xl font-bold text-brand leading-tight">
         Soluzioni disponibili
+      </h1>
+      <h1 v-if="variant === 'delete'"
+          class="text-4xl font-bold text-brand leading-tight">
+        Attività programmate
       </h1>
     </div>
 
@@ -101,8 +127,13 @@ const handleSelectRoom = async (item: any) => {
           v-if="(resultStore.filteredRooms.length === 0)"
           class="text-center mt-10 flex flex-col items-center gap-2"
       >
-        <p class="text-base-text font-bold text-lg">
+        <p v-if="variant === 'admin' || variant === 'student'"
+           class="text-base-text font-bold text-lg">
           Nessuna aula disponibile per i criteri selezionati.
+        </p>
+        <p v-if="variant === 'delete'"
+           class="text-base-text font-bold text-lg">
+          Nessuna attività programmata trovata.
         </p>
 
         <button
@@ -118,12 +149,23 @@ const handleSelectRoom = async (item: any) => {
       </div>
 
       <RoomCard
+          v-if="variant === 'admin' || variant === 'student'"
           v-for="item in resultStore.filteredRooms"
           :key="item.room.id"
           :title="item.room.name"
           :subtitle="`${item.room.campus} - ${item.room.site?.address || item.room.site?.name}`"
           :button-icon="ARROW_ICON_PATH"
           :button-action="() => handleSelectRoom(item)"
+          class="w-full max-w-none bg-ui-card"
+      />
+      <RoomCard
+          v-if="variant === 'delete'"
+          v-for="item in resultStore.filteredRooms"
+          :key="item.id"
+          :title="item.title"
+          :subtitle="`Aula ${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
+          :button-icon="TRASH_ICON_PATH"
+          :button-action="() => handleDelete(item)"
           class="w-full max-w-none bg-ui-card"
       />
     </div>
