@@ -18,16 +18,27 @@ const onApplyFilters = (newFilters: { type: string; site: string }) => {
   searchStore.setFilters(newFilters);
 };
 
+const { campus, start, end } = searchStore.searchPayload;
+
 const goBack = () => {
   router.push({ name: 'home' });
 };
 
 const goToAI = () => {
-  router.push({ name: 'assistant' });
+  router.push({
+    name: 'assistant',
+    query: {
+      campus,
+      start,
+      end
+    }});
 };
 
-const handleSelectRoom = (_item: any) => {
-  router.push({ name: "plan" });
+const handleSelectRoom = (item: any) => {
+  router.push({
+    name: "plan",
+    query: item.room.id
+  });
 };
 </script>
 
