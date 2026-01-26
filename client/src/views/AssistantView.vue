@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router"; // Aggiungi useRoute
 import ChatMessageComponent from "../components/ChatMessage.vue";
 import ChatInput from "../components/ChatInput.vue";
 import { assistantService } from "../services/assistant.service";
@@ -9,24 +9,12 @@ import { usePushNotifications } from "@/composables/usePushNotifications";
 import { usePlanStore } from "@/stores/plan.store.ts";
 
 const store = usePlanStore();
-const route = useRouter().currentRoute;
-const { campus, start, end } = route.value.query;
-
+const router = useRouter();
+const route = useRoute();
+const { unsubscribeFromPush } = usePushNotifications();
+const messages = ref<Message[]>([]);
 const isLoading = ref(false);
 const scrollContainer = ref<HTMLElement | null>(null);
-
-const router = useRouter();
-const { unsubscribeFromPush } = usePushNotifications();
-
-const messages = ref<Message[]>([
-  {
-    text: "Ciao! Come posso aiutarti a trovare un'aula oggi?" +
-        "I parametri sono giusti? " +
-        `Campus di ${campus} dalle ${start} alle ${end}?`,
-    avatar: "/icons/bot-avatar.png",
-    isMine: false,
-  },
-]);
 
 const scrollToBottom = async () => {
   await nextTick();
@@ -84,8 +72,7 @@ const handleSendMessage = async (text: string) => {
     messages.value.push(botResponse);
   } catch (error) {
     messages.value.push({
-      text:
-        error instanceof Error ? error.message : "Si è verificato un errore.",
+      text: error instanceof Error ? error.message : "Si è verificato un errore.",
       avatar: "/icons/bot-avatar.png",
       isMine: false,
     });
@@ -95,8 +82,33 @@ const handleSendMessage = async (text: string) => {
   }
 };
 
-onMounted(() => {
-  scrollToBottom();
+const getFormattedTime = (param: any): string => {
+  if (!param) return '';
+  const str = Array.isArray(param) ? (param[0] || '') : String(param);
+  if (!/^\d{3,4}$/.test(str)) {
+    return '';
+  }
+  return str.padStart(4, '0').replace(/(\d{2})(\d{2})/, '$1:$2');
+};
+
+onMounted(async () => {
+  const { campus, start, end } = route.query;
+  const startString = getFormattedTime(start);
+  const endString = getFormattedTime(end);
+  if (campus && start && end) {
+    const autoQuery = "Vorrei trovare un'aula oggi" +
+        (campus ? ` nel campus di ${campus}` : '') +
+        (startString ? ` dalle ${startString}` : '') +
+        (endString ? ` alle ${endString}` : '');
+    await handleSendMessage(autoQuery);
+  } else {
+    messages.value.push({
+      text: "Ciao! Come posso aiutarti a trovare un'aula oggi?",
+      avatar: "/icons/bot-avatar.png",
+      isMine: false,
+    });
+    scrollToBottom();
+  }
 });
 </script>
 
