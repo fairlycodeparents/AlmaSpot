@@ -1,7 +1,17 @@
+import type {
+  RoomAvailabilityDTO,
+  CreateActivityDTO,
+  ActivityDTO,
+} from "@/types/api";
+
 const API_BASE = "/api/core";
 
 export const adminService = {
-  async searchRooms(params: { campus: string; start: string; end: string }) {
+  async searchRooms(params: {
+    campus: string;
+    start: string;
+    end: string;
+  }): Promise<RoomAvailabilityDTO[]> {
     const query = new URLSearchParams({
       campus: params.campus,
       start: params.start,
@@ -17,15 +27,11 @@ export const adminService = {
     });
 
     const data = await response.json();
-
-    if (!response.ok) {
-      throw data;
-    }
-
+    if (!response.ok) throw data;
     return data;
   },
 
-  async addActivity(payload: any) {
+  async addActivity(payload: CreateActivityDTO): Promise<void> {
     const response = await fetch(`${API_BASE}/activities/external`, {
       method: "POST",
       headers: {
@@ -40,7 +46,7 @@ export const adminService = {
     return data;
   },
 
-  async getActivities(campus: string, date: string) {
+  async getActivities(campus: string, date: string): Promise<ActivityDTO[]> {
     const query = new URLSearchParams({ campus, date }).toString();
 
     const response = await fetch(`${API_BASE}/activities?${query}`, {
@@ -53,11 +59,10 @@ export const adminService = {
 
     const data = await response.json();
     if (!response.ok) throw data;
-    console.log(data);
     return data;
   },
 
-  async deleteActivity(activityId: string) {
+  async deleteActivity(activityId: string): Promise<boolean> {
     const response = await fetch(
       `${API_BASE}/activities/external/${activityId}`,
       {

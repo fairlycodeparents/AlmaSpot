@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/auth.store";
 import { useAdminStore } from "@/stores/admin.store";
 import AdminActionPanel from "@/components/AdminActionPanel.vue";
 import Button from "@/components/Button.vue";
+import type { SearchPayload } from "@/types/api";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -15,7 +16,7 @@ const handleLogout = () => {
   router.push("/login");
 };
 
-const handlePanelSubmit = async (payload: any) => {
+const handlePanelSubmit = async (payload: SearchPayload) => {
   if (payload.mode === "aggiungi") {
     loadingMessage.value = "Cerco aule libere...";
     const found = await adminStore.searchAvailableRooms(payload);

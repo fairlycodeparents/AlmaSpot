@@ -2,18 +2,19 @@ import { defineStore } from "pinia";
 import { computed, ref } from "vue";
 import { authService } from "@/services/auth.service";
 import { useRouter } from "vue-router";
+import type { LoginDto, SignUpDto } from "@/types/api";
 
 export const useAuthStore = defineStore("auth", () => {
   const router = useRouter();
 
   const token = ref<string | null>(localStorage.getItem("authToken"));
-  const user = ref(null);
+  const user = ref<any>(null);
   const isLoading = ref(false);
   const error = ref<string | null>(null);
 
   const isAuthenticated = computed(() => !!token.value);
 
-  async function login(creds: { email: string; password: string }) {
+  async function login(creds: LoginDto) {
     isLoading.value = true;
     error.value = null;
 
@@ -32,7 +33,7 @@ export const useAuthStore = defineStore("auth", () => {
     }
   }
 
-  async function signUp(payload: { email: string; password: string }) {
+  async function signUp(payload: SignUpDto) {
     isLoading.value = true;
     error.value = null;
     try {

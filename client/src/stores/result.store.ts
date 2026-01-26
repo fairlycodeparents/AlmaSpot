@@ -1,8 +1,11 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
+import type { RoomAvailabilityDTO, ActivityDTO } from "@/types/api";
+
+export type ResultItem = RoomAvailabilityDTO | ActivityDTO;
 
 export const useResultStore = defineStore("result", () => {
-  const allRooms = ref<any[]>([]);
+  const allRooms = ref<ResultItem[]>([]);
 
   const filters = ref({
     type: "Qualsiasi",
@@ -14,44 +17,46 @@ export const useResultStore = defineStore("result", () => {
     LABORATORY: "Laboratorio",
   };
 
-  const detectType = (item: any) => {
-    if (item.room && item.room.type) {
+  function isRoomAvailability(item: ResultItem): item is RoomAvailabilityDTO {
+    return (item as RoomAvailabilityDTO).room !== undefined;
+  }
+
+  const detectType = (item: ResultItem) => {
+    if (isRoomAvailability(item)) {
       return getLabelForType(item.room.type);
     }
 
     if (item.roomId) {
       const idLower = item.roomId.toLowerCase();
-      if (idLower.includes("lab")) {
-        return "Laboratorio";
-      }
+      if (idLower.includes("lab")) return "Laboratorio";
       return "Aula";
     }
     return "Aula";
   };
 
-  const detectSite = (item: any) => {
-    if (item.room && item.room.site) {
+  const detectSite = (item: ResultItem) => {
+    if (isRoomAvailability(item)) {
       return item.room.site.address;
     }
     return null;
   };
 
   const availableTypes = computed(() => {
-    const types = new Set(allRooms.value.map((i: any) => detectType(i)));
+    const types = new Set(allRooms.value.map((i) => detectType(i)));
     return ["Qualsiasi", ...types].filter((t) => t !== "Sconosciuto");
   });
 
   const availableSites = computed(() => {
     const sites = new Set(
       allRooms.value
-        .map((i: any) => detectSite(i))
-        .filter((s: any) => s !== null),
+        .map((i) => detectSite(i))
+        .filter((s): s is string => s !== null),
     );
     return ["Qualsiasi", ...sites];
   });
 
   const filteredRooms = computed(() => {
-    return allRooms.value.filter((item: any) => {
+    return allRooms.value.filter((item) => {
       const itemType = detectType(item);
       const itemSite = detectSite(item);
       const matchType =
@@ -68,7 +73,7 @@ export const useResultStore = defineStore("result", () => {
     return TYPE_TRANSLATIONS[dbType] || dbType;
   };
 
-  function setRooms(rooms: any[]) {
+  function setRooms(rooms: ResultItem[]) {
     allRooms.value = rooms;
     resetFilters();
   }
