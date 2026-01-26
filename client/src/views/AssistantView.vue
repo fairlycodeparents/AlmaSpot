@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, nextTick, onMounted } from "vue";
-import { useRouter, useRoute } from "vue-router"; // Aggiungi useRoute
+import { useRouter, useRoute } from "vue-router";
 import ChatMessageComponent from "../components/ChatMessage.vue";
 import ChatInput from "../components/ChatInput.vue";
 import { assistantService } from "../services/assistant.service";
@@ -34,12 +34,12 @@ const handleSendMessage = async (text: string) => {
 
   try {
     const userMessages = messages.value
-        .filter((m) => m.isMine)
-        .map((m) => m.text);
+      .filter((m) => m.isMine)
+      .map((m) => m.text);
 
     const modelMessages = messages.value
-        .filter((m) => !m.isMine)
-        .map((m) => m.text);
+      .filter((m) => !m.isMine)
+      .map((m) => m.text);
 
     const data = await assistantService.search(userMessages, modelMessages);
     const botResponse: Message = {
@@ -53,12 +53,12 @@ const handleSendMessage = async (text: string) => {
         action: async () => {
           try {
             await unsubscribeFromPush();
-            // store.setPlan({
-            //   slots: data.plan.slots,
-            // });
+            store.setPlan({
+              slots: data.plan,
+            });
             await router.push({ name: "plan" });
           } catch (e) {
-            console.error("Errore durante il cambio piano:", e);
+            console.error("Error while changing plan:", e);
             await router.push({ name: "plan" });
           }
         },

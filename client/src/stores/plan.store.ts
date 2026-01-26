@@ -3,9 +3,13 @@ import { ref, computed } from "vue";
 
 export interface Plan {
   slots: Array<{
-    roomId: string;
-    start: string;
-    end: string;
+    id: string;
+    name: string;
+    type: string;
+    campus: string;
+    address: string;
+    from: string;
+    to: string;
   }>;
 }
 
