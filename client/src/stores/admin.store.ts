@@ -1,68 +1,22 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { adminService } from "@/services/admin.service";
+import { useResultStore } from "@/stores/result.store.ts";
 
 export const useAdminStore = defineStore("admin", () => {
   const isLoading = ref(false);
   const error = ref<string | null>(null);
   const availableRooms = ref<any[]>([]);
+
+  const resultStore = useResultStore();
+
   const pendingActivity = ref({
     title: "",
     start: "",
     end: "",
   });
-  const filters = ref({
-    type: "Qualsiasi",
-    site: "Qualsiasi",
-  });
-  const TYPE_TRANSLATIONS: Record<string, string> = {
-    CLASSROOM: "Aula",
-    LABORATORY: "Laboratorio",
-  };
+
   const scheduledActivities = ref<any[]>([]);
-
-  const availableTypes = computed(() => {
-    const types = new Set(
-      availableRooms.value.map((i: any) => getLabelForType(i.room.type)),
-    );
-    return ["Qualsiasi", ...types];
-  });
-
-  const availableSites = computed(() => {
-    const sites = new Set(
-      availableRooms.value.map((i: any) => i.room.site.address),
-    );
-    return ["Qualsiasi", ...sites];
-  });
-
-  const filteredRooms = computed(() => {
-    return availableRooms.value.filter((item: any) => {
-      const room = item.room;
-      const roomLabel = getLabelForType(room.type);
-
-      const matchType =
-        filters.value.type === "Qualsiasi" || roomLabel === filters.value.type;
-
-      const currentSiteName = room.site.address;
-      const matchSite =
-        filters.value.site === "Qualsiasi" ||
-        currentSiteName === filters.value.site;
-
-      return matchType && matchSite;
-    });
-  });
-
-  function setFilters(newFilters: { type: string; site: string }) {
-    filters.value = newFilters;
-  }
-
-  function resetFilters() {
-    filters.value = { type: "Qualsiasi", site: "Qualsiasi" };
-  }
-
-  const getLabelForType = (dbType: string) => {
-    return TYPE_TRANSLATIONS[dbType] || dbType;
-  };
 
   const calculateTimeRange = (
     dayStr: string,
@@ -83,7 +37,7 @@ export const useAdminStore = defineStore("admin", () => {
   };
 
   async function searchAvailableRooms(rawPayload: any) {
-    resetFilters();
+    resultStore.resetFilters();
     isLoading.value = true;
     error.value = null;
     availableRooms.value = [];
@@ -101,14 +55,13 @@ export const useAdminStore = defineStore("admin", () => {
         end: end,
       };
 
-      const rooms = await adminService.searchRooms({
+      availableRooms.value = await adminService.searchRooms({
         campus: rawPayload.location,
         start: start,
         end: end,
       });
 
-      availableRooms.value = rooms;
-
+      resultStore.setRooms(availableRooms.value);
       return true;
     } catch (err: any) {
       console.error("Errore ricerca:", err);
@@ -223,12 +176,6 @@ export const useAdminStore = defineStore("admin", () => {
     error,
     availableRooms,
     pendingActivity,
-    filters,
-    availableTypes,
-    availableSites,
-    filteredRooms,
-    setFilters,
-    resetFilters,
     searchAvailableRooms,
     confirmRoomSelection,
     scheduledActivities,
