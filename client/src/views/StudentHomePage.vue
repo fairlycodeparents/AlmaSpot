@@ -122,7 +122,7 @@ const goToAI = () => {
           </div>
 
           <div>
-            <DurationSelector v-model="duration" />
+            <DurationSelector v-model="duration" class="w-full" />
           </div>
 
           <div v-if="errorMessage" class="text-red-500 text-sm text-center animate-pulse bg-red-50 p-2">
@@ -130,7 +130,7 @@ const goToAI = () => {
           </div>
 
           <div class="pt-2">
-            <MyButton variant="primary" size="lg" class="w-full font-bold justify-center py-4 text-lg shadow-lg" :action="handleSearch" label="Cerca">
+            <MyButton variant="primary" size="lg" class="w-full font-bold item-center justify-center py-4 text-lg shadow-lg" :action="handleSearch" label="Cerca">
             </MyButton>
           </div>
 
