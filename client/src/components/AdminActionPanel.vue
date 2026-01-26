@@ -1,34 +1,28 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useTimeSlots } from "@/composables/useTimeSlots";
 import SegmentedButton from "./SegmentedButton.vue";
 import InputText from "./InputText.vue";
 import Dropdown from "./Dropdown.vue";
 import Button from "./Button.vue";
 import DurationSelector from "./DurationSelector.vue";
 
+const emit = defineEmits(["submit"]);
+
 const mode = ref("aggiungi");
 const activityName = ref("");
 const location = ref("Cesena");
 const date = ref("Oggi");
-const time = ref("09.00");
 const duration = ref(1);
-const emit = defineEmits(["submit"]);
 
+const { time, availableTimeOptions } = useTimeSlots(date);
+
+const locations = ["Cesena", "Bologna", "Rimini", "Ravenna", "Forlì"];
+const dates = ["Oggi", "Domani"];
 const modeOptions = [
   { label: "Aggiungi", value: "aggiungi" },
   { label: "Rimuovi", value: "rimuovi" },
 ];
-
-const generateTimeSlots = () => {
-  return Array.from({ length: 11 }, (_, i) => {
-    const hour = (i + 9).toString().padStart(2, "0");
-    return `${hour}:00`;
-  });
-};
-
-const locations = ["Cesena", "Bologna", "Rimini", "Ravenna", "Forlì"];
-const dates = ["Oggi", "Domani"];
-const times = generateTimeSlots();
 
 const handleSubmit = () => {
   emit("submit", {
@@ -69,7 +63,11 @@ const handleSubmit = () => {
         <Dropdown v-model="date" :options="dates" :is-full-width="true" />
       </div>
       <div class="flex-1">
-        <Dropdown v-model="time" :options="times" :is-full-width="true" />
+        <Dropdown
+          v-model="time"
+          :options="availableTimeOptions"
+          :is-full-width="true"
+        />
       </div>
     </div>
 
@@ -81,11 +79,7 @@ const handleSubmit = () => {
     />
 
     <div class="flex justify-center w-full">
-      <Button
-        label="Cerca"
-        :action="handleSubmit"
-        :is-full-width="true"
-      />
+      <Button label="Cerca" :action="handleSubmit" :is-full-width="true" />
     </div>
   </div>
 </template>
