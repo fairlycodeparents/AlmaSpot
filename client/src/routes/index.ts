@@ -4,10 +4,9 @@ import RegisterPage from "@/views/RegisterPage.vue";
 import AssistantView from "@/views/AssistantView.vue";
 import PlanView from "@/views/PlanView.vue";
 import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
-import AdminResultsPage from "@/views/AdminResultsPage.vue";
 import AdminActivitiesPage from "@/views/AdminActivitiesPage.vue";
 import StudentHomePage from "@/views/StudentHomePage.vue";
-import StudentResultsPage from "@/views/StudentResultsPage.vue";
+import ResultsPage from "@/views/ResultsPage.vue";
 
 const requireAuth = (_to: any, _from: any, next: any) => {
   if (localStorage.getItem("authToken")) {
@@ -28,7 +27,8 @@ const routes = createRouter({
     {
       path: "/results",
       name: "student-results",
-      component: StudentResultsPage,
+      component: ResultsPage,
+      props: { variant: "student" },
     },
     {
       path: "/login",
@@ -52,16 +52,20 @@ const routes = createRouter({
     },
     {
       path: "/admin",
+      name: "admin-home",
       component: AdminDashboardPage,
       beforeEnter: requireAuth,
     },
     {
       path: "/admin/results",
-      component: AdminResultsPage,
+      name: "admin-results",
+      component: ResultsPage,
+      props: { variant: "admin" },
       beforeEnter: requireAuth,
     },
     {
       path: "/admin/activities",
+      name: "admin-activities",
       component: AdminActivitiesPage,
       beforeEnter: requireAuth,
     },
