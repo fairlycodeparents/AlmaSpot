@@ -1,7 +1,9 @@
+import type { LoginDto, SignUpDto, AuthResponse } from "@/types/api";
+
 const API_BASE = "/api/auth";
 
 export const authService = {
-  async login(creds: { email: string; password: string }) {
+  async login(creds: LoginDto): Promise<AuthResponse> {
     const response = await fetch(`${API_BASE}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -17,7 +19,7 @@ export const authService = {
     return data;
   },
 
-  async signUp(payload: { email: string; password: string }) {
+  async signUp(payload: SignUpDto): Promise<{ message: string }> {
     const response = await fetch(`${API_BASE}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
