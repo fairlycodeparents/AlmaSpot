@@ -6,6 +6,7 @@ import Button from "@/components/Button.vue";
 import { ref } from "vue";
 import FilterPanel from "@/components/FilterPanel.vue";
 import { useResultStore } from "@/stores/result.store.ts";
+import MyButton from "@/components/Button.vue";
 
 const router = useRouter();
 const adminStore = useAdminStore();
@@ -14,6 +15,7 @@ const isFilterOpen = ref(false);
 
 const TRASH_ICON_PATH = "/icons/delete.svg";
 const FILTER_ICON_PATH = "/icons/filter.svg";
+const X_ICON_PATH = "/icons/x_small.svg";
 
 const onApplyFilters = (newFilters: { type: string; site: string }) => {
   resultStore.setFilters(newFilters);
@@ -56,11 +58,22 @@ const handleDelete = async (item: any) => {
         :icon="{ src: FILTER_ICON_PATH, alt: 'Icona filtro' }"
         :is-icon-right="false"
       />
+
+      <Button
+          label="Rimuovi filtri"
+          :action="resultStore.resetFilters"
+          :icon="{ src: X_ICON_PATH, alt: 'Icona Elimina filtro' }"
+          :is-icon-right="false"
+          v-if="
+          resultStore.filters.type !== 'Qualsiasi' ||
+          resultStore.filters.site !== 'Qualsiasi'
+          "
+      />
     </div>
 
     <div class="flex flex-col gap-4 flex-1 overflow-y-auto pb-20">
       <div
-        v-if="adminStore.scheduledActivities.length === 0"
+        v-if="resultStore.filteredRooms.length === 0"
         class="text-center text-base-text mt-10"
       >
         Nessuna attività programmata trovata.
