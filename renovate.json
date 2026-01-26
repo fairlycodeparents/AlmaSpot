@@ -5,8 +5,6 @@
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "ignoreUnstable": true,
-  "automergeSchedule": ["* 0-3 * * *"],
-  "timezone": "CET",
   "automerge": true,
   "packageRules": [
     {
