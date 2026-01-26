@@ -7,6 +7,7 @@ export const useAdminStore = defineStore("admin", () => {
   const isLoading = ref(false);
   const error = ref<string | null>(null);
   const availableRooms = ref<any[]>([]);
+  const scheduledActivities = ref<any[]>([]);
 
   const resultStore = useResultStore();
 
@@ -15,8 +16,6 @@ export const useAdminStore = defineStore("admin", () => {
     start: "",
     end: "",
   });
-
-  const scheduledActivities = ref<any[]>([]);
 
   const calculateTimeRange = (
     dayStr: string,
@@ -113,7 +112,6 @@ export const useAdminStore = defineStore("admin", () => {
   async function searchActivities(payload: any) {
     isLoading.value = true;
     error.value = null;
-    scheduledActivities.value = [];
 
     try {
       const [userHour, userMinute] = payload.time
@@ -140,6 +138,7 @@ export const useAdminStore = defineStore("admin", () => {
         return isSameStartTime && isDurationValid;
       });
 
+      resultStore.setRooms(scheduledActivities.value);
       return true;
     } catch (err: any) {
       error.value = err.message || "Errore nel caricamento attività";
