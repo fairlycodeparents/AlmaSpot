@@ -1,13 +1,29 @@
 import { ref, computed, watch, type Ref } from "vue";
 
-export function useTimeSlots(dateRef: Ref<string>) {
+interface TimeSlotOptions {
+  includeCurrentHour?: boolean;
+}
+
+export function useTimeSlots(
+  dateRef: Ref<string>,
+  options: TimeSlotOptions = { includeCurrentHour: false },
+) {
   const fullTimeSlots = Array.from({ length: 11 }, (_, i) => {
     const hour = (i + 9).toString().padStart(2, "0");
     return `${hour}:00`;
   });
 
+  const isToday = computed(() => {
+    const val = dateRef.value;
+    if (val === "Oggi") return true;
+    if (val === "Domani") return false;
+
+    const todayIso = new Date().toISOString().split("T")[0];
+    return val === todayIso;
+  });
+
   const availableTimeOptions = computed(() => {
-    if (dateRef.value === "Domani") {
+    if (!isToday.value) {
       return fullTimeSlots;
     }
 
@@ -16,7 +32,11 @@ export function useTimeSlots(dateRef: Ref<string>) {
 
     return fullTimeSlots.filter((timeSlot) => {
       const slotHour = parseInt(timeSlot.split(":")[0] || "0");
-      return slotHour > currentHour;
+      if (options.includeCurrentHour) {
+        return slotHour >= currentHour;
+      } else {
+        return slotHour > currentHour;
+      }
     });
   });
 
