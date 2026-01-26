@@ -67,7 +67,7 @@ const handleDelete = async (item: any) => {
       </div>
 
       <RoomCard
-        v-for="item in adminStore.scheduledActivities"
+        v-for="item in resultStore.filteredRooms"
         :key="item.id"
         :title="item.title"
         :subtitle="`Aula ${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
