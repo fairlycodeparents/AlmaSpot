@@ -160,6 +160,7 @@ export const useAdminStore = defineStore("admin", () => {
         (a) => a.id !== activityId,
       );
 
+      resultStore.setRooms(scheduledActivities.value);
       alert("Attività eliminata con successo");
       return true;
     } catch (e: any) {
