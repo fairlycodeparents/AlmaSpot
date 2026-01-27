@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import { useAdminStore } from "@/stores/admin.store";
-import AdminActionPanel from "@/components/AdminActionPanel.vue";
+import ActionPanel from "@/components/ActionPanel.vue";
 import Button from "@/components/Button.vue";
 import type { SearchPayload } from "@/types/api";
 
@@ -13,7 +13,7 @@ const adminStore = useAdminStore();
 const loadingMessage = ref("Cerco aule libere...");
 const handleLogout = () => {
   authStore.logout();
-  router.push("/login");
+  router.push({ name: "login" });
 };
 
 const handlePanelSubmit = async (payload: SearchPayload) => {
@@ -21,7 +21,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     loadingMessage.value = "Cerco aule libere...";
     const found = await adminStore.searchAvailableRooms(payload);
     if (found) {
-      router.push("/admin/results");
+      await router.push({ name: "admin-results" });
     } else {
       alert("Errore ricerca: " + adminStore.error);
     }
@@ -29,7 +29,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     loadingMessage.value = "Cerco attività...";
     const found = await adminStore.searchActivities(payload);
     if (found) {
-      router.push("/admin/activities");
+      await router.push({ name: "admin-activities" });
     } else {
       alert("Errore ricerca: " + adminStore.error);
     }
@@ -38,19 +38,15 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
 </script>
 
 <template>
-  <div class="bg-brand h-screen flex flex-col relative overflow-hidden">
+  <div class="bg-brand min-h-screen flex flex-col relative overflow-hidden">
     <Button
       label="Esci"
       :action="handleLogout"
       class="absolute top-6 right-6 z-50 bg-base-background! text-brand! hover:bg-ui-card! px-4! py-1! shadow-md text-sm font-bold"
     />
 
-    <header
-      class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10"
-    >
-      <span
-        class="text-brand-text font-semibold text-lg tracking-wide opacity-90 mb-8"
-      >
+    <header class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10">
+      <span class="text-brand-text font-semibold text-lg tracking-wide opacity-90 mb-8">
         AlmaSpot
       </span>
 
@@ -60,7 +56,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     </header>
 
     <main class="w-full flex-1 flex flex-col z-20">
-      <AdminActionPanel class="flex-1 w-full" @submit="handlePanelSubmit" />
+      <ActionPanel class="flex-1 w-full" :is-admin="true" @submit="handlePanelSubmit" />
     </main>
   </div>
 
