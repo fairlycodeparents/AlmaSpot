@@ -30,7 +30,9 @@ const handleRegistration = async (formData: SignUpDto) => {
 
 <template>
   <div class="min-h-screen bg-brand flex flex-col items-center px-6">
-    <header class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10">
+    <header
+      class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10"
+    >
       <span class="text-brand-text font-bold text-xl tracking-wide mb-8">
         AlmaSpot
       </span>
@@ -40,7 +42,9 @@ const handleRegistration = async (formData: SignUpDto) => {
       </h1>
     </header>
 
-    <main class="flex-1 flex flex-col justify-center items-center w-full max-w-sm gap-10">
+    <main
+      class="flex-1 flex flex-col justify-center items-center w-full max-w-sm gap-10"
+    >
       <LoginCard
         min-height="min-h-[400px]"
         :is-register="true"

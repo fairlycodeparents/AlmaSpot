@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useSearchStore } from "../stores/search.store";
-import type { SearchPayload } from "@/types/api"
+import type { SearchPayload } from "@/types/api";
 import ActionPanel from "@/components/ActionPanel.vue";
 
 const router = useRouter();
@@ -25,20 +25,23 @@ const goToLogin = () => router.push({ name: "login" });
   <div class="min-h-screen bg-brand flex flex-col relative">
     <div class="absolute top-6 right-6 z-10">
       <button
-          type="button"
-          @click="goToLogin"
-          class="flex items-center gap-2 px-4 py-2"
-          title="Admin">
+        type="button"
+        @click="goToLogin"
+        class="flex items-center gap-2 px-4 py-2"
+        title="Admin"
+      >
         <img
-            src="/icons/profile_login.png"
-            alt="Profile Icon"
-            class="w-8 h-8"
+          src="/icons/profile_login.png"
+          alt="Profile Icon"
+          class="w-8 h-8"
         />
       </button>
     </div>
 
     <header class="flex flex-col px-6 pt-16 pb-24 md:pb-10">
-      <span class="text-brand-text text-center font-semibold text-xl tracking-wide opacity-90 mb-8">
+      <span
+        class="text-brand-text text-center font-semibold text-xl tracking-wide opacity-90 mb-8"
+      >
         AlmaSpot
       </span>
 
@@ -48,7 +51,11 @@ const goToLogin = () => router.push({ name: "login" });
     </header>
 
     <main class="w-full justify-center item-center flex-1 flex flex-col z-20">
-      <ActionPanel class="flex-1 item-center justify-center w-full" :is-admin="false" @submit="handleSearch" />
+      <ActionPanel
+        class="flex-1 item-center justify-center w-full"
+        :is-admin="false"
+        @submit="handleSearch"
+      />
     </main>
   </div>
 

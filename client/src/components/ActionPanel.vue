@@ -14,13 +14,16 @@ const parameterStore = useParameterStore();
 const router = useRouter();
 
 const errorMessage = ref("");
-const AI_ICON_PATH = "icons/ai-icon.svg"
+const AI_ICON_PATH = "icons/ai-icon.svg";
 
-const props = withDefaults(defineProps<{
-  isAdmin?: boolean;
-}>(), {
-  isAdmin: false
-});
+const props = withDefaults(
+  defineProps<{
+    isAdmin?: boolean;
+  }>(),
+  {
+    isAdmin: false,
+  },
+);
 const mode = ref("aggiungi");
 const activityName = ref("");
 const campus = ref(parameterStore.selectedCampus || "");
@@ -40,8 +43,8 @@ const { time, availableTimeOptions } = useTimeSlots(date, {
 onMounted(async () => {
   await parameterStore.fetchCampuses();
   if (
-      parameterStore.selectedTime &&
-      availableTimeOptions.value.includes(parameterStore.selectedTime)
+    parameterStore.selectedTime &&
+    availableTimeOptions.value.includes(parameterStore.selectedTime)
   ) {
     time.value = parameterStore.selectedTime;
   }
@@ -50,7 +53,7 @@ onMounted(async () => {
 const goToAI = () => router.push({ name: "assistant" });
 const handleSubmit = () => {
   errorMessage.value = "";
-  if(props.isAdmin && mode.value === "aggiungi" && !activityName.value) {
+  if (props.isAdmin && mode.value === "aggiungi" && !activityName.value) {
     errorMessage.value = "Inserisci il nome dell'attività.";
     return;
   }
@@ -70,7 +73,9 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div class="bg-base-background justify-center w-full max-w-5xl rounded-t-4xl p-6 flex flex-col gap-6 shadow-sm">
+  <div
+    class="bg-base-background justify-center w-full max-w-5xl rounded-t-4xl p-6 flex flex-col gap-6 shadow-sm"
+  >
     <div class="w-full" v-if="props.isAdmin">
       <SegmentedButton
         v-model="mode"
@@ -87,7 +92,11 @@ const handleSubmit = () => {
       v-model="activityName"
     />
 
-    <Dropdown v-model="campus" :options="parameterStore.campusOptions" :is-full-width="true" />
+    <Dropdown
+      v-model="campus"
+      :options="parameterStore.campusOptions"
+      :is-full-width="true"
+    />
 
     <div class="flex gap-4">
       <div class="flex-1">
@@ -102,31 +111,32 @@ const handleSubmit = () => {
       </div>
     </div>
 
-    <DurationSelector
-      v-model="duration"
-      :min="1"
-      :max="12"
-      class="w-full"
-    />
+    <DurationSelector v-model="duration" :min="1" :max="12" class="w-full" />
 
     <div
-        v-if="errorMessage"
-        class="text-brand text-sm text-center animate-pulse bg-ui-card p-2">
+      v-if="errorMessage"
+      class="text-brand text-sm text-center animate-pulse bg-ui-card p-2"
+    >
       ⚠️ {{ errorMessage }}
     </div>
 
     <div class="flex justify-center w-full">
-      <MyButton label="Cerca" variant="primary" :action="handleSubmit" :is-full-width="true" />
+      <MyButton
+        label="Cerca"
+        variant="primary"
+        :action="handleSubmit"
+        :is-full-width="true"
+      />
     </div>
 
     <div class="text-center pt-1 mt-4">
       <button
-          v-if="!props.isAdmin"
-          type="button"
-          @click="goToAI"
-          class="text-base-text font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-brand">
-        <img :src="AI_ICON_PATH" alt="AI_ICON"
-          />
+        v-if="!props.isAdmin"
+        type="button"
+        @click="goToAI"
+        class="text-base-text font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-brand"
+      >
+        <img :src="AI_ICON_PATH" alt="AI_ICON" />
         Chiedi un'aula all'AI
       </button>
     </div>
