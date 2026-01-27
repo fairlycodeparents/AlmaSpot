@@ -115,9 +115,9 @@ const handleSubmit = () => {
 
     <div
       v-if="errorMessage"
-      class="text-brand text-sm text-center animate-pulse bg-ui-card p-2"
+      class="text-brand text-sm text-center rounded-xl animate-pulse bg-ui-card p-2"
     >
-      ⚠️ {{ errorMessage }}
+      {{ errorMessage }}
     </div>
 
     <div class="flex justify-center w-full">

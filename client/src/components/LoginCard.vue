@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import InputText from "./InputText.vue";
 import Button from "./Button.vue";
 
@@ -8,22 +8,52 @@ const props = withDefaults(
     minHeight?: string;
     buttonClass?: string;
     isRegister?: boolean;
+    apiError?: string | null;
+    successMessage?: string | null;
   }>(),
   {
     minHeight: "",
     buttonClass: "w-full",
     isRegister: false,
+    apiError: null,
+    successMessage: null,
   },
 );
-const emit = defineEmits(["login", "signup", "toLogin", "registerSubmit"]);
+const emit = defineEmits([
+  "login",
+  "signup",
+  "toLogin",
+  "registerSubmit",
+  "clearSuccess",
+]);
 const email = ref("");
 const password = ref("");
 const confirmPassword = ref("");
+const localError = ref("");
+
+watch([email, password, confirmPassword], () => {
+  localError.value = "";
+  if (props.successMessage) {
+    emit("clearSuccess");
+  }
+});
 
 const handleSubmit = () => {
+  localError.value = "";
+  emit("clearSuccess");
+
+  if (!email.value || !password.value) {
+    localError.value = "Compila tutti i campi obbligatori.";
+    return;
+  }
+
   if (props.isRegister) {
+    if (!confirmPassword.value) {
+      localError.value = "Conferma la tua password.";
+      return;
+    }
     if (password.value !== confirmPassword.value) {
-      alert("Le password non coincidono!");
+      localError.value = "Le password non coincidono!";
       return;
     }
 
@@ -70,11 +100,26 @@ const handleSubmit = () => {
       />
     </div>
 
+    <div
+      v-if="localError || apiError"
+      class="text-brand text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-brand animate-pulse"
+    >
+      {{ localError || apiError }}
+    </div>
+
+    <div
+      v-if="successMessage"
+      class="text-green-600 text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-green-600 animate-pulse"
+    >
+      {{ successMessage }}
+    </div>
+
     <div class="flex justify-center w-full">
       <Button
         :label="isRegister ? 'Registrati' : 'Accedi'"
         :action="handleSubmit"
         :is-full-width="true"
+        :disabled="false"
       />
     </div>
 
