@@ -45,8 +45,12 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
       class="absolute top-6 right-6 z-50 bg-base-background! text-brand! hover:bg-ui-card! px-4! py-1! shadow-md text-sm font-bold"
     />
 
-    <header class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10">
-      <span class="text-brand-text font-semibold text-xl tracking-wide opacity-90 mb-8">
+    <header
+      class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10"
+    >
+      <span
+        class="text-brand-text font-semibold text-xl tracking-wide opacity-90 mb-8"
+      >
         AlmaSpot
       </span>
 
@@ -56,7 +60,11 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     </header>
 
     <main class="w-full flex-1 flex flex-col z-20">
-      <ActionPanel class="flex-1 w-full" :is-admin="true" @submit="handlePanelSubmit" />
+      <ActionPanel
+        class="flex-1 w-full"
+        :is-admin="true"
+        @submit="handlePanelSubmit"
+      />
     </main>
   </div>
 

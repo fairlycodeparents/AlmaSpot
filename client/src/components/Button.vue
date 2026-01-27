@@ -1,48 +1,38 @@
 <script setup lang="ts">
 export type ButtonConfig = {
-  action: () => void
-  label?: string
+  action: () => void;
+  label?: string;
   icon?: {
-    src: string
-    alt: string
-  }
-  isIconRight?: boolean
-  isFullWidth?: boolean
-}
+    src: string;
+    alt: string;
+  };
+  isIconRight?: boolean;
+  isFullWidth?: boolean;
+};
 
 withDefaults(defineProps<ButtonConfig>(), {
   isIconRight: true,
-  isFullWidth: false
-})
+  isFullWidth: false,
+});
 </script>
 
 <template>
   <button
-      class="
-      flex items-center justify-between
-      min-w-20 min-h-10
-      px-4 py-2
-      bg-brand hover:bg-brand-dark text-brand-text
-      rounded-4xl
-      cursor-pointer
-      transition-colors duration-200 ease-in-out
-      gap-2
-      shadow-sm active:scale-99
-    "
-      :class="{
-        'flex-row-reverse': !isIconRight,
-        'justify-center': !icon || !label,
-        'w-full': isFullWidth
-      }"
-      @click="action"
+    class="flex items-center justify-between min-w-20 min-h-10 px-4 py-2 bg-brand hover:bg-brand-dark text-brand-text rounded-4xl cursor-pointer transition-colors duration-200 ease-in-out gap-2 shadow-sm active:scale-99"
+    :class="{
+      'flex-row-reverse': !isIconRight,
+      'justify-center': !icon || !label,
+      'w-full': isFullWidth,
+    }"
+    @click="action"
   >
     <span v-if="label">{{ label }}</span>
 
     <img
-        v-if="icon"
-        :src="icon.src"
-        :alt="icon.alt"
-        class="size-6 object-cover rounded-4xl shrink-0"
+      v-if="icon"
+      :src="icon.src"
+      :alt="icon.alt"
+      class="size-6 object-cover rounded-4xl shrink-0"
     />
   </button>
 </template>
