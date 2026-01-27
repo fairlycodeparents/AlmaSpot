@@ -97,15 +97,16 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
       await router.push({ name: "admin-home" });
     }
   } else if (props.variant === "student") {
-    const formatDate =
-      date === "Oggi"
-        ? new Date().toISOString().split("T")[0]
-        : new Date(Date.now() + 24 * 60 * 60 * 1000)
-            .toISOString()
-            .split("T")[0];
-    const startDate = new Date(`${formatDate}T${start}`);
-    const endDate = new Date(startDate);
-    endDate.setHours(startDate.getHours() + Number(duration));
+    const targetDate = new Date();
+    if (date !== "Oggi") {
+      targetDate.setDate(targetDate.getDate() + 1);
+    }
+    const year = targetDate.getFullYear();
+    const month = targetDate.getMonth();
+    const day = targetDate.getDate();
+    const [hours, minutes] = start.split(":").map(Number);
+    const startDate = new Date(Date.UTC(year, month, day, hours, minutes));
+    const endDate = new Date(startDate.getTime() + Number(duration) * 3600000);
     await activatePlan(router, [
       {
         id: item.room.id,

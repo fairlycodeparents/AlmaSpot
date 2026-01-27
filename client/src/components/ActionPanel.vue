@@ -69,6 +69,10 @@ const handleSubmit = () => {
     time: time.value,
     duration: duration.value,
   });
+  parameterStore.selectedCampus = campus.value;
+  parameterStore.selectedDate = date.value;
+  parameterStore.selectedTime = time.value;
+  parameterStore.selectedDuration = duration.value;
 };
 </script>
 
