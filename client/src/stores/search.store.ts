@@ -1,67 +1,37 @@
 import { defineStore } from "pinia";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import { searchService } from "../services/search.service";
 import { useResultStore } from "@/stores/result.store.ts";
+import type { SearchPayload } from "@/types/api";
 
 export const useSearchStore = defineStore("search", () => {
-  const availableCampuses = ref<string[]>([]);
   const availableRooms = ref<any[]>([]);
   const isLoading = ref(false);
   const error = ref<string | null>(null);
 
   const resultStore = useResultStore();
 
-  const selectedCampus = ref<string>("");
-  const selectedDate = ref<string>(
-    new Date().toISOString().split("T")[0] ?? "",
-  );
-  const selectedTime = ref<string>("09:00");
-  const selectedDuration = ref<number>(1);
-
-  const campusOptions = computed(() =>
-    availableCampuses.value.map((c) => ({ label: c, value: c })),
-  );
-
-  const searchPayload = computed(() => {
-    const startObj = new Date(`${selectedDate.value}T${selectedTime.value}:00`);
-    const endObj = new Date(
-      startObj.getTime() + selectedDuration.value * 60 * 60 * 1000,
-    );
-
-    return {
-      campus: selectedCampus.value,
-      start: startObj.toISOString(),
-      end: endObj.toISOString(),
-    };
-  });
-
-  async function fetchCampuses() {
-    if (availableCampuses.value.length > 0) return;
-    try {
-      availableCampuses.value = await searchService.getCampuses();
-    } catch (error) {
-      console.error("Failed to load campuses", error);
-      availableCampuses.value = [
-        "Cesena",
-        "Bologna",
-        "Forlì",
-        "Ravenna",
-        "Rimini",
-      ];
-    }
-  }
-
-  async function searchRooms() {
+  async function searchRooms(rawPayload: SearchPayload) {
     resultStore.resetFilters();
     isLoading.value = true;
     error.value = null;
     availableRooms.value = [];
+    const date =
+      rawPayload.date === "Oggi"
+        ? new Date().toISOString().split("T")[0]
+        : new Date(Date.now() + 24 * 60 * 60 * 1000)
+            .toISOString()
+            .split("T")[0];
+    const start = new Date(`${date}T${rawPayload.time}:00`);
+    const end = new Date(
+      start.getTime() + rawPayload.duration * 60 * 60 * 1000,
+    );
 
     try {
       availableRooms.value = await searchService.findExactRooms({
-        campus: searchPayload.value.campus,
-        start: searchPayload.value.start,
-        end: searchPayload.value.end,
+        campus: rawPayload.campus,
+        start: start.toISOString(),
+        end: end.toISOString(),
       });
       resultStore.setRooms(availableRooms.value);
       return true;
@@ -75,28 +45,7 @@ export const useSearchStore = defineStore("search", () => {
     }
   }
 
-  function setSearchCriteria(
-    campus: string,
-    date: string,
-    time: string,
-    duration: number,
-  ) {
-    selectedCampus.value = campus;
-    selectedDate.value = date;
-    selectedTime.value = time;
-    selectedDuration.value = duration;
-  }
-
   return {
-    availableCampuses,
-    selectedCampus,
-    selectedDate,
-    selectedTime,
-    selectedDuration,
-    campusOptions,
-    searchPayload,
-    fetchCampuses,
-    setSearchCriteria,
     searchRooms,
     availableRooms,
     isLoading,

@@ -61,7 +61,7 @@ export const useAdminStore = defineStore("admin", () => {
       };
 
       availableRooms.value = await adminService.searchRooms({
-        campus: rawPayload.location,
+        campus: rawPayload.campus,
         start: start,
         end: end,
       });
@@ -130,7 +130,7 @@ export const useAdminStore = defineStore("admin", () => {
       const maxDuration = Number(payload.duration);
       const dateIso = getDateFromLabel(payload.date);
       const activities = await adminService.getActivities(
-        payload.location,
+        payload.campus,
         dateIso,
       );
 

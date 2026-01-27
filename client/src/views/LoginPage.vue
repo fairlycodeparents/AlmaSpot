@@ -11,31 +11,30 @@ const handleLogin = async (creds: LoginDto) => {
   const success = await authStore.login(creds);
 
   if (success) {
-    router.push("/admin");
+    await router.push({ name: "admin-home" });
   } else {
     alert(authStore.error);
   }
 };
 
-const goToRegister = () => router.push("/signup");
+const goToRegister = () => router.push({ name: "register" });
 </script>
 
 <template>
   <div class="min-h-screen bg-brand flex flex-col items-center px-6">
-    <header class="pt-12">
-      <span
-        class="text-brand-text font-semibold text-lg tracking-wide opacity-90"
-        >AlmaSpot</span
-      >
+    <header class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10">
+      <span class="text-brand-text font-bold text-2xl tracking-wide mb-8">
+        AlmaSpot
+      </span>
+
+      <h1 class="text-4xl font-bold text-brand-text leading-tight">
+        Portale Admin
+      </h1>
     </header>
 
     <main
       class="flex-1 flex flex-col justify-center items-center w-full max-w-sm gap-10"
     >
-      <h1 class="text-4xl font-bold text-brand-text text-center leading-tight">
-        Portale Admin
-      </h1>
-
       <LoginCard
         min-height="min-h-[400px]"
         @login="handleLogin"

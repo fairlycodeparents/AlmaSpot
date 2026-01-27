@@ -26,7 +26,7 @@ export interface AuthResponse {
 export interface SearchPayload {
   mode: "aggiungi" | "rimuovi";
   activity: string;
-  location: string;
+  campus: string;
   date: string;
   time: string;
   duration: number;
