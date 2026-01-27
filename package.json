@@ -16,7 +16,7 @@
     "prettier:check": "prettier --check ."
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,md}": [
+    "**/*.{js,jsx,ts,tsx,json,css,md,yml,yaml,html,vue}": [
       "prettier --write"
     ]
   }
