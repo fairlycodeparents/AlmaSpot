@@ -3,11 +3,17 @@ import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import LoginCard from "@/components/LoginCard.vue";
 import type { SignUpDto } from "@/types/api";
+import { onMounted } from "vue";
 
 const router = useRouter();
 const authStore = useAuthStore();
 
+onMounted(() => {
+  authStore.error = null;
+});
+
 const goBack = () => {
+  authStore.error = null;
   router.push("/login");
 };
 
@@ -20,10 +26,10 @@ const handleRegistration = async (formData: SignUpDto) => {
   const success = await authStore.signUp(payload);
 
   if (success) {
-    alert("Registrazione completata! Ora puoi accedere.");
-    router.push("/login");
-  } else {
-    alert(authStore.error);
+    router.push({
+      name: "login",
+      query: { registered: "true" },
+    });
   }
 };
 </script>
@@ -48,6 +54,7 @@ const handleRegistration = async (formData: SignUpDto) => {
       <LoginCard
         min-height="min-h-[400px]"
         :is-register="true"
+        :api-error="authStore.error"
         @registerSubmit="handleRegistration"
         @to-login="goBack"
       />
