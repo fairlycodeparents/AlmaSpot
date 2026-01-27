@@ -53,7 +53,7 @@ onUnmounted(() => document.removeEventListener('click', handleClickOutside))
   <div
       ref="containerRef"
       class="relative"
-      :class="[isFullWidth ? 'w-full' : 'min-w-40 inline-block']"
+      :class="[isFullWidth ? 'w-full' : 'inline-block']"
   >
     <button
         type="button"
