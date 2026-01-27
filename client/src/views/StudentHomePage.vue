@@ -136,12 +136,13 @@ const goToAI = () => router.push({ name: "assistant" });
             ⚠️ {{ errorMessage }}
           </div>
 
-          <div class="pt-2">
+          <div class="pt-2 flex justify-center w-full">
             <MyButton
               variant="primary"
               size="lg"
-              class="w-full font-bold item-center justify-center py-4 text-lg shadow-lg"
+              class="font-bold"
               :action="handleSearch"
+              :is-full-width="true"
               label="Cerca"
             >
             </MyButton>

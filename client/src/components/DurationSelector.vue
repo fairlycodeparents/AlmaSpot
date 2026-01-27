@@ -39,7 +39,7 @@ const isMax = computed(() => props.modelValue >= props.max);
 
 <template>
   <div class="flex items-center justify-between bg-ui-card border border-ui-border
-rounded-2xl shadow-sm w-full max-w-75 overflow-hidden">
+rounded-2xl shadow-sm w-full overflow-hidden">
 
     <button
         @click="decrement"
