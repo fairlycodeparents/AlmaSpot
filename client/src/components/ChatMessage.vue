@@ -1,40 +1,40 @@
 <script lang="ts" setup>
-import type { ButtonConfig } from './Button.vue'
-import Button from './Button.vue'
+import type { ButtonConfig } from "./Button.vue";
+import Button from "./Button.vue";
 
 export type ChatMessageConfig = {
-  text: string
-  avatar?: string
-  isMine?: boolean
-  callToAction?: ButtonConfig
-}
+  text: string;
+  avatar?: string;
+  isMine?: boolean;
+  callToAction?: ButtonConfig;
+};
 withDefaults(defineProps<ChatMessageConfig>(), {
   isMine: false,
-})
+});
 </script>
 
 <template>
   <div
-      class="flex items-start gap-3 mb-5 w-full"
-      :class="{ 'flex-row-reverse': isMine }"
+    class="flex items-start gap-3 mb-5 w-full"
+    :class="{ 'flex-row-reverse': isMine }"
   >
     <img
-        v-if="avatar"
-        :src="avatar"
-        alt="User Avatar"
-        class="w-12 h-12 rounded-full object-cover shrink-0"
+      v-if="avatar"
+      :src="avatar"
+      alt="User Avatar"
+      class="w-12 h-12 rounded-full object-cover shrink-0"
     />
 
     <div
-        class="flex flex-col gap-2.5 max-w-7/10"
-        :class="{ 'items-end': isMine }"
+      class="flex flex-col gap-2.5 max-w-7/10"
+      :class="{ 'items-end': isMine }"
     >
       <div
-          class="px-4 py-3 leading-tight shadow-sm border-ui-border border text-base-text"
-          :class="[
+        class="px-4 py-3 leading-tight shadow-sm border-ui-border border text-base-text"
+        :class="[
           isMine
             ? 'bg-ui-card rounded-2xl rounded-tr-sm'
-            : 'bg-white rounded-2xl rounded-tl-sm'
+            : 'bg-white rounded-2xl rounded-tl-sm',
         ]"
       >
         {{ text }}

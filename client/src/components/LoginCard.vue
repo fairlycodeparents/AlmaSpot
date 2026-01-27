@@ -78,9 +78,7 @@ const handleSubmit = () => {
       />
     </div>
 
-    <div
-      class="flex w-full justify-center items-center gap-1 text-base-text"
-    >
+    <div class="flex w-full justify-center items-center gap-1 text-base-text">
       <span>
         {{ isRegister ? "Hai già un account?" : "Non hai un account?" }}
       </span>
