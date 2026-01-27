@@ -20,7 +20,7 @@ withDefaults(defineProps<ButtonConfig>(), {
   <button
       class="
       flex items-center justify-between
-      max-w-5xl min-w-20 min-h-10
+      min-w-20 min-h-10
       px-4 py-2
       bg-brand hover:bg-brand-dark text-brand-text
       rounded-4xl
