@@ -34,7 +34,7 @@ const modeOptions = [
 ];
 
 const { time, availableTimeOptions } = useTimeSlots(date, {
-  includeCurrentHour: true,
+  includeCurrentHour: !props.isAdmin,
 });
 
 onMounted(async () => {
@@ -70,7 +70,7 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div class="bg-base-background w-full max-w-5xl rounded-t-4xl p-6 flex flex-col gap-6 shadow-sm">
+  <div class="bg-base-background justify-center w-full max-w-5xl rounded-t-4xl p-6 flex flex-col gap-6 shadow-sm">
     <div class="w-full" v-if="props.isAdmin">
       <SegmentedButton
         v-model="mode"
