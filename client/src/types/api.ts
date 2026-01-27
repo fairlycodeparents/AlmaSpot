@@ -1,23 +1,61 @@
-import type {
-  LoginDto,
-  SignUpDto,
-} from "../../../server/src/context/authentication/application/dtos/AuthDtos";
-import type {
-  ActivityDTO,
-  CreateActivityDTO,
-  RoomDTO,
-  RoomTypeDTO,
-} from "../../../server/src/context/core/";
-import type { RoomAvailabilityDTO } from "../../../server/src/context/core/application/dtos/RoomAvailabilityDTO";
+export type RoomTypeDTO = "CLASSROOM" | "LABORATORY";
 
-export type {
-  RoomAvailabilityDTO,
-  ActivityDTO,
-  CreateActivityDTO,
-  RoomDTO,
-  RoomTypeDTO,
-};
-export type { LoginDto, SignUpDto };
+export interface PeriodDTO {
+  start: string | Date;
+  end: string | Date;
+  date?: Date;
+}
+
+export interface SlotDTO {
+  roomId: string;
+  period: PeriodDTO;
+}
+
+export interface RoomDTO {
+  id: string;
+  name: string;
+  type: RoomTypeDTO;
+  campus: string;
+  site: {
+    campus: string;
+    address: string;
+  };
+}
+
+export interface RoomAvailabilityDTO {
+  room: RoomDTO;
+  availableSlots?: SlotDTO[];
+}
+
+export interface ActivityDTO {
+  id: string;
+  roomId: string;
+  title: string;
+  startTime: string | Date;
+  endTime: string | Date;
+  campus: string;
+}
+
+export interface CreateActivityDTO {
+  id?: string;
+  roomId: string;
+  title: string;
+  startTime: string | Date;
+  endTime: string | Date;
+  campus: string;
+  site: string;
+  authorId?: string;
+}
+
+export interface LoginDto {
+  email: string;
+  password: string;
+}
+
+export interface SignUpDto {
+  email: string;
+  password: string;
+}
 
 export interface AuthResponse {
   token: string;
