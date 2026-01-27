@@ -25,6 +25,9 @@ jobs:
           - context: ./unibo-provider
             image_suffix: unibo-provider
             dockerfile: ./unibo-provider/Dockerfile
+          - context: ./client
+            image_suffix: client
+            dockerfile: ./client/Dockerfile
 
     steps:
       - name: Checkout repository
