@@ -8,7 +8,6 @@ import ActionPanel from "@/components/ActionPanel.vue";
 const router = useRouter();
 const searchStore = useSearchStore();
 const loadingMessage = ref("Cerco aule libere...");
-const PROFILE_ICON_PATH="/icons/profile_login.png";
 
 const handleSearch = async (payload: SearchPayload) => {
   loadingMessage.value = "Cerco aule libere...";
@@ -23,33 +22,33 @@ const goToLogin = () => router.push({ name: "login" });
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col relative overflow-hidden">
+  <div class="min-h-screen bg-brand flex flex-col relative">
     <div class="absolute top-6 right-6 z-10">
       <button
-        type="button"
-        @click="goToLogin"
-        class="flex items-center gap-2 px-4 py-2"
-        title="Admin">
+          type="button"
+          @click="goToLogin"
+          class="flex items-center gap-2 px-4 py-2"
+          title="Admin">
         <img
-          :src="PROFILE_ICON_PATH"
-          alt="Profile Icon"
-          class="w-8 h-8"
+            src="/icons/profile_login.png"
+            alt="Profile Icon"
+            class="w-8 h-8"
         />
       </button>
     </div>
 
-    <header class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10">
-      <span class="text-brand-text font-semibold text-lg tracking-wide opacity-90 mb-8">
+    <header class="flex flex-col px-6 pt-16 pb-24 md:pb-10">
+      <span class="text-brand-text text-center font-semibold text-xl tracking-wide opacity-90 mb-8">
         AlmaSpot
       </span>
 
       <h1 class="text-4xl font-bold text-left text-brand-text leading-tight">
-        Troviamo il tuo<br>prossimo spot.
+        Troviamo il tuo prossimo spot.
       </h1>
     </header>
 
-    <main class="w-full justify-center flex-1 flex flex-col z-20">
-      <ActionPanel class="flex-1 w-full" :is-admin="false" @submit="handleSearch" />
+    <main class="w-full justify-center item-center flex-1 flex flex-col z-20">
+      <ActionPanel class="flex-1 item-center justify-center w-full" :is-admin="false" @submit="handleSearch" />
     </main>
   </div>
 

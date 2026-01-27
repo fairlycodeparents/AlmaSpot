@@ -22,8 +22,8 @@ const goToRegister = () => router.push({ name: "register" });
 
 <template>
   <div class="min-h-screen bg-brand flex flex-col items-center px-6">
-    <header class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10">
-      <span class="text-brand-text font-bold text-2xl tracking-wide mb-8">
+    <header class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10">
+      <span class="text-brand-text font-bold text-xl tracking-wide mb-8">
         AlmaSpot
       </span>
 
