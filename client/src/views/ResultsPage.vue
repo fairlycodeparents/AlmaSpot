@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
-import { useSearchStore } from "../stores/search.store";
+import { useParameterStore } from "../stores/parameter.store";
 import { useAdminStore } from "../stores/admin.store";
-import { useResultStore } from "@/stores/result.store.ts";
+import { useResultStore } from "@/stores/result.store";
 import RoomCard from "../components/RoomCard.vue";
 import MyButton from "../components/Button.vue";
 import FilterPanel from "@/components/FilterPanel.vue";
-import { usePlanSession } from "@/composables/usePlanSession.ts";
+import { usePlanSession } from "@/composables/usePlanSession";
 import type { ActivityDTO, RoomAvailabilityDTO } from "@/types/api";
 
 const router = useRouter();
 const { activatePlan } = usePlanSession();
 const resultStore = useResultStore();
-const searchStore = useSearchStore();
+const parameterStore = useParameterStore();
 const adminStore = useAdminStore();
 
 const props = defineProps<{
@@ -38,11 +38,6 @@ const onApplyFilters = (newFilters: { type: string; site: string }) => {
   resultStore.setFilters(newFilters);
 };
 
-const campus = searchStore.selectedCampus;
-const start = searchStore.selectedTime;
-const date = searchStore.selectedDate;
-const duration = searchStore.selectedDuration;
-
 const goBack = () => {
   if (props.variant === "admin" || props.variant === "delete") {
     router.push({ name: "admin-home" });
@@ -50,6 +45,11 @@ const goBack = () => {
     router.push({ name: "home" });
   }
 };
+
+const campus = parameterStore.selectedCampus;
+const date = parameterStore.selectedDate;
+const start = parameterStore.selectedTime;
+const duration = parameterStore.selectedDuration;
 
 const goToAI = () => {
   router.push({
@@ -97,7 +97,10 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
       await router.push({ name: "admin-home" });
     }
   } else if (props.variant === "student") {
-    const startDate = new Date(`${date}T${start}`);
+    const formatDate = date === "Oggi"
+        ? new Date().toISOString().split("T")[0]
+        : new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+    const startDate = new Date(`${formatDate}T${start}`);
     const endDate = new Date(startDate);
     endDate.setHours(startDate.getHours() + Number(duration));
     await activatePlan(router, [

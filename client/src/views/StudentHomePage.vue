@@ -1,67 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useSearchStore } from "../stores/search.store";
-import { useTimeSlots } from "@/composables/useTimeSlots";
-
-import Dropdown from "../components/Dropdown.vue";
-import MyButton from "../components/Button.vue";
-import DurationSelector from "../components/DurationSelector.vue";
+import type { SearchPayload } from "@/types/api"
+import ActionPanel from "@/components/ActionPanel.vue";
 
 const router = useRouter();
 const searchStore = useSearchStore();
-
-const today = new Date();
-const tomorrow = new Date(today);
-tomorrow.setDate(tomorrow.getDate() + 1);
-// @ts-ignore
-const formatDate = (d: Date): string => d.toISOString().split("T")[0];
-const dateOptions: { label: string; value: string }[] = [
-  { label: "Oggi", value: formatDate(today) },
-  { label: "Domani", value: formatDate(tomorrow) },
-];
-const campus = ref(searchStore.selectedCampus || "");
-const date = ref(searchStore.selectedDate || formatDate(today));
-const { time, availableTimeOptions } = useTimeSlots(date, {
-  includeCurrentHour: true,
-});
-const dropdownTimeOptions = computed(() => {
-  return availableTimeOptions.value.map((t) => ({
-    label: t,
-    value: t,
-  }));
-});
-
-const duration = ref(searchStore.selectedDuration || 2);
-const errorMessage = ref("");
 const loadingMessage = ref("Cerco aule libere...");
+const PROFILE_ICON_PATH="/icons/profile_login.png";
 
-onMounted(async () => {
-  await searchStore.fetchCampuses();
-  if (
-    searchStore.selectedTime &&
-    availableTimeOptions.value.includes(searchStore.selectedTime)
-  ) {
-    time.value = searchStore.selectedTime;
-  }
-});
-
-const handleSearch = async () => {
-  errorMessage.value = "";
-  if (!campus.value || !date.value || !time.value) {
-    errorMessage.value = "Compila tutti i campi per procedere.";
-    return;
-  }
-
-  searchStore.setSearchCriteria(
-    campus.value,
-    date.value,
-    time.value,
-    duration.value,
-  );
+const handleSearch = async (payload: SearchPayload) => {
   loadingMessage.value = "Cerco aule libere...";
-
-  const found = await searchStore.searchRooms();
+  const found = await searchStore.searchRooms(payload);
   if (found) {
     await router.push({ name: "student-results" });
   } else {
@@ -69,116 +20,37 @@ const handleSearch = async () => {
   }
 };
 const goToLogin = () => router.push({ name: "login" });
-const goToAI = () => router.push({ name: "assistant" });
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col relative">
+  <div class="min-h-screen bg-brand flex flex-col relative overflow-hidden">
     <div class="absolute top-6 right-6 z-10">
       <button
         type="button"
         @click="goToLogin"
         class="flex items-center gap-2 px-4 py-2"
-        title="Admin"
-      >
+        title="Admin">
         <img
-          src="/icons/profile_login.png"
+          :src="PROFILE_ICON_PATH"
           alt="Profile Icon"
           class="w-8 h-8"
         />
       </button>
     </div>
 
-    <header class="pt-20 w-full flex justify-center">
-      <span class="text-brand-text font-semibold text-lg"> AlmaSpot </span>
+    <header class="flex flex-col items-center text-center z-10 px-6 pt-16 pb-24 md:pb-10">
+      <span class="text-brand-text font-semibold text-lg tracking-wide opacity-90 mb-8">
+        AlmaSpot
+      </span>
+
+      <h1 class="text-4xl font-bold text-left text-brand-text leading-tight">
+        Troviamo il tuo<br>prossimo spot.
+      </h1>
     </header>
 
-    <main class="grow flex flex-col items-center justify-center p-4">
-      <div class="w-full">
-        <h1 class="text-4xl font-bold text-brand-text text-left mb-8">
-          Troviamo il tuo prossimo spot.
-        </h1>
-
-        <div
-          class="bg-white w-full rounded-2xl shadow-2xl p-6 md:p-8 space-y-5 grow md:grow-0"
-        >
-          <div>
-            <Dropdown
-              :options="searchStore.campusOptions"
-              v-model="campus"
-              placeholder="Seleziona Campus"
-              class="w-full"
-            />
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <Dropdown :options="dateOptions" v-model="date" class="w-full" />
-            </div>
-            <div>
-              <Dropdown
-                :options="dropdownTimeOptions"
-                v-model="time"
-                class="w-full"
-                placeholder="Orario"
-              />
-            </div>
-          </div>
-
-          <div>
-            <DurationSelector v-model="duration" class="w-full" />
-          </div>
-
-          <div
-            v-if="errorMessage"
-            class="text-red-500 text-sm text-center animate-pulse bg-red-50 p-2"
-          >
-            ⚠️ {{ errorMessage }}
-          </div>
-
-          <div class="pt-2 flex justify-center w-full">
-            <MyButton
-              variant="primary"
-              size="lg"
-              class="font-bold"
-              :action="handleSearch"
-              :is-full-width="true"
-              label="Cerca"
-            >
-            </MyButton>
-          </div>
-
-          <div class="text-center pt-1 mt-4">
-            <button
-              type="button"
-              @click="goToAI"
-              class="text-primary font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-red-700"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path
-                  d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
-                />
-              </svg>
-              Chiedi un'aula all'AI
-            </button>
-          </div>
-        </div>
-      </div>
+    <main class="w-full justify-center flex-1 flex flex-col z-20">
+      <ActionPanel class="flex-1 w-full" :is-admin="false" @submit="handleSearch" />
     </main>
-
-    <footer class="py-6 text-center text-white text-sm">
-      &copy; {{ new Date().getFullYear() }} AlmaSpot • Made for students
-    </footer>
   </div>
 
   <div
