@@ -26,106 +26,76 @@
 - build(docker): add container configuration ([c0f3bf5](https://github.com/fairlycodeparents/AlmaSpot/commit/c0f3bf5))
 - ci(release): update semantic release step to use RELEASE_PAT token ([3f1eead](https://github.com/fairlycodeparents/AlmaSpot/commit/3f1eead))
 
-## <small>3.0.1 (2026-01-26)</small>
+## [3.0.1](https://github.com/fairlycodeparents/AlmaSpot/compare/3.0.0...3.0.1) (2026-01-26)
 
-- chore(core-deps): update dependency @google/genai to v1.38.0 (#26) ([62b6c1b](https://github.com/fairlycodeparents/AlmaSpot/commit/62b6c1b)), closes [#26](https://github.com/fairlycodeparents/AlmaSpot/issues/26)
+### Build and continuous integration
 
-## 3.0.0 (2026-01-25)
+- **core-deps:** update dependency @google/genai to v1.38.0 ([#26](https://github.com/fairlycodeparents/AlmaSpot/issues/26)) ([62b6c1b](https://github.com/fairlycodeparents/AlmaSpot/commit/62b6c1b))
 
-- feat(search)!: add room information to search context output (#48) ([969dcfd](https://github.com/fairlycodeparents/AlmaSpot/commit/969dcfd)), closes [#48](https://github.com/fairlycodeparents/AlmaSpot/issues/48)
-- chore(deps): update dependency prettier to v3.8.1 (#27) ([2324bc0](https://github.com/fairlycodeparents/AlmaSpot/commit/2324bc0)), closes [#27](https://github.com/fairlycodeparents/AlmaSpot/issues/27)
-- ci(docker): update workflow for Docker publishing (#47) ([ae1823b](https://github.com/fairlycodeparents/AlmaSpot/commit/ae1823b)), closes [#47](https://github.com/fairlycodeparents/AlmaSpot/issues/47)
+## [3.0.0](https://github.com/fairlycodeparents/AlmaSpot/compare/2.1.0...3.0.0) (2026-01-25)
 
-### BREAKING CHANGE
+### ⚠ BREAKING CHANGES
 
 - edit search context API
 
-- feat(search): refactor AIAdapter output
+### Features
 
-- refactor: rename AvailableRoom to RoomSlot
+- **search:** add room information to search context output ([#48](https://github.com/fairlycodeparents/AlmaSpot/issues/48)) ([969dcfd](https://github.com/fairlycodeparents/AlmaSpot/commit/969dcfd))
 
-- refactor: update SuggestionDTO to use PlanSlotDTO
+### Dependency updates
 
-## 2.1.0 (2026-01-24)
+- **deps:** update dependency prettier to v3.8.1 ([#27](https://github.com/fairlycodeparents/AlmaSpot/issues/27)) ([2324bc0](https://github.com/fairlycodeparents/AlmaSpot/commit/2324bc0))
 
-- feat(search): update AvailableRoom to include names and improve AIAdapter prompt handling (#46) ([1968831](https://github.com/fairlycodeparents/AlmaSpot/commit/1968831)), closes [#46](https://github.com/fairlycodeparents/AlmaSpot/issues/46)
-- chore(deps): update dependency @types/node to v25.0.10 (#44) ([6c7f8f8](https://github.com/fairlycodeparents/AlmaSpot/commit/6c7f8f8)), closes [#44](https://github.com/fairlycodeparents/AlmaSpot/issues/44)
+### Build and continuous integration
 
-## <small>2.0.3 (2026-01-23)</small>
+- **docker:** update workflow for Docker publishing ([#47](https://github.com/fairlycodeparents/AlmaSpot/issues/47)) ([ae1823b](https://github.com/fairlycodeparents/AlmaSpot/commit/ae1823b))
 
-- chore(core-deps): update dependency zod to v4.3.6 (#45) ([e9a1aca](https://github.com/fairlycodeparents/AlmaSpot/commit/e9a1aca)), closes [#45](https://github.com/fairlycodeparents/AlmaSpot/issues/45)
+## [2.1.0](https://github.com/fairlycodeparents/AlmaSpot/compare/2.0.3...2.1.0) (2026-01-24)
 
-## <small>2.0.2 (2026-01-22)</small>
+### Features
 
-- fix(deps): update github.com/vaiton/unibocalendar digest to 2d2a972 (#43) ([f6a436d](https://github.com/fairlycodeparents/AlmaSpot/commit/f6a436d)), closes [#43](https://github.com/fairlycodeparents/AlmaSpot/issues/43)
+- **search:** update AvailableRoom to include names and improve AIAdapter prompt handling ([#46](https://github.com/fairlycodeparents/AlmaSpot/issues/46)) ([1968831](https://github.com/fairlycodeparents/AlmaSpot/commit/1968831))
 
-## <small>2.0.1 (2026-01-21)</small>
+### Dependency updates
 
-- chore(core-deps): update dependency mongoose to v9.1.5 (#42) ([4f4c905](https://github.com/fairlycodeparents/AlmaSpot/commit/4f4c905)), closes [#42](https://github.com/fairlycodeparents/AlmaSpot/issues/42)
-- chore(deps): update golang docker tag to v1.25 (#32) ([f7adeb0](https://github.com/fairlycodeparents/AlmaSpot/commit/f7adeb0)), closes [#32](https://github.com/fairlycodeparents/AlmaSpot/issues/32)
-- ci: add GHA workflow for Docker release (#39) ([288daa2](https://github.com/fairlycodeparents/AlmaSpot/commit/288daa2)), closes [#39](https://github.com/fairlycodeparents/AlmaSpot/issues/39)
+- **deps:** update dependency @types/node to v25.0.10 ([#44](https://github.com/fairlycodeparents/AlmaSpot/issues/44)) ([6c7f8f8](https://github.com/fairlycodeparents/AlmaSpot/commit/6c7f8f8))
 
-## 2.0.0 (2026-01-19)
+## [2.0.3](https://github.com/fairlycodeparents/AlmaSpot/compare/2.0.2...2.0.3) (2026-01-23)
 
-- feat!: restructure architecture to client-server and expose HTTP API (#37) ([d6c22c1](https://github.com/fairlycodeparents/AlmaSpot/commit/d6c22c1)), closes [#37](https://github.com/fairlycodeparents/AlmaSpot/issues/37)
-- chore(deps): update dependency @types/node to v25.0.9 (#30) ([6b9c4ce](https://github.com/fairlycodeparents/AlmaSpot/commit/6b9c4ce)), closes [#30](https://github.com/fairlycodeparents/AlmaSpot/issues/30)
+### Dependency updates
 
-### BREAKING CHANGE
+- **core-deps:** update dependency zod to v4.3.6 ([#45](https://github.com/fairlycodeparents/AlmaSpot/issues/45)) ([e9a1aca](https://github.com/fairlycodeparents/AlmaSpot/commit/e9a1aca))
+
+## [2.0.2](https://github.com/fairlycodeparents/AlmaSpot/compare/2.0.1...2.0.2) (2026-01-22)
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to 2d2a972 ([#43](https://github.com/fairlycodeparents/AlmaSpot/issues/43)) ([f6a436d](https://github.com/fairlycodeparents/AlmaSpot/commit/f6a436d))
+
+## [2.0.1](https://github.com/fairlycodeparents/AlmaSpot/compare/2.0.0...2.0.1) (2026-01-21)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.1.5 ([#42](https://github.com/fairlycodeparents/AlmaSpot/issues/42)) ([4f4c905](https://github.com/fairlycodeparents/AlmaSpot/commit/4f4c905))
+- **deps:** update golang docker tag to v1.25 ([#32](https://github.com/fairlycodeparents/AlmaSpot/issues/32)) ([f7adeb0](https://github.com/fairlycodeparents/AlmaSpot/commit/f7adeb0))
+
+### Build and continuous integration
+
+- add GHA workflow for Docker release ([#39](https://github.com/fairlycodeparents/AlmaSpot/issues/39)) ([288daa2](https://github.com/fairlycodeparents/AlmaSpot/commit/288daa2))
+
+## [2.0.0](https://github.com/fairlycodeparents/AlmaSpot/compare/1.4.1...2.0.0) (2026-01-19)
+
+### ⚠ BREAKING CHANGES
 
 - backend API are now exposed using HTTP
-- refactor: reorganize project structure to enforce client-server division
 
-- chore(package): update and split package.json between root and server
+### Features
 
-- feat(notification): integrate notification context into application boostrap
+- restructure architecture to client-server and expose HTTP API ([#37](https://github.com/fairlycodeparents/AlmaSpot/issues/37)) ([d6c22c1](https://github.com/fairlycodeparents/AlmaSpot/commit/d6c22c1))
 
-- fix(env): add Unibo Provider service URL to environment example and rename DB_NAME variable
+### Dependency updates
 
-- fix: rerun npm install and prettier
-
-- feat(core): implement core controller and routes for room and activity management
-
-- feat(core): add CoreController, CoreRoutes, and AuthContextAdapter exports
-
-- feat: setup main for core context (to uncomment)
-
-- refactor(authentication): implement authentication factory and cleanup main
-
-- ci: update CI configuration to separate server build and test jobs
-
-- refactor(notification): streamline notification imports in main module
-
-- refactor(authentication): add input ports and standardize router class
-
-- feat(search): impl controller and routes for search functionality
-
-- refactor(authentication): correct type definitions
-
-- feat(search): implement SearchUseCase interface and refactor SearchController to use it
-
-- refactor(search): rename SearchPlanService to SearchService and ExternalPorts to OutboundPorts
-
-- fix(authentication): correct property name for identifier
-
-- refactor(search): update packages structure
-
-- docs(figures): update notification context design diagram
-
-- feat: update environment variable handling in MongoRoomRepository and UniboProviderHTTP
-
-- refactor(core): remove unused methods for campus and site retrieval
-
-- docs(core): updated core-context diagram
-
-- docs(figures): update authentication context diagram
-
-- build(docker): dockerize server and update CI pipeline
-
-- refactor: move unibo-provider off the server
-
-- docs(figures): updated core-context diagram
-
-- docs: update terminology and clarify search service logic in design documents
+- deps: update dependency @types/node to v25.0.9 ([#30](https://github.com/fairlycodeparents/AlmaSpot/issues/30)) ([6b9c4ce](https://github.com/fairlycodeparents/AlmaSpot/commit/6b9c4ce))
 
 ## [1.4.3](https://github.com/fairlycodeparents/AlmaSpot/compare/1.4.2...1.4.3) (2026-01-18)
 
