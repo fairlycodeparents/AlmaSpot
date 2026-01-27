@@ -1,23 +1,37 @@
 <script setup lang="ts">
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import LoginCard from "@/components/LoginCard.vue";
 import type { LoginDto } from "@/types/api";
+import { onMounted, ref } from "vue";
 
 const router = useRouter();
+const route = useRoute();
 const authStore = useAuthStore();
+const successMessage = ref("");
+
+onMounted(() => {
+  authStore.error = null;
+  if (route.query.registered == "true") {
+    successMessage.value = "Registrazione avvenuta con successo! Accedi ora.";
+
+    router.replace({ query: undefined });
+  }
+});
 
 const handleLogin = async (creds: LoginDto) => {
-  const success = await authStore.login(creds);
+  successMessage.value = "";
 
+  const success = await authStore.login(creds);
   if (success) {
     await router.push({ name: "admin-home" });
-  } else {
-    alert(authStore.error);
   }
 };
 
-const goToRegister = () => router.push({ name: "register" });
+const goToRegister = () => {
+  authStore.error = null;
+  router.push({ name: "register" });
+};
 </script>
 
 <template>
@@ -39,8 +53,11 @@ const goToRegister = () => router.push({ name: "register" });
     >
       <LoginCard
         min-height="min-h-[400px]"
+        :api-error="authStore.error"
+        :success-message="successMessage"
         @login="handleLogin"
         @signup="goToRegister"
+        @clear-success="successMessage = ''"
       />
 
       <p v-if="authStore.isLoading" class="text-brand-text opacity-70">
