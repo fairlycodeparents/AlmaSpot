@@ -16,6 +16,9 @@ const resultStore = useResultStore();
 const parameterStore = useParameterStore();
 const adminStore = useAdminStore();
 
+const pageError = ref("");
+const pageSuccess = ref("");
+
 const props = defineProps<{
   variant: "student" | "admin" | "delete";
 }>();
@@ -64,9 +67,21 @@ const goToAI = () => {
 };
 
 const handleDelete = async (item: any) => {
-  await adminStore.deleteActivity(item.id);
-  if (adminStore.scheduledActivities.length === 0) {
-    await router.push({ name: "admin-home" });
+  pageError.value = "";
+  pageSuccess.value = "";
+
+  try {
+    await adminStore.deleteActivity(item.id);
+    if (adminStore.scheduledActivities.length === 0) {
+      await router.push({
+        name: "admin-home",
+        state: { successMessage: "Tutte le attività sono state rimosse." },
+      });
+    } else {
+      pageSuccess.value = "Attività eliminata con successo.";
+    }
+  } catch (error: any) {
+    pageError.value = error.message || "Errore durante l'eliminazione.";
   }
 };
 
@@ -87,10 +102,10 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
     try {
       const success = await adminStore.confirmRoomSelection(item);
       if (success) {
-        alert(
-          `Attività "${adminStore.pendingActivity.title}" creata con successo in ${item.room.name}!`,
-        );
-        await router.push({ name: "admin-home" });
+        await router.push({
+          name: "admin-home",
+          state: { successMessage: "Attività creata con successo!" },
+        });
       } else if (adminStore.error) alert(adminStore.error);
     } catch (error: any) {
       alert(error.message || "Errore generico");
@@ -210,6 +225,23 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
         :button-action="() => handleSelectRoom(item)"
         class="w-full max-w-none bg-ui-card"
       />
+
+      <div class="flex flex-col gap-3 mb-4">
+        <div
+          v-if="pageError"
+          class="text-brand text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-brand"
+        >
+          {{ pageError }}
+        </div>
+
+        <div
+          v-if="pageSuccess"
+          class="text-green-600 text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-green-600"
+        >
+          {{ pageSuccess }}
+        </div>
+      </div>
+
       <RoomCard
         v-if="variant === 'delete'"
         v-for="item in activityResults"

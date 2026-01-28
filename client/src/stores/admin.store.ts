@@ -84,8 +84,9 @@ export const useAdminStore = defineStore("admin", () => {
     const actualRoom = selectedRoomWrapper.room;
 
     if (!pendingActivity.value.title) {
-      alert("Dati attività mancanti. Effettua nuovamente la ricerca.");
-      return false;
+      throw new Error(
+        "Dati attività mancanti. Effettua nuovamente la ricerca.",
+      );
     }
 
     const apiPayload: CreateActivityDTO = {
@@ -158,9 +159,6 @@ export const useAdminStore = defineStore("admin", () => {
   }
 
   async function deleteActivity(activityId: string) {
-    if (!confirm("Sei sicuro di voler eliminare questa attività?"))
-      return false;
-
     isLoading.value = true;
     try {
       await adminService.deleteActivity(activityId);
@@ -170,11 +168,9 @@ export const useAdminStore = defineStore("admin", () => {
       );
 
       resultStore.setRooms(scheduledActivities.value);
-      alert("Attività eliminata con successo");
       return true;
     } catch (e: any) {
-      alert(e.message || "Errore durante l'eliminazione");
-      return false;
+      throw new Error(e.message || "Errore durante l'eliminazione");
     } finally {
       isLoading.value = false;
     }
