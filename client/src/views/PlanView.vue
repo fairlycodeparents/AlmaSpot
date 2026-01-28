@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, onBeforeRouteLeave } from "vue-router";
 import AlertCard from "@/components/AlertCard.vue";
 import ScheduleCard from "@/components/ScheduleCard.vue";
 import Button from "@/components/Button.vue";
@@ -37,6 +37,7 @@ function formatTime(isoString: string): string {
 
 onMounted(() => {
   if (route.query.alert === "true") {
+    planStore.restoreSubscribedPlan();
     showAlert.value = true;
     alertData.value = {
       intro: "C’è stato un problema con il tuo piano:",
@@ -46,22 +47,41 @@ onMounted(() => {
   }
 });
 
+const isCurrentPlanActive = computed(() => {
+  return (
+    isSubscribed.value &&
+    planStore.subscribedPlan !== null &&
+    planStore.currentPlan?.id === planStore.subscribedPlan.id
+  );
+});
+
 async function handleNotificationToggle() {
   if (isLoading.value) return;
 
-  if (isSubscribed.value) {
-    if (confirm("Vuoi disattivare le notifiche per questo dispositivo?")) {
-      await unsubscribeFromPush();
-    }
+  if (isCurrentPlanActive.value) {
+    await unsubscribeFromPush();
+    planStore.clearSubscriptionData();
   } else {
     if (planStore.currentPlan && planStore.slots.length > 0) {
+      if (isSubscribed.value) await unsubscribeFromPush();
       await subscribeToPush(planStore.currentPlan);
+      if (!error.value) {
+        planStore.markAsSubscribed();
+      } else {
+        console.error("Subscription failed:", error.value);
+      }
     } else {
-      console.warn("No plan available for notifications.");
-      alert("Nessun piano disponibile per le notifiche.");
+      console.warn("Subscription failed: missing plan data");
     }
   }
 }
+
+onBeforeRouteLeave((to) => {
+  if (to.name === "home" || to.path === "/") {
+    return true;
+  }
+  return { name: "home" };
+});
 </script>
 
 <template>
@@ -74,7 +94,7 @@ async function handleNotificationToggle() {
       </h1>
     </header>
 
-    <main class="flex-1 bg-white rounded-t-[3rem] relative">
+    <main class="flex-1 bg-base-background rounded-t-[3rem] relative">
       <div class="w-full max-w-lg mx-auto flex flex-col px-6 py-8 pb-32">
         <div
           v-if="error"
@@ -106,12 +126,12 @@ async function handleNotificationToggle() {
 
           <div
             v-else
-            class="text-center py-12 text-base-grey flex flex-col items-center gap-4"
+            class="text-center py-12 text-base-text flex flex-col items-center gap-4"
           >
             <p>Non hai ancora generato un piano.</p>
             <RouterLink
               to="/"
-              class="text-brand font-bold underline hover:text-brand-dark"
+              class="text-brand font-bold hover:text-brand-dark hover:underline"
             >
               Genera il tuo piano ora!
             </RouterLink>
@@ -126,14 +146,14 @@ async function handleNotificationToggle() {
           <div class="pointer-events-auto">
             <Button
               :label="
-                isSubscribed
-                  ? 'Notifiche Attive'
+                isCurrentPlanActive
+                  ? 'Disattiva le notifiche'
                   : isLoading
                     ? 'Attivazione...'
                     : 'Attiva le notifiche'
               "
               :icon="{
-                src: isSubscribed
+                src: isCurrentPlanActive
                   ? '/icons/notifications.svg'
                   : '/icons/notification_add.svg',
                 alt: 'Icona notifica',
@@ -142,7 +162,7 @@ async function handleNotificationToggle() {
               :is-full-width="false"
               :isIconRight="false"
               :class="{
-                'opacity-75 cursor-not-allowed': isLoading || isSubscribed,
+                'opacity-75 cursor-not-allowed': isLoading,
               }"
             />
           </div>
@@ -154,7 +174,9 @@ async function handleNotificationToggle() {
         class="fixed bottom-8 left-0 right-0 flex justify-center pointer-events-none"
       >
         <div
-          class="bg-gray-100 text-gray-500 px-6 py-3 rounded-full font-medium shadow-md"
+          class="inline-flex items-center justify-center rounded-full font-medium cursor-not-allowed select-none px-6 py-3 bg-base-text/12 text-base-text/38"
+          role="status"
+          aria-label="Le notifiche non sono supportate"
         >
           Notifiche non supportate
         </div>

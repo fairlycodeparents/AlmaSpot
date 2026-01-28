@@ -1,5 +1,4 @@
 import { usePlanStore } from "@/stores/plan.store.ts";
-import { usePushNotifications } from "@/composables/usePushNotifications";
 import type { Router } from "vue-router";
 
 /**
@@ -7,7 +6,6 @@ import type { Router } from "vue-router";
  */
 export function usePlanSession() {
   const store = usePlanStore();
-  const { unsubscribeFromPush } = usePushNotifications();
 
   /**
    * Actives a plan by saving it to the store and navigating to the plan page.
@@ -16,8 +14,10 @@ export function usePlanSession() {
    */
   const activatePlan = async (router: Router, slots: any[]) => {
     try {
-      await unsubscribeFromPush();
+      const planId =
+        Date.now().toString(36) + Math.random().toString(36).substring(2);
       store.setPlan({
+        id: planId,
         slots: slots,
       });
       await router.push({ name: "plan" });
