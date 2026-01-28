@@ -1,3 +1,7 @@
+## <small>3.2.1 (2026-01-28)</small>
+
+- chore(core-deps): update dependency axios to v1.13.4 (#52) ([ff0d2be](https://github.com/fairlycodeparents/AlmaSpot/commit/ff0d2be)), closes [#52](https://github.com/fairlycodeparents/AlmaSpot/issues/52)
+
 ## 3.2.0 (2026-01-27)
 
 - chore: extend lint-staged config to support yml, yaml, html, and vue files ([add320a](https://github.com/fairlycodeparents/AlmaSpot/commit/add320a))
