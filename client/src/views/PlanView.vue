@@ -50,20 +50,17 @@ async function handleNotificationToggle() {
   if (isLoading.value) return;
 
   if (isSubscribed.value) {
-    if (confirm("Vuoi disattivare le notifiche per questo dispositivo?")) {
-      await unsubscribeFromPush();
-    }
+    await unsubscribeFromPush();
   } else {
     if (planStore.currentPlan && planStore.slots.length > 0) {
       await subscribeToPush(planStore.currentPlan);
     } else {
-      console.warn("No plan available for notifications.");
-      alert("Nessun piano disponibile per le notifiche.");
+      console.warn("Subcription failed: missing plan data");
     }
   }
 }
 
-onBeforeRouteLeave((to, from) => {
+onBeforeRouteLeave((to) => {
   if (to.name === "home" || to.path === "/") {
     return true;
   }
@@ -134,7 +131,7 @@ onBeforeRouteLeave((to, from) => {
             <Button
               :label="
                 isSubscribed
-                  ? 'Notifiche Attive'
+                  ? 'Disattiva le notifiche'
                   : isLoading
                     ? 'Attivazione...'
                     : 'Attiva le notifiche'
@@ -149,7 +146,7 @@ onBeforeRouteLeave((to, from) => {
               :is-full-width="false"
               :isIconRight="false"
               :class="{
-                'opacity-75 cursor-not-allowed': isLoading || isSubscribed,
+                'opacity-75 cursor-not-allowed': isLoading,
               }"
             />
           </div>
