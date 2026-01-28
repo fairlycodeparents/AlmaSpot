@@ -16,6 +16,9 @@ const resultStore = useResultStore();
 const parameterStore = useParameterStore();
 const adminStore = useAdminStore();
 
+const pageError = ref("");
+const pageSuccess = ref("");
+
 const props = defineProps<{
   variant: "student" | "admin" | "delete";
 }>();
@@ -64,9 +67,21 @@ const goToAI = () => {
 };
 
 const handleDelete = async (item: any) => {
-  await adminStore.deleteActivity(item.id);
-  if (adminStore.scheduledActivities.length === 0) {
-    await router.push({ name: "admin-home" });
+  pageError.value = "";
+  pageSuccess.value = "";
+
+  try {
+    await adminStore.deleteActivity(item.id);
+    if (adminStore.scheduledActivities.length === 0) {
+      await router.push({
+        name: "admin-home",
+        state: { successMessage: "Tutte le attività sono state rimosse." },
+      });
+    } else {
+      pageSuccess.value = "Attività eliminata con successo.";
+    }
+  } catch (error: any) {
+    pageError.value = error.message || "Errore durante l'eliminazione.";
   }
 };
 
@@ -83,18 +98,21 @@ const formatTime = (start: string | Date, end: string | Date) => {
 };
 
 const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
+  pageError.value = "";
+  pageSuccess.value = "";
+
   if (props.variant === "admin") {
     try {
       const success = await adminStore.confirmRoomSelection(item);
       if (success) {
-        alert(
-          `Attività "${adminStore.pendingActivity.title}" creata con successo in ${item.room.name}!`,
-        );
-        await router.push({ name: "admin-home" });
-      } else if (adminStore.error) alert(adminStore.error);
+        await router.push({
+          name: "admin-home",
+          state: { successMessage: "Attività creata con successo!" },
+        });
+      }
     } catch (error: any) {
-      alert(error.message || "Errore generico");
-      await router.push({ name: "admin-home" });
+      pageError.value =
+        error.message || "Errore generico durante la creazione.";
     }
   } else if (props.variant === "student") {
     const targetDate = new Date();
@@ -210,6 +228,23 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
         :button-action="() => handleSelectRoom(item)"
         class="w-full max-w-none bg-ui-card"
       />
+
+      <div class="flex flex-col gap-3 mb-4">
+        <div
+          v-if="pageError"
+          class="text-brand text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-brand"
+        >
+          {{ pageError }}
+        </div>
+
+        <div
+          v-if="pageSuccess"
+          class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
+        >
+          {{ pageSuccess }}
+        </div>
+      </div>
+
       <RoomCard
         v-if="variant === 'delete'"
         v-for="item in activityResults"

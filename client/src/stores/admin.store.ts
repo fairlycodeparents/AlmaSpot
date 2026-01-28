@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { adminService } from "@/services/admin.service";
 import { useResultStore } from "@/stores/result.store";
+import { translateError } from "@/utils/errorTranslator";
+
 import type {
   SearchPayload,
   RoomAvailabilityDTO,
@@ -69,9 +71,9 @@ export const useAdminStore = defineStore("admin", () => {
       resultStore.setRooms(availableRooms.value);
       return true;
     } catch (err: any) {
-      console.error("Errore ricerca:", err);
-      error.value =
-        err.message || "Nessuna aula disponibile con questi criteri.";
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
@@ -84,8 +86,9 @@ export const useAdminStore = defineStore("admin", () => {
     const actualRoom = selectedRoomWrapper.room;
 
     if (!pendingActivity.value.title) {
-      alert("Dati attività mancanti. Effettua nuovamente la ricerca.");
-      return false;
+      throw new Error(
+        "Dati attività mancanti. Effettua nuovamente la ricerca.",
+      );
     }
 
     const apiPayload: CreateActivityDTO = {
@@ -102,10 +105,12 @@ export const useAdminStore = defineStore("admin", () => {
     try {
       await adminService.addActivity(apiPayload);
       return true;
-    } catch (e: any) {
-      console.error(e);
-      error.value = e.message || "Errore durante la creazione dell'attività";
-      return false;
+    } catch (err: any) {
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
+      // @ts-ignore
+      throw new Error(error.value);
     } finally {
       isLoading.value = false;
     }
@@ -150,7 +155,9 @@ export const useAdminStore = defineStore("admin", () => {
       resultStore.setRooms(scheduledActivities.value);
       return true;
     } catch (err: any) {
-      error.value = err.message || "Errore nel caricamento attività";
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
@@ -158,9 +165,6 @@ export const useAdminStore = defineStore("admin", () => {
   }
 
   async function deleteActivity(activityId: string) {
-    if (!confirm("Sei sicuro di voler eliminare questa attività?"))
-      return false;
-
     isLoading.value = true;
     try {
       await adminService.deleteActivity(activityId);
@@ -170,11 +174,13 @@ export const useAdminStore = defineStore("admin", () => {
       );
 
       resultStore.setRooms(scheduledActivities.value);
-      alert("Attività eliminata con successo");
       return true;
-    } catch (e: any) {
-      alert(e.message || "Errore durante l'eliminazione");
-      return false;
+    } catch (err: any) {
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
+      // @ts-ignore
+      throw new Error(error.value);
     } finally {
       isLoading.value = false;
     }

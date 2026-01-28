@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import { useTimeSlots } from "@/composables/useTimeSlots";
 import { useRouter } from "vue-router";
 import { useParameterStore } from "@/stores/parameter.store.ts";
@@ -9,7 +9,7 @@ import Dropdown from "./Dropdown.vue";
 import MyButton from "./Button.vue";
 import DurationSelector from "./DurationSelector.vue";
 
-const emit = defineEmits(["submit"]);
+const emit = defineEmits(["submit", "clearSuccess"]);
 const parameterStore = useParameterStore();
 const router = useRouter();
 
@@ -19,17 +19,23 @@ const AI_ICON_PATH = "icons/ai-icon.svg";
 const props = withDefaults(
   defineProps<{
     isAdmin?: boolean;
+    apiError?: string | null;
+    successMessage?: string | null;
   }>(),
   {
     isAdmin: false,
+    apiError: null,
+    successMessage: null,
   },
 );
+
+const isReady = ref(false);
+
 const mode = ref("aggiungi");
 const activityName = ref("");
 const campus = ref(parameterStore.selectedCampus || "");
 const duration = ref(parameterStore.selectedDuration || 2);
 const date = ref(parameterStore.selectedDate || "Oggi");
-
 const dateOptions = ["Oggi", "Domani"];
 const modeOptions = [
   { label: "Aggiungi", value: "aggiungi" },
@@ -48,6 +54,7 @@ onMounted(async () => {
   ) {
     time.value = parameterStore.selectedTime;
   }
+  isReady.value = true;
 });
 
 const goToAI = () => router.push({ name: "assistant" });
@@ -74,6 +81,15 @@ const handleSubmit = () => {
   parameterStore.selectedTime = time.value;
   parameterStore.selectedDuration = duration.value;
 };
+
+watch([mode, activityName, campus, date, time, duration], () => {
+  if (!isReady.value) return;
+
+  errorMessage.value = "";
+  if (props.successMessage || props.apiError) {
+    emit("clearSuccess");
+  }
+});
 </script>
 
 <template>
@@ -122,6 +138,12 @@ const handleSubmit = () => {
       class="text-brand text-sm text-center rounded-xl animate-pulse bg-ui-card p-2"
     >
       {{ errorMessage }}
+    </div>
+    <div
+      v-if="props.successMessage"
+      class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
+    >
+      {{ props.successMessage }}
     </div>
 
     <div class="flex justify-center w-full">

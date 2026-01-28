@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.store";
 import { useAdminStore } from "@/stores/admin.store";
@@ -16,22 +16,38 @@ const handleLogout = () => {
   router.push({ name: "login" });
 };
 
+const successMessage = ref("");
+
+onMounted(() => {
+  adminStore.error = null;
+
+  const state = history.state as { successMessage?: string };
+  if (state && state.successMessage) {
+    successMessage.value = state.successMessage;
+    const newState = { ...state };
+    delete newState.successMessage;
+    history.replaceState(newState, "");
+  }
+});
+
+const clearMessages = () => {
+  successMessage.value = "";
+  adminStore.error = null;
+};
+
 const handlePanelSubmit = async (payload: SearchPayload) => {
+  clearMessages();
   if (payload.mode === "aggiungi") {
     loadingMessage.value = "Cerco aule libere...";
     const found = await adminStore.searchAvailableRooms(payload);
     if (found) {
       await router.push({ name: "admin-results" });
-    } else {
-      alert("Errore ricerca: " + adminStore.error);
     }
   } else {
     loadingMessage.value = "Cerco attività...";
     const found = await adminStore.searchActivities(payload);
     if (found) {
       await router.push({ name: "admin-activities" });
-    } else {
-      alert("Errore ricerca: " + adminStore.error);
     }
   }
 };
@@ -63,7 +79,10 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
       <ActionPanel
         class="flex-1 w-full"
         :is-admin="true"
+        :api-error="adminStore.error"
+        :success-message="successMessage"
         @submit="handlePanelSubmit"
+        @clear-success="clearMessages"
       />
     </main>
   </div>
