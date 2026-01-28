@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, onBeforeRouteLeave } from "vue-router";
 import AlertCard from "@/components/AlertCard.vue";
 import ScheduleCard from "@/components/ScheduleCard.vue";
 import Button from "@/components/Button.vue";
@@ -62,6 +62,13 @@ async function handleNotificationToggle() {
     }
   }
 }
+
+onBeforeRouteLeave((to, from) => {
+  if (to.name === "home" || to.path === "/") {
+    return true;
+  }
+  return { name: "home" };
+});
 </script>
 
 <template>
