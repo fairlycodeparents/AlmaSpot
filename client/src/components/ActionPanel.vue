@@ -141,7 +141,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
     </div>
     <div
       v-if="props.successMessage"
-      class="text-green-600 text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-green-600"
+      class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
     >
       {{ props.successMessage }}
     </div>

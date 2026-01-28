@@ -98,6 +98,9 @@ const formatTime = (start: string | Date, end: string | Date) => {
 };
 
 const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
+  pageError.value = "";
+  pageSuccess.value = "";
+
   if (props.variant === "admin") {
     try {
       const success = await adminStore.confirmRoomSelection(item);
@@ -106,10 +109,10 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
           name: "admin-home",
           state: { successMessage: "Attività creata con successo!" },
         });
-      } else if (adminStore.error) alert(adminStore.error);
+      }
     } catch (error: any) {
-      alert(error.message || "Errore generico");
-      await router.push({ name: "admin-home" });
+      pageError.value =
+        error.message || "Errore generico durante la creazione.";
     }
   } else if (props.variant === "student") {
     const targetDate = new Date();
@@ -236,7 +239,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
 
         <div
           v-if="pageSuccess"
-          class="text-green-600 text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-green-600"
+          class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
         >
           {{ pageSuccess }}
         </div>

@@ -109,7 +109,7 @@ const handleSubmit = () => {
 
     <div
       v-if="successMessage"
-      class="text-green-600 text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-green-600 animate-pulse"
+      class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-b-state-success"
     >
       {{ successMessage }}
     </div>

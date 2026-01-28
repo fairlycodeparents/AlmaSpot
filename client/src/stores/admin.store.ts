@@ -104,9 +104,7 @@ export const useAdminStore = defineStore("admin", () => {
       await adminService.addActivity(apiPayload);
       return true;
     } catch (e: any) {
-      console.error(e);
-      error.value = e.message || "Errore durante la creazione dell'attività";
-      return false;
+      throw new Error(e.message || "Errore durante la creazione dell'attività");
     } finally {
       isLoading.value = false;
     }
