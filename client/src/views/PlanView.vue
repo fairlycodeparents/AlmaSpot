@@ -37,6 +37,7 @@ function formatTime(isoString: string): string {
 
 onMounted(() => {
   if (route.query.alert === "true") {
+    planStore.restoreSubscribedPlan();
     showAlert.value = true;
     alertData.value = {
       intro: "C’è stato un problema con il tuo piano:",
@@ -46,16 +47,31 @@ onMounted(() => {
   }
 });
 
+const isCurrentPlanActive = computed(() => {
+  return (
+    isSubscribed.value &&
+    planStore.subscribedPlan !== null &&
+    planStore.currentPlan?.id === planStore.subscribedPlan.id
+  );
+});
+
 async function handleNotificationToggle() {
   if (isLoading.value) return;
 
-  if (isSubscribed.value) {
+  if (isCurrentPlanActive.value) {
     await unsubscribeFromPush();
+    planStore.clearSubscriptionData();
   } else {
     if (planStore.currentPlan && planStore.slots.length > 0) {
+      if (isSubscribed.value) await unsubscribeFromPush();
       await subscribeToPush(planStore.currentPlan);
+      if (!error.value) {
+        planStore.markAsSubscribed();
+      } else {
+        console.error("Subscription failed:", error.value);
+      }
     } else {
-      console.warn("Subcription failed: missing plan data");
+      console.warn("Subscription failed: missing plan data");
     }
   }
 }
@@ -130,14 +146,14 @@ onBeforeRouteLeave((to) => {
           <div class="pointer-events-auto">
             <Button
               :label="
-                isSubscribed
+                isCurrentPlanActive
                   ? 'Disattiva le notifiche'
                   : isLoading
                     ? 'Attivazione...'
                     : 'Attiva le notifiche'
               "
               :icon="{
-                src: isSubscribed
+                src: isCurrentPlanActive
                   ? '/icons/notifications.svg'
                   : '/icons/notification_add.svg',
                 alt: 'Icona notifica',
