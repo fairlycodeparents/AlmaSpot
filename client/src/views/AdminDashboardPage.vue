@@ -13,7 +13,6 @@ const adminStore = useAdminStore();
 const loadingMessage = ref("Cerco aule libere...");
 const handleLogout = () => {
   authStore.logout();
-  router.push({ name: "login" });
 };
 
 const successMessage = ref("");
@@ -54,7 +53,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
 </script>
 
 <template>
-  <div class="bg-brand min-h-screen flex flex-col relative overflow-hidden">
+  <div class="bg-brand min-h-screen flex flex-col relative">
     <Button
       label="Esci"
       :action="handleLogout"
@@ -75,9 +74,9 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
       </h1>
     </header>
 
-    <main class="w-full flex-1 flex flex-col z-20">
+    <main class="w-full flex-1 items-center flex flex-col z-20">
       <ActionPanel
-        class="flex-1 w-full"
+        class="flex-1 w-full max-w-5xl"
         :is-admin="true"
         :api-error="adminStore.error"
         :success-message="successMessage"

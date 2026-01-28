@@ -38,7 +38,7 @@ const goToLogin = () => router.push({ name: "login" });
       </button>
     </div>
 
-    <header class="flex flex-col px-6 pt-16 pb-24 md:pb-10">
+    <header class="flex flex-col items-center px-6 pt-16 pb-24 md:pb-10">
       <span
         class="text-brand-text text-center font-semibold text-xl tracking-wide opacity-90 mb-8"
       >
@@ -50,9 +50,9 @@ const goToLogin = () => router.push({ name: "login" });
       </h1>
     </header>
 
-    <main class="w-full justify-center item-center flex-1 flex flex-col z-20">
+    <main class="w-full items-center justify-center flex-1 flex flex-col z-20">
       <ActionPanel
-        class="flex-1 item-center justify-center w-full"
+        class="flex-1 justify-center w-full max-w-5xl"
         :is-admin="false"
         @submit="handleSearch"
       />

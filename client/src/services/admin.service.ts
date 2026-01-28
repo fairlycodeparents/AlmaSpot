@@ -6,6 +6,56 @@ import type {
 
 const API_BASE = "/api/core";
 
+async function authFetch(url: string, options: RequestInit = {}) {
+  const token = localStorage.getItem("authToken");
+
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...options.headers,
+  };
+
+  const response = await fetch(url, { ...options, headers });
+  const text = await response.text();
+
+  let data;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch (err) {
+    data = { message: "Errore di comunicazione (Risposta non valida)" };
+  }
+
+  if (response.status === 401) {
+    forceLogout();
+  }
+
+  if (response.status === 500) {
+    const rawContent = text.toLowerCase();
+
+    if (
+      rawContent.includes("unauthorized") ||
+      rawContent.includes("invalid admin token") ||
+      rawContent.includes("jwt expired") ||
+      rawContent.includes("sessione scaduta")
+    ) {
+      console.warn("Rilevato Token Scaduto dentro errore 500 -> Logout");
+      forceLogout();
+    }
+  }
+
+  if (!response.ok) {
+    throw data;
+  }
+
+  return data;
+}
+
+function forceLogout() {
+  localStorage.removeItem("authToken");
+  window.location.replace("/login");
+  throw new Error("Sessione scaduta.");
+}
+
 export const adminService = {
   async searchRooms(params: {
     campus: string;
@@ -18,65 +68,29 @@ export const adminService = {
       end: params.end,
     }).toString();
 
-    const response = await fetch(`${API_BASE}/rooms/exact-free?${query}`, {
+    return authFetch(`${API_BASE}/rooms/exact-free?${query}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
     });
-
-    const data = await response.json();
-    if (!response.ok) throw data;
-    return data;
   },
 
   async addActivity(payload: CreateActivityDTO): Promise<void> {
-    const response = await fetch(`${API_BASE}/activities/external`, {
+    return authFetch(`${API_BASE}/activities/external`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
       body: JSON.stringify(payload),
     });
-
-    const data = await response.json();
-    if (!response.ok) throw data;
-    return data;
   },
 
   async getActivities(campus: string, date: string): Promise<ActivityDTO[]> {
     const query = new URLSearchParams({ campus, date }).toString();
-
-    const response = await fetch(`${API_BASE}/activities?${query}`, {
+    return authFetch(`${API_BASE}/activities?${query}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-      },
     });
-
-    const data = await response.json();
-    if (!response.ok) throw data;
-    return data;
   },
 
   async deleteActivity(activityId: string): Promise<boolean> {
-    const response = await fetch(
-      `${API_BASE}/activities/external/${activityId}`,
-      {
-        method: "DELETE",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      },
-    );
-
-    if (!response.ok) {
-      const data = await response.json();
-      throw data;
-    }
+    await authFetch(`${API_BASE}/activities/external/${activityId}`, {
+      method: "DELETE",
+    });
     return true;
   },
 };

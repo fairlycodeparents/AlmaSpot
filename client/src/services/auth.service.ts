@@ -2,36 +2,39 @@ import type { LoginDto, SignUpDto, AuthResponse } from "@/types/api";
 
 const API_BASE = "/api/auth";
 
+async function publicFetch(url: string, options: RequestInit) {
+  const response = await fetch(url, {
+    headers: { "Content-Type": "application/json" },
+    ...options,
+  });
+
+  let data;
+  try {
+    const text = await response.text();
+    data = text ? JSON.parse(text) : {};
+  } catch (e) {
+    throw new Error("Errore server imprevisto (Formato non valido)");
+  }
+
+  if (!response.ok) {
+    throw data;
+  }
+
+  return data;
+}
+
 export const authService = {
   async login(creds: LoginDto): Promise<AuthResponse> {
-    const response = await fetch(`${API_BASE}/login`, {
+    return publicFetch(`${API_BASE}/login`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(creds),
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || data.error || "Login fallito");
-    }
-
-    return data;
   },
 
   async signUp(payload: SignUpDto): Promise<{ message: string }> {
-    const response = await fetch(`${API_BASE}/signup`, {
+    return publicFetch(`${API_BASE}/signup`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw data;
-    }
-
-    return data;
   },
 };
