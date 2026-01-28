@@ -74,7 +74,7 @@ async function handleNotificationToggle() {
       </h1>
     </header>
 
-    <main class="flex-1 bg-white rounded-t-[3rem] relative">
+    <main class="flex-1 bg-base-background rounded-t-[3rem] relative">
       <div class="w-full max-w-lg mx-auto flex flex-col px-6 py-8 pb-32">
         <div
           v-if="error"
@@ -106,12 +106,12 @@ async function handleNotificationToggle() {
 
           <div
             v-else
-            class="text-center py-12 text-base-grey flex flex-col items-center gap-4"
+            class="text-center py-12 text-base-text flex flex-col items-center gap-4"
           >
             <p>Non hai ancora generato un piano.</p>
             <RouterLink
               to="/"
-              class="text-brand font-bold underline hover:text-brand-dark"
+              class="text-brand font-bold hover:text-brand-dark hover:underline"
             >
               Genera il tuo piano ora!
             </RouterLink>
@@ -154,7 +154,9 @@ async function handleNotificationToggle() {
         class="fixed bottom-8 left-0 right-0 flex justify-center pointer-events-none"
       >
         <div
-          class="bg-gray-100 text-gray-500 px-6 py-3 rounded-full font-medium shadow-md"
+          class="inline-flex items-center justify-center rounded-full font-medium cursor-not-allowed select-none px-6 py-3 bg-base-text/12 text-base-text/38"
+          role="status"
+          aria-label="Le notifiche non sono supportate"
         >
           Notifiche non supportate
         </div>
