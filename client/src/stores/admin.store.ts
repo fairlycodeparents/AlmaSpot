@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { adminService } from "@/services/admin.service";
 import { useResultStore } from "@/stores/result.store";
+import { translateError } from "@/utils/errorTranslator";
+
 import type {
   SearchPayload,
   RoomAvailabilityDTO,
@@ -69,9 +71,9 @@ export const useAdminStore = defineStore("admin", () => {
       resultStore.setRooms(availableRooms.value);
       return true;
     } catch (err: any) {
-      console.error("Errore ricerca:", err);
-      error.value =
-        err.message || "Nessuna aula disponibile con questi criteri.";
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
@@ -103,8 +105,12 @@ export const useAdminStore = defineStore("admin", () => {
     try {
       await adminService.addActivity(apiPayload);
       return true;
-    } catch (e: any) {
-      throw new Error(e.message || "Errore durante la creazione dell'attività");
+    } catch (err: any) {
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
+      // @ts-ignore
+      throw new Error(error.value);
     } finally {
       isLoading.value = false;
     }
@@ -149,7 +155,9 @@ export const useAdminStore = defineStore("admin", () => {
       resultStore.setRooms(scheduledActivities.value);
       return true;
     } catch (err: any) {
-      error.value = err.message || "Errore nel caricamento attività";
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
@@ -167,8 +175,12 @@ export const useAdminStore = defineStore("admin", () => {
 
       resultStore.setRooms(scheduledActivities.value);
       return true;
-    } catch (e: any) {
-      throw new Error(e.message || "Errore durante l'eliminazione");
+    } catch (err: any) {
+      const rawMsg = err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
+      // @ts-ignore
+      throw new Error(error.value);
     } finally {
       isLoading.value = false;
     }

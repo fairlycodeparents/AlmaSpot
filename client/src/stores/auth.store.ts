@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import { authService } from "@/services/auth.service";
 import { useRouter } from "vue-router";
 import type { LoginDto, SignUpDto } from "@/types/api";
+import { translateError } from "@/utils/errorTranslator";
 
 export const useAuthStore = defineStore("auth", () => {
   const router = useRouter();
@@ -25,8 +26,10 @@ export const useAuthStore = defineStore("auth", () => {
       localStorage.setItem("authToken", data.token);
 
       return true;
-    } catch (e: any) {
-      error.value = e.message;
+    } catch (err: any) {
+      const rawMsg = err.error || err.message || "Unknown error";
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
@@ -40,17 +43,19 @@ export const useAuthStore = defineStore("auth", () => {
       await authService.signUp(payload);
       return true;
     } catch (err: any) {
-      console.error("Error catched:", err);
-
+      let rawMsg = "";
       if (err.errors) {
-        error.value =
-          err.errors.email?._errors?.[0] ||
-          err.errors.password?._errors?.[0] ||
-          "Invalid data provided";
+        const emailErr = err.errors.email?._errors?.[0];
+        const passwordErr = err.errors.password?._errors?.[0];
+
+        rawMsg = emailErr || passwordErr || "Invalid data provided";
+        console.log("RAW DENRTO IF: ", rawMsg);
       } else {
-        error.value =
-          err.message || err.error || "An error occurred during sign up";
+        console.log("RAW FUORI IF: ", rawMsg);
+        rawMsg = err.error || err.message || "An error occurred";
       }
+      // @ts-ignore
+      error.value = translateError(rawMsg);
       return false;
     } finally {
       isLoading.value = false;
