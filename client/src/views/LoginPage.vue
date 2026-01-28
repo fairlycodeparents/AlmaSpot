@@ -14,8 +14,6 @@ onMounted(() => {
   authStore.error = null;
   if (route.query.registered == "true") {
     successMessage.value = "Registrazione avvenuta con successo! Accedi ora.";
-
-    router.replace({ query: undefined });
   }
 });
 
@@ -24,7 +22,7 @@ const handleLogin = async (creds: LoginDto) => {
 
   const success = await authStore.login(creds);
   if (success) {
-    await router.push({ name: "admin-home" });
+    await router.replace({ name: "admin-home" });
   }
 };
 

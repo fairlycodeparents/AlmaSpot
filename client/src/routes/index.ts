@@ -11,7 +11,15 @@ const requireAuth = (_to: any, _from: any, next: any) => {
   if (localStorage.getItem("authToken")) {
     next();
   } else {
-    next("/login");
+    next({ name: "login", replace: true });
+  }
+};
+
+const redirectIfAuthenticated = (_to: any, _from: any, next: any) => {
+  if (localStorage.getItem("authToken")) {
+    next({ name: "admin-home", replace: true });
+  } else {
+    next();
   }
 };
 
@@ -33,11 +41,13 @@ const routes = createRouter({
       path: "/login",
       name: "login",
       component: LoginPage,
+      beforeEnter: redirectIfAuthenticated,
     },
     {
       path: "/signup",
       name: "register",
       component: RegisterPage,
+      beforeEnter: redirectIfAuthenticated,
     },
     {
       path: "/assistant",
