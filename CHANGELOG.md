@@ -1,3 +1,7 @@
+## 3.3.0 (2026-01-28)
+
+- feat(ui): improve error handling ([670e5ef](https://github.com/fairlycodeparents/AlmaSpot/commit/670e5ef))
+
 ## <small>3.2.1 (2026-01-28)</small>
 
 - chore(core-deps): update dependency axios to v1.13.4 (#52) ([ff0d2be](https://github.com/fairlycodeparents/AlmaSpot/commit/ff0d2be)), closes [#52](https://github.com/fairlycodeparents/AlmaSpot/issues/52)
