@@ -3,7 +3,7 @@ import {
   AI,
   RoomAvailability,
 } from "context/search/application/ports/OutboundPorts";
-import { Suggestion } from "context/search/domain/Entities";
+import { UserRequest } from "context/search/domain/Entities";
 import { SearchUseCase } from "context/search/application/ports/InboundPorts";
 
 /**
@@ -30,13 +30,26 @@ export class SearchService implements SearchUseCase {
    * @returns A promise that resolves to a suggestion.
    */
   async search(request: SearchRequestDTO): Promise<SuggestionDTO> {
-    const query = await this.ai.extractRequest(request.userMessages);
+    const query = await this.ai.extractRequest(request.history);
 
     if (typeof query === "string") {
-      return new Suggestion([], query);
+      return {
+        plan: [],
+        response: query,
+      };
     }
 
-    const availableRooms = await this.availability.getAvailableRooms(query);
-    return await this.ai.getSuggestion(request.userMessages, availableRooms);
+    const userRequest = query as UserRequest;
+    const availableRooms =
+      await this.availability.getAvailableRooms(userRequest);
+    const suggestion = await this.ai.getSuggestion(
+      request.history,
+      availableRooms,
+    );
+
+    return {
+      plan: suggestion.plan,
+      response: suggestion.response,
+    };
   }
 }

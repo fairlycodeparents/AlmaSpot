@@ -1,6 +1,18 @@
 import { Request, Response, NextFunction } from "express";
 import { SearchUseCase } from "../../application/ports/InboundPorts";
 import { SearchRequestDTO } from "../../application/DTOs";
+import { z } from "zod";
+
+const searchSchema = z.object({
+  history: z
+    .array(
+      z.object({
+        role: z.enum(["user", "model"]),
+        content: z.string().min(1, "Message content cannot be empty"),
+      }),
+    )
+    .min(1, "History must contain at least one message"),
+});
 
 /** Controller for handling search requests. */
 export class SearchController {
@@ -18,24 +30,24 @@ export class SearchController {
    */
   async search(req: Request, res: Response, next: NextFunction) {
     try {
-      const { userMessages } = req.body;
+      const validation = searchSchema.safeParse(req.body);
 
-      if (
-        !userMessages ||
-        !Array.isArray(userMessages) ||
-        userMessages.length === 0
-      ) {
+      if (!validation.success) {
         res.status(400).json({
           error:
-            "Invalid request body: userMessages must be a non-empty array.",
+            "Invalid body request format: history must be a non-empty array of chat messages with role and content fields.",
+          details: validation.error,
         });
         return;
       }
 
-      const request: SearchRequestDTO = { userMessages };
+      const request: SearchRequestDTO = {
+        history: validation.data.history,
+      };
+
       const suggestion = await this.useCase.search(request);
 
-      res.json(suggestion);
+      res.status(200).json(suggestion);
     } catch (error) {
       next(error);
     }

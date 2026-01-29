@@ -6,7 +6,7 @@ import { SearchUseCase } from "../../application/ports/InboundPorts";
 import { SearchRequestDTO, SuggestionDTO } from "../../application/DTOs";
 
 describe("SearchController", () => {
-  const RESPONSE = "Plan found";
+  const RESPONSE_TEXT = "Plan found";
   const TRIGGER_ERROR = "Trigger error";
   const FAILED_RESPONSE = "Service failed";
 
@@ -14,19 +14,26 @@ describe("SearchController", () => {
   let useCaseCalls: SearchRequestDTO[] = [];
   let responseJsonCalls: any[] = [];
   let responseStatusCalls: number[] = [];
-  let nextCalls: any[] = [];
+
+  const fakeNext: NextFunction = (err?: any) => {
+    if (err) {
+      responseStatusCalls.push(500);
+      responseJsonCalls.push({ error: err.message });
+    }
+  };
 
   const fakeUseCase: SearchUseCase = {
     search: async (request: SearchRequestDTO): Promise<SuggestionDTO> => {
       useCaseCalls.push(request);
 
-      if (request.userMessages.includes(TRIGGER_ERROR)) {
+      const lastMessage = request.history[request.history.length - 1];
+      if (lastMessage && lastMessage.content === TRIGGER_ERROR) {
         throw new Error(FAILED_RESPONSE);
       }
 
       return {
-        plan: { slots: [] } as any,
-        response: RESPONSE,
+        plan: [],
+        response: RESPONSE_TEXT,
       };
     },
   };
@@ -50,61 +57,84 @@ describe("SearchController", () => {
     },
   };
 
-  const fakeNext: NextFunction = (err?: any) => {
-    nextCalls.push(err);
-  };
-
   beforeEach(() => {
+    controller = new SearchController(fakeUseCase);
     useCaseCalls = [];
     responseJsonCalls = [];
     responseStatusCalls = [];
-    nextCalls = [];
-    fakeRes.statusCode = 200;
-    controller = new SearchController(fakeUseCase);
   });
 
-  it("should return 200 and a suggestion when input is valid", async () => {
-    const req = { body: { userMessages: ["Find me a room"] } } as Request;
-    await controller.search(req, fakeRes as Response, fakeNext);
-    assert.strictEqual(useCaseCalls.length, 1);
-    assert.deepStrictEqual(useCaseCalls[0], {
-      userMessages: ["Find me a room"],
-    });
-    assert.strictEqual(responseJsonCalls.length, 1);
-    const responseBody = responseJsonCalls[0] as SuggestionDTO;
-    assert.strictEqual(responseBody.response, RESPONSE);
-  });
+  it("should return 200 and suggestion when request is valid", async () => {
+    const req = {
+      body: {
+        history: [
+          { role: "user", content: "Ciao" },
+          { role: "model", content: "Ciao! Come stai?" },
+          { role: "user", content: "Cerco un'aula" },
+        ],
+      },
+    } as Request;
 
-  it("should return 400 if userMessages is missing", async () => {
-    const req = { body: {} } as Request;
     await controller.search(req, fakeRes as Response, fakeNext);
     assert.strictEqual(responseStatusCalls.length, 1);
+    assert.strictEqual(responseStatusCalls[0], 200);
+    assert.strictEqual(responseJsonCalls[0].response, RESPONSE_TEXT);
+    assert.ok(useCaseCalls[0]);
+    assert.strictEqual(useCaseCalls[0].history.length, 3);
+    assert.ok(useCaseCalls[0].history[2]);
+    assert.strictEqual(useCaseCalls[0].history[2].content, "Cerco un'aula");
+  });
+
+  it("should return 400 if body is invalid (missing history)", async () => {
+    const req = { body: {} } as Request;
+
+    await controller.search(req, fakeRes as Response, fakeNext);
+
     assert.strictEqual(responseStatusCalls[0], 400);
-    assert.match(responseJsonCalls[0].error, /Invalid request body/);
+    assert.match(responseJsonCalls[0].error, /Invalid body request format/);
     assert.strictEqual(useCaseCalls.length, 0);
   });
 
-  it("should return 400 if userMessages is not an array", async () => {
-    const req = { body: { userMessages: "Just a string" } } as Request;
+  it("should return 400 if history is not an array", async () => {
+    const req = { body: { history: "Just a string" } } as Request;
+
     await controller.search(req, fakeRes as Response, fakeNext);
     assert.strictEqual(responseStatusCalls[0], 400);
-    assert.match(responseJsonCalls[0].error, /Invalid request body/);
     assert.strictEqual(useCaseCalls.length, 0);
   });
 
-  it("should return 400 if userMessages is an empty array", async () => {
-    const req = { body: { userMessages: [] } } as Request;
+  it("should return 400 if history is an empty array", async () => {
+    const req = { body: { history: [] } } as Request;
     await controller.search(req, fakeRes as Response, fakeNext);
     assert.strictEqual(responseStatusCalls[0], 400);
-    assert.match(responseJsonCalls[0].error, /non-empty array/);
+    assert.strictEqual(useCaseCalls.length, 0);
+  });
+
+  it("should return 400 if a message in history has invalid structure", async () => {
+    const req = {
+      body: {
+        history: [
+          { role: "user", content: "Valid" },
+          { role: "moderator", content: "Invalid role" },
+        ],
+      },
+    } as Request;
+
+    await controller.search(req, fakeRes as Response, fakeNext);
+    assert.strictEqual(responseStatusCalls[0], 400);
     assert.strictEqual(useCaseCalls.length, 0);
   });
 
   it("should call next(error) if the use case throws an error", async () => {
-    const req = { body: { userMessages: [TRIGGER_ERROR] } } as Request;
+    const req = {
+      body: {
+        history: [{ role: "user", content: TRIGGER_ERROR }],
+      },
+    } as Request;
+
     await controller.search(req, fakeRes as Response, fakeNext);
-    assert.strictEqual(nextCalls.length, 1);
-    assert.strictEqual(nextCalls[0].message, FAILED_RESPONSE);
-    assert.strictEqual(responseJsonCalls.length, 0);
+    assert.strictEqual(useCaseCalls.length, 1);
+    assert.strictEqual(responseStatusCalls[0], 500);
+    assert.strictEqual(responseJsonCalls[0].error, FAILED_RESPONSE);
   });
 });

@@ -3,24 +3,25 @@ import {
   RoomSlot,
   Suggestion,
 } from "context/search/domain/Entities";
+import { ChatMessageDTO } from "../DTOs";
 
 /** External port for AI interactions */
 export interface AI {
   /**
    * Get a query by interpreting the user input (which is written in natural language).
-   * @param conversation - Array of user input strings
+   * @param history - Array of chat messages
    * @returns an `UserRequest` constructed from user input or a string error message
    */
-  extractRequest(conversation: string[]): Promise<UserRequest | string>;
+  extractRequest(history: ChatMessageDTO[]): Promise<UserRequest | string>;
 
   /**
    * Get a suggestion by combining multiple slots, considering any specific request from the user.
-   * @param conversation - Array of user input strings
+   * @param history - Array of chat messages
    * @param availableRooms - Array of available rooms
    * @returns a `Suggestion` containing the plan and response
    */
   getSuggestion(
-    conversation: string[],
+    history: ChatMessageDTO[],
     availableRooms: RoomSlot[],
   ): Promise<Suggestion>;
 }

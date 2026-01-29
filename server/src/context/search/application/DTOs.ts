@@ -1,6 +1,4 @@
-/**
- * DTOs for RoomSlot and PlanSlot
- */
+/** DTOs for building a plan suggestion */
 export interface PlanSlot {
   readonly id: string;
   readonly name: string;
@@ -11,17 +9,19 @@ export interface PlanSlot {
   readonly to: Date;
 }
 
-/**
- * DTOs for Suggestion response
- */
+/** DTO for Suggestion response */
 export interface SuggestionDTO {
   readonly plan: PlanSlot[];
   readonly response: string;
 }
 
-/**
- * DTO for search request
- */
+/** DTO for chat message */
+export interface ChatMessageDTO {
+  readonly role: "user" | "model";
+  readonly content: string;
+}
+
+/** DTO for search request */
 export interface SearchRequestDTO {
-  readonly userMessages: string[];
+  readonly history: ChatMessageDTO[];
 }
