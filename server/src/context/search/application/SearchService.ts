@@ -34,7 +34,7 @@ export class SearchService implements SearchUseCase {
 
     if (typeof query === "string") {
       return {
-        plan: [],
+        plan: undefined,
         response: query,
       };
     }

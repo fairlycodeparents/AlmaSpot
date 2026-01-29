@@ -1,9 +1,5 @@
-import {
-  UserRequest,
-  RoomSlot,
-  Suggestion,
-} from "context/search/domain/Entities";
-import { ChatMessageDTO } from "../DTOs";
+import { UserRequest, RoomSlot } from "context/search/domain/Entities";
+import { ChatMessageDTO, SuggestionDTO } from "../DTOs";
 
 /** External port for AI interactions */
 export interface AI {
@@ -23,7 +19,7 @@ export interface AI {
   getSuggestion(
     history: ChatMessageDTO[],
     availableRooms: RoomSlot[],
-  ): Promise<Suggestion>;
+  ): Promise<SuggestionDTO>;
 }
 
 /** External port for room availability */
