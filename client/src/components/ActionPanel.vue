@@ -93,7 +93,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
 
 <template>
   <div
-    class="bg-base-background justify-start w-full max-w-5xl rounded-t-sheet p-5 flex flex-col gap-4 shadow-sm"
+    class="bg-base-background justify-start w-full max-w-app rounded-t-sheet p-5 flex flex-col gap-4 shadow-sm"
   >
     <div class="w-full" v-if="props.isAdmin">
       <SegmentedButton
@@ -135,14 +135,14 @@ watch([mode, activityName, campus, date, time, duration], () => {
     <div class="w-full h-10 flex items-center justify-center shrink-0 my-1">
       <div
         v-if="errorMessage"
-        class="text-brand text-xs text-center rounded-lg bg-ui-card py-2 px-3 w-full animate-pulse border border-brand shadow-sm"
+        class="text-brand text-xs font-semibold text-center rounded-2xl bg-error-card py-2 px-3 w-full border border-brand shadow-sm"
       >
         {{ errorMessage }}
       </div>
 
       <div
         v-else-if="props.successMessage"
-        class="text-state-success text-xs font-semibold text-center bg-ui-card py-2 px-3 rounded-lg border border-state-success w-full shadow-sm"
+        class="text-state-success text-xs font-semibold text-center bg-success-card py-2 px-3 rounded-2xl border border-state-success w-full shadow-sm"
       >
         {{ props.successMessage }}
       </div>
