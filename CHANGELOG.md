@@ -1,3 +1,11 @@
+## 3.4.0 (2026-01-29)
+
+- feat(calendar): add calendar export functionality and button in PlanView (#63) ([aa87bda](https://github.com/fairlycodeparents/AlmaSpot/commit/aa87bda)), closes [#63](https://github.com/fairlycodeparents/AlmaSpot/issues/63)
+- ci(release): update release workflow (#62) ([8e8d265](https://github.com/fairlycodeparents/AlmaSpot/commit/8e8d265)), closes [#62](https://github.com/fairlycodeparents/AlmaSpot/issues/62)
+- chore(deps): update dependency vue-tsc to v3.2.4 (#54) ([4e6722c](https://github.com/fairlycodeparents/AlmaSpot/commit/4e6722c)), closes [#54](https://github.com/fairlycodeparents/AlmaSpot/issues/54)
+- chore(deps): update vitest monorepo to v4.0.18 (#55) ([d699f2c](https://github.com/fairlycodeparents/AlmaSpot/commit/d699f2c)), closes [#55](https://github.com/fairlycodeparents/AlmaSpot/issues/55)
+- refactor(plan): enhance plan subscription/unsubscription management and user experience (#61) ([7ef92dd](https://github.com/fairlycodeparents/AlmaSpot/commit/7ef92dd)), closes [#61](https://github.com/fairlycodeparents/AlmaSpot/issues/61)
+
 ## 3.3.0 (2026-01-28)
 
 - feat(ui): improve error handling ([670e5ef](https://github.com/fairlycodeparents/AlmaSpot/commit/670e5ef))
