@@ -4,37 +4,54 @@ export interface AssistantSlot {
   type: string;
   campus: string;
   address: string;
-  from: string;
-  to: string;
+  from: Date;
+  to: Date;
 }
 
-export interface AssistantSearchResponse {
-  plan: AssistantSlot[];
+export interface ChatMessage {
+  role: "user" | "model";
+  content: string;
+}
+
+export interface AssistantResponse {
+  plan?: AssistantSlot[];
+  response: string;
+}
+
+export interface RawAssistantResponse {
+  plan?: Array<any>;
   response: string;
 }
 
 class AssistantService {
-  async search(
-    userMessages: string[],
-    modelMessages: string[] = [],
-  ): Promise<AssistantSearchResponse> {
+  async search(history: ChatMessage[]): Promise<AssistantResponse> {
     const response = await fetch("/api/search", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        userMessages,
-        modelMessages,
-      }),
+      body: JSON.stringify({ history }),
     });
+
     if (!response.ok) {
       if (response.status === 401) {
         throw new Error("Sessione scaduta");
       }
       throw new Error("Errore nella comunicazione con il server");
     }
-    return await response.json();
+
+    const data = (await response.json()) as RawAssistantResponse;
+
+    return {
+      response: data.response,
+      plan: data.plan
+        ? data.plan.map((slot) => ({
+            ...slot,
+            from: new Date(slot.from),
+            to: new Date(slot.to),
+          }))
+        : undefined,
+    };
   }
 }
 

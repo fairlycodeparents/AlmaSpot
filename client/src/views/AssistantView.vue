@@ -3,7 +3,11 @@ import { ref, nextTick, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import ChatMessageComponent from "../components/ChatMessage.vue";
 import ChatInput from "../components/ChatInput.vue";
-import { assistantService } from "../services/assistant.service";
+import {
+  assistantService,
+  type AssistantSlot,
+  type ChatMessage,
+} from "../services/assistant.service";
 import type { ChatMessageConfig as Message } from "../components/ChatMessage.vue";
 import { usePlanSession } from "@/composables/usePlanSession.ts";
 
@@ -31,25 +35,29 @@ const handleSendMessage = async (text: string) => {
   isLoading.value = true;
 
   try {
-    const userMessages = messages.value
-      .filter((m) => m.isMine)
-      .map((m) => m.text);
+    const history: ChatMessage[] = messages.value.map((msg) => ({
+      role: msg.isMine ? "user" : "model",
+      content: msg.text,
+    }));
 
-    const modelMessages = messages.value
-      .filter((m) => !m.isMine)
-      .map((m) => m.text);
-
-    const data = await assistantService.search(userMessages, modelMessages);
+    const data = await assistantService.search(history);
     const botResponse: Message = {
       text: data.response,
       avatar: "/icons/bot-avatar.png",
       isMine: false,
     };
-    if (data.plan.length > 0) {
+
+    if (data.plan && data.plan.length > 0) {
       botResponse.callToAction = {
         label: "Visualizza il piano",
         action: async () => {
-          await activatePlan(router, data.plan);
+          try {
+            await activatePlan(router, data.plan as AssistantSlot[]);
+            await router.push({ name: "plan" });
+          } catch (error) {
+            console.error("Errore durante il cambio piano:", error);
+            await router.push({ name: "plan" });
+          }
         },
         icon: {
           src: "/icons/arrow-right.svg",
@@ -58,6 +66,7 @@ const handleSendMessage = async (text: string) => {
         isFullWidth: true,
       };
     }
+
     messages.value.push(botResponse);
   } catch (error) {
     messages.value.push({
