@@ -17,6 +17,9 @@
   --color-accent-warning: #f59e0b;
 
   --color-state-success: #16a34a;
+
+  --radius-card: 1.5rem;
+  --radius-sheet: 2.5rem;
 }
 
 body {

@@ -34,9 +34,7 @@ const goToRegister = () => {
 
 <template>
   <div class="h-screen bg-brand flex flex-col items-center px-6">
-    <header
-      class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10"
-    >
+    <header class="flex flex-col items-center text-center px-6 pt-10 pb-6">
       <span class="text-brand-text font-bold text-xl tracking-wide mb-8">
         AlmaSpot
       </span>
