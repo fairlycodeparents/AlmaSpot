@@ -31,7 +31,7 @@ const handleSendMessage = async (text: string) => {
     isMine: true,
   });
 
-  scrollToBottom();
+  await scrollToBottom();
   isLoading.value = true;
 
   try {
@@ -77,7 +77,7 @@ const handleSendMessage = async (text: string) => {
     });
   } finally {
     isLoading.value = false;
-    scrollToBottom();
+    await scrollToBottom();
   }
 };
 
@@ -97,7 +97,7 @@ onMounted(async () => {
       avatar: "/icons/bot-avatar.png",
       isMine: false,
     });
-    scrollToBottom();
+    await scrollToBottom();
   }
 });
 </script>
