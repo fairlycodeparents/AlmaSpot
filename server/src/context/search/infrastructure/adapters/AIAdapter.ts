@@ -8,6 +8,7 @@ import {
 } from "context/search/domain/Entities";
 import { FunctionCallingConfigMode, GoogleGenAI, Type } from "@google/genai";
 import { z } from "zod";
+import { ChatMessageDTO } from "../../application/DTOs";
 
 export const DEFAULT_RESPONSE =
   "I'm sorry, I couldn't process your request at the moment.";
@@ -92,14 +93,14 @@ export class AIAdapter implements AI {
   });
 
   async getSuggestion(
-    conversation: string[],
+    history: ChatMessageDTO[],
     availableRooms: RoomSlot[],
   ): Promise<Suggestion> {
     let response;
     try {
       response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: this.buildContents(conversation),
+        contents: this.buildContents(history),
         config: {
           tools: [
             {
@@ -159,8 +160,7 @@ export class AIAdapter implements AI {
           );
         } else {
           console.warn(
-            `Invalid room slot suggested by AI: ${JSON.stringify(slot)}
-               Not found in available rooms: ${availableRooms.map((r) => r.id).join(", ")}`,
+            `AI hallucination: invalid room slot ${JSON.stringify(slot)}`,
           );
         }
       }
@@ -172,11 +172,13 @@ export class AIAdapter implements AI {
     }
   }
 
-  async extractRequest(conversation: string[]): Promise<UserRequest | string> {
+  async extractRequest(
+    history: ChatMessageDTO[],
+  ): Promise<UserRequest | string> {
     try {
       const response = await this.ai.models.generateContent({
         model: this.MODEL_NAME,
-        contents: this.buildContents(conversation),
+        contents: this.buildContents(history),
         config: {
           systemInstruction: this.buildSystemInstruction("EXTRACTOR"),
           tools: [
@@ -208,10 +210,15 @@ export class AIAdapter implements AI {
     }
   }
 
-  private buildContents(conversation: string[]) {
-    return conversation.map((text) => ({
-      role: "user",
-      parts: [{ text }],
+  /**
+   * Builds the contents array for the AI model from chat history.
+   * @param history - Array of chat messages.
+   * @returns Formatted contents for the AI model.
+   */
+  private buildContents(history: ChatMessageDTO[]) {
+    return history.map((msg) => ({
+      role: msg.role,
+      parts: [{ text: msg.content }],
     }));
   }
 
@@ -243,8 +250,8 @@ export class AIAdapter implements AI {
         rooms?.map((room) => ({
           id: room.id,
           name: room.name,
-          from: room.from.toString(),
-          to: room.to.toString(),
+          startAvailability: room.from.toString(),
+          endAvailability: room.to.toString(),
           address: room.address,
         })),
       )}
