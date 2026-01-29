@@ -57,7 +57,7 @@ jobs:
         id: check-tag
         run: |
           git fetch --tags
-          TAG=$(git tag --points-at HEAD | grep -E '^[0-9]+' | head -n 1)
+          TAG=$(git tag --points-at HEAD | grep -E '^v?[0-9]+.[0-9]+.[0-9]+' | head -n 1)
 
           if [ -n "$TAG" ]; then
             echo "Detected release: $TAG"
