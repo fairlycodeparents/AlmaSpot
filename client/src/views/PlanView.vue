@@ -6,6 +6,7 @@ import ScheduleCard from "@/components/ScheduleCard.vue";
 import Button from "@/components/Button.vue";
 import { usePushNotifications } from "@/composables/usePushNotifications.ts";
 import { usePlanStore } from "@/stores/plan.store.ts";
+import { downloadCalendarFile } from "@/utils/calendarExport";
 
 const route = useRoute();
 const planStore = usePlanStore();
@@ -55,6 +56,12 @@ const isCurrentPlanActive = computed(() => {
   );
 });
 
+const handleExportCalendar = () => {
+  if (planStore.slots.length > 0) {
+    downloadCalendarFile(planStore.slots);
+  }
+};
+
 async function handleNotificationToggle() {
   if (isLoading.value) return;
 
@@ -96,6 +103,15 @@ onBeforeRouteLeave((to) => {
 
     <main class="flex-1 bg-base-background rounded-t-[3rem] relative">
       <div class="w-full max-w-lg mx-auto flex flex-col px-6 py-8 pb-32">
+        <div class="flex gap-4 mb-6 w-full flex-row justify-center">
+          <Button
+            :action="handleExportCalendar"
+            :label="'Scarica calendario'"
+            :icon="{ src: '/icons/calendar.svg', alt: 'Calendar' }"
+            :is-full-width="false"
+            :isIconRight="false"
+          />
+        </div>
         <div
           v-if="error"
           class="mb-4 p-3 bg-base-background text-brand rounded-lg text-sm text-center"
