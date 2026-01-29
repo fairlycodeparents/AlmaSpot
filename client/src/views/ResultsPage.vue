@@ -42,11 +42,7 @@ const onApplyFilters = (newFilters: { type: string; site: string }) => {
 };
 
 const goBack = () => {
-  if (props.variant === "admin" || props.variant === "delete") {
-    router.push({ name: "admin-home" });
-  } else {
-    router.push({ name: "home" });
-  }
+  router.back();
 };
 
 const campus = parameterStore.selectedCampus;
@@ -73,10 +69,8 @@ const handleDelete = async (item: any) => {
   try {
     await adminStore.deleteActivity(item.id);
     if (adminStore.scheduledActivities.length === 0) {
-      await router.push({
-        name: "admin-home",
-        state: { successMessage: "Tutte le attività sono state rimosse." },
-      });
+      adminStore.setSuccessMessage("Tutte le attività sono state rimosse.");
+      router.back();
     } else {
       pageSuccess.value = "Attività eliminata con successo.";
     }
@@ -105,10 +99,8 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
     try {
       const success = await adminStore.confirmRoomSelection(item);
       if (success) {
-        await router.push({
-          name: "admin-home",
-          state: { successMessage: "Attività creata con successo!" },
-        });
+        adminStore.setSuccessMessage("Attività creata con successo!");
+        router.back();
       }
     } catch (error: any) {
       pageError.value =

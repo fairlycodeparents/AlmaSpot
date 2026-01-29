@@ -17,6 +17,7 @@ export const useAdminStore = defineStore("admin", () => {
   const availableRooms = ref<RoomAvailabilityDTO[]>([]);
   const scheduledActivities = ref<ActivityDTO[]>([]);
 
+  const successMessage = ref<string | null>(null);
   const resultStore = useResultStore();
 
   const pendingActivity = ref({
@@ -24,6 +25,16 @@ export const useAdminStore = defineStore("admin", () => {
     start: "",
     end: "",
   });
+
+  function setSuccessMessage(msg: string) {
+    successMessage.value = msg;
+  }
+
+  function consumeSuccessMessage() {
+    const msg = successMessage.value;
+    successMessage.value = null;
+    return msg;
+  }
 
   const calculateTimeRange = (
     dayStr: string,
@@ -196,5 +207,8 @@ export const useAdminStore = defineStore("admin", () => {
     scheduledActivities,
     searchActivities,
     deleteActivity,
+    successMessage,
+    setSuccessMessage,
+    consumeSuccessMessage,
   };
 });

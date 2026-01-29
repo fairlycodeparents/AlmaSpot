@@ -20,12 +20,9 @@ const successMessage = ref("");
 onMounted(() => {
   adminStore.error = null;
 
-  const state = history.state as { successMessage?: string };
-  if (state && state.successMessage) {
-    successMessage.value = state.successMessage;
-    const newState = { ...state };
-    delete newState.successMessage;
-    history.replaceState(newState, "");
+  const storeMsg = adminStore.consumeSuccessMessage();
+  if (storeMsg) {
+    successMessage.value = storeMsg;
   }
 });
 
