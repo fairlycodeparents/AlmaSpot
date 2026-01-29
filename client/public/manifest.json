@@ -1,0 +1,24 @@
+{
+  "name": "AlmaSpot - Find your study spot",
+  "short_name": "AlmaSpot",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#bb2e29",
+  "description": "Trova il tuo spot per lo studio.",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
