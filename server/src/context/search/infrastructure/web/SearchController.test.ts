@@ -32,7 +32,7 @@ describe("SearchController", () => {
       }
 
       return {
-        plan: [],
+        plan: undefined,
         response: RESPONSE_TEXT,
       };
     },

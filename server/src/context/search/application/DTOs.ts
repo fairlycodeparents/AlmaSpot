@@ -1,5 +1,5 @@
 /** DTOs for building a plan suggestion */
-export interface PlanSlot {
+export interface PlanSlotDTO {
   readonly id: string;
   readonly name: string;
   readonly type: string;
@@ -11,7 +11,7 @@ export interface PlanSlot {
 
 /** DTO for Suggestion response */
 export interface SuggestionDTO {
-  readonly plan: PlanSlot[];
+  readonly plan?: PlanSlotDTO[];
   readonly response: string;
 }
 
