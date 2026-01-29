@@ -44,7 +44,7 @@ const handleConfirm = () => {
     ></div>
 
     <div
-      class="fixed bottom-0 left-0 right-0 bg-white z-50 rounded-t-[40px] p-8 shadow-[0_-10px_40px_rgba(0,0,0,0.2)] transform transition-transform duration-300 ease-out h-[65vh] flex flex-col"
+      class="fixed bottom-0 left-0 right-0 bg-base-background z-50 rounded-t-sheet p-6 shadow-[0_-10px_40px_rgba(0,0,0,0.2)] transform transition-transform duration-300 ease-out h-[65vh] flex flex-col"
       :class="isOpen ? 'translate-y-0' : 'translate-y-full'"
     >
       <div

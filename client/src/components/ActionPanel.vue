@@ -93,7 +93,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
 
 <template>
   <div
-    class="bg-base-background justify-start w-full max-w-5xl rounded-t-4xl p-5 flex flex-col gap-4 shadow-sm"
+    class="bg-base-background justify-start w-full max-w-5xl rounded-t-sheet p-5 flex flex-col gap-4 shadow-sm"
   >
     <div class="w-full" v-if="props.isAdmin">
       <SegmentedButton
