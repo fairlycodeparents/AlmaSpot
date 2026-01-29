@@ -38,7 +38,9 @@ const goToLogin = () => router.push({ name: "login" });
       </button>
     </div>
 
-    <header class="flex flex-col items-center px-6 pt-16 pb-24 md:pb-10">
+    <header
+      class="flex flex-col items-center text-center px-6 pt-10 pb-10 shrink-0"
+    >
       <span
         class="text-brand-text text-center font-semibold text-xl tracking-wide opacity-90 mb-8"
       >

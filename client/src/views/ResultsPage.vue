@@ -140,9 +140,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
 </script>
 
 <template>
-  <div
-    class="min-h-screen bg-brand-text flex flex-col px-6 pt-12 pb-6 relative"
-  >
+  <div class="h-screen bg-brand-text flex flex-col px-6 pt-12 pb-6 relative">
     <div class="mb-6">
       <h1
         v-if="variant === 'admin' || variant === 'student'"

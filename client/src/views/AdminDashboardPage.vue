@@ -53,7 +53,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
 </script>
 
 <template>
-  <div class="bg-brand min-h-screen flex flex-col relative">
+  <div class="h-screen bg-brand flex flex-col relative">
     <Button
       label="Esci"
       :action="handleLogout"
@@ -61,7 +61,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     />
 
     <header
-      class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10"
+      class="flex flex-col items-center text-center px-6 pt-10 pb-10 shrink-0"
     >
       <span
         class="text-brand-text font-semibold text-xl tracking-wide opacity-90 mb-8"

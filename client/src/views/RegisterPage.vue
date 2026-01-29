@@ -35,7 +35,7 @@ const handleRegistration = async (formData: SignUpDto) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col items-center px-6">
+  <div class="h-screen bg-brand flex flex-col items-center px-6">
     <header
       class="flex flex-col items-center text-center px-6 pt-16 pb-24 md:pb-10"
     >

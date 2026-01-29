@@ -30,7 +30,6 @@ const props = withDefaults(
 );
 
 const isReady = ref(false);
-
 const mode = ref("aggiungi");
 const activityName = ref("");
 const campus = ref(parameterStore.selectedCampus || "");
@@ -94,7 +93,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
 
 <template>
   <div
-    class="bg-base-background justify-center w-full max-w-5xl rounded-t-4xl p-6 flex flex-col gap-6 shadow-sm"
+    class="bg-base-background justify-start w-full max-w-5xl rounded-t-4xl p-5 flex flex-col gap-4 shadow-sm"
   >
     <div class="w-full" v-if="props.isAdmin">
       <SegmentedButton
@@ -133,17 +132,20 @@ watch([mode, activityName, campus, date, time, duration], () => {
 
     <DurationSelector v-model="duration" :min="1" :max="12" class="w-full" />
 
-    <div
-      v-if="errorMessage"
-      class="text-brand text-sm text-center rounded-xl animate-pulse bg-ui-card p-2"
-    >
-      {{ errorMessage }}
-    </div>
-    <div
-      v-if="props.successMessage"
-      class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
-    >
-      {{ props.successMessage }}
+    <div class="w-full h-10 flex items-center justify-center shrink-0 my-1">
+      <div
+        v-if="errorMessage"
+        class="text-brand text-xs text-center rounded-lg bg-ui-card py-2 px-3 w-full animate-pulse border border-brand shadow-sm"
+      >
+        {{ errorMessage }}
+      </div>
+
+      <div
+        v-else-if="props.successMessage"
+        class="text-state-success text-xs font-semibold text-center bg-ui-card py-2 px-3 rounded-lg border border-state-success w-full shadow-sm"
+      >
+        {{ props.successMessage }}
+      </div>
     </div>
 
     <div class="flex justify-center w-full">
@@ -167,7 +169,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
       </button>
     </div>
 
-    <footer class="py-6 text-center text-brand text-sm">
+    <footer v-if="!props.isAdmin" class="py-6 text-center text-brand text-sm">
       AlmaSpot • Made for students
     </footer>
   </div>
