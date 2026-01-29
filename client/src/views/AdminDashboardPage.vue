@@ -63,9 +63,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
     <header
       class="flex flex-col items-center text-center px-6 pt-10 pb-10 shrink-0"
     >
-      <span
-        class="text-brand-text font-semibold text-xl tracking-wide opacity-90 mb-8"
-      >
+      <span class="text-brand-text font-bold text-xl tracking-wide mb-8">
         AlmaSpot
       </span>
 
@@ -76,7 +74,7 @@ const handlePanelSubmit = async (payload: SearchPayload) => {
 
     <main class="w-full flex-1 items-center flex flex-col z-20">
       <ActionPanel
-        class="flex-1 w-full max-w-5xl"
+        class="flex-1 w-full max-w-app"
         :is-admin="true"
         :api-error="adminStore.error"
         :success-message="successMessage"

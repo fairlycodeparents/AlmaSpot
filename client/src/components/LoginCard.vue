@@ -102,14 +102,14 @@ const handleSubmit = () => {
 
     <div
       v-if="localError || apiError"
-      class="text-brand text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-brand animate-pulse"
+      class="text-brand text-sm font-semibold text-center bg-error-card p-2 rounded-2xl border border-brand"
     >
       {{ localError || apiError }}
     </div>
 
     <div
       v-if="successMessage"
-      class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-b-state-success"
+      class="text-state-success text-sm font-semibold text-center bg-success-card p-2 rounded-2xl border border-state-success"
     >
       {{ successMessage }}
     </div>

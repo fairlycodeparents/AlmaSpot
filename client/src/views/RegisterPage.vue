@@ -47,7 +47,7 @@ const handleRegistration = async (formData: SignUpDto) => {
     </header>
 
     <main
-      class="flex-1 flex flex-col justify-center items-center w-full max-w-sm gap-10"
+      class="flex-1 flex flex-col justify-center items-center w-full max-w-auth gap-10"
     >
       <LoginCard
         min-height="min-h-[400px]"
@@ -57,7 +57,10 @@ const handleRegistration = async (formData: SignUpDto) => {
         @to-login="goBack"
       />
 
-      <div v-if="authStore.isLoading" class="text-white text-sm opacity-80">
+      <div
+        v-if="authStore.isLoading"
+        class="text-brand-text text-sm opacity-80"
+      >
         Registrazione in corso...
       </div>
     </main>

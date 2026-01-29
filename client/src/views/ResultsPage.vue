@@ -230,14 +230,14 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
       <div class="flex flex-col gap-3 mb-4">
         <div
           v-if="pageError"
-          class="text-brand text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-brand"
+          class="text-brand text-sm font-semibold text-center bg-error-card p-2 rounded-2xl border border-brand"
         >
           {{ pageError }}
         </div>
 
         <div
           v-if="pageSuccess"
-          class="text-state-success text-sm font-semibold text-center bg-ui-card p-2 rounded-xl border border-state-success"
+          class="text-state-success text-sm font-semibold text-center bg-success-card p-2 rounded-2xl border border-state-success"
         >
           {{ pageSuccess }}
         </div>

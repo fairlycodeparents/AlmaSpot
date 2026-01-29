@@ -16,10 +16,15 @@
   --color-accent: #ffcc00;
   --color-accent-warning: #f59e0b;
 
-  --color-state-success: #16a34a;
+  --color-state-success: #117133;
+  --color-success-card: #e1fae4;
+  --color-error-card: #fae1e1;
 
   --radius-card: 1.5rem;
   --radius-sheet: 2.5rem;
+
+  --max-width-auth: 24rem;
+  --max-width-app: 64rem;
 }
 
 body {

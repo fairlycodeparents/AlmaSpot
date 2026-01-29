@@ -45,7 +45,7 @@ const goToRegister = () => {
     </header>
 
     <main
-      class="flex-1 flex flex-col justify-center items-center w-full max-w-sm gap-10"
+      class="flex-1 flex flex-col justify-center items-center w-full max-w-auth gap-10"
     >
       <LoginCard
         min-height="min-h-[400px]"
@@ -56,7 +56,7 @@ const goToRegister = () => {
         @clear-success="successMessage = ''"
       />
 
-      <p v-if="authStore.isLoading" class="text-brand-text opacity-70">
+      <p v-if="authStore.isLoading" class="text-brand-text opacity-80">
         Accesso in corso...
       </p>
     </main>
