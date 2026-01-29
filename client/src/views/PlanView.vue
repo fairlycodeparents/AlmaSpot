@@ -92,21 +92,23 @@ onBeforeRouteLeave((to) => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col">
+  <div class="min-h-screen bg-brand flex flex-col items-center">
     <header
-      class="h-[35vh] min-h-62.5 px-6 pb-12 shrink-0 flex flex-col justify-end"
+      class="h-[35vh] min-h-62.5 px-6 pb-12 shrink-0 flex flex-col justify-end max-w-app w-full"
     >
       <h1 class="text-brand-text font-bold tracking-wide text-4xl">
         Il tuo piano
       </h1>
     </header>
 
-    <main class="flex-1 bg-base-background rounded-t-[3rem] relative">
+    <main
+      class="flex-1 bg-base-background max-w-app mx-auto rounded-t-sheet relative w-full shadow-sm"
+    >
       <div class="w-full max-w-lg mx-auto flex flex-col px-6 py-8 pb-32">
-        <div class="flex gap-4 mb-6 w-full flex-row justify-center">
+        <div class="flex mb-6 justify-center">
           <Button
             :action="handleExportCalendar"
-            :label="'Scarica calendario'"
+            label="Scarica calendario"
             :icon="{ src: '/icons/calendar.svg', alt: 'Calendar' }"
             :is-full-width="false"
             :isIconRight="false"
