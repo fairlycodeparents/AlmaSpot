@@ -1,3 +1,15 @@
+## 4.0.0 (2026-01-29)
+
+- fix(assistant): await scrollToBottom to ensure proper scroll behavior after updates ([bb0c21a](https://github.com/fairlycodeparents/AlmaSpot/commit/bb0c21a))
+- refactor(search): refactor(search): improve plan and chat history handling in assistant service ([563ed19](https://github.com/fairlycodeparents/AlmaSpot/commit/563ed19))
+- refactor(search)!: migrate userMessages to structured chat history in DTOs and services ([80cb11d](https://github.com/fairlycodeparents/AlmaSpot/commit/80cb11d))
+- refactor(search)!: update SuggestionDTO to use optional plan ([e068e84](https://github.com/fairlycodeparents/AlmaSpot/commit/e068e84))
+
+### BREAKING CHANGE
+
+- migrate userMessages to structured chat history in DTOs and services
+- SuggestionDTO now include an optional plan property
+
 ## 3.4.0 (2026-01-29)
 
 - feat(calendar): add calendar export functionality and button in PlanView (#63) ([aa87bda](https://github.com/fairlycodeparents/AlmaSpot/commit/aa87bda)), closes [#63](https://github.com/fairlycodeparents/AlmaSpot/issues/63)
