@@ -1,3 +1,7 @@
+## <small>4.0.1 (2026-01-30)</small>
+
+- fix(deps): update github.com/vaiton/unibocalendar digest to 1b81211 (#64) ([4ec04f4](https://github.com/fairlycodeparents/AlmaSpot/commit/4ec04f4)), closes [#64](https://github.com/fairlycodeparents/AlmaSpot/issues/64)
+
 ## 4.0.0 (2026-01-29)
 
 - fix(assistant): await scrollToBottom to ensure proper scroll behavior after updates ([bb0c21a](https://github.com/fairlycodeparents/AlmaSpot/commit/bb0c21a))
