@@ -40,11 +40,11 @@ export async function seedRooms(db: Db) {
 
               return {
                 updateOne: {
-                  filter: { id: uniqueId },
+                  filter: { _id: uniqueId },
                   update: {
                     $set: {
-                      ...roomData,
                       id: uniqueId,
+                      ...roomData,
                     },
                   },
                   upsert: true,
