@@ -54,32 +54,34 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: shouldn't download new data if 'FRESH' (< 45 min)", async () => {
-    const tenMinutesAgo = new Date(Date.now() - 10 * 60 * 1000);
+  it("syncEvent: should run in background if 'FRESH' (< 6 hours)", async () => {
+    const fiveHoursAgo = new Date(Date.now() - 5 * 60 * 60 * 1000);
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
-      async () => tenMinutesAgo,
+      async () => fiveHoursAgo,
     );
 
     await service.syncEvent(Campus.CESENA, new Date());
+    await new Promise((resolve) => setTimeout(resolve, 10));
 
     assert.strictEqual(
       (mockProvider.fetchInternalActivities as any).mock.calls.length,
-      0,
+      1,
+      "Should trigger fetch in background even if fresh",
     );
     assert.strictEqual(
       (mockRoomRepository.updateInternalActivities as any).mock.calls.length,
-      0,
+      1,
+      "Should update DB in background",
     );
   });
 
-  it("syncEvent: should download new data in background if 'STALE' (ex. 1 hour ago)", async () => {
-    const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000);
+  it("syncEvent: should await download if 'STALE' (> 6 hours)", async () => {
+    const sevenHoursAgo = new Date(Date.now() - 7 * 60 * 60 * 1000);
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
-      async () => oneHourAgo,
+      async () => sevenHoursAgo,
     );
 
     await service.syncEvent(Campus.CESENA, new Date());
-
     await new Promise((resolve) => setTimeout(resolve, 10));
 
     assert.strictEqual(
@@ -96,7 +98,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: should download new data and wait for it if 'EXPIRED' (> 24h or null)", async () => {
+  it("syncEvent: should await download if never synced (null)", async () => {
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => null,
     );
@@ -113,7 +115,7 @@ describe("ActivityManagementService Test", () => {
     );
   });
 
-  it("syncEvent: shoudln't run more concurrent fetches", async () => {
+  it("syncEvent: shouldn't run duplicate fetches concurrently", async () => {
     (mockRoomRepository.getLastSync as any).mock.mockImplementation(
       async () => null,
     );
@@ -127,6 +129,34 @@ describe("ActivityManagementService Test", () => {
       (mockProvider.fetchInternalActivities as any).mock.calls.length,
       1,
     );
+  });
+
+  it("syncEvent: should deduplicate activities before saving", async () => {
+    (mockRoomRepository.getLastSync as any).mock.mockImplementation(
+      async () => null,
+    );
+
+    const duplicateActivities = [
+      { id: "act-1", title: "Lesson A" },
+      { id: "act-1", title: "Lesson A (Duplicate)" },
+      { id: "act-2", title: "Lesson B" },
+    ];
+    (mockProvider.fetchInternalActivities as any).mock.mockImplementation(
+      async () => duplicateActivities,
+    );
+
+    await service.syncEvent(Campus.CESENA, new Date());
+    const updateCall = (mockRoomRepository.updateInternalActivities as any).mock
+      .calls[0];
+    const savedActivities = updateCall.arguments[2];
+
+    assert.strictEqual(
+      savedActivities.length,
+      2,
+      "Should save only 2 unique activities",
+    );
+    assert.strictEqual(savedActivities[0].id, "act-1");
+    assert.strictEqual(savedActivities[1].id, "act-2");
   });
 
   it("createEvent: authentication error if token isn't valid", async () => {
@@ -204,7 +234,7 @@ describe("ActivityManagementService Test", () => {
 
     await assert.rejects(async () => {
       await service.deleteEvent("valid-token", "missing-id");
-    }, "Error: Not Found: External activity does not exist.");
+    }, /Not Found/);
   });
 
   it("deleteEvent: error if deleting internal activities", async () => {
@@ -221,7 +251,7 @@ describe("ActivityManagementService Test", () => {
 
     await assert.rejects(async () => {
       await service.deleteEvent("valid-token", "int-1");
-    }, "Error: Bad Request: Cannot delete internal activities.");
+    }, /Bad Request: Cannot delete internal activities/);
 
     assert.strictEqual(
       mockRoomRepository.deleteExternalActivity.mock.calls.length,
@@ -237,7 +267,7 @@ describe("ActivityManagementService Test", () => {
 
     const pastActivity = {
       id: "ext-old",
-      type: "EXTERNAL",
+      type: ActivityType.EXTERNAL_ACTIVITY,
       period: { start: pastDate },
     };
     mockRoomRepository.getActivityById.mock.mockImplementation(
@@ -246,7 +276,7 @@ describe("ActivityManagementService Test", () => {
 
     await assert.rejects(async () => {
       await service.deleteEvent("valid-token", "ext-old");
-    }, "Error: Bad Request: Cannot delete past or ongoing activities.");
+    }, /Bad Request: Cannot delete past or ongoing activities/);
 
     assert.strictEqual(
       mockRoomRepository.deleteExternalActivity.mock.calls.length,
@@ -262,7 +292,7 @@ describe("ActivityManagementService Test", () => {
 
     const validActivity = {
       id: "ext-future",
-      type: "EXTERNAL_ACTIVITY",
+      type: ActivityType.EXTERNAL_ACTIVITY,
       period: { start: futureDate },
     };
     mockRoomRepository.getActivityById.mock.mockImplementation(

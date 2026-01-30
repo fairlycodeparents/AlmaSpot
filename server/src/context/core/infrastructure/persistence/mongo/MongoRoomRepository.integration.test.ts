@@ -44,7 +44,7 @@ describe("MongoRoomRepository Test", async () => {
   await it("getRoomsByCampus: should retrieve rooms by specified campus", async () => {
     const db = client.db(TEST_DB_NAME);
     const roomDoc = {
-      id: "aula-test-1-ce",
+      _id: "aula-test-1-ce",
       name: "Aula Test 1",
       type: "CLASSROOM",
       campus: "Cesena",
