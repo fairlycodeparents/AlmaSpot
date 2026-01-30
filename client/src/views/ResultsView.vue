@@ -177,37 +177,22 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
       >
         <p
           v-if="variant === 'admin' || variant === 'student'"
-          class="text-base-text font-bold text-lg"
+          class="text-base-text"
         >
           Nessuna aula disponibile per i criteri selezionati.
         </p>
-        <p v-if="variant === 'delete'" class="text-base-text font-bold text-lg">
+        <p v-if="variant === 'delete'" class="text-base-text">
           Nessuna attività programmata trovata.
         </p>
 
-        <button
+        <MyButton
           v-if="variant === 'student'"
-          type="button"
-          @click="goToAI"
-          class="text-primary font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-red-700"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path
-              d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"
-            />
-          </svg>
-          Chiedi un'aula all'AI
-        </button>
+          label="Chiedi un'aula all'AI"
+          variant="secondary"
+          :action="goToAI"
+          :icon="{ src: 'icons/ai-icon.svg', alt: 'AI Icon' }"
+          :is-full-width="true"
+        />
       </div>
 
       <RoomCard

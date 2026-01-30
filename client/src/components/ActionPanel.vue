@@ -155,7 +155,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
 
     <DurationSelector v-model="duration" :min="1" :max="10" class="w-full" />
 
-    <div class="w-full h-10 flex items-center justify-center shrink-0 my-1">
+    <div class="w-full flex items-center justify-center shrink-0 my-1">
       <div
         v-if="errorMessage"
         class="text-brand text-xs font-semibold text-center rounded-2xl bg-error-card py-2 px-3 w-full border border-brand shadow-sm"
@@ -171,28 +171,25 @@ watch([mode, activityName, campus, date, time, duration], () => {
       </div>
     </div>
 
-    <div class="flex justify-center w-full">
-      <MyButton
-        label="Cerca"
-        variant="primary"
-        :action="handleSubmit"
-        :is-full-width="true"
-      />
-    </div>
+    <MyButton
+      label="Cerca"
+      variant="primary"
+      :action="handleSubmit"
+      :is-full-width="true"
+    />
 
-    <div class="text-center pt-1 mt-4">
-      <button
-        v-if="!props.isAdmin"
-        type="button"
-        @click="goToAI"
-        class="text-base-text font-semibold hover:underline flex items-center justify-center gap-2 w-full transition-colors hover:text-brand"
-      >
-        <img :src="AI_ICON_PATH" alt="AI_ICON" />
-        Chiedi un'aula all'AI
-      </button>
-    </div>
+    <MyButton
+      label="Chiedi all'AI"
+      variant="secondary"
+      :action="goToAI"
+      :icon="{ src: AI_ICON_PATH, alt: 'AI Icon' }"
+      :is-full-width="true"
+    />
 
-    <footer v-if="!props.isAdmin" class="py-6 text-center text-brand text-sm">
+    <footer
+      v-if="!props.isAdmin"
+      class="pt-6 pb-4 text-center text-brand text-sm"
+    >
       AlmaSpot • Made for students
     </footer>
   </div>

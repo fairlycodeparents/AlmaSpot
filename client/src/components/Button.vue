@@ -1,4 +1,6 @@
 <script setup lang="ts">
+export type ButtonVariant = "primary" | "secondary";
+
 export type ButtonConfig = {
   action: () => void;
   label?: string;
@@ -8,22 +10,34 @@ export type ButtonConfig = {
   };
   isIconRight?: boolean;
   isFullWidth?: boolean;
+  variant?: ButtonVariant;
 };
 
-withDefaults(defineProps<ButtonConfig>(), {
+const props = withDefaults(defineProps<ButtonConfig>(), {
   isIconRight: true,
   isFullWidth: false,
+  variant: "primary",
 });
+
+const variantClasses: Record<ButtonVariant, string> = {
+  primary: "bg-brand hover:bg-brand-dark text-brand-text",
+  secondary:
+    "bg-ui-card hover:bg-gray-300 text-base-text border border-ui-border",
+};
 </script>
 
 <template>
   <button
-    class="flex items-center justify-between min-w-20 min-h-10 px-4 py-2 bg-brand hover:bg-brand-dark text-brand-text rounded-4xl cursor-pointer transition-colors duration-200 ease-in-out gap-2 shadow-sm active:scale-99"
-    :class="{
-      'flex-row-reverse': !isIconRight,
-      'justify-center': !icon || !label,
-      'w-full': isFullWidth,
-    }"
+    class="flex items-center min-w-10 min-h-10 px-4 py-2 rounded-4xl cursor-pointer transition-colors duration-200 ease-in-out gap-2 shadow-sm active:scale-99"
+    :class="[
+      variantClasses[props.variant],
+      {
+        'flex-row-reverse': !isIconRight,
+        'justify-center': !icon || !label,
+        'justify-between': icon && label,
+        'w-full': isFullWidth,
+      },
+    ]"
     @click="action"
   >
     <span v-if="label">{{ label }}</span>
@@ -32,7 +46,7 @@ withDefaults(defineProps<ButtonConfig>(), {
       v-if="icon"
       :src="icon.src"
       :alt="icon.alt"
-      class="size-6 object-cover rounded-4xl shrink-0"
+      class="size-auto object-cover rounded-4xl shrink-0"
     />
   </button>
 </template>
