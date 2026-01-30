@@ -45,6 +45,7 @@ describe("MongoRoomRepository Test", async () => {
     const db = client.db(TEST_DB_NAME);
     const roomDoc = {
       _id: "aula-test-1-ce",
+      id: "aula-test-1-ce",
       name: "Aula Test 1",
       type: "CLASSROOM",
       campus: "Cesena",
