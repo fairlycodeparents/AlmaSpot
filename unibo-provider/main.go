@@ -10,6 +10,7 @@ import (
 	_ "time/tzdata"
 
 	"github.com/cartabinaria/unibo-go/ckan"
+	"github.com/cartabinaria/unibo-go/exams"
 	"github.com/cartabinaria/unibo-go/timetable"
 
 	"github.com/gin-gonic/gin"
@@ -37,6 +38,8 @@ var (
 	}
 
 	concurrencyLimit = make(chan struct{}, 20)
+
+	romeLocation, _ = time.LoadLocation("Europe/Rome")
 )
 
 type RoomResponse struct {
@@ -348,6 +351,33 @@ func updateCacheForInterval(campusFilter string, startDate time.Time, days int) 
 							mutex.Unlock()
 						}
 					}
+				}
+			}
+			if c.Tipologia != "" {
+				examList, err := exams.GetExams(c.Tipologia, strconv.Itoa(c.Codice))
+				if err == nil && len(examList) > 0 {
+					for _, ex := range examList {
+						if (ex.Date.Equal(startInterval) || ex.Date.After(startInterval)) && ex.Date.Before(endInterval) {
+
+							endTime := ex.Date.Add(5 * time.Hour)
+
+							dto := ActivityResponse{
+								Title:      "Esame " + ex.SubjectName,
+								Start:      ex.Date.Format(time.RFC3339),
+								End:        endTime.Format(time.RFC3339),
+								RoomCode:   ex.Location,
+								Professors: []string{ex.Teacher},
+								CourseId:   strconv.Itoa(c.Codice),
+							}
+
+							key := ex.Date.Format("2006-01-02")
+							mutex.Lock()
+							tempResults[key] = append(tempResults[key], dto)
+							mutex.Unlock()
+						}
+					}
+				} else if err != nil {
+					fmt.Printf("Error fetching exams course %d: %v\n", c.Codice, err)
 				}
 			}
 		}(course)
