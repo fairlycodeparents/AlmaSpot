@@ -3,7 +3,7 @@ module unibo-provider
 go 1.24.0
 
 require (
-	github.com/VaiTon/unibocalendar v0.4.3-0.20260121220035-2d2a97235d8a
+	github.com/VaiTon/unibocalendar v0.4.3-0.20260129162449-1b81211f2aa1
 	github.com/cartabinaria/unibo-go v0.5.1
 	github.com/gin-gonic/gin v1.11.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
