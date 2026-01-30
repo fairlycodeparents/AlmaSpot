@@ -24,7 +24,12 @@ const goToLogin = () => router.push({ name: "login" });
 <template>
   <div class="min-h-screen bg-brand flex flex-col relative justify-between">
     <div class="absolute top-6 right-6 z-10">
-      <button type="button" @click="goToLogin" class="pt-3" title="Admin">
+      <button
+        type="button"
+        @click="goToLogin"
+        class="pt-3 cursor-pointer ease-in-out transition-colors duration-200"
+        title="Admin"
+      >
         <img
           src="/icons/profile_login.png"
           alt="Profile Icon"

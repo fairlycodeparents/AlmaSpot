@@ -60,7 +60,7 @@ onUnmounted(() => document.removeEventListener("click", handleClickOutside));
     <button
       type="button"
       @click="toggle"
-      class="flex items-center justify-between w-full px-4 py-3 h-12 bg-ui-card text-base-text rounded-2xl cursor-pointer transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-brand hover:bg-gray-300"
+      class="flex items-center justify-between w-full px-4 py-3 h-12 bg-ui-card text-base-text rounded-2xl cursor-pointer transition-colors ease-in-out duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-brand hover:bg-gray-300"
       :class="{ 'ring-2 ring-brand': isOpen }"
       :aria-expanded="isOpen"
       :aria-label="props.label"
