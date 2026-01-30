@@ -44,7 +44,7 @@ const isMax = computed(() => props.modelValue >= props.max);
     <button
       @click="decrement"
       :disabled="isMin"
-      class="p-3 rounded-2xl cursor-pointer ease-in-out transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+      class="p-3 rounded-2xl cursor-pointer ease-in-out transition-colors duration-200 flex items-center justify-center bg-brand hover:bg-brand-dark text-brand-text"
       :class="isMin ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'"
       aria-label="Diminuisci durata"
     >
@@ -58,7 +58,7 @@ const isMax = computed(() => props.modelValue >= props.max);
     <button
       @click="increment"
       :disabled="isMax"
-      class="p-3 rounded-2xl cursor-pointer ease-in-out transition-colors duration-200 flex items-center justify-center bg-brand-dark text-brand-text"
+      class="p-3 rounded-2xl cursor-pointer ease-in-out transition-colors duration-200 flex items-center justify-center bg-brand hover:bg-brand-dark text-brand-text"
       :class="isMax ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'"
       aria-label="Aumenta durata"
     >
