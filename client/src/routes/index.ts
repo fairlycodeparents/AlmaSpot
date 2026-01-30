@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
-import LoginPage from "@/views/LoginPage.vue";
-import RegisterPage from "@/views/RegisterPage.vue";
+import LoginView from "@/views/LoginView.vue";
+import RegisterView from "@/views/RegisterView.vue";
 import AssistantView from "@/views/AssistantView.vue";
 import PlanView from "@/views/PlanView.vue";
-import AdminDashboardPage from "@/views/AdminDashboardPage.vue";
-import StudentHomePage from "@/views/StudentHomePage.vue";
-import ResultsPage from "@/views/ResultsPage.vue";
+import AdminDashboardView from "@/views/AdminDashboardView.vue";
+import HomeView from "@/views/HomeView.vue";
+import ResultsView from "@/views/ResultsView.vue";
 
 const requireAuth = (_to: any, _from: any, next: any) => {
   if (localStorage.getItem("authToken")) {
@@ -29,24 +29,24 @@ const routes = createRouter({
     {
       path: "/",
       name: "home",
-      component: StudentHomePage,
+      component: HomeView,
     },
     {
       path: "/results",
       name: "student-results",
-      component: ResultsPage,
+      component: ResultsView,
       props: { variant: "student" },
     },
     {
       path: "/login",
       name: "login",
-      component: LoginPage,
+      component: LoginView,
       beforeEnter: redirectIfAuthenticated,
     },
     {
       path: "/signup",
       name: "register",
-      component: RegisterPage,
+      component: RegisterView,
       beforeEnter: redirectIfAuthenticated,
     },
     {
@@ -62,20 +62,20 @@ const routes = createRouter({
     {
       path: "/admin",
       name: "admin-home",
-      component: AdminDashboardPage,
+      component: AdminDashboardView,
       beforeEnter: requireAuth,
     },
     {
       path: "/admin/results",
       name: "admin-results",
-      component: ResultsPage,
+      component: ResultsView,
       props: { variant: "admin" },
       beforeEnter: requireAuth,
     },
     {
       path: "/admin/activities",
       name: "admin-activities",
-      component: ResultsPage,
+      component: ResultsView,
       props: { variant: "delete" },
       beforeEnter: requireAuth,
     },
