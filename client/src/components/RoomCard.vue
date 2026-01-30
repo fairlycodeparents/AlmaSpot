@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Button from "@/components/Button.vue";
+
 type CardConfig = {
   title: string;
   subtitle: string;
@@ -20,18 +22,13 @@ defineProps<CardConfig>();
         {{ subtitle }}
       </p>
     </div>
-
-    <button
-      class="flex w-[20%] items-center justify-center rounded-2xl bg-brand p-5 text-white transition-colors duration-200 hover:bg-brand-dark disabled:cursor-not-allowed disabled:bg-base-grey"
-      @click="buttonAction"
-      :aria-label="buttonIcon.includes('delete') ? 'Delete item' : 'Go to item'"
-    >
-      <img
-        :src="buttonIcon"
-        alt="Action Icon"
-        class="h-6 w-6"
-        aria-hidden="true"
-      />
-    </button>
+    <Button
+      class="flex w-[20%] items-center justify-center"
+      :action="buttonAction"
+      :icon="{
+        src: buttonIcon,
+        alt: buttonIcon.includes('delete') ? 'Delete icon' : 'Right arrow icon',
+      }"
+    />
   </div>
 </template>
