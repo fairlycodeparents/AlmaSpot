@@ -72,7 +72,8 @@ const handleSubmit = () => {
 </script>
 
 <template>
-  <div
+  <form
+    @submit.prevent="handleSubmit"
     class="bg-base-background rounded-card p-6 w-full shadow-xl flex flex-col gap-5 justify-center"
     :class="minHeight"
   >
@@ -116,6 +117,7 @@ const handleSubmit = () => {
 
     <div class="flex justify-center w-full">
       <Button
+        type="submit"
         :label="isRegister ? 'Registrati' : 'Accedi'"
         :action="handleSubmit"
         :is-full-width="true"
@@ -135,5 +137,5 @@ const handleSubmit = () => {
         {{ isRegister ? "Accedi" : "Registrati" }}
       </a>
     </div>
-  </div>
+  </form>
 </template>
