@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { useTimeSlots } from "@/composables/useTimeSlots";
 import { useRouter } from "vue-router";
 import { useParameterStore } from "@/stores/parameter.store.ts";
@@ -35,7 +35,16 @@ const activityName = ref("");
 const campus = ref(parameterStore.selectedCampus || "");
 const duration = ref(parameterStore.selectedDuration || 2);
 const date = ref(parameterStore.selectedDate || "Oggi");
-const dateOptions = ["Oggi", "Domani"];
+const dateOptions = computed(() => {
+  const now = new Date();
+  const currentHour = now.getHours();
+
+  if (currentHour >= 18) {
+    return ["Domani"];
+  }
+
+  return ["Oggi", "Domani"];
+});
 const modeOptions = [
   { label: "Aggiungi", value: "aggiungi" },
   { label: "Rimuovi", value: "rimuovi" },
@@ -47,6 +56,11 @@ const { time, availableTimeOptions } = useTimeSlots(date, {
 
 onMounted(async () => {
   await parameterStore.fetchCampuses();
+
+  if (!dateOptions.value.includes(date.value)) {
+    date.value = "Domani";
+  }
+
   if (
     parameterStore.selectedTime &&
     availableTimeOptions.value.includes(parameterStore.selectedTime)
@@ -67,6 +81,15 @@ const handleSubmit = () => {
     errorMessage.value = "Compila tutti i campi per procedere.";
     return;
   }
+
+  const [startHour] = time.value.split(":").map(Number);
+  const endHour = startHour! + duration.value;
+
+  if (endHour > 19) {
+    errorMessage.value = `L'orario finale (${endHour}:00) supera la chiusura dell'ateneo (19:00). Riduci la durata o cambia orario.`;
+    return;
+  }
+
   emit("submit", {
     mode: mode.value,
     activity: activityName.value,
@@ -130,7 +153,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
       </div>
     </div>
 
-    <DurationSelector v-model="duration" :min="1" :max="12" class="w-full" />
+    <DurationSelector v-model="duration" :min="1" :max="10" class="w-full" />
 
     <div class="w-full h-10 flex items-center justify-center shrink-0 my-1">
       <div
