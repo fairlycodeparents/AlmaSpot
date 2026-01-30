@@ -28,7 +28,7 @@ const handleLogin = async (creds: LoginDto) => {
 
 const goToRegister = () => {
   authStore.error = null;
-  router.push({ name: "register" });
+  router.replace({ name: "register" });
 };
 </script>
 

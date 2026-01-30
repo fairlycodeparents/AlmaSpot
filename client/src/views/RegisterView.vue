@@ -14,7 +14,7 @@ onMounted(() => {
 
 const goBack = () => {
   authStore.error = null;
-  router.push("/login");
+  router.replace("/login");
 };
 
 const handleRegistration = async (formData: SignUpDto) => {
