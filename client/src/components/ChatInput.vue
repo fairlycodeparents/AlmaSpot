@@ -24,12 +24,10 @@ const handleSend = () => {
 <template>
   <div
     class="flex items-start w-full p-2 bg-ui-card rounded-4xl border border-transparent focus-within:ring-2 focus-within:ring-brand transition-all"
-    :class="{ 'opacity-50 pointer-events-none': disabled }"
   >
     <textarea
       v-model="message"
       :placeholder="placeholder"
-      :disabled="disabled"
       aria-label="Input testuale per inviare messaggi"
       rows="1"
       class="block w-full p-2 bg-transparent text-base-text resize-none overflow-y-auto border-none focus:outline-none focus:ring-0 max-h-[4lh] field-sizing-content"
