@@ -22,14 +22,9 @@ const goToLogin = () => router.push({ name: "login" });
 </script>
 
 <template>
-  <div class="min-h-screen bg-brand flex flex-col relative">
+  <div class="min-h-screen bg-brand flex flex-col relative justify-between">
     <div class="absolute top-6 right-6 z-10">
-      <button
-        type="button"
-        @click="goToLogin"
-        class="flex items-center gap-2 px-4 py-2"
-        title="Admin"
-      >
+      <button type="button" @click="goToLogin" class="pt-3" title="Admin">
         <img
           src="/icons/profile_login.png"
           alt="Profile Icon"
@@ -39,7 +34,7 @@ const goToLogin = () => router.push({ name: "login" });
     </div>
 
     <header
-      class="flex flex-col items-center text-center px-6 pt-10 pb-10 shrink-0"
+      class="flex flex-col items-center h-[35vh] justify-between text-center px-6 pt-10 pb-10 shrink-0"
     >
       <span
         class="text-brand-text text-center font-bold text-xl tracking-wide mb-8"
@@ -52,9 +47,9 @@ const goToLogin = () => router.push({ name: "login" });
       </h1>
     </header>
 
-    <main class="w-full items-center justify-center flex-1 flex flex-col z-20">
+    <main class="w-full items-center justify-center flex flex-col z-20">
       <ActionPanel
-        class="flex-1 justify-center w-full max-w-5xl"
+        class="justify-center w-full max-w-5xl p-10"
         :is-admin="false"
         @submit="handleSearch"
       />
