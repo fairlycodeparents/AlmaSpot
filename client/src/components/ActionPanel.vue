@@ -179,6 +179,7 @@ watch([mode, activityName, campus, date, time, duration], () => {
     />
 
     <MyButton
+      v-if="!isAdmin"
       label="Chiedi all'AI"
       variant="secondary"
       :action="goToAI"
