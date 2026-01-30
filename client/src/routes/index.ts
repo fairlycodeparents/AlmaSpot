@@ -17,7 +17,7 @@ const requireAuth = (_to: any, _from: any, next: any) => {
 
 const redirectIfAuthenticated = (_to: any, _from: any, next: any) => {
   if (localStorage.getItem("authToken")) {
-    next({ name: "admin-home", replace: true });
+    next({ name: "admin-home" });
   } else {
     next();
   }
