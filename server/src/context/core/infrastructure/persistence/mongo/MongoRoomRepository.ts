@@ -90,7 +90,7 @@ export class MongoRoomRepository implements RoomRepository {
 
   async deleteExternalActivity(activityId: string): Promise<void> {
     await this.activitiesCol.deleteOne({
-      id: activityId,
+      _id: activityId,
       type: ActivityType.EXTERNAL_ACTIVITY,
     });
   }
@@ -107,7 +107,7 @@ export class MongoRoomRepository implements RoomRepository {
     };
 
     await this.activitiesCol.updateOne(
-      { id: activityId.id },
+      { _id: activityId.id },
       { $set: doc },
       { upsert: true },
     );
@@ -128,8 +128,8 @@ export class MongoRoomRepository implements RoomRepository {
 
     if (activities.length > 0) {
       const docs = activities.map((act) => ({
+        _id: act.id,
         ...act,
-        id: act.id,
         period: { start: act.period.start, end: act.period.end },
       }));
       try {
@@ -142,14 +142,14 @@ export class MongoRoomRepository implements RoomRepository {
 
   async getLastSync(campus: Campus, date: Date): Promise<Date | null> {
     const id = this.getSyncKey(campus, date);
-    const doc = await this.metadataCol.findOne({ id: id });
+    const doc = await this.metadataCol.findOne({ _id: id });
     return doc ? new Date(doc["lastSync"]) : null;
   }
 
   async setLastSync(campus: Campus, date: Date): Promise<void> {
     const id = this.getSyncKey(campus, date);
     await this.metadataCol.updateOne(
-      { id: id },
+      { _id: id },
       { $set: { lastSync: new Date() } },
       { upsert: true },
     );

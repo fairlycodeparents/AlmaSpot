@@ -1,4 +1,8 @@
-import { ActivityType, ExternalActivity } from "../../domain/model/Activity";
+import {
+  ActivityType,
+  ExternalActivity,
+  InternalActivity,
+} from "../../domain/model/Activity";
 import { Campus } from "../../../../shared/domain/Location";
 import { AuthService } from "../../domain/ports/ServicePorts";
 import { EventBus } from "../../../../shared/domain/EventBus";
@@ -34,10 +38,17 @@ export class ActivityManagementService {
           campus,
           date,
         );
+        const uniqueActivitiesMap = new Map<string, InternalActivity>();
+        for (const act of activities) {
+          if (!uniqueActivitiesMap.has(act.id)) {
+            uniqueActivitiesMap.set(act.id, act);
+          }
+        }
+        const uniqueActivities = Array.from(uniqueActivitiesMap.values());
         await this.roomRepository.updateInternalActivities(
           campus,
           date,
-          activities,
+          uniqueActivities,
         );
         await this.roomRepository.setLastSync(campus, new Date());
       } catch (error) {
