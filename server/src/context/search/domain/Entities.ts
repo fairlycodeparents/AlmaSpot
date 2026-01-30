@@ -6,12 +6,12 @@ import { Plan } from "shared/domain/Plan";
 export class Suggestion {
   /**
    * Creates a new `Suggestion` instance.
-   * @param plan - The proposed {@link Plan}.
    * @param response - The AI's textual response to the user's request.
+   * @param plan - The proposed {@link Plan}.
    */
   constructor(
-    public readonly plan: RoomSlot[],
     public readonly response: string,
+    public readonly plan?: RoomSlot[],
   ) {}
 }
 

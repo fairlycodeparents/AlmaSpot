@@ -143,6 +143,7 @@ describe(
         availableSlots,
       );
       assert.ok(suggestion);
+      assert.ok(suggestion.plan);
       assert.strictEqual(suggestion.plan.length, 2);
 
       const [firstStep, secondStep] = suggestion.plan;

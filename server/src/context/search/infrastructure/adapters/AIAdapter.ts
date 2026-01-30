@@ -122,15 +122,12 @@ export class AIAdapter implements AI {
 
       const args = response.functionCalls?.[0]?.args;
       if (!args) {
-        return new Suggestion(
-          [],
-          response.text ? response.text : DEFAULT_RESPONSE,
-        );
+        return new Suggestion(response.text ? response.text : DEFAULT_RESPONSE);
       }
 
       const parsed = this.PLAN_SCHEMA.safeParse(args);
       if (!parsed.success) {
-        return new Suggestion([], DEFAULT_RESPONSE);
+        return new Suggestion(DEFAULT_RESPONSE);
       }
 
       const data = parsed.data;
@@ -165,10 +162,10 @@ export class AIAdapter implements AI {
         }
       }
 
-      return new Suggestion(selectedRooms, data.message_to_user);
+      return new Suggestion(data.message_to_user, selectedRooms);
     } catch (error) {
       console.error("Failed to generate content from AI model:", error);
-      return new Suggestion([], ERROR_MESSAGE);
+      return new Suggestion(ERROR_MESSAGE);
     }
   }
 
