@@ -1,3 +1,15 @@
+## 4.1.0 (2026-01-30)
+
+- fix(activity): update activity identifiers to use \_id for consistency ([8e6c12a](https://github.com/fairlycodeparents/AlmaSpot/commit/8e6c12a))
+- fix(core): updated test ([b8dfcd1](https://github.com/fairlycodeparents/AlmaSpot/commit/b8dfcd1))
+- fix(core): updated test mongo repository ([10e590f](https://github.com/fairlycodeparents/AlmaSpot/commit/10e590f))
+- fix(go): removed exams fetching (not working) ([c6d6c02](https://github.com/fairlycodeparents/AlmaSpot/commit/c6d6c02))
+- fix(test): update getActivityById to use \_id for activity lookup ([1a7b784](https://github.com/fairlycodeparents/AlmaSpot/commit/1a7b784))
+- feat(exams): integrate exam fetching logic into activity response ([e16d3a4](https://github.com/fairlycodeparents/AlmaSpot/commit/e16d3a4))
+- feat(go): implement activity caching in provider with daily updates ([45fb8df](https://github.com/fairlycodeparents/AlmaSpot/commit/45fb8df))
+- feat(sync): update sync thresholds to improve event synchronization logic ([28637ad](https://github.com/fairlycodeparents/AlmaSpot/commit/28637ad))
+- refactor(search): update Suggestion to use optional plan (#67) ([7304d0c](https://github.com/fairlycodeparents/AlmaSpot/commit/7304d0c)), closes [#67](https://github.com/fairlycodeparents/AlmaSpot/issues/67)
+
 ## <small>4.0.1 (2026-01-30)</small>
 
 - fix(deps): update github.com/vaiton/unibocalendar digest to 1b81211 (#64) ([4ec04f4](https://github.com/fairlycodeparents/AlmaSpot/commit/4ec04f4)), closes [#64](https://github.com/fairlycodeparents/AlmaSpot/issues/64)
