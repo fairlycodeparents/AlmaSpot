@@ -1,6 +1,5 @@
 {
-  "name": "AlmaSpot - Find your study spot",
-  "short_name": "AlmaSpot",
+  "name": "AlmaSpot",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
