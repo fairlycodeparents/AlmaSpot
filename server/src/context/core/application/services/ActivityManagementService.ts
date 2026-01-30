@@ -15,8 +15,7 @@ export class ActivityManagementService {
     private eventBus: EventBus,
   ) {}
 
-  private readonly FRESH_THRESHOLD = 45 * 60 * 1000;
-  private readonly EXPIRED_THRESHOLD = 24 * 60 * 60 * 1000;
+  private readonly STALE_THRESHOLD = 6 * 60 * 60 * 1000;
 
   async syncEvent(campus: Campus, date: Date): Promise<void> {
     const dateKey = date.toISOString().split("T")[0];
@@ -24,9 +23,10 @@ export class ActivityManagementService {
 
     const lastSyncDate = await this.roomRepository.getLastSync(campus, date);
     const now = Date.now();
-
     const lastSyncTime = lastSyncDate ? lastSyncDate.getTime() : 0;
-    const age = now - lastSyncTime;
+
+    const needsUpdate =
+      !lastSyncDate || now - lastSyncTime > this.STALE_THRESHOLD;
 
     const syncTask = async () => {
       try {
@@ -42,34 +42,28 @@ export class ActivityManagementService {
         await this.roomRepository.setLastSync(campus, new Date());
       } catch (error) {
         console.error(`[SYNC ERROR] Sync failed for ${campus}:`, error);
+        if (needsUpdate) throw error;
       } finally {
         this.activeFetches.delete(syncKey);
       }
     };
 
-    if (lastSyncDate && age < this.FRESH_THRESHOLD) {
-      return;
-    }
-
     if (this.activeFetches.has(syncKey)) {
       const existingPromise = this.activeFetches.get(syncKey)!;
-      if (!lastSyncDate || age > this.EXPIRED_THRESHOLD) {
+      if (needsUpdate) {
         await existingPromise;
       }
-      return;
-    }
-
-    if (!lastSyncDate || age > this.EXPIRED_THRESHOLD) {
-      const promise = syncTask();
-      this.activeFetches.set(syncKey, promise);
-      await promise;
       return;
     }
 
     const promise = syncTask();
     this.activeFetches.set(syncKey, promise);
 
-    return Promise.resolve();
+    if (needsUpdate) {
+      await promise;
+    } else {
+      promise.catch((err) => console.error("[BG Error]", err));
+    }
   }
 
   async createEvent(token: string, event: ExternalActivity): Promise<void> {
