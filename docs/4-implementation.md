@@ -76,3 +76,88 @@ self.addEventListener("notificationclick", function (event) {
   event.waitUntil(clients.openWindow(targetUrl));
 });
 ```
+
+### 4.2 Authentication System
+
+Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text persistence.
+
+#### Password Hashing
+
+To manage credential storage, the **Argon2id** algorithm was selected. As the winner of the _Password Hashing Competition_, it represents the current standard in security. Unlike older predecessors like BCrypt, **Argon2id** introduces **memory-hardness**, a complexity based on memory usage that mitigates the effectiveness of dedicated hardware, making _brute-force_ attacks computationally expensive.
+
+The configuration adopted in the project includes:
+
+- **Type**: `argon2id` (a hybrid of argon2i and argon2d).
+- **Memory Cost**: 2^16 KB (64 MB), making the use of massive parallel hardware for cracking expensive.
+- **Time Cost**: 3 iterations, to increase the computation time required for each login attempt.
+
+The following code shows the implementation of the authentication service:
+
+```typescript
+export class AuthService implements AuthInputPort {
+  private readonly HASH_CONFIG = {
+    type: argon2.argon2id,
+    memoryCost: 2 ** 16,
+    timeCost: 3,
+    parallelism: 1,
+  };
+
+  async login(email: string, password: string): Promise<string> {
+    const admin = await this.repo.findByEmail(email);
+    if (!admin) {
+      throw new Error("Invalid credentials");
+    }
+
+    const isPasswordValid = await argon2.verify(admin.hashedPassword, password);
+
+    if (!isPasswordValid) {
+      throw new Error("Invalid credentials");
+    }
+
+    // ... token generation
+  }
+}
+```
+
+#### Session Management
+
+Authentication is handled in a _stateless_ manner using **JSON Web Tokens (JWT)**. Upon successful login (but not during registration), the server generates a signed token containing the user ID, email, role (currently limited to _admin_ in this version), and an expiration time. This approach eliminates the need to maintain session state on the server side.
+
+##### Data Validation and Integrity
+
+To preserve domain integrity, a declarative validation mechanism was implemented using the **Zod** library. This allows for the definition of schemas that serve as strict contracts for input data.
+Consequently, malformed requests are intercepted and rejected immediately, preventing invalid data from entering the database.
+
+#### Registration Schema
+
+The `signUpSchema` registration schema implements both syntactic and domain-specific rules. Specifically, a constraint was imposed on application administrators regarding the email address, which must belong to the institutional domain—in this case, the University of Bologna.
+
+The implemented rules include:
+
+- **Email Format Validation**: Standard RFC 5322 verification.
+- **Domain Constraint**: The email must end with `@unibo.it`.
+- **Password Requirements**: Minimum length of 8 characters and maximum of 100, and must contain at least one number.
+
+The definition of the Zod schema used:
+
+```typescript
+import { z } from "zod";
+
+export const signUpSchema = z
+  .object({
+    email: z
+      .string({ message: "Email is required" })
+      .email("Invalid email format")
+      // University specific domain rule
+      .endsWith("@unibo.it", {
+        message: "Email must be a unibo.it address",
+      }),
+
+    password: z
+      .string({ message: "Password is required" })
+      .min(8, "Password must be at least 8 characters long")
+      .max(100, "Password too long")
+      .regex(/\d/, "Password must contain at least one number"),
+  })
+  .strict(); // Reject fields not provided for in the schema
+```
