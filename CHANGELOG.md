@@ -1,3 +1,8 @@
+## <small>4.1.1 (2026-01-31)</small>
+
+- chore(core-deps): update dependency @google/genai to v1.39.0 (#71) ([24d022c](https://github.com/fairlycodeparents/AlmaSpot/commit/24d022c)), closes [#71](https://github.com/fairlycodeparents/AlmaSpot/issues/71)
+- chore(deps): update dependency autoprefixer to v10.4.24 (#70) ([f6b3af3](https://github.com/fairlycodeparents/AlmaSpot/commit/f6b3af3)), closes [#70](https://github.com/fairlycodeparents/AlmaSpot/issues/70)
+
 ## 4.1.0 (2026-01-30)
 
 - fix(activity): update activity identifiers to use \_id for consistency ([8e6c12a](https://github.com/fairlycodeparents/AlmaSpot/commit/8e6c12a))
