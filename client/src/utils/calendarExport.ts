@@ -11,8 +11,8 @@ export function downloadCalendarFile(slots: Slots) {
   ];
 
   slots.forEach((slot) => {
-    const start = slot.from.replace(/[-:]/g, "").split(".")[0];
-    const end = slot.to.replace(/[-:]/g, "").split(".")[0];
+    const start = slot.from.replace(/[-:]/g, "").split(".")[0] + "Z";
+    const end = slot.to.replace(/[-:]/g, "").split(".")[0] + "Z";
 
     const event = [
       "BEGIN:VEVENT",
