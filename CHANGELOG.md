@@ -1,3 +1,7 @@
+## <small>4.2.2 (2026-01-31)</small>
+
+- fix(datetime): adjust date handling for plan activation (#74) ([7bdbe4f](https://github.com/fairlycodeparents/AlmaSpot/commit/7bdbe4f)), closes [#74](https://github.com/fairlycodeparents/AlmaSpot/issues/74)
+
 ## <small>4.2.1 (2026-01-31)</small>
 
 - refactor: remove console log ([c320176](https://github.com/fairlycodeparents/AlmaSpot/commit/c320176))
