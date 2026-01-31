@@ -1,3 +1,8 @@
+## 4.2.0 (2026-01-31)
+
+- feat(pwa): add manifest file and service worker registration for PWA support ([f19d889](https://github.com/fairlycodeparents/AlmaSpot/commit/f19d889))
+- feat(pwa): implement standalone back navigation and update app title ([78ea8f1](https://github.com/fairlycodeparents/AlmaSpot/commit/78ea8f1))
+
 ## <small>4.1.1 (2026-01-31)</small>
 
 - chore(core-deps): update dependency @google/genai to v1.39.0 (#71) ([24d022c](https://github.com/fairlycodeparents/AlmaSpot/commit/24d022c)), closes [#71](https://github.com/fairlycodeparents/AlmaSpot/issues/71)
