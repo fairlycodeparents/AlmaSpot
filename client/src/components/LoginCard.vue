@@ -119,7 +119,7 @@ const handleSubmit = () => {
       <Button
         type="submit"
         :label="isRegister ? 'Registrati' : 'Accedi'"
-        :action="handleSubmit"
+        :action="() => {}"
         :is-full-width="true"
         :disabled="false"
       />
