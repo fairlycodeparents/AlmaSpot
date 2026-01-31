@@ -49,9 +49,7 @@ export const useAuthStore = defineStore("auth", () => {
         const passwordErr = err.errors.password?._errors?.[0];
 
         rawMsg = emailErr || passwordErr || "Invalid data provided";
-        console.log("RAW DENRTO IF: ", rawMsg);
       } else {
-        console.log("RAW FUORI IF: ", rawMsg);
         rawMsg = err.error || err.message || "An error occurred";
       }
       // @ts-ignore
