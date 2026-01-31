@@ -1,3 +1,27 @@
+## <small>4.2.1 (2026-01-31)</small>
+
+- refactor: remove console log ([c320176](https://github.com/fairlycodeparents/AlmaSpot/commit/c320176))
+- refactor(ui): rename pages to use View suffix and update router imports ([78d89fa](https://github.com/fairlycodeparents/AlmaSpot/commit/78d89fa))
+- refactor(ui): replace native button with Button component in RoomCard ([1917534](https://github.com/fairlycodeparents/AlmaSpot/commit/1917534))
+- refactor(ui): standardize border-radius using theme variables ([c7d6f2d](https://github.com/fairlycodeparents/AlmaSpot/commit/c7d6f2d))
+- refactor(ui): standardize width and color using theme variables ([1ad1b14](https://github.com/fairlycodeparents/AlmaSpot/commit/1ad1b14))
+- refactor(ui): unify AI request button with Button component and update styling ([5ab8ae9](https://github.com/fairlycodeparents/AlmaSpot/commit/5ab8ae9))
+- fix: resolve navigation flow and token handling ([75d6dbf](https://github.com/fairlycodeparents/AlmaSpot/commit/75d6dbf))
+- fix(auth): remove replace navigation when redirecting authenticated users ([b56411f](https://github.com/fairlycodeparents/AlmaSpot/commit/b56411f))
+- fix(auth): use router.replace for navigation to prevent back navigation to auth pages ([56ed427](https://github.com/fairlycodeparents/AlmaSpot/commit/56ed427))
+- fix(auth): wrap LoginCard in form element and handle submit via form event ([b8e2e48](https://github.com/fairlycodeparents/AlmaSpot/commit/b8e2e48))
+- fix(ui): center ResultsPage content and constrain max width ([44750fc](https://github.com/fairlycodeparents/AlmaSpot/commit/44750fc))
+- fix(ui): disable button action in LoginCard ([2ceb8e4](https://github.com/fairlycodeparents/AlmaSpot/commit/2ceb8e4))
+- fix(ui): enhance button interactions ([387a08f](https://github.com/fairlycodeparents/AlmaSpot/commit/387a08f))
+- fix(ui): hide AI button in admin page ([471e706](https://github.com/fairlycodeparents/AlmaSpot/commit/471e706))
+- fix(ui): improve DurationSelector button hover feedback ([4fa582a](https://github.com/fairlycodeparents/AlmaSpot/commit/4fa582a))
+- fix(ui): improve HomeView layout spacing and vertical alignment ([bf9dadd](https://github.com/fairlycodeparents/AlmaSpot/commit/bf9dadd))
+- fix(ui): improve layout and styling in PlanView and ScheduleCard components ([05258b6](https://github.com/fairlycodeparents/AlmaSpot/commit/05258b6))
+- fix(ui): prevent vertical scroll on admin dashboard ([0e9f129](https://github.com/fairlycodeparents/AlmaSpot/commit/0e9f129))
+- fix(ui): remove disabled state handling from textarea ([3d5d57b](https://github.com/fairlycodeparents/AlmaSpot/commit/3d5d57b))
+- fix(ui): resolve navigation flow ([1b49896](https://github.com/fairlycodeparents/AlmaSpot/commit/1b49896))
+- fix(ui): update date options and duration limits in ActionPanel ([50d19f6](https://github.com/fairlycodeparents/AlmaSpot/commit/50d19f6))
+
 ## 4.2.0 (2026-01-31)
 
 - feat(pwa): add manifest file and service worker registration for PWA support ([f19d889](https://github.com/fairlycodeparents/AlmaSpot/commit/f19d889))
