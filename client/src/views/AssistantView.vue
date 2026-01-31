@@ -48,11 +48,35 @@ const handleSendMessage = async (text: string) => {
     };
 
     if (data.plan && data.plan.length > 0) {
+      const plan = data.plan;
       botResponse.callToAction = {
         label: "Visualizza il piano",
         action: async () => {
           try {
-            await activatePlan(router, data.plan as AssistantSlot[]);
+            const sanitizedPlan = plan.map((slot: any) => {
+              const aiDateFrom = new Date(slot.from);
+              const aiDateTo = new Date(slot.to);
+              const localFrom = new Date(
+                aiDateFrom.getUTCFullYear(),
+                aiDateFrom.getUTCMonth(),
+                aiDateFrom.getUTCDate(),
+                aiDateFrom.getUTCHours(),
+                aiDateFrom.getUTCMinutes(),
+              );
+              const localTo = new Date(
+                aiDateTo.getUTCFullYear(),
+                aiDateTo.getUTCMonth(),
+                aiDateTo.getUTCDate(),
+                aiDateTo.getUTCHours(),
+                aiDateTo.getUTCMinutes(),
+              );
+              return {
+                ...slot,
+                from: localFrom.toISOString(),
+                to: localTo.toISOString(),
+              };
+            });
+            await activatePlan(router, sanitizedPlan as AssistantSlot[]);
             await router.push({ name: "plan" });
           } catch (error) {
             console.error("Errore durante il cambio piano:", error);

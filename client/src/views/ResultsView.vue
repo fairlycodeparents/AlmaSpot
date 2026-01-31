@@ -115,7 +115,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
     const month = targetDate.getMonth();
     const day = targetDate.getDate();
     const [hours, minutes] = start.split(":").map(Number);
-    const startDate = new Date(Date.UTC(year, month, day, hours, minutes));
+    const startDate = new Date(year, month, day, hours, minutes);
     const endDate = new Date(startDate.getTime() + Number(duration) * 3600000);
     await activatePlan(router, [
       {
