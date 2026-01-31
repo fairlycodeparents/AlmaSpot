@@ -69,7 +69,7 @@ rather than versioning tasks.
 ### 5.3.1 Husky
 
 We chose Husky to efficiently manage Git hooks across the development team. This allows us to automatically trigger
-scripts at specific points in the Git workflow. It acts as a first line of defence, preventing low-quality code or
+scripts at specific points in the Git workflow. It acts as a first line of defense, preventing low-quality code or
 incorrect commit messages from ever entering the repository.
 
 In our configuration, we utilize two primary hooks:
@@ -86,6 +86,76 @@ In our configuration, we utilize two primary hooks:
 This setup ensures that quality assurance is not an additional step, but an integral, automated part of the daily
 contribution workflow.
 
+### 5.3.2 Prettier
+
+As introduced in the previous section, we use Prettier as our code formatter. Prettier is an opinionated code formatter
+that enforces a consistent style by parsing code and re-printing it with its own rules. This eliminates debates over
+styling, allowing the team to focus on the substance of the changes rather than their appearance.
+
+By integrating Prettier into our development workflow, we ensure that all code adheres to a uniform style, which
+improves readability and maintainability. This is particularly important in a collaborative environment where multiple
+developers contribute to the same codebase.
+
+### 5.3.3 Code coverage
+
+To ensure the reliability and robustness of our codebase, we have integrated code coverage analysis into our development
+workflow. For the server package we utilize **c8**, a code coverage tool for Node.js projects, which leverages Node.js'
+built-in coverage capabilities, providing compatibility with Istanbul's reporting formats. On the other hand, for the
+client package, we use **storybook**'s built-in coverage tool.
+
+These tools help us identify untested parts of our codebase, allowing us to write additional tests to cover those areas.
+By maintaining high code coverage, we can catch potential bugs early in the development process, leading to a more
+stable and reliable application.
+
 ## 5.4 Continuous Integration and Delivery
 
-TODO: In depth explanation (when we write the scripts) on pipelines and GHA.
+To automate our build, test, and deployment processes, we have implemented a Continuous Integration and Delivery (CI/CD)
+pipeline using GitHub Actions. This setup allows us to automatically validate and deploy our code changes, ensuring that
+new features and fixes are delivered to users quickly and reliably.
+
+### 5.4.1 PR Checks
+
+Following the [GitHub Flow](#51-dvcs-workflow) strategy, new code is integrated into the main branch through Pull
+Requests (PRs). For this reason, we've configured our repository to block any direct pushes to the `main` branch,
+ensuring that all changes undergo a review process, to maintain production stability.
+
+When a PR is opened, a series of automated checks are triggered via GitHub Actions. For both the server and client
+packages, the following steps are executed:
+
+- **Unit tests**: All unit tests are executed to verify that new changes do not introduce regressions.
+- **Build verification**: The application is built to confirm that it compiles successfully without errors.
+
+Moreover, for the repository as a whole, we run code Prettier checks, and we validate commit messages against the
+Conventional Commits standard.
+
+### 5.4.2 Automated Releases
+
+To complete the continuous delivery pipeline, we implemented an automated release workflow that triggers on every push
+to the main branch. This workflow, orchestrated by GitHub Actions, manages the entire lifecycle of a release without
+manual intervention.
+
+The pipeline performs the following steps in sequence:
+
+- **Documentation Deployment**: First, the workflow deploys the updated project documentation to GitHub Pages, ensuring
+  that the documentation is always synchronized with the latest codebase.
+- **Semantic Release**: It executes Semantic Release to analyze the commit history since the last version. Based on the
+  Conventional Commits, it automatically calculates the next version number, generates a changelog, and creates a GitHub
+  Release.
+- **Conditional Docker Build**: A crucial step in our pipeline is the verification of the release status. The docker
+  release job is conditional; it executes only if a new release has actually been published by the previous step. This
+  prevents the creation of redundant Docker images for commits that do not trigger a version upgrade (e.g.,
+  documentation changes or chores).
+- **Artifact Publication**: If a release is triggered, the pipeline builds the Docker images for the server, client, and
+  unibo-provider contexts. These images are tagged with both the specific semantic version (e.g., `1.2.0`) and the
+  `latest` tag, and are finally pushed to the GitHub container registry.
+
+This automated approach ensures that every production artifact is traceable, correctly versioned, and immediately
+available for deployment.
+
+### 5.4.3 Renovate Bot
+
+Renovate is a tool that automates the process of keeping dependencies up to date. It continuously scans the project's
+dependency files and creates pull requests to update them whenever new versions are released. This helps ensure that the
+project benefits from the latest features, bug fixes, and security patches without requiring manual intervention from
+developers to track and update dependencies. By automating this process, Renovate reduces the risk of using outdated
+libraries and helps maintain a secure and efficient codebase.
