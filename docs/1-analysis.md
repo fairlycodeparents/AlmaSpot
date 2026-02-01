@@ -41,7 +41,7 @@ The current ecosystem raises several critical issues:
 1. **Data fragmentation**: schedule information is scattered across course and/or teacher web
    portals, making it difficult to gather information about room occupancy.
 2. **Lack of real-time updates**: official schedules do not account for last-minute or
-   unofficial activities, such as seminars or _S.P.R.I.Te_. events.
+   unofficial activities, such as seminars or other events.
 3. **Inefficient resource usage**: students who search for a spot at random are often forced to
    leave a room because they were unaware that a lecture was about to start.
 
@@ -81,11 +81,9 @@ The system recognises two distinct roles:
 3. As a user, I want to be able to choose the type of room (such as a lab or a class).
 4. As a student, I want to be informed of any unexpected changes regarding the rooms I am
    interested in, such as a room no longer being available.
-5. As a student, I'd like to be reminded when I have to leave a room because a lesson is about
-   to start.
-6. As a student, I want to be able to choose the best solution for my needs.
-7. As an admin, I want to be able to add a new activity to an available room.
-8. As an admin, I want to be able to remove an activity.
+5. As a student, I want to be able to choose the best solution for my needs.
+6. As an admin, I want to be able to add a new activity to an available room.
+7. As an admin, I want to be able to remove an activity.
 
 ![Use case diagram](figures/use-case.png)
 
@@ -117,11 +115,10 @@ language shared between developers and domain experts.
 | **Activity**     | It occupies a _Period_ in a specific _Room_. Can be: <br/> 1. **Internal Activity**: a planned academic activity imported from the official schedule, such as lectures and exams. <br/> 2. **External Activity** (or _Unofficial Activity_): a non-academic activity, such as seminars. | Core, Notification         |
 | **Slot**         | A _Period_ available for use in a _Room_.                                                                                                                                                                                                                                               | Search, Notification       |
 | **Plan**         | A user-defined selection of one or more *Slot*s.                                                                                                                                                                                                                                        | Search, Notification       |
-| **Notification** | A proactive alert sent to a _Student_ with an active interest in a _Room_. It is triggered by the imminent expiration of an _Slot_ (warning to vacate) or by an unexpected _Activity_ that invalidates the student's current _Plan_.                                                    | Notification               |
-| **Alert**        | The message delivered via push (e.g., "Room A1 is closing in 10 mins") generated from a _Notification_.                                                                                                                                                                                 | Notification               |
+| **Notification** | A proactive message sent to a _Student_ with an active interest in a _Room_. It is triggered by an unexpected _Activity_ that invalidates the student's current _Plan_.                                                                                                                 | Notification               |
 | **Subscription** | The link between a _Student_ and a specific _Plan_ that authorizes the delivery of _Notifications_.                                                                                                                                                                                     | Notification               |
 | **Campus**       | A macro geographical area of the university (e.g., Cesena, Bologna). It is made up of multiple _Site_. May also be called _City_ or _Location_.                                                                                                                                         | Core                       |
-| **Site**         | A specific building within a _Campus_, like "Engineering" or "Psychology", composed by *Room*s.                                                                                                                                                                                         | Core                       |
+| **Site**         | A specific building within a _Campus_, identified by its address.                                                                                                                                                                                                                       | Core                       |
 | **Schedule**     | The aggregate collection of all _Internal Activities_ imported and normalized from university sources. It represents the official timeline before any _Exception_ is applied.                                                                                                           | Core                       |
 
 ### 1.3.2. Bounded context
