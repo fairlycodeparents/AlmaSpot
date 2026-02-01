@@ -7,6 +7,9 @@
 3. [Architecture](3-architecture.md)
 4. [Implementation](4-implementation.md)
    - 4.1 [Notification System](#41-notification-system)
+   - 4.3 [AI Assistant Integration](#43-ai-assistant-integration)
+     - 4.3.1 [Intent Extraction and RAG-inspired Workflow](#431-intent-extraction-and-rag-inspired-workflow)
+     - 4.3.2 [Structured Output via Function Calling](#432-structured-output-via-function-calling)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
 
@@ -172,4 +175,98 @@ export const signUpSchema = z
       .regex(/\d/, "Password must contain at least one number"),
   })
   .strict(); // Reject fields not provided for in the schema
+```
+
+### 4.3 AI Assistant Integration
+
+The "Assistant" feature provides a conversational interface that enables students to locate study rooms by using natural
+language. It is implemented using Google Gemini (specifically the `gemini-2.5-flash(-lite)` model) via an Adapter
+Pattern.
+This architectural choice decouples the domain logic from the specific LLM provider, ensuring maintainability and
+allowing for future model substitutions without affecting the core business rules.
+
+#### 4.3.1 Intent Extraction and RAG-inspired Workflow
+
+Unlike standard chatbots, the system cannot rely solely on the model's pre-trained knowledge because it requires
+real-time access to classroom availability. To address this issue, the `SearchService` implements a synchronous pipeline
+inspired by the [Retrieval-Augmented Generation (RAG)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation)
+pattern.
+
+1. **Parameter Extraction**: The service first invokes the AI in "extractor" mode. The model then extracts structured
+   search parameters (campus, start time, and end time) from the unstructured user input by analyzing the conversation
+   history (`ChatMessageDTO[]`). If some parameters are missing, the model returns a message asking the user for
+   clarification.
+2. **Availability Check**: The extracted parameters are used to query the internal `RoomAvailability` port. This step
+   retrieves the actual list of available slots from the database or external providers.
+3. **Suggestion Generation**: The system invokes the AI a second time in "suggester" mode and injects the retrieved room
+   data into the system context. The model then selects the best options and generates a natural language response and a
+   structured plan.
+
+#### 4.3.2 Structured Output via Function Calling
+
+To ensure reliable interaction between the LLM and the application front end, we
+use [function calling](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting). Rather than parsing
+unpredictable raw text responses, the system forces the model to communicate via strict JSON schemas defined with
+[Zod](https://zod.dev), used to validate types at runtime.
+
+The `AIAdapter` configures the model to use only specific "tools" (such as `define_plan` or `availability_query`). This
+ensures that the output always adheres to the expected format, assuring type safety and consistency, and enabling
+seamless integration with other components. An example of these schemas is shown below:
+
+```typescript
+private readonly PLAN_DECLARATION = {
+  name: "define_plan",
+  description: "Proposed room allocation plan.",
+  parameters: {
+    type: Type.OBJECT,
+    properties: {
+      slots: {
+        type: Type.ARRAY,
+        items: {
+          type: Type.OBJECT,
+          properties: {
+            roomId: {
+              type: Type.STRING,
+              description: "Identifier of the room",
+            },
+            start: {
+              type: Type.STRING,
+              description: "ISO 8601 start datetime",
+            },
+            end: {type: Type.STRING, description: "ISO 8601 end datetime"},
+          },
+          required: ["roomId", "start", "end"],
+        },
+      },
+      message_to_user: {
+        type: Type.STRING,
+        description: "Answer for the user: explain the plan briefly",
+      },
+    },
+    required: ["slots", "message_to_user"],
+  },
+};
+```
+
+The following code snippet shows how the adapter enforces this structured communication.
+
+```typescript
+// AIAdapter.ts implementation detail
+const response = await this.ai.models.generateContent({
+  model: this.MODEL_NAME,
+  contents: this.buildContents(history),
+  config: {
+    // We define the specific tool structure the model must use
+    tools: [{ functionDeclarations: [this.PLAN_DECLARATION] }],
+    // We inject the real-time data into the prompt context and configure behavior (text instructions).
+    systemInstruction: this.buildSystemInstruction("SUGGESTER", availableRooms),
+    toolConfig: {
+      functionCallingConfig: {
+        // Forces the model to generate a structured plan
+        mode: FunctionCallingConfigMode.ANY,
+        allowedFunctionNames: ["define_plan"],
+      },
+    },
+  },
+});
 ```
