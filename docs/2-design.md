@@ -56,27 +56,27 @@ asynchronously without coupling the logic.
 
 ![Search Context diagram](figures/search-context.png)
 
-This context acts as the intelligent interface between users' needs and the system's data.
-The logic is encapsulated within the **Search Service**, a Domain Service that manages the
-resolution strategy. Upon receiving a query (as a list of messages), the service first interacts with the
-**AI Service** to extract structured parameters, such as the desired time slot and campus location.
+The search context focuses on interpreting and fulfilling students' requests for available study spaces.
+Its logic is mainly encapsulated within the **Search Service**, which manages the resolution strategy: upon receiving a
+query (as a list of messages), the service first interacts with the **AI Service** to understand the user's input and
+extract structured parameters, such as the desired time slot and campus location.
 
 Using these parameters, the service queries the **Room Search Service** in the [Core Context](#21-core-context)
-to identify currently available **Slots** that match the user's criteria. If a perfect match is found,
-it is immediately returned as a **Solution** value object, which includes both a natural-language
-explanation and the structured data.
+to obtain currently available **Slots** that match the user's criteria. The output is a collection of free slots during
+the requested period. The search context interacts with external contexts mainly through a **Suggestion** value object,
+which contains a natural-language explanation and a structured **Plan** (a collection of one or more slots), offering
+the student a compound itinerary.
 
-If no direct match exists, the service escalates the request to the **AI Service** again.
-This time it provides both the original user prompt and the list of currently available slots.
-The AI processes this information to generate a **Suggestion** value object, which contains
-a natural-language explanation and a structured **Plan** (a collection of one or more slots),
-offering the student a compound itinerary.
+With this information, the service evaluates whether any slots are available. It queries the **AI Service** again,
+providing both the original user prompt and the list of currently available slots. The AI processes this information to
+generate a **Suggestion**, offering a possible solution to the student. If the student doesn't like the suggestion, they
+can refine their search by sending additional messages.
 
 To facilitate integration, this context relies on a _shared kernel_ strategy. The fundamental concept of
 **Period** is shared globally with the core and notification contexts to ensure temporal consistency. Furthermore,
 the **Plan** and **Slot** value objects are shared specifically with
 the [Notification Context](#23-notification-context).
-This decision allows the **Solution** generated here to be directly persisted as a
+This decision allows the **Suggestion** generated here to be directly persisted as a
 **Subscription** in the Notification module without requiring complex data mapping or translation.
 
 ### 2.1.3. Notification context
