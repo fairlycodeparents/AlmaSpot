@@ -74,7 +74,8 @@ offering the student a compound itinerary.
 
 To facilitate integration, this context relies on a _shared kernel_ strategy. The fundamental concept of
 **Period** is shared globally with the core and notification contexts to ensure temporal consistency. Furthermore,
-the **Plan** and **Slot** value objects are shared specifically with the [Notification Context](#23-notification-context).
+the **Plan** and **Slot** value objects are shared specifically with
+the [Notification Context](#23-notification-context).
 This decision allows the **Solution** generated here to be directly persisted as a
 **Subscription** in the Notification module without requiring complex data mapping or translation.
 
@@ -113,4 +114,34 @@ external activities, via the `verifyToken` method.
 
 ## 2.2. Mockups
 
+We have created a series of mockups for the AlmaSpot user interface design that illustrate the key screens and user
+interactions. These mockups aim to provide students seeking available study spaces with a clear and intuitive
+experience. Our mobile-first design ensures accessibility and ease of use on smartphones and tablets.
+
+The mockups include the following screens, from left to right and top to bottom:
+
+- Admin Login: a login page for administrators to access the management dashboard.
+- Home Page: the main landing page where students can start searching for available rooms.
+- Admin Dashboard: a control panel where administrators can manage room availability and activities. This is shown in
+  two tabs: "Remove" and "Add." The "Remove" tab allows administrators to remove existing activities, and the "Add" tab
+  allows them to add new ones.
+- Results Page: this is a dynamic page that displays search results.
+- Assistant Page: this is a chat-based interface where students can interact with the AI assistant to refine their
+  search, receive suggestions, and, if no direct matches are found, receive alternative plans.
+- Admin Results Pages: two pages showing the results of administrative actions: one page displays the list of currently
+  active activities, and the other page is used to choose rooms when adding a new activity.
+- Active Plan Page: two examples are provided, showing a simple plan with one slot and a compound plan with multiple
+  slots. Details such as notifications in case of a conflict are included.
+- Filter Panel: this is a pop-up panel that allows students and administrators to apply filters to their search, such as
+  room site and room type.
+
 ![Mockups](figures/mock-ups.png)
+
+These mockups show a consistent design language that emphasizes usability and clarity. When designing the interfaces, we
+first defined a set of reusable components, such as buttons, input fields, and cards for displaying room information.
+This approach ensures visual consistency and streamlines the development process by ensuring that common elements behave
+uniformly throughout the application.
+
+The resulting collection of UI components extracted from the mockups is shown below:
+
+![UI Components](figures/mockups-components.png)
