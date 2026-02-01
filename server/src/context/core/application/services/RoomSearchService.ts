@@ -25,8 +25,8 @@ export class RoomSearchService {
     return allRoomsAvailability.filter((roomAvailability) =>
       roomAvailability.availableSlots.some(
         (slot) =>
-          slot.period.start.getTime() === searchPeriod.start.getTime() &&
-          slot.period.end.getTime() === searchPeriod.end.getTime(),
+          slot.period.start.getTime() <= searchPeriod.start.getTime() &&
+          slot.period.end.getTime() >= searchPeriod.end.getTime(),
       ),
     );
   }
