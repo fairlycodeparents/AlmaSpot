@@ -53,7 +53,8 @@ self.addEventListener("push", function (event) {
 });
 ```
 
-Subsequently, it opens the application by appending parameters to the URL, allowing the frontend to immediately display the details of the issue upon startup.
+Subsequently, it opens the application by appending parameters to the URL, allowing the frontend to immediately display
+the details of the issue upon startup.
 
 ```javascript
 self.addEventListener("notificationclick", function (event) {
@@ -79,11 +80,16 @@ self.addEventListener("notificationclick", function (event) {
 
 ### 4.2 Authentication System
 
-Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text persistence.
+Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing
+sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text
+persistence.
 
 #### Password Hashing
 
-To manage credential storage, the **Argon2id** algorithm was selected. As the winner of the _Password Hashing Competition_, it represents the current standard in security. Unlike older predecessors like BCrypt, **Argon2id** introduces **memory-hardness**, a complexity based on memory usage that mitigates the effectiveness of dedicated hardware, making _brute-force_ attacks computationally expensive.
+To manage credential storage, the **Argon2id** algorithm was selected. As the winner of the _Password Hashing
+Competition_, it represents the current standard in security. Unlike older predecessors like BCrypt, **Argon2id**
+introduces **memory-hardness**, a complexity based on memory usage that mitigates the effectiveness of dedicated
+hardware, making _brute-force_ attacks computationally expensive.
 
 The configuration adopted in the project includes:
 
@@ -121,16 +127,22 @@ export class AuthService implements AuthInputPort {
 
 #### Session Management
 
-Authentication is handled in a _stateless_ manner using **JSON Web Tokens (JWT)**. Upon successful login (but not during registration), the server generates a signed token containing the user ID, email, role (currently limited to _admin_ in this version), and an expiration time. This approach eliminates the need to maintain session state on the server side.
+Authentication is handled in a _stateless_ manner using **JSON Web Tokens (JWT)**. Upon successful login (but not during
+registration), the server generates a signed token containing the user ID, email, role (currently limited to _admin_ in
+this version), and an expiration time. This approach eliminates the need to maintain session state on the server side.
 
 ##### Data Validation and Integrity
 
-To preserve domain integrity, a declarative validation mechanism was implemented using the **Zod** library. This allows for the definition of schemas that serve as strict contracts for input data.
-Consequently, malformed requests are intercepted and rejected immediately, preventing invalid data from entering the database.
+To preserve domain integrity, a declarative validation mechanism was implemented using the **Zod** library. This allows
+for the definition of schemas that serve as strict contracts for input data.
+Consequently, malformed requests are intercepted and rejected immediately, preventing invalid data from entering the
+database.
 
 #### Registration Schema
 
-The `signUpSchema` registration schema implements both syntactic and domain-specific rules. Specifically, a constraint was imposed on application administrators regarding the email address, which must belong to the institutional domain—in this case, the University of Bologna.
+The `signUpSchema` registration schema implements both syntactic and domain-specific rules. Specifically, a constraint
+was imposed on application administrators regarding the email address, which must belong to the institutional domain—in
+this case, the University of Bologna.
 
 The implemented rules include:
 
