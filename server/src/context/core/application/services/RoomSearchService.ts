@@ -18,22 +18,15 @@ export class RoomSearchService {
     campus: Campus,
     searchPeriod: Period,
   ): Promise<RoomAvailabilityDTO[]> {
-    await this.activityManagementService.syncEvent(campus, searchPeriod.date);
-    const allRooms = await this.roomRepository.getRoomsByCampus(campus);
-    const allActivities =
-      await this.roomRepository.getActivitiesByCampusAndDate(
-        campus,
-        searchPeriod.date,
-      );
-    return this.getRoomAvailability(
-      allRooms,
-      allActivities,
+    const allRoomsAvailability = await this.syncAndGetAvailability(
+      campus,
       searchPeriod,
-    ).filter((roomAvailability) =>
+    );
+    return allRoomsAvailability.filter((roomAvailability) =>
       roomAvailability.availableSlots.some(
         (slot) =>
-          slot.period.start <= searchPeriod.start &&
-          slot.period.end >= searchPeriod.end,
+          slot.period.start.getTime() === searchPeriod.start.getTime() &&
+          slot.period.end.getTime() === searchPeriod.end.getTime(),
       ),
     );
   }
@@ -42,35 +35,45 @@ export class RoomSearchService {
     campus: Campus,
     searchPeriod: Period,
   ): Promise<RoomAvailabilityDTO[]> {
-    await this.activityManagementService.syncEvent(campus, searchPeriod.date);
-    const allRooms = await this.roomRepository.getRoomsByCampus(campus);
-    const allActivities =
-      await this.roomRepository.getActivitiesByCampusAndDate(
-        campus,
-        searchPeriod.date,
-      );
-    return this.getRoomAvailability(allRooms, allActivities, searchPeriod);
+    return this.syncAndGetAvailability(campus, searchPeriod);
   }
 
   async findSlotsBySite(
     site: Site,
     searchPeriod: Period,
   ): Promise<RoomAvailabilityDTO[]> {
-    await this.activityManagementService.syncEvent(
-      site.campus,
-      searchPeriod.date,
+    return this.syncAndGetAvailability(site.campus, searchPeriod).then(
+      (allRoomsAvailability) => {
+        return allRoomsAvailability.filter(
+          (roomAvailability) => roomAvailability.room.site === site,
+        );
+      },
     );
-    const allRooms = await this.roomRepository.getRoomsByCampus(site.campus);
+  }
+
+  async getActivitiesInDateAndCampus(
+    campus: Campus,
+    date: Date,
+  ): Promise<Activity[]> {
+    await this.activityManagementService.syncEvent(campus, date);
+    return this.roomRepository.getActivitiesByCampusAndDate(campus, date);
+  }
+
+  private async syncAndGetAvailability(
+    campus: Campus,
+    period: Period,
+  ): Promise<RoomAvailabilityDTO[]> {
+    if (this.isWeekend(period.date)) {
+      return [];
+    }
+    await this.activityManagementService.syncEvent(campus, period.date);
+    const allRooms = await this.roomRepository.getRoomsByCampus(campus);
     const allActivities =
       await this.roomRepository.getActivitiesByCampusAndDate(
-        site.campus,
-        searchPeriod.date,
+        campus,
+        period.date,
       );
-    return this.getRoomAvailability(
-      allRooms.filter((room) => room.site === site),
-      allActivities,
-      searchPeriod,
-    );
+    return this.getRoomAvailability(allRooms, allActivities, period);
   }
 
   private calculateFreePeriods(
@@ -136,11 +139,7 @@ export class RoomSearchService {
     return result;
   }
 
-  async getActivitiesInDateAndCampus(
-    campus: Campus,
-    date: Date,
-  ): Promise<Activity[]> {
-    await this.activityManagementService.syncEvent(campus, date);
-    return this.roomRepository.getActivitiesByCampusAndDate(campus, date);
-  }
+  private isWeekend = (date: Date): boolean => {
+    return date.getDay() === 0 || date.getDay() === 6;
+  };
 }
