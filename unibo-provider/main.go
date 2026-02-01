@@ -37,8 +37,6 @@ var (
 	}
 
 	concurrencyLimit = make(chan struct{}, 20)
-
-	romeLocation, _ = time.LoadLocation("Europe/Rome")
 )
 
 type RoomResponse struct {
@@ -88,6 +86,7 @@ func main() {
 				nextRun = nextRun.Add(24 * time.Hour)
 			}
 			time.Sleep(nextRun.Sub(now))
+			cleanupOldCacheData()
 			performDailyUpdate()
 		}
 	}()
@@ -249,6 +248,21 @@ func getCourses() ([]unibo_integ.Course, error) {
 
 	courseStore.Set("courses", activeCourses, cache.DefaultExpiration)
 	return activeCourses, nil
+}
+
+func cleanupOldCacheData() {
+	activityStore.Lock()
+	defer activityStore.Unlock()
+
+	today := time.Now().Format("2006-01-02")
+
+	for _, dateMap := range activityStore.Data {
+		for dateKey := range dateMap {
+			if dateKey < today {
+				delete(dateMap, dateKey)
+			}
+		}
+	}
 }
 
 func performDailyUpdate() {

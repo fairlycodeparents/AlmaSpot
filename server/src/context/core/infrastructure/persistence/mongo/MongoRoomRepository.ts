@@ -15,6 +15,36 @@ export class MongoRoomRepository implements RoomRepository {
 
   constructor(client: MongoClient, dbName: string) {
     this.db = client.db(dbName);
+
+    this.initializeIndexes().catch((err) =>
+      console.error("[MongoRepo] Failed to initialize indexes:", err),
+    );
+  }
+
+  private async initializeIndexes() {
+    try {
+      await this.activitiesCol.createIndex(
+        { "period.end": 1 },
+        { expireAfterSeconds: 24 * 60 * 60, background: true },
+      );
+      await this.activitiesCol.createIndex(
+        { campus: 1, "period.start": 1 },
+        { background: true },
+      );
+
+      await this.roomsCol.createIndex({ campus: 1 }, { background: true });
+      await this.roomsCol.createIndex(
+        { "site.campus": 1, "site.address": 1 },
+        { background: true },
+      );
+
+      await this.metadataCol.createIndex(
+        { lastSync: 1 },
+        { expireAfterSeconds: 7 * 24 * 60 * 60, background: true },
+      );
+    } catch (e) {
+      console.error("[MongoRepo] Error creating indexes:", e);
+    }
   }
 
   private get roomsCol(): Collection<any> {
