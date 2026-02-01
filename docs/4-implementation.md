@@ -6,14 +6,90 @@
 2. [Design](2-design.md)
 3. [Architecture](3-architecture.md)
 4. [Implementation](4-implementation.md)
-   - 4.1 [Notification System](#41-notification-system)
-   - 4.3 [AI Assistant Integration](#43-ai-assistant-integration)
-     - 4.3.1 [Intent Extraction and RAG-inspired Workflow](#431-intent-extraction-and-rag-inspired-workflow)
-     - 4.3.2 [Structured Output via Function Calling](#432-structured-output-via-function-calling)
+   - 4.1 [Technologies](#41-technologies)
+   - 4.2 [Notification System](#42-notification-system)
+   - 4.3 [Authentication System](#43-authentication-system)
+   - 4.4 [AI Assistant Integration](#44-ai-assistant-integration)
+     - 4.4.1 [Intent Extraction and RAG-inspired Workflow](#441-intent-extraction-and-rag-inspired-workflow)
+     - 4.4.2 [Structured Output via Function Calling](#442-structured-output-via-function-calling)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
 
-### 4.1 Notification System
+### 4.1 Technologies
+
+#### MEVN
+
+- **MongoDB**: NoSQL database used for data persistence management and storage of documents in a JSON-like format;
+- **Express**: web framework used for backend routing management;
+- **Node.js**: runtime environment used for the development of the server component (backend);
+- **Vue.js**: progressive framework used on the frontend for creating the user interface based on reactive components.
+
+#### Docker
+
+Docker was adopted as a containerization platform to standardize the development and deployment environment.
+Through the creation of isolated _containers_ for each service, it was possible to include all dependencies necessary
+for software execution.
+The use of Docker ensures project replicability across different machines, eliminating operating system compatibility
+issues and ensuring consistency between the local development environment and the production one.
+
+#### Go
+
+The Go language was introduced into the technology stack to handle a service dedicated to high-performance
+data retrieval.
+Specifically, this module handles interactions with the university web portal to extract and process information
+regarding lesson schedules and room availability. The choice of Go for this task was dictated by its efficiency in
+network operations and its ability to handle concurrency natively, allowing for rapid processing of external data
+before sending it to the main system.
+
+#### Other technologies used
+
+- **argon2**: Library used for password hashing. It guarantees advanced protection against brute-force and rainbow
+  table attacks.
+
+- **c8**: Tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
+  measure test effectiveness, generating detailed reports that highlight well-verified code portions and those with
+  insufficient coverage.
+
+- **dotenv**: Module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
+  separating sensitive configurations (such as API keys and credentials) from the source code.
+
+- **genai** (Google Generative AI): Client SDK used to integrate generative artificial intelligence features
+  (Gemini models) within the application, allowing for content generation or semantic analysis.
+
+- **jsonwebtoken**: Implementation for token signing, decoding, and verification. Used to handle _stateless_
+  authentication and the secure exchange of information between client and server.
+
+- **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
+  model application data, handling validation, type conversion, and business logic.
+
+- **pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
+  (e.g., user data, tokens) in a reactive and modular way, facilitating data sharing between components.
+
+- **postcss**: Tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
+  Tailwind CSS and ensure cross-browser compatibility.
+
+- **storybook**: Open source tool for UI component development that acts as a laboratory and interactive documentation.
+  It allows verifying component states and accessibility outside the main application, ensuring that the design system
+  defined in Tailwind CSS is applied correctly on all elements.
+
+- **tailwindcss**: CSS framework that allows building user interfaces quickly directly in the markup. It offers a
+  consistent design system and drastically reduces the need to write custom stylesheets, optimizing the final bundle by
+  removing unused classes.
+
+- **uuid**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
+  unique global identifiers.
+
+- **web-push**: Library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
+  generation and interaction with browser Push Services.
+
+- **vite**: New generation build tool for the frontend. It provides a rapid and optimized development environment for
+  web applications.
+
+- **zod**: Schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
+  after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
+  that TypeScript could not intercept.
+
+### 4.2 Notification System
 
 The notification system is designed to alert students in real-time when a new activity overlaps with their study plan.
 The architecture follows an **event-driven** approach and uses the **Web Push** standard
@@ -81,7 +157,7 @@ self.addEventListener("notificationclick", function (event) {
 });
 ```
 
-### 4.2 Authentication System
+### 4.3 Authentication System
 
 Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing
 sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text
@@ -177,7 +253,7 @@ export const signUpSchema = z
   .strict(); // Reject fields not provided for in the schema
 ```
 
-### 4.3 AI Assistant Integration
+### 4.4 AI Assistant Integration
 
 The "Assistant" feature provides a conversational interface that enables students to locate study rooms by using natural
 language. It is implemented using Google Gemini (specifically the `gemini-2.5-flash(-lite)` model) via an Adapter
@@ -185,7 +261,7 @@ Pattern.
 This architectural choice decouples the domain logic from the specific LLM provider, ensuring maintainability and
 allowing for future model substitutions without affecting the core business rules.
 
-#### 4.3.1 Intent Extraction and RAG-inspired Workflow
+#### 4.4.1 Intent Extraction and RAG-inspired Workflow
 
 Unlike standard chatbots, the system cannot rely solely on the model's pre-trained knowledge because it requires
 real-time access to classroom availability. To address this issue, the `SearchService` implements a synchronous pipeline
@@ -202,7 +278,7 @@ pattern.
    data into the system context. The model then selects the best options and generates a natural language response and a
    structured plan.
 
-#### 4.3.2 Structured Output via Function Calling
+#### 4.4.2 Structured Output via Function Calling
 
 To ensure reliable interaction between the LLM and the application front end, we
 use [function calling](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting). Rather than parsing
