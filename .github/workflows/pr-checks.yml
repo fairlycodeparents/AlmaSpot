@@ -14,7 +14,7 @@ env:
 
 jobs:
   server-ci:
-    name: Server (Style, Build & Test)
+    name: Server (Typecheck & Test)
     runs-on: ubuntu-latest
 
     defaults:
