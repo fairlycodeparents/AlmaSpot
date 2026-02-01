@@ -119,11 +119,13 @@ Following the [GitHub Flow](#51-dvcs-workflow) strategy, new code is integrated 
 Requests (PRs). For this reason, we've configured our repository to block any direct pushes to the `main` branch,
 ensuring that all changes undergo a review process, to maintain production stability.
 
-When a PR is opened, a series of automated checks are triggered via GitHub Actions. For both the server and client
-packages, the following steps are executed:
+When a PR is opened, a series of automated checks are triggered via GitHub Actions. These checks include:
 
 - **Unit tests**: All unit tests are executed to verify that new changes do not introduce regressions.
-- **Build verification**: The application is built to confirm that it compiles successfully without errors.
+- **Type checking and Build verification**: Since the project is fully containerized with Docker, the CI pipeline is
+  optimized for each environment. For the client, we execute a full build to verify that the application bundles
+  correctly. For the server, we perform a strict TypeScript type check to ensure code validity without redundant
+  compilation steps.
 
 Moreover, for the repository as a whole, we run code Prettier checks, and we validate commit messages against the
 Conventional Commits standard.
