@@ -11,29 +11,30 @@
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
 
-## 3.1. Physical architecture
+## 3.1. Physical Architecture
 
-The system follows a **Client-Server** physical architecture, where the two main components are strictly decoupled
-and communicate exclusively via REST APIs and WebSockets.
+The system is a **Client-Server** application running in a containerized environment.
+The system is composed of four main parts:
 
-- **Client (Frontend):** Developed as a _Progressive Web App (PWA)_ using Vue.js, it runs within the user's browser
-  and is responsible solely for the presentation logic and user interaction.
-- **Server (Backend):** Developed with Node.js and Go, it hosts the business logic, domain rules, and data persistence
-  mechanisms.
+- **Client (Frontend):** A **Single Page Application (SPA)** built with **Vue.js**. It runs in the user's
+  browser and works as a **Progressive Web App (PWA)**. It communicates with the server using standard **HTTP APIs**.
+- **Server (Backend):** Built with **Node.js** and **TypeScript**. It handles user requests, manages subscriptions, and sends notifications.
+- **Data Provider (Backend):** A separate background worker built with **Go**. Its only job is to download and process
+  university data.
+- **Database:** A shared **MongoDB** instance used by both backend services. The Go service writes the classroom
+  data here, and the Node.js server reads it to check for availability.
 
-The entire solution is containerized using **Docker** and orchestrated via **Docker Compose**. This approach ensures
-consistency between development and production environments, satisfying the portability requirements.
-
-## 3.2. Logical architecture
+### 3.2. Logical Architecture
 
 Within each specific Bounded Context, we applied **Hexagonal Architecture** principles to protect the Domain Model
 from technological coupling. Each module is divided into three concentric layers:
 
-1. **Domain layer:** Contains _Entities_, _Value Objects_, and business invariants. It is entirely free of
+1. **Domain layer (inner layer):** Contains _Entities_, _Value Objects_, and business invariants. It is entirely free of
    external dependencies. This is where the interfaces (_Ports_) for external services are defined.
-2. **Application layer:** Contains _Domain Services_ that implement the use cases. It coordinates the data flow
+2. **Application layer (middle layer):** Contains _Domain Services_ that implement the use cases. It coordinates the
+   data flow
    using domain entities without knowing the details of the implementation.
-3. **Infrastructure layer:** Contains the concrete implementations of the interfaces defined in the
+3. **Infrastructure layer (outer layer):** Contains the concrete implementations of the interfaces defined in the
    domain. This includes controllers, _Repositories_, and clients for third-party services.
 
 Below is an example architecture diagram for the Core context.
