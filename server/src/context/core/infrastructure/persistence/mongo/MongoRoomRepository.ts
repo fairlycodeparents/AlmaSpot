@@ -74,6 +74,11 @@ export class MongoRoomRepository implements RoomRepository {
     return docs.map(this.toRoomEntity);
   }
 
+  async getRoomById(roomId: string): Promise<Room> {
+    const doc = await this.roomsCol.findOne({ id: roomId });
+    return this.toRoomEntity(doc);
+  }
+
   async getSitesByCampus(campus: Campus): Promise<Site[]> {
     const sites = await this.roomsCol
       .aggregate([

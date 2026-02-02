@@ -112,6 +112,20 @@ export class CoreController {
     }
   };
 
+  findRoomById = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { id } = req.query;
+      if (!id || typeof id !== "string") {
+        res.status(400).json({ error: "Invalid or missing id parameter" });
+        return;
+      }
+      const room = await this.facade.findRoomById(id);
+      res.json(room);
+    } catch (error) {
+      next(error);
+    }
+  };
+
   getActivities = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const { campus, date } = req.query;
