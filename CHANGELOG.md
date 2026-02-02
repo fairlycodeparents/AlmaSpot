@@ -1,3 +1,15 @@
+## [4.4.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.3.1...4.4.0) (2026-02-02)
+
+### Features
+
+- **client:** added room name retrieval in scheduled activities and results view ([37d4fec](https://github.com/fairlycodeparents/AlmaSpot/commit/37d4fec2099e266c94fd63154ceb0f7a54ce5344))
+- **client:** improved room name retrieval logic in activities ([2dc3d28](https://github.com/fairlycodeparents/AlmaSpot/commit/2dc3d2863cbab72af272e37c46887edf73710376))
+- **core:** add endpoint to fetch room details by ID in resultPage ([f4e05bf](https://github.com/fairlycodeparents/AlmaSpot/commit/f4e05bf53993dd85e03e4d5abeee4c8770dd2778))
+
+### Bug Fixes
+
+- **client:** update room name retrieval in results view ([860b255](https://github.com/fairlycodeparents/AlmaSpot/commit/860b2558b802934abe49e4beec6cb03b93020021))
+
 ## [4.3.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.3.0...4.3.1) (2026-02-02)
 
 ### Bug Fixes
