@@ -1,3 +1,21 @@
+## [4.3.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.2.2...4.3.0) (2026-02-02)
+
+### Features
+
+- **core:** implement cache cleanup for provider and added MongoDB indexes ([61400e1](https://github.com/fairlycodeparents/AlmaSpot/commit/61400e1402f9cb93be82bf6e29a7eddc34c20887))
+
+### Dependency updates
+
+- **deps:** update commitlint monorepo to v20.4.0 ([#68](https://github.com/fairlycodeparents/AlmaSpot/issues/68)) ([d39de17](https://github.com/fairlycodeparents/AlmaSpot/commit/d39de175b7748df9748252a9ba89a8bc5bb90556))
+- **deps:** update dependency @types/node to v25.2.0 ([#53](https://github.com/fairlycodeparents/AlmaSpot/issues/53)) ([5a86505](https://github.com/fairlycodeparents/AlmaSpot/commit/5a865051fe7154614651438aee1b36a621a15ab1))
+- **deps:** update dependency playwright to v1.58.1 ([#56](https://github.com/fairlycodeparents/AlmaSpot/issues/56)) ([fde83e8](https://github.com/fairlycodeparents/AlmaSpot/commit/fde83e8fe8b04e3169412cf992fe12773e9d4fa9))
+
+### Bug Fixes
+
+- **core:** improve error logging for sync failures ([c51926d](https://github.com/fairlycodeparents/AlmaSpot/commit/c51926da463bf68cfc13cf62129e1dc1dfed1ded))
+- **core:** refactor repeated code for room retrieve and sync ([8225d13](https://github.com/fairlycodeparents/AlmaSpot/commit/8225d1358d9c47fdfd2905b2cdd5e8930f9cb878))
+- **core:** update room availability search logic to include overlapping slots ([21b9312](https://github.com/fairlycodeparents/AlmaSpot/commit/21b93125453f1a956c4a2f9119edd4c1d3f2067a))
+
 ## <small>4.2.2 (2026-01-31)</small>
 
 - fix(datetime): adjust date handling for plan activation (#74) ([7bdbe4f](https://github.com/fairlycodeparents/AlmaSpot/commit/7bdbe4f)), closes [#74](https://github.com/fairlycodeparents/AlmaSpot/issues/74)
