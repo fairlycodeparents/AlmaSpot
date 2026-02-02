@@ -196,7 +196,7 @@ func getActivitiesHandler(c *gin.Context) {
 
 	courses, err := getCourses()
 	if err != nil {
-		c.JSON(http.StatusBadGateway, gin.H{"error": "failed to fetch courses for update"})
+		c.JSON(http.StatusBadGateway, gin.H{"error": "failed to fetch courses"})
 		return
 	}
 
@@ -222,11 +222,14 @@ func getCourses() (res []unibo_integ.Course, err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic external lib: %v", r)
+			res = nil
 		}
 	}()
 
 	if x, found := courseStore.Get("courses"); found {
-		return x.([]unibo_integ.Course), nil
+		if cachedCourses, ok := x.([]unibo_integ.Course); ok {
+			return cachedCourses, nil
+		}
 	}
 
 	client := ckan.NewClient(openDataUrl)
