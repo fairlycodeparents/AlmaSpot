@@ -150,11 +150,20 @@ export const useAdminStore = defineStore("admin", () => {
         dateIso,
       );
 
-      for (const act of activities) {
-        act.roomId = await adminService
-          .getRoomById(act.roomId)
-          .then((r) => r.name);
-      }
+      const roomLookupResults = await Promise.allSettled(
+        activities.map((act) => adminService.getRoomById(act.roomId)),
+      );
+      activities.forEach((act, index) => {
+        const result = roomLookupResults[index];
+        if (
+          result &&
+          result.status === "fulfilled" &&
+          result.value &&
+          result.value.name
+        ) {
+          act.roomId = result.value.name;
+        }
+      });
 
       scheduledActivities.value = activities.filter((a: ActivityDTO) => {
         const actStart = new Date(a.startTime);
