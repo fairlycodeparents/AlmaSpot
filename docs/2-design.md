@@ -101,15 +101,16 @@ a **Notification** entity, which triggers the delivery of an alert to the user.
 ![Authentication Context diagram](figures/authentication-context.png)
 
 This context is responsible for identity and access management, specifically targeting the
-**Administrator** role. It isolates the security logic from the business domains.
+**Administrator** role. Isolate security logic, such as password hashing, from domains to enclose verification logic
+within the context of authentication.
 
-The **AuthInputPort** exposes the primary use cases of the authentication: registration (signUp) and authentication (login).
-The **AuthService** acting as the concrete gateway that executes the business logic. To ensure security, the
+The **AuthInputPort** exposes the primary use cases of the authentication: registration (signUp) and authentication
+(login). The **AuthService** acting as the concrete gateway that executes the business logic. To ensure security, the
 **Administrator** encapsulates sensitive data by storing a hashedPassword.
 
 Upon successful authentication, the service generates a **Token**. This token serves as a
-portable, stateless proof of identity that is subsequently used by the [Core Context](#211-core-context) to authorize privileged
-operations, such as creating or deleting external activities.
+portable, stateless proof of identity that is subsequently used by the [Core Context](#211-core-context) to authorize
+privileged operations, such as creating or deleting external activities.
 
 ## 2.2. Mockups
 
