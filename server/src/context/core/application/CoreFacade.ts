@@ -16,6 +16,7 @@ import {
   InternalActivity,
 } from "../domain/model/Activity";
 import { RoomAvailabilityDTO } from "./dtos/RoomAvailabilityDTO";
+import { RoomDTO } from "./dtos/RoomDTO";
 import { RoomRepository } from "../domain/ports/RoomRepository";
 
 export class CoreFacade {
@@ -65,6 +66,10 @@ export class CoreFacade {
     const period = new Period(start, end);
     const site = new Site(campus as Campus, address);
     return this.roomSearchService.findSlotsBySite(site, period);
+  }
+
+  async findRoomById(roomId: string): Promise<RoomDTO> {
+    return this.roomSearchService.findRoomById(roomId);
   }
 
   async createExternalActivity(

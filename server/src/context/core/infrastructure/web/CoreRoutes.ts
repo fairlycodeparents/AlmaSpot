@@ -22,6 +22,8 @@ export class CoreRoutes {
 
     this.router.get("/rooms/free-by-site", this.controller.findFreeRoomsBySite);
 
+    this.router.get("/rooms/find-by-id", this.controller.findRoomById);
+
     this.router.get("/activities", this.controller.getActivities);
 
     this.router.post(

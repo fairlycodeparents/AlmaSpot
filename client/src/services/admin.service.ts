@@ -2,6 +2,7 @@ import type {
   RoomAvailabilityDTO,
   CreateActivityDTO,
   ActivityDTO,
+  RoomDTO,
 } from "@/types/api";
 
 const API_BASE = "/api/core";
@@ -69,6 +70,12 @@ export const adminService = {
     }).toString();
 
     return authFetch(`${API_BASE}/rooms/exact-free?${query}`, {
+      method: "GET",
+    });
+  },
+
+  async getRoomById(roomId: string): Promise<RoomDTO> {
+    return authFetch(`${API_BASE}/rooms/find-by-id?id=${roomId}`, {
       method: "GET",
     });
   },

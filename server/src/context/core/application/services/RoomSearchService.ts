@@ -5,7 +5,7 @@ import { Campus, Site } from "../../../../shared/domain/Location";
 import { Activity } from "../../domain/model/Activity";
 import { RoomAvailabilityDTO } from "../dtos/RoomAvailabilityDTO";
 import { Slot } from "../../../../shared/domain/Slot";
-import { RoomTypeDTO } from "../dtos/RoomDTO";
+import { RoomDTO, RoomTypeDTO } from "../dtos/RoomDTO";
 import { Room, RoomType } from "../../domain/model/Room";
 
 export class RoomSearchService {
@@ -49,6 +49,21 @@ export class RoomSearchService {
         );
       },
     );
+  }
+
+  async findRoomById(roomId: string): Promise<RoomDTO> {
+    return this.roomRepository.getRoomById(roomId).then((room) => {
+      return {
+        id: room.id,
+        name: room.name,
+        type:
+          room.type === RoomType.CLASSROOM
+            ? RoomTypeDTO.CLASSROOM
+            : RoomTypeDTO.LABORATORY,
+        campus: room.campus,
+        site: room.site,
+      };
+    });
   }
 
   async getActivitiesInDateAndCampus(
