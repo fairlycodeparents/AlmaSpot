@@ -103,14 +103,13 @@ a **Notification** entity, which triggers the delivery of an alert to the user.
 This context is responsible for identity and access management, specifically targeting the
 **Administrator** role. It isolates the security logic from the business domains.
 
-The central component is the **AuthService**, which acts as the gateway for registration
-(`signUp`) and authentication (`login`). To ensure security, the **Administrator** Aggregate
-Root encapsulates sensitive data by storing a `hashedPassword` alongside a specific `salt`.
+The **AuthInputPort** exposes the primary use cases of the authentication: registration (signUp) and authentication (login).
+The **AuthService** acting as the concrete gateway that executes the business logic. To ensure security, the
+**Administrator** encapsulates sensitive data by storing a hashedPassword.
 
 Upon successful authentication, the service generates a **Token**. This token serves as a
-portable, stateless proof of identity that is subsequently used by the [Core Context](#21-core-context)
-(**ActivityManagementService**) to authorize privileged operations, such as creating or deleting
-external activities, via the `verifyToken` method.
+portable, stateless proof of identity that is subsequently used by the [Core Context](#211-core-context) to authorize privileged
+operations, such as creating or deleting external activities.
 
 ## 2.2. Mockups
 
