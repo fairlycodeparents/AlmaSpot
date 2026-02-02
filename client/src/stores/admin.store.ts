@@ -150,7 +150,13 @@ export const useAdminStore = defineStore("admin", () => {
         dateIso,
       );
 
-      scheduledActivities.value = activities.filter(async (a: ActivityDTO) => {
+      for (const act of activities) {
+        act.roomId = await adminService
+          .getRoomById(act.roomId)
+          .then((r) => r.name);
+      }
+
+      scheduledActivities.value = activities.filter((a: ActivityDTO) => {
         const actStart = new Date(a.startTime);
         const actEnd = new Date(a.endTime);
         const isSameStartTime =
@@ -159,8 +165,6 @@ export const useAdminStore = defineStore("admin", () => {
         const diffMs = actEnd.getTime() - actStart.getTime();
         const durationInHours = diffMs / (1000 * 60 * 60);
         const isDurationValid = durationInHours <= maxDuration;
-        const room = await adminService.getRoomById(a.roomId);
-        resultStore.setInfo(room);
 
         return isSameStartTime && isDurationValid;
       });

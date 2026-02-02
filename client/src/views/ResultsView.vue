@@ -62,10 +62,6 @@ const goToAI = () => {
   });
 };
 
-const getRoomName = (roomId: string) => {
-  return resultStore.roomName(roomId);
-};
-
 const handleDelete = async (item: any) => {
   pageError.value = "";
   pageSuccess.value = "";
@@ -231,7 +227,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
         v-for="item in activityResults"
         :key="item.id"
         :title="item.title"
-        :subtitle="`${getRoomName(item.roomId)} - ${formatTime(item.startTime, item.endTime)}`"
+        :subtitle="`${item.roomId} - ${formatTime(item.startTime, item.endTime)}`"
         :button-icon="TRASH_ICON_PATH"
         :button-action="() => handleDelete(item)"
         class="w-full max-w-none bg-ui-card"
