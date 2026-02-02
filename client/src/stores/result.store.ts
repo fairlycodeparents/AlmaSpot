@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
 import { computed, ref } from "vue";
-import type { RoomAvailabilityDTO, ActivityDTO } from "@/types/api";
+import type { RoomAvailabilityDTO, ActivityDTO, RoomDTO } from "@/types/api";
 
 export type ResultItem = RoomAvailabilityDTO | ActivityDTO;
 
 export const useResultStore = defineStore("result", () => {
   const allRooms = ref<ResultItem[]>([]);
+  const roomsInfo = ref<Record<string, RoomDTO>>({});
 
   const filters = ref({
     type: "Qualsiasi",
@@ -73,6 +74,14 @@ export const useResultStore = defineStore("result", () => {
     return TYPE_TRANSLATIONS[dbType] || dbType;
   };
 
+  const roomName = (id: string) => {
+    return roomsInfo.value[id]?.name || id;
+  };
+
+  function setInfo(room: RoomDTO) {
+    roomsInfo.value[room.id] = room;
+  }
+
   function setRooms(rooms: ResultItem[]) {
     allRooms.value = rooms;
     resetFilters();
@@ -92,7 +101,9 @@ export const useResultStore = defineStore("result", () => {
     availableTypes,
     availableSites,
     filteredRooms,
+    roomName,
     setFilters,
+    setInfo,
     resetFilters,
     setRooms,
   };
