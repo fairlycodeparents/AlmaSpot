@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.3.0...4.3.1) (2026-02-02)
+
+### Bug Fixes
+
+- **core:** enhance course fetching and cache update logic ([13634fc](https://github.com/fairlycodeparents/AlmaSpot/commit/13634fc4fcc63f5ff8da6994a6c6a638a694b738))
+- **core:** improve error message for course fetching and enhance cache handling ([0e3f65a](https://github.com/fairlycodeparents/AlmaSpot/commit/0e3f65adb08bcb75b5e51be3df49ce71cd3b322e))
+
 ## [4.3.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.2.2...4.3.0) (2026-02-02)
 
 ### Features
