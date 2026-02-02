@@ -194,7 +194,13 @@ func getActivitiesHandler(c *gin.Context) {
 		return
 	}
 
-	if err := updateCacheForInterval(campus, targetDate, 2); err != nil {
+	courses, err := getCourses()
+	if err != nil {
+		c.JSON(http.StatusBadGateway, gin.H{"error": "failed to fetch courses for update"})
+		return
+	}
+
+	if err := updateCacheForInterval(campus, targetDate, 2, courses); err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to fetch activities"})
 		return
 	}
@@ -212,7 +218,13 @@ func getActivitiesHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, activities)
 }
 
-func getCourses() ([]unibo_integ.Course, error) {
+func getCourses() (res []unibo_integ.Course, err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			err = fmt.Errorf("panic external lib: %v", r)
+		}
+	}()
+
 	if x, found := courseStore.Get("courses"); found {
 		return x.([]unibo_integ.Course), nil
 	}
@@ -289,7 +301,7 @@ func performDailyUpdate() {
 		wg.Add(1)
 		go func(camp string) {
 			defer wg.Done()
-			err := updateCacheForInterval(camp, today, 2)
+			err := updateCacheForInterval(camp, today, 2, courses)
 			if err != nil {
 				fmt.Printf("Error updating cache for campus %s: %v\n", camp, err)
 				return
@@ -299,12 +311,7 @@ func performDailyUpdate() {
 	wg.Wait()
 }
 
-func updateCacheForInterval(campusFilter string, startDate time.Time, days int) error {
-	allCourses, err := getCourses()
-	if err != nil {
-		return err
-	}
-
+func updateCacheForInterval(campusFilter string, startDate time.Time, days int, allCourses []unibo_integ.Course) error {
 	var targetCourses []unibo_integ.Course
 	for _, c := range allCourses {
 		if strings.Contains(strings.ToLower(c.Campus), strings.ToLower(campusFilter)) {
