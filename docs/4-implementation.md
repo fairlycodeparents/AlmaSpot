@@ -102,7 +102,7 @@ integrating the primary business logic with external academic sources. It is des
 Architecture** principles, ensuring a strict separation between the domain logic and the external side effect through a
 robust set of adapters and domain services.
 
-### 4.2.1 Domain Layer
+#### 4.2.1 Domain Layer
 
 The domain layer represents the most stable part of the system. It contains the business rules that govern how
 activities are structured and validated.
@@ -148,7 +148,7 @@ export class Period {
 }
 ```
 
-### 4.2.2 Application Layer
+#### 4.2.2 Application Layer
 
 The application layer implements the business use cases through specialized services. It coordinates the flow of data
 to and from the domain entities, focusing on high availability and data consistency.
@@ -186,7 +186,7 @@ Others notable architectural patterns and strategies employed in the application
 - **Facade Pattern**: A `CoreFacade` acts as the single entry point for the system, simplifying the interaction for the
   web controllers and ensuring that internal service complexities are hidden from the infrastructure.
 
-### 4.2.3 Infrastructure Layer
+#### 4.2.3 Infrastructure Layer
 
 The infrastructure layer provides concrete implementations for the outbound ports, handling data persistence and
 external integrations.
@@ -223,7 +223,7 @@ export class UniboProviderHTTP implements UniboProvider {
 }
 ```
 
-### 4.2.4 Anti Corruption Layer
+#### 4.2.4 Anti Corruption Layer
 
 A key feature of the Core System is the implementation of an Anti-Corruption Layer (ACL) through the
 `UniboProviderHTTP`. This adapter isolates the core business logic from the complexities and potential instabilities of
@@ -231,7 +231,7 @@ external university legacy systems. It fetches real-time heterogeneous raw data 
 it transforming raw HTTP responses into clean domain entities like `InternalActivity`. This ensures that changes in
 external APIs do not leak into our Core Domain, assuring that it remains decoupled and resilient.
 
-### 4.2.5 Advanced Spatial Management
+#### 4.2.5 Advanced Spatial Management
 
 A distinctive feature of the Core System is its Hierarchical Geodata Engine, a spatial model to manage university
 resources across multiple cities. We implemented a specialized seeding system (`SeedRooms.ts`) using structured JSON
