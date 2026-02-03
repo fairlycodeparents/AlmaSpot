@@ -153,9 +153,9 @@ export class Period {
 The application layer implements the business use cases through specialized services. It coordinates the flow of data
 to and from the domain entities, focusing on high availability and data consistency.
 
-- **`ActivityManagementService`**: This service coordinates the creation and retrieval of activities. It ensures that when
-  an internal activity is added, the information is correctly mapped and the relative event is published through the
-  EventBus.
+- **`ActivityManagementService`**: This service coordinates the creation and retrieval of activities. It ensures that
+  when an internal activity is added, the information is correctly mapped and the relative event is published through
+  the EventBus.
 
 - **`RoomSearchService`**: This service provides a unified interface to query the state of university spaces.
   It manages the logic for searching and filtering university rooms based on campus, site, and current availability.
@@ -180,11 +180,11 @@ export class ActivityManagementService {
 Others notable architectural patterns and strategies employed in the application layer include:
 
 - **Data Synchronization Strategy and Caching**: The `ActivityManagementService` does not simply proxy requests to the
-  University API, but implements a reactive synchronization pattern. Instead of fetching data from the `UniboProvider` on
-  every request, it manages a functional cache reducing latency and ensuring system availability even during external
+  University API, but implements a reactive synchronization pattern. Instead of fetching data from the `UniboProvider`
+  on every request, it manages a functional cache reducing latency and ensuring system availability even during external
   provider downtime.
-- **Facade Pattern**: A `CoreFacade` acts as the single entry point for the system, simplifying the interaction for the web
-  controllers and ensuring that internal service complexities are hidden from the infrastructure.
+- **Facade Pattern**: A `CoreFacade` acts as the single entry point for the system, simplifying the interaction for the
+  web controllers and ensuring that internal service complexities are hidden from the infrastructure.
 
 ### 4.2.3 Infrastructure Layer
 
