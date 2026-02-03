@@ -26,7 +26,7 @@ entities, and value objects, concluding with a visual representation of the prop
 
 ### 2.1.1. Core context
 
-![Core Context diagram](figures/core-context.png)
+<img src="figures/core-context.png" alt="Core Context diagram" style="max-height: 500px;">
 
 This context is the heart of the system, serving as the definitive source of truth for
 the physical availability of university spaces. Its domain model is centered around the
@@ -54,7 +54,7 @@ asynchronously without coupling the logic.
 
 ### 2.1.2. Search context
 
-![Search Context diagram](figures/search-context.png)
+<img src="figures/search-context.png" alt="Search Context diagram" style="max-height: 400px;">
 
 The search context focuses on interpreting and fulfilling students' requests for available study spaces.
 Its logic is mainly encapsulated within the **Search Service**, which manages the resolution strategy: upon receiving a
@@ -81,7 +81,7 @@ This decision allows the **Suggestion** generated here to be directly persisted 
 
 ### 2.1.3. Notification context
 
-![Notification Context diagram](figures/notification-context.png)
+<img src="figures/notification-context.png" alt="Notification Context diagram" style="max-height: 400px;">
 
 This context manages the proactive behavior of the system, adhering to a _Conformist_ relationship
 with the [Core context](#21-core-context). Its primary responsibility is to alert students when
@@ -98,7 +98,7 @@ a **Notification** entity, which triggers the delivery of an alert to the user.
 
 ### 2.1.4. Authentication context
 
-![Authentication Context diagram](figures/authentication-context.png)
+<img src="figures/authentication-context.png" alt="Authentication Context diagram" style="max-height: 220px;">
 
 This context is responsible for identity and access management, specifically targeting the
 **Administrator** role. Isolate security logic, such as password hashing, from domains to enclose verification logic
