@@ -1,0 +1,63 @@
+services:
+  mongo:
+    image: mongo:6.0
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
+    networks:
+      - almaspot-network
+
+  server:
+    image: ghcr.io/fairlycodeparents/almaspot-server:latest
+    restart: always
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/${MONGO_DB_NAME}?authSource=admin
+      - PORT=${PORT}
+      - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+      - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+      - VAPID_SUBJECT=${VAPID_SUBJECT}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - HOST=0.0.0.0
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - UNIBO_SERVICE_URL=${UNIBO_SERVICE_URL}
+    networks:
+      - almaspot-network
+    depends_on:
+      - mongo
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        VITE_VAPID_PUBLIC_KEY: ${VAPID_PUBLIC_KEY}
+        VITE_API_URL: "/api"
+    ports:
+      - "80:80"
+    networks:
+      - almaspot-network
+    depends_on:
+      - server
+
+  unibo-provider:
+    image: ghcr.io/fairlycodeparents/almaspot-unibo-provider:latest
+    container_name: almaspot-unibo-provider
+    environment:
+      - MONGO_URI=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/${MONGO_DB_NAME}?authSource=admin
+    networks:
+      - almaspot-network
+    restart: unless-stopped
+
+networks:
+  almaspot-network:
+    driver: bridge
+
+volumes:
+  mongo_data:
