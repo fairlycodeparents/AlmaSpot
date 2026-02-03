@@ -98,9 +98,9 @@ before sending it to the main system.
 ### 4.2 Core System
 
 The core system represents the heart of the application, managing the fundamental domain entities and user interactions,
-integrating the primary business logic with external academic sources. It is designed following the **Clean Architecture**
-principles, ensuring a strict separation between the domain logic and the external side effect through a robust set of
-adapters and domain services.
+integrating the primary business logic with external academic sources. It is designed following the **Clean
+Architecture** principles, ensuring a strict separation between the domain logic and the external side effect through a
+robust set of adapters and domain services.
 
 ### 4.2.1 Domain Layer
 
@@ -109,8 +109,9 @@ activities are structured and validated.
 
 - **Entities**: The system distinguishes between different types of activities through an inheritance-based model. The
   `Activity` base class is extended by `InternalActivity` (representing official university lectures,
-  synced from the university open data) and `ExternalActivity` (representing custom user events manually created), allowing
-  the system to handle diverse data sources without logic duplication. This ensures consistency across all components.
+  synced from the university open data) and `ExternalActivity` (representing custom user events manually created),
+  allowing the system to handle diverse data sources without logic duplication. This ensures consistency across all
+  components.
 
 - **Business Validation**: Validation is not delegated to the UI or the database; we protect the domain integrity by
   using **Value Objects** like `Period` and `Location`. These encapsulate the validation logic, guaranteeing that no
@@ -150,14 +151,13 @@ export class Period {
 ### 4.2.2 Application Layer
 
 The application layer implements the business use cases through specialized services. It coordinates the flow of data
-to and from the domain entities, focusing on high availability and data consistency. The Core System centralizes
-logic within Domain Services.
+to and from the domain entities, focusing on high availability and data consistency.
 
-- **ActivityManagementService**: This service coordinates the creation and retrieval of activities. It ensures that when
+- **`ActivityManagementService`**: This service coordinates the creation and retrieval of activities. It ensures that when
   an internal activity is added, the information is correctly mapped and the relative event is published through the
   EventBus.
 
-- **RoomSearchService**: This service provides a unified interface to query the state of university spaces.
+- **`RoomSearchService`**: This service provides a unified interface to query the state of university spaces.
   It manages the logic for searching and filtering university rooms based on campus, site, and current availability.
   It integrates the static room data (persisted in MongoDB) with real-time availability logic, ensuring that the "Spot"
   search is always based on the latest known schedule.
@@ -179,11 +179,11 @@ export class ActivityManagementService {
 
 Others notable architectural patterns and strategies employed in the application layer include:
 
-- **Data Synchronization Strategy and Caching**: The ActivityManagementService does not simply proxy requests to the
+- **Data Synchronization Strategy and Caching**: The `ActivityManagementService` does not simply proxy requests to the
   University API, but implements a reactive synchronization pattern. Instead of fetching data from the `UniboProvider` on
   every request, it manages a functional cache reducing latency and ensuring system availability even during external
   provider downtime.
-- **Facade Pattern**: A CoreFacade acts as the single entry point for the system, simplifying the interaction for the web
+- **Facade Pattern**: A `CoreFacade` acts as the single entry point for the system, simplifying the interaction for the web
   controllers and ensuring that internal service complexities are hidden from the infrastructure.
 
 ### 4.2.3 Infrastructure Layer
@@ -191,12 +191,12 @@ Others notable architectural patterns and strategies employed in the application
 The infrastructure layer provides concrete implementations for the outbound ports, handling data persistence and
 external integrations.
 
-- **Native MongoDB Persistence**: To optimize performance for spatial and temporal queries data storage is handled by
+- **Native MongoDB Persistence**: To optimize performance for spatial and temporal queries, data storage is handled by
   the `MongoRoomRepository` using the native MongoDB driver. This allows for rapid granular control over the room
   collections (organized by campus: Bologna, Cesena, etc.) without the overhead of an ORM.
 - **In-Memory Event Bus**: Inter-module communication is handled by an `InMemoryEventBus`. This component leverages
   Node.js's `EventEmitter` to provide a lightweight, asynchronous, in-process messaging system for distributing domain
-  events without the overhead of external message brokers, ensuring that performances are not degraded by secondary tasks
+  events without needing external message brokers, ensuring that performances are not degraded by secondary tasks
   like sending notifications. It implements a "Fire and Forget" mechanism, allowing events to be published without
   waiting for subscribers to process them.
 
