@@ -29,8 +29,12 @@ services:
       - PORT=${PORT}
       - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
       - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
-      - NODE_ENV=${NODE_ENV}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - UNIBO_SERVICE_URL=${UNIBO_SERVICE_URL}
+      - NODE_ENV=development
       - HOST=0.0.0.0
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
 
     command: npm run dev
 
@@ -46,7 +50,9 @@ services:
         condition: service_healthy
 
   client:
-    build: ./client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
     container_name: almaspot-client
     command: npm run dev -- --host
     ports:
@@ -55,7 +61,8 @@ services:
       - ./client:/app
       - /app/node_modules
     environment:
-      - VITE_API_BASE_URL=/api
+      - VITE_API_URL=http://localhost:${PORT}
+        - VITE_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
     networks:
       - almaspot-network
     depends_on:
