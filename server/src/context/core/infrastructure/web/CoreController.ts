@@ -163,7 +163,7 @@ export class CoreController {
 
       const dto = req.body as CreateActivityDTO;
       dto.id = this.generateExternalActivityId(
-        dto.title,
+        dto.roomId,
         new Date(dto.startTime),
       );
 
