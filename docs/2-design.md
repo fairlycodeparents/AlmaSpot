@@ -26,7 +26,7 @@ entities, and value objects, concluding with a visual representation of the prop
 
 ### 2.1.1. Core context
 
-<img src="figures/core-context.png" alt="Core Context diagram" style="max-height: 500px;">
+<img src="figures/core-context.png" alt="Core Context diagram" style="max-height: 450px;">
 
 This context is the heart of the system, serving as the definitive source of truth for
 the physical availability of university spaces. Its domain model is centered around the
@@ -135,7 +135,7 @@ The mockups include the following screens, from left to right and top to bottom:
 - Filter Panel: this is a pop-up panel that allows students and administrators to apply filters to their search, such as
   room site and room type.
 
-![Mockups](figures/mock-ups.png)
+<img src="figures/mock-ups.png" alt="AlmaSpot Mockups" style="max-width: 800px;">
 
 These mockups show a consistent design language that emphasizes usability and clarity. When designing the interfaces, we
 first defined a set of reusable components, such as buttons, input fields, and cards for displaying room information.
@@ -144,4 +144,12 @@ uniformly throughout the application.
 
 The resulting collection of UI components extracted from the mockups is shown below:
 
-![UI Components](figures/mockups-components.png)
+<img src="figures/mockups-components.png" alt="UI Components" style="max-height: 250px;">
+
+Finally, for the desktop version of the application, we plan to adapt the layout to take advantage of the larger screen
+real estate. However, the core components and user flows will remain consistent with the mobile design to ensure a
+seamless user experience across all devices.
+
+Below is an example of how the home page could look on a desktop interface:
+
+<img src="figures/mockup-desktop.png" alt="Desktop Home Page mockup" style="max-height: 450px;">
