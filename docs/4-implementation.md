@@ -7,11 +7,17 @@
 3. [Architecture](3-architecture.md)
 4. [Implementation](4-implementation.md)
    - 4.1 [Technologies](#41-technologies)
-   - 4.2 [Notification System](#42-notification-system)
-   - 4.3 [Authentication System](#43-authentication-system)
-   - 4.4 [AI Assistant Integration](#44-ai-assistant-integration)
-     - 4.4.1 [Intent Extraction and RAG-inspired Workflow](#441-intent-extraction-and-rag-inspired-workflow)
-     - 4.4.2 [Structured Output via Function Calling](#442-structured-output-via-function-calling)
+   - 4.2 [Core System](#42-core-system)
+     - 4.2.1 [Domain Layer](#421-domain-layer)
+     - 4.2.2 [Application Layer](#422-application-layer)
+     - 4.2.3 [Infrastructure Layer](#423-infrastructure-layer)
+     - 4.2.4 [Anti Corruption Layer](#424-anti-corruption-layer)
+     - 4.2.5 [Advanced Spatial Management](#425-advanced-spatial-management)
+   - 4.3 [Notification System](#43-notification-system)
+   - 4.4 [Authentication System](#44-authentication-system)
+   - 4.5 [AI Assistant Integration](#45-ai-assistant-integration)
+     - 4.4.1 [Intent Extraction and RAG-inspired Workflow](#451-intent-extraction-and-rag-inspired-workflow)
+     - 4.4.2 [Structured Output via Function Calling](#452-structured-output-via-function-calling)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
 
@@ -89,7 +95,153 @@ before sending it to the main system.
   after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
   that TypeScript could not intercept.
 
-### 4.2 Notification System
+### 4.2 Core System
+
+The core system represents the heart of the application, managing the fundamental domain entities and user interactions,
+integrating the primary business logic with external academic sources. It is designed following the **Clean Architecture**
+principles, ensuring a strict separation between the domain logic and the external side effect through a robust set of
+adapters and domain services.
+
+### 4.2.1 Domain Layer
+
+The domain layer represents the most stable part of the system. It contains the business rules that govern how
+activities are structured and validated.
+
+- **Entities**: The system distinguishes between different types of activities through an inheritance-based model. The
+  `Activity` base class is extended by `InternalActivity` (representing official university lectures,
+  synced from the university open data) and `ExternalActivity` (representing custom user events manually created), allowing
+  the system to handle diverse data sources without logic duplication. This ensures consistency across all components.
+
+- **Business Validation**: Validation is not delegated to the UI or the database; we protect the domain integrity by
+  using **Value Objects** like `Period` and `Location`. These encapsulate the validation logic, guaranteeing that no
+  activity can be created with an invalid data (e.g., period can't have an end time smaller than its start time).
+
+- **Domain Events**: To maintain loose coupling with other systems, the domain layer triggers domain events. A key
+  example is the `ActivityAddedEvent`, which is published to the `EventBus` whenever a new activity is successfully
+  created. This allows the Notification System to react asynchronously without the Core System needing to know about the
+  notification logic. The domain layer is built to ensure total data consistency and scalability.
+
+```typescript
+export enum ActivityType {
+  INTERNAL_ACTIVITY = "INTERNAL_ACTIVITY",
+  EXTERNAL_ACTIVITY = "EXTERNAL_ACTIVITY",
+}
+
+export abstract class Activity {
+  constructor(
+    readonly id: string,
+    readonly name: string,
+    readonly type: ActivityType,
+    readonly period: Period,
+  ) {}
+}
+
+export class Period {
+  constructor(
+    readonly start: Date,
+    readonly end: Date,
+  ) {
+    if (start >= end)
+      throw new Error("Invalid period: start must be before end.");
+  }
+}
+```
+
+### 4.2.2 Application Layer
+
+The application layer implements the business use cases through specialized services. It coordinates the flow of data
+to and from the domain entities, focusing on high availability and data consistency. The Core System centralizes
+logic within Domain Services.
+
+- **ActivityManagementService**: This service coordinates the creation and retrieval of activities. It ensures that when
+  an internal activity is added, the information is correctly mapped and the relative event is published through the
+  EventBus.
+
+- **RoomSearchService**: This service provides a unified interface to query the state of university spaces.
+  It manages the logic for searching and filtering university rooms based on campus, site, and current availability.
+  It integrates the static room data (persisted in MongoDB) with real-time availability logic, ensuring that the "Spot"
+  search is always based on the latest known schedule.
+
+```typescript
+export class ActivityManagementService {
+  constructor(
+    private readonly eventBus: EventBus,
+    private readonly provider: UniboProvider,
+  ) {}
+
+  async addInternalActivity(activity: InternalActivity): Promise<void> {
+    await this.eventBus.publish([
+      new ActivityAddedEvent(activity.id, activity.name, activity.period),
+    ]);
+  }
+}
+```
+
+Others notable architectural patterns and strategies employed in the application layer include:
+
+- **Data Synchronization Strategy and Caching**: The ActivityManagementService does not simply proxy requests to the
+  University API, but implements a reactive synchronization pattern. Instead of fetching data from the `UniboProvider` on
+  every request, it manages a functional cache reducing latency and ensuring system availability even during external
+  provider downtime.
+- **Facade Pattern**: A CoreFacade acts as the single entry point for the system, simplifying the interaction for the web
+  controllers and ensuring that internal service complexities are hidden from the infrastructure.
+
+### 4.2.3 Infrastructure Layer
+
+The infrastructure layer provides concrete implementations for the outbound ports, handling data persistence and
+external integrations.
+
+- **Native MongoDB Persistence**: To optimize performance for spatial and temporal queries data storage is handled by
+  the `MongoRoomRepository` using the native MongoDB driver. This allows for rapid granular control over the room
+  collections (organized by campus: Bologna, Cesena, etc.) without the overhead of an ORM.
+- **In-Memory Event Bus**: Inter-module communication is handled by an `InMemoryEventBus`. This component leverages
+  Node.js's `EventEmitter` to provide a lightweight, asynchronous, in-process messaging system for distributing domain
+  events without the overhead of external message brokers, ensuring that performances are not degraded by secondary tasks
+  like sending notifications. It implements a "Fire and Forget" mechanism, allowing events to be published without
+  waiting for subscribers to process them.
+
+```typescript
+export class InMemoryEventBus implements EventBus {
+  private bus: EventEmitter;
+
+  constructor() {
+    this.bus = new EventEmitter();
+  }
+
+  async publish(events: DomainEvent[]): Promise<void> {
+    events.forEach((event) => {
+      this.bus.emit(event.eventName, event);
+    });
+  }
+}
+
+export class UniboProviderHTTP implements UniboProvider {
+  async getActivities(date: Date): Promise<InternalActivity[]> {
+    const response = await axios.get(`${this.baseUrl}/activities?date=${date}`);
+    return response.data.map((dto) => ActivityMapper.toDomain(dto));
+  }
+}
+```
+
+### 4.2.4 Anti Corruption Layer
+
+A key feature of the Core System is the implementation of an Anti-Corruption Layer (ACL) through the
+`UniboProviderHTTP`. This adapter isolates the core business logic from the complexities and potential instabilities of
+external university legacy systems. It fetches real-time heterogeneous raw data about lessons and classrooms, and maps
+it transforming raw HTTP responses into clean domain entities like `InternalActivity`. This ensures that changes in
+external APIs do not leak into our Core Domain, assuring that it remains decoupled and resilient.
+
+### 4.2.5 Advanced Spatial Management
+
+A distinctive feature of the Core System is its Hierarchical Geodata Engine, a spatial model to manage university
+resources across multiple cities. We implemented a specialized seeding system (`SeedRooms.ts`) using structured JSON
+files for each Campus (Bologna, Cesena, Forlì, Ravenna, Rimini). This robust strategy populates the MongoDB instance
+with structured information regarding Campuses and Sites, allowing the system to manage university spaces not just as a
+flat list, but as a structured hierarchy: Campus → Site → Room. This architectural choice enables the RoomSearchService
+to perform high-performance filtering based on geographical location, such as searching for available "Spots" within a
+specific university site or building, enhancing the user experience by providing more relevant and localized results.
+
+### 4.3 Notification System
 
 The notification system is designed to alert students in real-time when a new activity overlaps with their study plan.
 The architecture follows an **event-driven** approach and uses the **Web Push** standard
@@ -157,7 +309,7 @@ self.addEventListener("notificationclick", function (event) {
 });
 ```
 
-### 4.3 Authentication System
+### 4.4 Authentication System
 
 Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing
 sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text
@@ -253,7 +405,7 @@ export const signUpSchema = z
   .strict(); // Reject fields not provided for in the schema
 ```
 
-### 4.4 AI Assistant Integration
+### 4.5 AI Assistant Integration
 
 The "Assistant" feature provides a conversational interface that enables students to locate study rooms by using natural
 language. It is implemented using Google Gemini (specifically the `gemini-2.5-flash(-lite)` model) via an Adapter
@@ -261,7 +413,7 @@ Pattern.
 This architectural choice decouples the domain logic from the specific LLM provider, ensuring maintainability and
 allowing for future model substitutions without affecting the core business rules.
 
-#### 4.4.1 Intent Extraction and RAG-inspired Workflow
+#### 4.5.1 Intent Extraction and RAG-inspired Workflow
 
 Unlike standard chatbots, the system cannot rely solely on the model's pre-trained knowledge because it requires
 real-time access to classroom availability. To address this issue, the `SearchService` implements a synchronous pipeline
@@ -278,7 +430,7 @@ pattern.
    data into the system context. The model then selects the best options and generates a natural language response and a
    structured plan.
 
-#### 4.4.2 Structured Output via Function Calling
+#### 4.5.2 Structured Output via Function Calling
 
 To ensure reliable interaction between the LLM and the application front end, we
 use [function calling](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting). Rather than parsing
