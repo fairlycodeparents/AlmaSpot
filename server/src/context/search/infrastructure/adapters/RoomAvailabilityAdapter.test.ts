@@ -1,10 +1,10 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { RoomAvailabilityAdapter } from "./RoomAvailabilityAdapter";
-import { RoomSlot, UserRequest } from "context/search/domain/Entities";
-import { Period } from "shared/domain/Period";
-import { Campus } from "shared/domain/Location";
-import { CoreFacade } from "context/core";
+import { RoomSlot, UserRequest } from "../../domain/Entities";
+import { Period } from "../../../../shared/domain/Period";
+import { Campus } from "../../../../shared/domain/Location";
+import { CoreFacade } from "../../../core";
 
 const createCore = (response: any[] = []): Partial<CoreFacade> => ({
   findAvailableRoomsBySite: async () => response,
