@@ -442,7 +442,7 @@ ensures that the output always adheres to the expected format, assuring type saf
 seamless integration with other components. An example of these schemas is shown below:
 
 ```typescript
-private readonly PLAN_DECLARATION = {
+PLAN_DECLARATION = {
   name: "define_plan",
   description: "Proposed room allocation plan.",
   parameters: {
@@ -461,7 +461,7 @@ private readonly PLAN_DECLARATION = {
               type: Type.STRING,
               description: "ISO 8601 start datetime",
             },
-            end: {type: Type.STRING, description: "ISO 8601 end datetime"},
+            end: { type: Type.STRING, description: "ISO 8601 end datetime" },
           },
           required: ["roomId", "start", "end"],
         },
