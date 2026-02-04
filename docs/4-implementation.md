@@ -27,7 +27,7 @@
 #### MEVN
 
 - **MongoDB**: NoSQL database used for data persistence management and storage of documents in a JSON-like format;
-- **Express**: web framework used for backend routing management;
+- **Express**: web framework for Node.js used for managing routing and abstracting HTTP requests and responses within controllers;
 - **Node.js**: runtime environment used for the development of the server component (backend);
 - **Vue.js**: progressive framework used on the frontend for creating the user interface based on reactive components.
 
