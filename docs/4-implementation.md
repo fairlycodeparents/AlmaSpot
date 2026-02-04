@@ -102,116 +102,114 @@ before sending it to the main system.
 
 ### 4.2 Core System
 
-The core system represents the heart of the application, managing the fundamental domain entities and user interactions,
-integrating the primary business logic with external academic sources. It is designed following the **Clean
-Architecture** principles, ensuring a strict separation between the domain logic and the external side effect through a
-robust set of adapters and domain services.
+The implementation of the core system focuses on managing the lifecycle of academic activities and the availability of
+physical spaces. It acts as the definitive "_source of truth_", reconciling static spatial data (classrooms) with dynamic
+schedule information through a robust set of adapters and services.
 
-#### 4.2.1 Domain Layer
+#### 4.2.1 Time management
 
-The domain layer represents the most stable part of the system. It contains the business rules that govern how
-activities are structured and validated.
+A central challenge was ensuring reliable time comparisons across the system. The implementation of the `Period` object
+(found in `shared/domain/Period.ts`) centralizes this logic to prevent inconsistencies in availability queries.
 
-- **Entities**: The system distinguishes between different types of activities through an inheritance-based model. The
-  `Activity` base class is extended by `InternalActivity` (representing official university lectures,
-  synced from the university open data) and `ExternalActivity` (representing custom user events manually created),
-  allowing the system to handle diverse data sources without logic duplication. This ensures consistency across all
-  components.
+- **Overlap logic**: Instead of scattering conditional checks throughout the services, the Period class implements a
+  dedicated method to detect time collisions.
 
-- **Business Validation**: Validation is not delegated to the UI or the database; we protect the domain integrity by
-  using **Value Objects** like `Period` and `Location`. These encapsulate the validation logic, guaranteeing that no
-  activity can be created with an invalid data (e.g., period can't have an end time smaller than its start time).
-
-- **Domain Events**: To maintain loose coupling with other systems, the domain layer triggers domain events. A key
-  example is the `ActivityAddedEvent`, which is published to the `EventBus` whenever a new activity is successfully
-  created. This allows the Notification System to react asynchronously without the Core System needing to know about the
-  notification logic. The domain layer is built to ensure total data consistency and scalability.
+- **Immutability**: To prevent side effects during complex filtering operations, Period is implemented as an immutable
+  value object.
 
 ```typescript
-export enum ActivityType {
-  INTERNAL_ACTIVITY = "INTERNAL_ACTIVITY",
-  EXTERNAL_ACTIVITY = "EXTERNAL_ACTIVITY",
-}
-
-export abstract class Activity {
-  constructor(
-    readonly id: string,
-    readonly name: string,
-    readonly type: ActivityType,
-    readonly period: Period,
-  ) {}
-}
-
 export class Period {
   constructor(
     readonly start: Date,
     readonly end: Date,
   ) {
-    if (start >= end)
+    if (start >= end) {
       throw new Error("Invalid period: start must be before end.");
+    }
+  }
+
+  overlapsWith(other: Period): boolean {
+    return this.start < other.end && this.end > other.start;
   }
 }
 ```
 
-#### 4.2.2 Application Layer
+#### 4.2.2 Room search
 
-The application layer implements the business use cases through specialized services. It coordinates the flow of data
-to and from the domain entities, focusing on high availability and data consistency.
+The `RoomSearchService` handles the task of finding free "spots" by cross-referencing static data from MongoDB with
+dynamic activities.
 
-- **`ActivityManagementService`**: This service coordinates the creation and retrieval of activities. It ensures that
-  when an internal activity is added, the information is correctly mapped and the relative event is published through
-  the EventBus.
-
-- **`RoomSearchService`**: This service provides a unified interface to query the state of university spaces.
-  It manages the logic for searching and filtering university rooms based on campus, site, and current availability.
-  It integrates the static room data (persisted in MongoDB) with real-time availability logic, ensuring that the "Spot"
-  search is always based on the latest known schedule.
+The algorithm retrieves active activities for the requested day and performs multi-level filtering. It does not simply
+verify the existence of a room; it performs a real-time difference between `Room` entities and the `Activity` collection.
 
 ```typescript
-export class ActivityManagementService {
-  constructor(
-    private readonly eventBus: EventBus,
-    private readonly provider: UniboProvider,
-  ) {}
-
-  async addInternalActivity(activity: InternalActivity): Promise<void> {
-    await this.eventBus.publish([
-      new ActivityAddedEvent(activity.id, activity.name, activity.period),
-    ]);
-  }
+private isRoomAvailable(room: Room, requestedPeriod: Period): boolean {
+  const hasConflict = room.activities.some((activity) =>
+          activity.period.overlapsWith(requestedPeriod)
+  );
+  return !hasConflict;
 }
 ```
 
-Others notable architectural patterns and strategies employed in the application layer include:
+#### 4.2.3 Synchronization strategies
 
-- **Data Synchronization Strategy and Caching**: The `ActivityManagementService` does not simply proxy requests to the
-  University API, but implements a reactive synchronization pattern. Instead of fetching data from the `UniboProvider`
-  on every request, it manages a functional cache reducing latency and ensuring system availability even during external
-  provider downtime.
-- **Facade Pattern**: A `CoreFacade` acts as the single entry point for the system, simplifying the interaction for the
-  web controllers and ensuring that internal service complexities are hidden from the infrastructure.
+The `ActivityManagementService` implements a **reactive synchronization** pattern to manage integration with the
+university.
 
-#### 4.2.3 Infrastructure Layer
+To mitigate high latency and potential downtime of university APIs, the service does not act as a simple proxy. The
+implementation follows an "on-demand" retrieval logic with functional caching: data retrieved from the
+`UniboProviderHTTP` is normalized and maintained in a local state, which reduces external calls and ensures system
+operation even if the external provider is unreachable.
 
-The infrastructure layer provides concrete implementations for the outbound ports, handling data persistence and
-external integrations.
+#### 4.2.4 Anti-Corruption Layer
 
-- **Native MongoDB Persistence**: To optimize performance for spatial and temporal queries, data storage is handled by
-  the `MongoRoomRepository` using the native MongoDB driver. This allows for rapid granular control over the room
-  collections (organized by campus: Bologna, Cesena, etc.) without the overhead of an ORM.
-- **In-Memory Event Bus**: Inter-module communication is handled by an `InMemoryEventBus`. This component leverages
-  Node.js's `EventEmitter` to provide a lightweight, asynchronous, in-process messaging system for distributing domain
-  events without needing external message brokers, ensuring that performances are not degraded by secondary tasks
-  like sending notifications. It implements a "Fire and Forget" mechanism, allowing events to be published without
-  waiting for subscribers to process them.
+Integration with external university data is managed via `UniboProviderHTTP`, which serves as a bridge to the Go
+microservice (`unibo-provider`). The adapter transforms heterogeneous data (often inconsistent in room names or date
+formats) into the clean domain model through the `ActivityMapper`.
+
+```typescript
+async getActivities(date: Date): Promise<InternalActivity[]> {
+  const formattedDate = date.toISOString().split("T")[0];
+  const response = await axios.get(
+    `${this.baseUrl}/activities?date=${formattedDate}`
+  );
+
+  return response.data.map((dto: any) =>
+    ActivityMapper.toDomain(dto)
+  );
+}
+```
+
+#### 4.2.5 Persistence with native MongoDB driver
+
+A key implementation choice was using the native MongoDB driver instead of heavy ORMs, for two main reasons:
+
+- **Query optimization**: In `MongoRoomRepository`, the native driver allows granular control over collections organized
+  by campus (Bologna, Cesena, etc.).
+- **Geographic hierarchy**: By leveraging MongoDB's dot-notation, the system queries nested fields (Campus $\rightarrow$
+  Branch $\rightarrow$ Room) with minimal overhead; the implementation can thus query nested properties to allow
+  targeted searches without performance degradation.
+
+#### 4.2.6 Seeding system
+
+A relevant implementation detail is the `SeedRooms` script. Unlike standard seeding, this engine handles the
+transformation of structured JSON files into complex documents. Its main functions are:
+
+- **Document transformation**: It processes campus-specific files (e.g., `cesena_rooms.json`), reconstructing the
+  `Location` object hierarchy.
+
+- **Clean-and-load strategy**: To ensure consistency across development environments, the script clears orphaned
+  collections before loading, ensuring the integrity of geographic references in MongoDB.
+
+#### 4.2.7 Asynchronous notification
+
+The `publish` method adopts a **fire-and-forget** strategy. Once an event is emitted (e.g., `ActivityAddedEvent`), the bus
+distributes it in a separate micro-task, immediately returning success to the user regardless of the processing
+time of the subscribers (`notification system`).
 
 ```typescript
 export class InMemoryEventBus implements EventBus {
-  private bus: EventEmitter;
-
-  constructor() {
-    this.bus = new EventEmitter();
-  }
+  private bus: EventEmitter = new EventEmitter();
 
   async publish(events: DomainEvent[]): Promise<void> {
     events.forEach((event) => {
@@ -219,32 +217,7 @@ export class InMemoryEventBus implements EventBus {
     });
   }
 }
-
-export class UniboProviderHTTP implements UniboProvider {
-  async getActivities(date: Date): Promise<InternalActivity[]> {
-    const response = await axios.get(`${this.baseUrl}/activities?date=${date}`);
-    return response.data.map((dto) => ActivityMapper.toDomain(dto));
-  }
-}
 ```
-
-#### 4.2.4 Anti Corruption Layer
-
-A key feature of the Core System is the implementation of an Anti-Corruption Layer (ACL) through the
-`UniboProviderHTTP`. This adapter isolates the core business logic from the complexities and potential instabilities of
-external university legacy systems. It fetches real-time heterogeneous raw data about lessons and classrooms, and maps
-it transforming raw HTTP responses into clean domain entities like `InternalActivity`. This ensures that changes in
-external APIs do not leak into our Core Domain, assuring that it remains decoupled and resilient.
-
-#### 4.2.5 Advanced Spatial Management
-
-A distinctive feature of the Core System is its Hierarchical Geodata Engine, a spatial model to manage university
-resources across multiple cities. We implemented a specialized seeding system (`SeedRooms.ts`) using structured JSON
-files for each Campus (Bologna, Cesena, Forlì, Ravenna, Rimini). This robust strategy populates the MongoDB instance
-with structured information regarding Campuses and Sites, allowing the system to manage university spaces not just as a
-flat list, but as a structured hierarchy: Campus → Site → Room. This architectural choice enables the RoomSearchService
-to perform high-performance filtering based on geographical location, such as searching for available "Spots" within a
-specific university site or building, enhancing the user experience by providing more relevant and localized results.
 
 ### 4.3 Notification System
 
