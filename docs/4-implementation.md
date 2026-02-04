@@ -87,6 +87,9 @@ before sending it to the main system.
   consistent design system and drastically reduces the need to write custom stylesheets, optimizing the final bundle by
   removing unused classes.
 
+- **typescript**: A strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript
+  , allowing it to run wherever JavaScript runs.
+
 - **uuid**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
   unique global identifiers.
 
