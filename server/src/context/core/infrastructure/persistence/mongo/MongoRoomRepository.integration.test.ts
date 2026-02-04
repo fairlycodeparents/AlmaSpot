@@ -64,7 +64,7 @@ describe("MongoRoomRepository Test", async () => {
     const date = new Date("2026-03-20");
     const internalActivities: InternalActivity[] = [
       {
-        id: "int-123-20260320-0900",
+        id: "int-123-aula-test-1-ce-20260320-0900",
         roomId: "aula-test-1-ce",
         title: "Lezione 1",
         type: ActivityType.INTERNAL_ACTIVITY,
@@ -74,7 +74,7 @@ describe("MongoRoomRepository Test", async () => {
         campus: Campus.CESENA,
       },
       {
-        id: "int-456-20260320-0900",
+        id: "int-456-aula-test-2-ce-20260320-0900",
         roomId: "aula-test-2-ce",
         title: "Lezione 2",
         type: ActivityType.INTERNAL_ACTIVITY,
@@ -104,7 +104,7 @@ describe("MongoRoomRepository Test", async () => {
 
   await it("save and delete ExternalActivity: should correctly save and delete an external activity", async () => {
     const extActivity: ExternalActivity = {
-      id: "ext-evento-studenti-20260320-1400",
+      id: "ext-evento-studenti-aula-test-1-ce-20260320-1400",
       roomId: "aula-test-1-ce",
       title: "Evento Studenti",
       type: ActivityType.EXTERNAL_ACTIVITY,
@@ -121,9 +121,14 @@ describe("MongoRoomRepository Test", async () => {
     );
     assert.strictEqual(events.length, 1);
     assert.ok(events[0]);
-    assert.strictEqual(events[0].id, "ext-evento-studenti-20260320-1400");
+    assert.strictEqual(
+      events[0].id,
+      "ext-evento-studenti-aula-test-1-ce-20260320-1400",
+    );
 
-    await repo.deleteExternalActivity("ext-evento-studenti-20260320-1400");
+    await repo.deleteExternalActivity(
+      "ext-evento-studenti-aula-test-1-ce-20260320-1400",
+    );
 
     events = await repo.getEventsPerRoom(
       "aula-test-1-ce",

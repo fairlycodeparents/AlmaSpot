@@ -163,6 +163,7 @@ export class CoreController {
 
       const dto = req.body as CreateActivityDTO;
       dto.id = this.generateExternalActivityId(
+        dto.title,
         dto.roomId,
         new Date(dto.startTime),
       );
@@ -220,7 +221,11 @@ export class CoreController {
     }
   };
 
-  private generateExternalActivityId(activityId: string, start: Date): string {
+  private generateExternalActivityId(
+    activityId: string,
+    roomId: string,
+    start: Date,
+  ): string {
     const slugActivityId = activityId
       .toLowerCase()
       .trim()
@@ -229,6 +234,6 @@ export class CoreController {
     const dateStr = start.toISOString().slice(0, 10).replace(/-/g, "");
     const timeStr = start.toISOString().slice(11, 16).replace(/:/g, "");
 
-    return `ext-${slugActivityId}-${dateStr}-${timeStr}`;
+    return `ext-${slugActivityId}-${roomId}-${dateStr}-${timeStr}`;
   }
 }

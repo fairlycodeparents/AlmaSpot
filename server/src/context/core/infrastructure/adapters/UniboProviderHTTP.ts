@@ -36,6 +36,7 @@ export class UniboProviderHTTP implements UniboProvider {
         activities.push({
           id: this.generateInternalActivityId(
             item.course_id,
+            item.room_code,
             new Date(item.start),
           ),
           roomId: this.generateRoomId(item.room_code, campus),
@@ -73,8 +74,17 @@ export class UniboProviderHTTP implements UniboProvider {
     return `${roomSlug}-${suffix}`;
   }
 
-  private generateInternalActivityId(courseId: string, start: Date): string {
+  private generateInternalActivityId(
+    courseId: string,
+    roomId: string,
+    start: Date,
+  ): string {
     const slugCourseId = courseId
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+    const slugRoomId = roomId
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9]+/g, "-")
@@ -82,6 +92,6 @@ export class UniboProviderHTTP implements UniboProvider {
     const dateStr = start.toISOString().slice(0, 10).replace(/-/g, "");
     const timeStr = start.toISOString().slice(11, 16).replace(/:/g, "");
 
-    return `int-${slugCourseId}-${dateStr}-${timeStr}`;
+    return `int-${slugCourseId}-${slugRoomId}-${dateStr}-${timeStr}`;
   }
 }
