@@ -1,3 +1,9 @@
+## [4.6.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.0...4.6.1) (2026-02-04)
+
+### Bug Fixes
+
+- **provider:** reduced concurrency limit to 10 ([b771704](https://github.com/fairlycodeparents/AlmaSpot/commit/b7717042b015f8e3f46f66e76f017ddd304c0495))
+
 ## [4.6.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.5.0...4.6.0) (2026-02-04)
 
 ### Features
