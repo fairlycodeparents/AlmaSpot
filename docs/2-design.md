@@ -121,19 +121,19 @@ experience. Our mobile-first design ensures accessibility and ease of use on sma
 
 The mockups include the following screens, from left to right and top to bottom:
 
-- Admin Login: a login page for administrators to access the management dashboard.
-- Home Page: the main landing page where students can start searching for available rooms.
-- Admin Dashboard: a control panel where administrators can manage room availability and activities. This is shown in
+- Admin login: a login page for administrators to access the management dashboard.
+- Home page: the main landing page where students can start searching for available rooms.
+- Admin dashboard: a control panel where administrators can manage room availability and activities. This is shown in
   two tabs: "Remove" and "Add." The "Remove" tab allows administrators to remove existing activities, and the "Add" tab
   allows them to add new ones.
-- Results Page: this is a dynamic page that displays search results.
-- Assistant Page: this is a chat-based interface where students can interact with the AI assistant to refine their
+- Results page: this is a dynamic page that displays search results.
+- Assistant page: this is a chat-based interface where students can interact with the AI assistant to refine their
   search, receive suggestions, and, if no direct matches are found, receive alternative plans.
-- Admin Results Pages: two pages showing the results of administrative actions: one page displays the list of currently
+- Admin results pages: two pages showing the results of administrative actions: one page displays the list of currently
   active activities, and the other page is used to choose rooms when adding a new activity.
-- Active Plan Page: two examples are provided, showing a simple plan with one slot and a compound plan with multiple
-  slots. Details such as notifications in case of a conflict are included.
-- Filter Panel: this is a pop-up panel that allows students and administrators to apply filters to their search, such as
+- Active plan page: two examples are provided, showing a simple plan with one slot and a compound plan with multiple
+  slots. Details such as an alert in case of a conflict are included.
+- Filter panel: this is a pop-up panel that allows students and administrators to apply filters to their search, such as
   room site and room type.
 
 <img src="figures/mock-ups.png" alt="AlmaSpot Mockups" style="max-width: 800px;">
