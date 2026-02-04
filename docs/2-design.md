@@ -14,6 +14,7 @@
 4. [Implementation](4-implementation.md)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 In this section, we define the software design of AlmaSpot, focusing on how the system's components differ and interact
 to fulfill the identified functional requirements. Adopting a Domain-Driven Design (DDD) approach, the monolithic

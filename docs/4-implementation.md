@@ -20,6 +20,7 @@
      - 4.4.2 [Structured Output via Function Calling](#452-structured-output-via-function-calling)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 ### 4.1 Technologies
 

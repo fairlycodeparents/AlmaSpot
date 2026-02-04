@@ -14,6 +14,7 @@
    - 5.3. [Quality Assurance](#53-quality-assurance)
    - 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 To streamline collaboration among group members and automate repetitive tasks, the choice of a deployment strategy is
 crucial. For this reason, we decided to adopt the continuous release strategy described below. This requires a robust
