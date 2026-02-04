@@ -148,7 +148,7 @@ The pipeline performs the following steps in sequence:
   release job is conditional; it executes only if a new release has actually been published by the previous step. This
   prevents the creation of redundant Docker images for commits that do not trigger a version upgrade (e.g.,
   documentation changes or chores).
-- **Artifact Publication**: If a release is triggered, the pipeline builds the Docker images for the server, client, and
+- **Artifact Publication**: If a release is triggered, the pipeline builds the Docker images for the server, and
   unibo-provider contexts. These images are tagged with both the specific semantic version (e.g., `1.2.0`) and the
   `latest` tag, and are finally pushed to the GitHub container registry.
 
