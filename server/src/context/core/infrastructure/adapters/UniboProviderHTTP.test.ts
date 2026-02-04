@@ -43,7 +43,7 @@ describe("UniboProviderHTTP Test", () => {
 
     assert.strictEqual(result.length, 1);
     assert.ok(result[0]);
-    assert.strictEqual(result[0].id, "int-8614-20260320-0900");
+    assert.strictEqual(result[0].id, "int-8614-aula-a-ce-20260320-0900");
     assert.strictEqual(result[0].title, "Lezione di Prova");
     assert.strictEqual(result[0].roomId, "aula-a-ce");
 
