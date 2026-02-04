@@ -1,3 +1,43 @@
+## [4.6.3](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.2...4.6.3) (2026-02-04)
+
+### Dependency updates
+
+- **deps:** remove unused dependencies and update semantic-release-conventional-commit ([#88](https://github.com/fairlycodeparents/AlmaSpot/issues/88)) ([260704d](https://github.com/fairlycodeparents/AlmaSpot/commit/260704d7cea93fd5c2640c9dd10774b1620f437b))
+
+### Bug Fixes
+
+- **docs:** modified implementation docs for core system ([e63d05b](https://github.com/fairlycodeparents/AlmaSpot/commit/e63d05bfab3283899c2b274a131cd12880d071cd))
+
+### Documentation
+
+- add AI Assistant integration section ([5be1133](https://github.com/fairlycodeparents/AlmaSpot/commit/5be113317195e8351412a64fe11051d8a5981ab8))
+- add deployment section and update navigation links ([c6de715](https://github.com/fairlycodeparents/AlmaSpot/commit/c6de7159688922de363a0ab10ab43032173d8bb3))
+- add nginx to implementation section ([c865d4b](https://github.com/fairlycodeparents/AlmaSpot/commit/c865d4b95edeeaba29219998fd5ebca9404158d0))
+- add typescript to implementation section ([72c851c](https://github.com/fairlycodeparents/AlmaSpot/commit/72c851c9bbaa8b872815c6d0fcbc52d4c7961231))
+- added core system description ([370ef52](https://github.com/fairlycodeparents/AlmaSpot/commit/370ef520b4a214d55a156fe4e3729b6e589d43a8))
+- **analysis:** refine analysis section and update terminology for clarity ([3a30c42](https://github.com/fairlycodeparents/AlmaSpot/commit/3a30c422556449fbb67414d6c2d1428344fe6706))
+- **architecture:** update physical architecture section and clarify system components ([3c7bbda](https://github.com/fairlycodeparents/AlmaSpot/commit/3c7bbdad86c907fba9e8e84553c34d46eb5eb14e))
+- clarify AI service interaction in search context ([86315b5](https://github.com/fairlycodeparents/AlmaSpot/commit/86315b59aeed47c08a746479869d83219c782958))
+- **devops:** clarify CI checks and build verification process ([9b7b8f5](https://github.com/fairlycodeparents/AlmaSpot/commit/9b7b8f56a479c7d3212d735c0b5a13cb5f30416a))
+- enhance Express description and remove client image publication ([bc5bd41](https://github.com/fairlycodeparents/AlmaSpot/commit/bc5bd4121f29f7c1d5bd3d7b60f8ed12acbc30c6))
+- expand devops section with Prettier, code coverage, CI/CD, and Renovate details ([ada046a](https://github.com/fairlycodeparents/AlmaSpot/commit/ada046a6d97351915b3d325cc37fe3332da2d346))
+- **figures:** update mockups ([798defb](https://github.com/fairlycodeparents/AlmaSpot/commit/798defbe6fcb9d4060cc70aacaed8a309b9b2d97))
+- fix formatting ([be97384](https://github.com/fairlycodeparents/AlmaSpot/commit/be9738422b8c7b1d6a37128a23d25d319845043b))
+- **impl:** add authentication system section ([8041168](https://github.com/fairlycodeparents/AlmaSpot/commit/80411683987dae1f21abf638230f2c0c60130c52))
+- **impl:** add notification system section ([c24eef8](https://github.com/fairlycodeparents/AlmaSpot/commit/c24eef84872a41004cba176f051b16c49bbf805f))
+- improve clarity and formatting in implementation section ([16cd4c8](https://github.com/fairlycodeparents/AlmaSpot/commit/16cd4c8d0407d632926e03d8b675c2384c0a9062))
+- improve formatting ([eb31936](https://github.com/fairlycodeparents/AlmaSpot/commit/eb31936fa8f11a32953da964d72c9cd32e6827d0))
+- improve title formatting ([ba09e53](https://github.com/fairlycodeparents/AlmaSpot/commit/ba09e530a580b5adb555c353ac9beb2e0177c09a))
+- standardize terminology and improve clarity in analysis and design sections ([aaa9c2c](https://github.com/fairlycodeparents/AlmaSpot/commit/aaa9c2c0d0ecbac5b3ddfe1c3cdabbc40984eda9))
+- update authentication context description ([b3f31c8](https://github.com/fairlycodeparents/AlmaSpot/commit/b3f31c85a5d720b1b474fdb42071a45bf1b67823))
+- update authentication section ([7717f62](https://github.com/fairlycodeparents/AlmaSpot/commit/7717f624010d845185e6d6032ed8c20a808b0805))
+- update code snippets in implementation section ([43ecceb](https://github.com/fairlycodeparents/AlmaSpot/commit/43ecceba91229661bbad49128ff243a2ab4c51c2))
+- update context diagrams to use HTML img tags for better formatting ([a838295](https://github.com/fairlycodeparents/AlmaSpot/commit/a838295ac7c7321d2f72cfcd041d9823bb1123c6))
+- update implementation section with improved structure ([a39b8d9](https://github.com/fairlycodeparents/AlmaSpot/commit/a39b8d9f8f2e87f0cc3f89228d29c0a1354d99e3))
+- update implementation section with technology stack ([b97d028](https://github.com/fairlycodeparents/AlmaSpot/commit/b97d02802280f855c2e90fe24a4fae9f6b92a4b6))
+- update mockups formatting and add desktop example ([0ace67c](https://github.com/fairlycodeparents/AlmaSpot/commit/0ace67c535e64a69b2b14cdfcd2fc2e018c69d12))
+- update mockups section and add UI components colletcion ([86bdfd2](https://github.com/fairlycodeparents/AlmaSpot/commit/86bdfd2aa3eed1f0550028150ce2ef38b9eebeb2))
+
 ## [4.6.2](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.1...4.6.2) (2026-02-04)
 
 ### Bug Fixes
