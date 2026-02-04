@@ -1,3 +1,16 @@
+## [4.5.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.4.0...4.5.0) (2026-02-04)
+
+### Features
+
+- **provider:** managed course fetching failures with more attempts ([99f706e](https://github.com/fairlycodeparents/AlmaSpot/commit/99f706eba61b37a27f8ec8fe0b1416c83c36c8a9))
+
+### Bug Fixes
+
+- **client:** changed error handling when provider crash ([e15fae9](https://github.com/fairlycodeparents/AlmaSpot/commit/e15fae97d05823d6a44e3fc48ee892ed615f981d))
+- **core:** changed id creation in internal activity ([da2dc7a](https://github.com/fairlycodeparents/AlmaSpot/commit/da2dc7aac15a572823a014023b8bdbbbcc7d4ca1))
+- **core:** update activity ID generation to include roomId ([43c985b](https://github.com/fairlycodeparents/AlmaSpot/commit/43c985bac63d2175415d9240f77c0c217431e10d))
+- **core:** update external activity ID ([019bb9f](https://github.com/fairlycodeparents/AlmaSpot/commit/019bb9fe8f8b4b606ca56238d7a48b0b520f5eef))
+
 ## [4.4.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.3.1...4.4.0) (2026-02-02)
 
 ### Features
