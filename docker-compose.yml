@@ -29,6 +29,7 @@ services:
       - PORT=${PORT}
       - VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
       - VAPID_PRIVATE_KEY=${VAPID_PRIVATE_KEY}
+      - VAPID_SUBJECT=${VAPID_SUBJECT}
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - UNIBO_SERVICE_URL=${UNIBO_SERVICE_URL}
       - NODE_ENV=development
@@ -62,7 +63,7 @@ services:
       - /app/node_modules
     environment:
       - VITE_API_URL=http://localhost:${PORT}
-        - VITE_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
+      - VITE_VAPID_PUBLIC_KEY=${VAPID_PUBLIC_KEY}
     networks:
       - almaspot-network
     depends_on:
