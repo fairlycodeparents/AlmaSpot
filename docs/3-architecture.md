@@ -10,6 +10,7 @@
 4. [Implementation](4-implementation.md)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 ## 3.1. Physical Architecture
 

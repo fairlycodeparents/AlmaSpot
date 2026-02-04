@@ -8,6 +8,7 @@
 4. [Implementation](4-implementation.md)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 The decision to release AlmaSpot as open source was initially made due to the availability of free CI/CD tools (GitHub
 Actions) for public repositories. In this context, our aim was to enable users to modify, redistribute and integrate the

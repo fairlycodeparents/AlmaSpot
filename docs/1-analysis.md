@@ -20,6 +20,7 @@
 4. [Implementation](4-implementation.md)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
+7. [Deployment](7-deployment.md)
 
 This section outlines the analytical process that was carried out in order to understand the
 problem domain, define the system requirements and structure the domain model in accordance with
