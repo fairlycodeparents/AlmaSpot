@@ -30,13 +30,13 @@ type ActivityCache struct {
 }
 
 var (
-	courseStore = cache.New(24*time.Hour, 1*time.Hour)
+	courseStore = cache.New(24*time.Hour, 48*time.Hour)
 
 	activityStore = ActivityCache{
 		Data: make(map[string]map[string][]ActivityResponse),
 	}
 
-	concurrencyLimit = make(chan struct{}, 15)
+	concurrencyLimit = make(chan struct{}, 10)
 )
 
 type RoomResponse struct {
