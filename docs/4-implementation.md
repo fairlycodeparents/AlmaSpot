@@ -68,6 +68,10 @@ before sending it to the main system.
 - **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
   model application data, handling validation, type conversion, and business logic.
 
+- **nginx**: Web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
+  request routing, ensuring scalability and correct path resolution for Single Page
+  Application (SPA).
+
 - **pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
   (e.g., user data, tokens) in a reactive and modular way, facilitating data sharing between components.
 
