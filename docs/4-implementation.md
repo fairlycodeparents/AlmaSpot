@@ -8,11 +8,12 @@
 4. [Implementation](4-implementation.md)
    - 4.1 [Technologies](#41-technologies)
    - 4.2 [Core System](#42-core-system)
-     - 4.2.1 [Domain Layer](#421-domain-layer)
-     - 4.2.2 [Application Layer](#422-application-layer)
-     - 4.2.3 [Infrastructure Layer](#423-infrastructure-layer)
-     - 4.2.4 [Anti Corruption Layer](#424-anti-corruption-layer)
-     - 4.2.5 [Advanced Spatial Management](#425-advanced-spatial-management)
+     - 4.2.1 [Time management](#421-time-management)
+     - 4.2.2 [Room search](#422-room-search)
+     - 4.2.3 [Synchronization strategies](#423-synchronization-strategies)
+     - 4.2.4 [Anti-Corruption Layer](#424-anti-corruption-layer)
+     - 4.2.5 [Persistence with native MongoDB driver](#425-persistence-with-native-mongodb-driver)
+     - 4.2.6 [Seeding system](#426-seeding-system)
    - 4.3 [Notification System](#43-notification-system)
    - 4.4 [Authentication System](#44-authentication-system)
    - 4.5 [AI Assistant Integration](#45-ai-assistant-integration)
@@ -50,36 +51,36 @@ before sending it to the main system.
 
 #### Other technologies used
 
-- **argon2**: Library used for password hashing. It guarantees advanced protection against brute-force and rainbow
+- **argon2**: library used for password hashing. It guarantees advanced protection against brute-force and rainbow
   table attacks.
 
-- **c8**: Tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
+- **c8**: tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
   measure test effectiveness, generating detailed reports that highlight well-verified code portions and those with
   insufficient coverage.
 
-- **dotenv**: Module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
+- **dotenv**: module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
   separating sensitive configurations (such as API keys and credentials) from the source code.
 
-- **genai** (Google Generative AI): Client SDK used to integrate generative artificial intelligence features
+- **genai** (Google Generative AI): client SDK used to integrate generative artificial intelligence features
   (Gemini models) within the application, allowing for content generation or semantic analysis.
 
-- **jsonwebtoken**: Implementation for token signing, decoding, and verification. Used to handle _stateless_
+- **jsonwebtoken**: implementation for token signing, decoding, and verification. Used to handle _stateless_
   authentication and the secure exchange of information between client and server.
 
 - **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
   model application data, handling validation, type conversion, and business logic.
 
-- **nginx**: Web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
+- **nginx**: web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
   request routing, ensuring scalability and correct path resolution for Single Page
   Application (SPA).
 
-- **pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
+- **pinia**: the official _State Management_ library for Vue.js. Used to handle the global application state
   (e.g., user data, tokens) in a reactive and modular way, facilitating data sharing between components.
 
-- **postcss**: Tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
+- **postcss**: tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
   Tailwind CSS and ensure cross-browser compatibility.
 
-- **storybook**: Open source tool for UI component development that acts as a laboratory and interactive documentation.
+- **storybook**: open source tool for UI component development that acts as a laboratory and interactive documentation.
   It allows verifying component states and accessibility outside the main application, ensuring that the design system
   defined in Tailwind CSS is applied correctly on all elements.
 
@@ -87,19 +88,19 @@ before sending it to the main system.
   consistent design system and drastically reduces the need to write custom stylesheets, optimizing the final bundle by
   removing unused classes.
 
-- **typescript**: A strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript
+- **typescript**: a strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript
   , allowing it to run wherever JavaScript runs.
 
-- **uuid**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
+- **uuid**: tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
   unique global identifiers.
 
-- **web-push**: Library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
+- **web-push**: library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
   generation and interaction with browser Push Services.
 
-- **vite**: New generation build tool for the frontend. It provides a rapid and optimized development environment for
+- **vite**: new generation build tool for the frontend. It provides a rapid and optimized development environment for
   web applications.
 
-- **zod**: Schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
+- **zod**: schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
   after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
   that TypeScript could not intercept.
 
@@ -114,10 +115,10 @@ schedule information through a robust set of adapters and services.
 A central challenge was ensuring reliable time comparisons across the system. The implementation of the `Period` object
 (found in `shared/domain/Period.ts`) centralizes this logic to prevent inconsistencies in availability queries.
 
-- **Overlap logic**: Instead of scattering conditional checks throughout the services, the Period class implements a
+- **Overlap logic**: instead of scattering conditional checks throughout the services, the Period class implements a
   dedicated method to detect time collisions.
 
-- **Immutability**: To prevent side effects during complex filtering operations, Period is implemented as an immutable
+- **Immutability**: to prevent side effects during complex filtering operations, Period is implemented as an immutable
   value object.
 
 ```typescript
@@ -187,9 +188,9 @@ async getActivities(date: Date): Promise<InternalActivity[]> {
 
 A key implementation choice was using the native MongoDB driver instead of heavy ORMs, for two main reasons:
 
-- **Query optimization**: In `MongoRoomRepository`, the native driver allows granular control over collections organized
+- **Query optimization**: in `MongoRoomRepository`, the native driver allows granular control over collections organized
   by campus (Bologna, Cesena, etc.).
-- **Geographic hierarchy**: By leveraging MongoDB's dot-notation, the system queries nested fields (Campus $\rightarrow$
+- **Geographic hierarchy**: by leveraging MongoDB's dot-notation, the system queries nested fields (Campus $\rightarrow$
   Branch $\rightarrow$ Room) with minimal overhead; the implementation can thus query nested properties to allow
   targeted searches without performance degradation.
 
@@ -198,29 +199,11 @@ A key implementation choice was using the native MongoDB driver instead of heavy
 A relevant implementation detail is the `SeedRooms` script. Unlike standard seeding, this engine handles the
 transformation of structured JSON files into complex documents. Its main functions are:
 
-- **Document transformation**: It processes campus-specific files (e.g., `cesena_rooms.json`), reconstructing the
+- **Document transformation**: it processes campus-specific files (e.g., `cesena_rooms.json`), reconstructing the
   `Location` object hierarchy.
 
-- **Clean-and-load strategy**: To ensure consistency across development environments, the script clears orphaned
+- **Clean-and-load strategy**: to ensure consistency across development environments, the script clears orphaned
   collections before loading, ensuring the integrity of geographic references in MongoDB.
-
-#### 4.2.7 Asynchronous notification
-
-The `publish` method adopts a **fire-and-forget** strategy. Once an event is emitted (e.g., `ActivityAddedEvent`), the bus
-distributes it in a separate micro-task, immediately returning success to the user regardless of the processing
-time of the subscribers (`notification system`).
-
-```typescript
-export class InMemoryEventBus implements EventBus {
-  private bus: EventEmitter = new EventEmitter();
-
-  async publish(events: DomainEvent[]): Promise<void> {
-    events.forEach((event) => {
-      this.bus.emit(event.eventName, event);
-    });
-  }
-}
-```
 
 ### 4.3 Notification System
 
@@ -243,6 +226,7 @@ This event is intercepted by the _ActivityAddedListener_, which triggers the con
 Once the affected students are identified, the actual delivery is delegated to the _WebPushAdapter_.
 This component uses the _web-push_ library and the configured _VAPID_ keys to send the encrypted payload
 to the browser's push service, setting the urgency header to "high".
+
 Requests towards the _Push Service_ are parallelized to ensure that a delivery failure to a single device
 does not compromise delivery to other users.
 
