@@ -37,8 +37,7 @@ export const useSearchStore = defineStore("search", () => {
       return true;
     } catch (err: any) {
       console.error("Errore ricerca:", err);
-      error.value =
-        err.message || "Nessuna aula disponibile con questi criteri.";
+      error.value = err.message;
       return false;
     } finally {
       isLoading.value = false;
