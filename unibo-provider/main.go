@@ -36,7 +36,7 @@ var (
 		Data: make(map[string]map[string][]ActivityResponse),
 	}
 
-	concurrencyLimit = make(chan struct{}, 20)
+	concurrencyLimit = make(chan struct{}, 15)
 )
 
 type RoomResponse struct {
@@ -218,37 +218,68 @@ func getActivitiesHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, activities)
 }
 
-func getCourses() (res []unibo_integ.Course, err error) {
-	defer func() {
-		if r := recover(); r != nil {
-			err = fmt.Errorf("panic external lib: %v", r)
-			res = nil
-		}
-	}()
-
+func getCourses() ([]unibo_integ.Course, error) {
 	if x, found := courseStore.Get("courses"); found {
-		if cachedCourses, ok := x.([]unibo_integ.Course); ok {
-			return cachedCourses, nil
-		}
+		return x.([]unibo_integ.Course), nil
 	}
 
+	var courses []unibo_integ.Course
+	var err error
+	maxRetries := 10
 	client := ckan.NewClient(openDataUrl)
-	pack, err := client.GetPackage(packageId)
-	if err != nil {
-		return nil, err
+
+	for i := 0; i < maxRetries; i++ {
+		attempt := i + 1
+		fmt.Printf("[ATTEMPT %d/%d] Starting download procedure...\n", attempt, maxRetries)
+
+		pack, errPackage := client.GetPackage(packageId)
+		if errPackage != nil {
+			fmt.Printf("METADATA error: %v\n", errPackage)
+			err = errPackage
+			time.Sleep(getBackoff(attempt))
+			continue
+		}
+
+		resource, found := ckan.GetByAlias(pack.Resources, resourceAlias)
+		if !found {
+			err = fmt.Errorf("resource alias '%s' not found", resourceAlias)
+			return nil, err
+		}
+
+		fmt.Printf("Downloading CSV from: %s\n", resource.URL)
+
+		var downloadedCourses []unibo_integ.Course
+		var errDownload error
+
+		func() {
+			defer func() {
+				if r := recover(); r != nil {
+					errDownload = fmt.Errorf("CRASH API: %v", r)
+				}
+			}()
+			downloadedCourses, errDownload = unibo_integ.DownloadResource(resource)
+		}()
+
+		if errDownload != nil {
+			fmt.Printf("Errore/Panic DOWNLOAD CSV: %v\n", errDownload)
+			err = errDownload
+			time.Sleep(getBackoff(attempt))
+			continue
+		}
+
+		courses = downloadedCourses
+		err = nil
+		break
 	}
 
-	resource, found := ckan.GetByAlias(pack.Resources, resourceAlias)
-	if !found {
-		return nil, fmt.Errorf("resource not found")
-	}
-
-	courses, err := unibo_integ.DownloadResource(resource)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to download courses after %d attempts. Last error: %w", maxRetries, err)
 	}
 
 	actualYear := time.Now().Year()
+	if time.Now().Month() < 9 {
+		actualYear--
+	}
 	prevYear := actualYear - 1
 
 	strActual := strconv.Itoa(actualYear)
@@ -263,6 +294,12 @@ func getCourses() (res []unibo_integ.Course, err error) {
 
 	courseStore.Set("courses", activeCourses, cache.DefaultExpiration)
 	return activeCourses, nil
+}
+
+func getBackoff(attempt int) time.Duration {
+	wait := time.Duration(5*attempt) * time.Second
+	fmt.Printf("Waiting %v before retry...\n", wait)
+	return wait
 }
 
 func cleanupOldCacheData() {

@@ -1,16 +1,14 @@
-FROM golang:1.25-alpine AS builder
+FROM golang:1.24-alpine AS builder
 WORKDIR /app
-RUN apk add --no-cache git
+RUN apk add --no-cache git ca-certificates
+COPY go.mod go.sum ./
+RUN go mod download
 COPY . .
-RUN rm -f go.mod go.sum
-RUN go mod init unibo-provider
-RUN go get github.com/VaiTon/unibocalendar@main
-RUN go mod tidy
-RUN go build -o unibo-provider .
+RUN CGO_ENABLED=0 GOOS=linux go build -o unibo-provider .
 
 FROM alpine:latest
 WORKDIR /app
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates tzdata
 COPY --from=builder /app/unibo-provider .
 EXPOSE 8080
 CMD ["./unibo-provider"]
