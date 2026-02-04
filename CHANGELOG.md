@@ -1,3 +1,9 @@
+## [4.6.2](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.1...4.6.2) (2026-02-04)
+
+### Bug Fixes
+
+- **docker:** copy JSON data and set NODE_ENV in prod ([#87](https://github.com/fairlycodeparents/AlmaSpot/issues/87)) ([619ba39](https://github.com/fairlycodeparents/AlmaSpot/commit/619ba392a0a093e8e463957eb8686cda76a1244b))
+
 ## [4.6.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.0...4.6.1) (2026-02-04)
 
 ### Bug Fixes
