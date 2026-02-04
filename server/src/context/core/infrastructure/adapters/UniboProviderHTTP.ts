@@ -33,13 +33,14 @@ export class UniboProviderHTTP implements UniboProvider {
       const activities: InternalActivity[] = [];
 
       for (const item of data) {
+        const roomId = this.generateRoomId(item.room_code, campus);
         activities.push({
           id: this.generateInternalActivityId(
             item.course_id,
-            item.room_code,
+            roomId,
             new Date(item.start),
           ),
-          roomId: this.generateRoomId(item.room_code, campus),
+          roomId: roomId,
           campus: campus,
           title: item.title,
           type: ActivityType.INTERNAL_ACTIVITY,
@@ -84,14 +85,9 @@ export class UniboProviderHTTP implements UniboProvider {
       .trim()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "");
-    const slugRoomId = roomId
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
     const dateStr = start.toISOString().slice(0, 10).replace(/-/g, "");
     const timeStr = start.toISOString().slice(11, 16).replace(/:/g, "");
 
-    return `int-${slugCourseId}-${slugRoomId}-${dateStr}-${timeStr}`;
+    return `int-${slugCourseId}-${roomId}-${dateStr}-${timeStr}`;
   }
 }
