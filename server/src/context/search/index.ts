@@ -1,4 +1,4 @@
-import { CoreFacade } from "context/core";
+import { CoreFacade } from "../core";
 import { SearchService } from "./application/SearchService";
 import { AIAdapter } from "./infrastructure/adapters/AIAdapter";
 import { RoomAvailabilityAdapter } from "./infrastructure/adapters/RoomAvailabilityAdapter";
