@@ -103,8 +103,7 @@ const handleSelectRoom = async (item: RoomAvailabilityDTO) => {
         router.back();
       }
     } catch (error: any) {
-      pageError.value =
-        error.message || "Errore generico durante la creazione.";
+      pageError.value = error.message;
     }
   } else if (props.variant === "student") {
     const targetDate = new Date();

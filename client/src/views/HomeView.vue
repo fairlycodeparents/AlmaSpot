@@ -11,12 +11,8 @@ const loadingMessage = ref("Cerco aule libere...");
 
 const handleSearch = async (payload: SearchPayload) => {
   loadingMessage.value = "Cerco aule libere...";
-  const found = await searchStore.searchRooms(payload);
-  if (found) {
-    await router.push({ name: "student-results" });
-  } else {
-    alert("Errore ricerca: " + searchStore.error);
-  }
+  await searchStore.searchRooms(payload);
+  await router.push({ name: "student-results" });
 };
 const goToLogin = () => router.push({ name: "login" });
 </script>
