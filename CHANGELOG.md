@@ -1,3 +1,22 @@
+## [4.6.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.5.0...4.6.0) (2026-02-04)
+
+### Features
+
+- **docker:** add development configuration with Dockerfile.dev and update docker-compose ([1f19c97](https://github.com/fairlycodeparents/AlmaSpot/commit/1f19c97bac4fa5f7df7f6b45b75f1585ce80cab7))
+- **docker:** set up multi-stage Docker build and add production configuration ([401dc55](https://github.com/fairlycodeparents/AlmaSpot/commit/401dc552f224f94a6fd2ad44a982d6a1e4bd12e6))
+
+### Bug Fixes
+
+- **docker:** update environment variables in docker-compose and correct file paths in index.html ([978e54a](https://github.com/fairlycodeparents/AlmaSpot/commit/978e54aa102005c0dbdf559f28fab7a1aa2746e5))
+
+### Build and continuous integration
+
+- **server:** integrate tsc-alias to support absolute paths in dist ([f06760a](https://github.com/fairlycodeparents/AlmaSpot/commit/f06760ab15703bae0197f03b599cdab72946ab1e))
+
+### General maintenance
+
+- **env:** move example environment file and update NODE_ENV to production ([cd6486f](https://github.com/fairlycodeparents/AlmaSpot/commit/cd6486f685a29fd94bbeb71cd70deb7de02e6fec))
+
 ## [4.5.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.4.0...4.5.0) (2026-02-04)
 
 ### Features
