@@ -1,3 +1,13 @@
+## [4.6.5](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.4...4.6.5) (2026-02-05)
+
+### Bug Fixes
+
+- **search:** updated imports to run without alias ([84ff081](https://github.com/fairlycodeparents/AlmaSpot/commit/84ff081218b71c7d78ad7bc1c36e91972f12e967))
+
+### Build and continuous integration
+
+- **release:** target both `linux/amd64` and `linux/arm64` ([#92](https://github.com/fairlycodeparents/AlmaSpot/issues/92)) ([cdb1a2e](https://github.com/fairlycodeparents/AlmaSpot/commit/cdb1a2e1caac648ea7ac2786dbebaabcc4eda1fa))
+
 ## [4.6.4](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.3...4.6.4) (2026-02-05)
 
 ### Dependency updates
