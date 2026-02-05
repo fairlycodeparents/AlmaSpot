@@ -1,6 +1,6 @@
-import { RoomAvailability } from "context/search/application/ports/OutboundPorts";
-import { UserRequest, RoomSlot } from "context/search/domain/Entities";
-import { CoreFacade } from "context/core";
+import { RoomAvailability } from "../../application/ports/OutboundPorts";
+import { UserRequest, RoomSlot } from "../../domain/Entities";
+import { CoreFacade } from "../../../core";
 
 /**
  * Adapter for room availability, implementing the RoomAvailability external port.

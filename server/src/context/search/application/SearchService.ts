@@ -1,10 +1,7 @@
 import { SearchRequestDTO, SuggestionDTO } from "./DTOs";
-import {
-  AI,
-  RoomAvailability,
-} from "context/search/application/ports/OutboundPorts";
-import { UserRequest } from "context/search/domain/Entities";
-import { SearchUseCase } from "context/search/application/ports/InboundPorts";
+import { AI, RoomAvailability } from "./ports/OutboundPorts";
+import { UserRequest } from "../domain/Entities";
+import { SearchUseCase } from "./ports/InboundPorts";
 
 /**
  * Service responsible for handling the search of plans based on user input.

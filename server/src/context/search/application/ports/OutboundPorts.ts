@@ -1,4 +1,4 @@
-import { UserRequest, RoomSlot } from "context/search/domain/Entities";
+import { UserRequest, RoomSlot } from "../../domain/Entities";
 import { ChatMessageDTO, SuggestionDTO } from "../DTOs";
 
 /** External port for AI interactions */

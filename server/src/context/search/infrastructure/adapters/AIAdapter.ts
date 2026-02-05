@@ -1,11 +1,7 @@
-import { Period } from "shared/domain/Period";
-import { Campus } from "shared/domain/Location";
-import { AI } from "context/search/application/ports/OutboundPorts";
-import {
-  RoomSlot,
-  UserRequest,
-  Suggestion,
-} from "context/search/domain/Entities";
+import { Period } from "../../../../shared/domain/Period";
+import { Campus } from "../../../../shared/domain/Location";
+import { AI } from "../../application/ports/OutboundPorts";
+import { RoomSlot, UserRequest, Suggestion } from "../../domain/Entities";
 import { FunctionCallingConfigMode, GoogleGenAI, Type } from "@google/genai";
 import { z } from "zod";
 import { ChatMessageDTO } from "../../application/DTOs";

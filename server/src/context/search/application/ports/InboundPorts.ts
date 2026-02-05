@@ -1,7 +1,4 @@
-import {
-  SearchRequestDTO,
-  SuggestionDTO,
-} from "context/search/application/DTOs";
+import { SearchRequestDTO, SuggestionDTO } from "../DTOs";
 
 /** It is responsible for handling the search of plans based on user input. */
 export interface SearchUseCase {

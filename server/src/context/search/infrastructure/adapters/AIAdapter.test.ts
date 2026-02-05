@@ -2,8 +2,8 @@ import "dotenv/config";
 import { describe, it } from "node:test";
 import assert from "node:assert";
 import { AIAdapter } from "./AIAdapter";
-import { Campus } from "shared/domain/Location";
-import { UserRequest, RoomSlot } from "context/search/domain/Entities";
+import { Campus } from "../../../../shared/domain/Location";
+import { UserRequest, RoomSlot } from "../../domain/Entities";
 import { ChatMessageDTO } from "../../application/DTOs";
 
 const GEMINI_KEY = process.env["GEMINI_API_KEY"];

@@ -1,6 +1,6 @@
-import { Campus } from "shared/domain/Location";
-import { Period } from "shared/domain/Period";
-import { Plan } from "shared/domain/Plan";
+import { Campus } from "../../../shared/domain/Location";
+import { Period } from "../../../shared/domain/Period";
+import { Plan } from "../../../shared/domain/Plan";
 
 /** Domain entity representing a suggestion made by the AI. */
 export class Suggestion {

@@ -4,8 +4,8 @@ import { SearchService } from "./SearchService";
 import { AI, RoomAvailability } from "./ports/OutboundPorts";
 import { ChatMessageDTO, SearchRequestDTO, SuggestionDTO } from "./DTOs";
 import { UserRequest, RoomSlot } from "../domain/Entities";
-import { Period } from "shared/domain/Period";
-import { Campus } from "shared/domain/Location";
+import { Period } from "../../../shared/domain/Period";
+import { Campus } from "../../../shared/domain/Location";
 
 describe("SearchService", () => {
   it("must execute steps in strict sequence: extract -> availability -> suggestion", async () => {
