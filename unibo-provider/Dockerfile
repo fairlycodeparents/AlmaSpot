@@ -1,10 +1,14 @@
-FROM golang:1.24-alpine AS builder
+FROM --platform=$BUILDPLATFORM golang:1.24-alpine AS builder
 WORKDIR /app
 RUN apk add --no-cache git ca-certificates
+
+ARG TARGETOS
+ARG TARGETARCH
+
 COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o unibo-provider .
+RUN CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -o unibo-provider .
 
 FROM alpine:latest
 WORKDIR /app
