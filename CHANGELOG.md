@@ -1,3 +1,10 @@
+## [4.6.6](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.5...4.6.6) (2026-02-06)
+
+### Dependency updates
+
+- **core-deps:** update dependency dotenv to v17.2.4 ([#95](https://github.com/fairlycodeparents/AlmaSpot/issues/95)) ([1f6e3ea](https://github.com/fairlycodeparents/AlmaSpot/commit/1f6e3ea726f8b17abb3dee5dbeca2a5a8adf71f4))
+- **deps:** update dependency @types/node to v24.10.11 ([#80](https://github.com/fairlycodeparents/AlmaSpot/issues/80)) ([0bc43bf](https://github.com/fairlycodeparents/AlmaSpot/commit/0bc43bf9b9d269429a2426502680c6e438ed0270))
+
 ## [4.6.5](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.4...4.6.5) (2026-02-05)
 
 ### Bug Fixes
