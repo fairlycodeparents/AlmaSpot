@@ -1,3 +1,18 @@
+## [4.6.7](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.6...4.6.7) (2026-02-09)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.40.0 ([#91](https://github.com/fairlycodeparents/AlmaSpot/issues/91)) ([8ebbe7a](https://github.com/fairlycodeparents/AlmaSpot/commit/8ebbe7a514f6e78cf2f6c8ec58690a5f8a49d06d))
+- **deps:** update dependency @types/node to v24.10.12 ([#97](https://github.com/fairlycodeparents/AlmaSpot/issues/97)) ([9d1525a](https://github.com/fairlycodeparents/AlmaSpot/commit/9d1525aeffe05aeb141ecf8ebe6195093bb28af3))
+- **deps:** update dependency @types/node to v25.2.1 ([#94](https://github.com/fairlycodeparents/AlmaSpot/issues/94)) ([b4823e9](https://github.com/fairlycodeparents/AlmaSpot/commit/b4823e9347a8d1bfe658bf56f8c4c735726ae739))
+- **deps:** update dependency @types/node to v25.2.2 ([#98](https://github.com/fairlycodeparents/AlmaSpot/issues/98)) ([7901411](https://github.com/fairlycodeparents/AlmaSpot/commit/7901411b257c4a0254c69eac3ab96845cfdcca5b))
+- **deps:** update dependency playwright to v1.58.2 ([#96](https://github.com/fairlycodeparents/AlmaSpot/issues/96)) ([d6c812c](https://github.com/fairlycodeparents/AlmaSpot/commit/d6c812ca2f645e26fde10e9cacc5f63ed5f7f5bf))
+- **deps:** update storybook monorepo to v10.2.7 ([#57](https://github.com/fairlycodeparents/AlmaSpot/issues/57)) ([050948d](https://github.com/fairlycodeparents/AlmaSpot/commit/050948d7cbb246810daf7f7d5021e0971d595ad2))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to ^0.563.0 ([#58](https://github.com/fairlycodeparents/AlmaSpot/issues/58)) ([5503b5b](https://github.com/fairlycodeparents/AlmaSpot/commit/5503b5b6be364cc2736a5331cfeceb5b7aa314c9))
+
 ## [4.6.6](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.5...4.6.6) (2026-02-06)
 
 ### Dependency updates
