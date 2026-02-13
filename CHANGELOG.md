@@ -1,3 +1,12 @@
+## [4.6.9](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.8...4.6.9) (2026-02-13)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.41.0 ([#105](https://github.com/fairlycodeparents/AlmaSpot/issues/105)) ([138c5c6](https://github.com/fairlycodeparents/AlmaSpot/commit/138c5c62995760032e9bf2a84d8b161aa264aa13))
+- **deps:** update dependency @types/node to v24.10.13 ([#103](https://github.com/fairlycodeparents/AlmaSpot/issues/103)) ([30a7308](https://github.com/fairlycodeparents/AlmaSpot/commit/30a7308e98a18338bdf7dcd27f085be9cdf688d6))
+- **deps:** update dependency @types/node to v25.2.3 ([#104](https://github.com/fairlycodeparents/AlmaSpot/issues/104)) ([e7bdd5a](https://github.com/fairlycodeparents/AlmaSpot/commit/e7bdd5adf51e16e7a8e62479fb512a8f489ff5de))
+- **deps:** update storybook monorepo to v10.2.8 ([#101](https://github.com/fairlycodeparents/AlmaSpot/issues/101)) ([20ca097](https://github.com/fairlycodeparents/AlmaSpot/commit/20ca097694bdf70049416f7d7436d97bdb144e53))
+
 ## [4.6.8](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.7...4.6.8) (2026-02-10)
 
 ### Dependency updates
