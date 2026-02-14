@@ -1,3 +1,9 @@
+## [4.6.10](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.9...4.6.10) (2026-02-14)
+
+### Dependency updates
+
+- **core-deps:** update dependency dotenv to v17.3.1 ([#106](https://github.com/fairlycodeparents/AlmaSpot/issues/106)) ([81b9ec4](https://github.com/fairlycodeparents/AlmaSpot/commit/81b9ec4a1035ff6d557fee22929a45aa817d5d57))
+
 ## [4.6.9](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.8...4.6.9) (2026-02-13)
 
 ### Dependency updates
