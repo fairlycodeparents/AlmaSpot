@@ -1,3 +1,13 @@
+## [4.6.13](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.12...4.6.13) (2026-02-17)
+
+### Dependency updates
+
+- **deps:** update golang docker tag to v1.26 ([#84](https://github.com/fairlycodeparents/AlmaSpot/issues/84)) ([48b42a7](https://github.com/fairlycodeparents/AlmaSpot/commit/48b42a73bc776f65b5a7cb1a2fb0049eaf3f4b16))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to ^0.564.0 ([#107](https://github.com/fairlycodeparents/AlmaSpot/issues/107)) ([2225d45](https://github.com/fairlycodeparents/AlmaSpot/commit/2225d452e08cca754ed742c338f3a7ffaebf5687))
+
 ## [4.6.12](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.11...4.6.12) (2026-02-16)
 
 ### Dependency updates
