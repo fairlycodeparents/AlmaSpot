@@ -11,6 +11,12 @@ services:
     networks:
       - almaspot-network
 
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
   server:
     image: ghcr.io/fairlycodeparents/almaspot-server:latest
     restart: always
@@ -31,7 +37,14 @@ services:
     networks:
       - almaspot-network
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:${PORT}/health"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
 
   client:
     build:
@@ -45,7 +58,8 @@ services:
     networks:
       - almaspot-network
     depends_on:
-      - server
+      server:
+        condition: service_healthy
 
   unibo-provider:
     image: ghcr.io/fairlycodeparents/almaspot-unibo-provider:latest
