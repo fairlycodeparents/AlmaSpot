@@ -28,8 +28,17 @@ import {
 import * as SearchContext from "./context/search";
 
 const app = express();
+let isReady = false;
 
 app.use(express.json());
+
+app.get("/health", (_req, res) => {
+  if (isReady) {
+    res.status(200).send("OK");
+  } else {
+    res.status(503).send("Initializing...");
+  }
+});
 
 async function bootstrap() {
   try {
@@ -38,6 +47,7 @@ async function bootstrap() {
     const mongoClient =
       mongoose.connection.getClient() as unknown as MongoClient;
     await seedRooms(mongoClient.db());
+    isReady = true;
 
     const authContext = AuthenticationContextFactory.create();
     const authController = new AuthController(authContext.authPort);

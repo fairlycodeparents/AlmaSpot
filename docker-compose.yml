@@ -50,6 +50,13 @@ services:
       mongo:
         condition: service_healthy
 
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "-q", "http://localhost:${PORT}/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 20
+      start_period: 10s
+
   client:
     build:
       context: ./client
@@ -67,7 +74,8 @@ services:
     networks:
       - almaspot-network
     depends_on:
-      - server
+      server:
+        condition: service_healthy
 
   unibo-provider:
     build:
