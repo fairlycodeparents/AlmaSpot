@@ -1,3 +1,13 @@
+## [4.6.14](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.13...4.6.14) (2026-02-18)
+
+### Dependency updates
+
+- **deps:** update storybook monorepo to v10.2.9 ([#108](https://github.com/fairlycodeparents/AlmaSpot/issues/108)) ([a49d8a6](https://github.com/fairlycodeparents/AlmaSpot/commit/a49d8a67346311ff6d43aa3f35c63f7338548c14))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to ^0.574.0 ([#109](https://github.com/fairlycodeparents/AlmaSpot/issues/109)) ([49667bc](https://github.com/fairlycodeparents/AlmaSpot/commit/49667bcbc0af9d80daae6437ed6e05de82eb8daa))
+
 ## [4.6.13](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.12...4.6.13) (2026-02-17)
 
 ### Dependency updates
