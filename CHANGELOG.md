@@ -1,3 +1,14 @@
+## [4.7.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.14...4.7.0) (2026-02-19)
+
+### Features
+
+- **docker:** added client dependency on server room seeding ([00e3b09](https://github.com/fairlycodeparents/AlmaSpot/commit/00e3b099e638c4d8064a29d8be6a46fcfb7946e5))
+
+### Dependency updates
+
+- **deps:** update storybook monorepo to v10.2.10 ([#110](https://github.com/fairlycodeparents/AlmaSpot/issues/110)) ([f380135](https://github.com/fairlycodeparents/AlmaSpot/commit/f3801353715b7db4b0e1299f0bc5ea64186cbbcf))
+- **deps:** update tailwindcss monorepo to v4.2.0 ([#112](https://github.com/fairlycodeparents/AlmaSpot/issues/112)) ([afdcec0](https://github.com/fairlycodeparents/AlmaSpot/commit/afdcec0c99faab7e5e97d99685c3fa37ba240fdf))
+
 ## [4.6.14](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.13...4.6.14) (2026-02-18)
 
 ### Dependency updates
