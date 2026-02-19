@@ -1,3 +1,9 @@
+## [4.7.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.0...4.7.1) (2026-02-19)
+
+### Bug Fixes
+
+- **nginx:** increase timeout settings for improved stability ([1ad3e0c](https://github.com/fairlycodeparents/AlmaSpot/commit/1ad3e0cb14b7b425821896ae6477bd7f3d94739b))
+
 ## [4.7.0](https://github.com/fairlycodeparents/AlmaSpot/compare/4.6.14...4.7.0) (2026-02-19)
 
 ### Features
