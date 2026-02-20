@@ -44,7 +44,7 @@ The context exposes two primary application services:
 
 1. The **ActivityManagementService**, which orchestrates the synchronization of official data
    and allows administrators to manually insert external activities. This service
-   relies on the upstream **Authentication Context** to authorize these
+   relies on the upstream [Authentication Context](#214-authentication-context) to authorize these
    manual operations via token verification.
 2. The **RoomSearchService**, which provides an interface for other contexts to query the
    availability of specific rooms.
