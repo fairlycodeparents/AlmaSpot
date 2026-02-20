@@ -67,9 +67,9 @@ The system recognises two distinct roles:
 
 1. **Schedule acquisition**: the system must autonomously acquire heterogeneous schedule data from
    university sources (open data) and normalise it into a consistent format.
-2. **Availability calculation**: The system must determine the real-time status of a resource by
+2. **Availability calculation**: the system must determine the real-time status of a resource by
    intersecting official lectures and administrator activities.
-3. **Smart Discovery (AI)**: The system must support natural language queries (e.g. "I'd prefer
+3. **Smart Discovery (AI)**: the system must support natural language queries (e.g. "I'd prefer
    not to move to a different campus") to help users find solutions if a single room is not
    available for the entire requested period.
 4. **Proactive notification**: the system must follow a 'push' model to notify users who have
@@ -138,8 +138,8 @@ The domain is divided into specific contexts.
    activity is added, it is a conformist context.
 4. **Authentication**: An auxiliary context exploited by the core to manage administrator authentication.
 
-There is a shared kernel among the bounded contexts that contains the definitions of plan, slot and period. This
-decision was made because these three concepts are crucial, and any change to their definitions must be reflected in all
-contexts that handle them.
+There is a shared kernel among the bounded contexts that contains the definitions of spatial concepts (campus and site),
+plan, slot and period. This decision was made because these concepts are crucial, and any change to their definitions
+must be reflected in all contexts that handle them.
 
 ![Context map](figures/context-map.png)

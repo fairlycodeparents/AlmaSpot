@@ -23,8 +23,8 @@ The system is composed of four main parts:
   and sends notifications.
 - **Data Provider (backend):** a separate background worker built with **Go**. Its only job is to download and process
   university data.
-- **Database:** a shared **MongoDB** instance used by both backend services. The Go service writes the classroom
-  data here, and the Node.js server reads it to check for availability.
+- **Database:** a **MongoDB** instance used by server backend service. The Node.js server writes it with classrooms and
+  activities data collected from data provider, and reads it to check for availability.
 
 ## 3.2. Logical Architecture
 
