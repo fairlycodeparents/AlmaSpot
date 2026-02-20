@@ -16,6 +16,9 @@
      - 5.3.2. [Prettier](#532-prettier)
      - 5.3.3. [Code coverage](#533-code-coverage)
    - 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
+     - 5.4.1. [PR Checks](#541-pr-checks)
+     - 5.4.2. [Automated Releases](#542-automated-releases)
+     - 5.4.3. [Renovate Bot](#543-renovate-bot)
 6. [License](6-license.md)
 7. [Deployment](7-deployment.md)
 
