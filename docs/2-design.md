@@ -50,7 +50,7 @@ The context exposes two primary application services:
    availability of specific rooms.
 
 Finally, whenever the state of a room changes due to a new booking, the context publishes an
-**ActivityAddedEvent**, enabling the [Notification Context](#23-notification-context) to react
+**ActivityAddedEvent**, enabling the [Notification Context](#213-notification-context) to react
 asynchronously without coupling the logic.
 
 ### 2.1.2. Search context
@@ -62,7 +62,7 @@ Its logic is mainly encapsulated within the **Search Service**, which manages th
 query (as a list of messages), the service first interacts with the **AI Service** to understand the user's input and
 extract structured parameters, such as the desired time slot and campus location.
 
-Using these parameters, the service queries the **Room Search Service** in the [Core Context](#21-core-context)
+Using these parameters, the service queries the **Room Search Service** in the [Core Context](#211-core-context)
 to obtain currently available **Slots** that match the user's criteria. The output is a collection of free slots during
 the requested period. The search context interacts with external contexts mainly through a **Suggestion** value object,
 which contains a natural-language explanation and a structured **Plan** (a collection of one or more slots), offering
@@ -76,7 +76,7 @@ can refine their search by sending additional messages.
 To facilitate integration, this context relies on a _shared kernel_ strategy. The fundamental concept of
 **Period** is shared globally with the core and notification contexts to ensure temporal consistency. Furthermore,
 the **Plan** and **Slot** value objects are shared specifically with
-the [Notification Context](#23-notification-context).
+the [Notification Context](#213-notification-context).
 This decision allows the **Suggestion** generated here to be directly persisted as a
 **Subscription** in the Notification module without requiring complex data mapping or translation.
 
@@ -85,7 +85,7 @@ This decision allows the **Suggestion** generated here to be directly persisted 
 <img src="figures/notification-context.png" alt="Notification Context diagram" style="max-height: 400px;">
 
 This context manages the proactive behavior of the system, adhering to a _Conformist_ relationship
-with the [Core context](#21-core-context). Its primary responsibility is to alert students when
+with the [Core context](#211-core-context). Its primary responsibility is to alert students when
 a previously available space becomes occupied.
 
 The domain model is centered on the **Subscription** Aggregate Root, which links a **Student** to a
@@ -102,7 +102,7 @@ a **Notification** entity, which triggers the delivery of an alert to the user.
 <img src="figures/authentication-context.png" alt="Authentication Context diagram" style="max-height: 220px;">
 
 This context is responsible for identity and access management, specifically targeting the
-**Administrator** role. Isolate security logic, such as password hashing, from domains to enclose verification logic
+**Administrator** role. It isolates security logic, such as password hashing, from domains to enclose verification logic
 within the context of authentication.
 
 The **AuthInputPort** exposes the primary use cases of the authentication: registration (signUp) and authentication

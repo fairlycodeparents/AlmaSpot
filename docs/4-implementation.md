@@ -6,24 +6,24 @@
 2. [Design](2-design.md)
 3. [Architecture](3-architecture.md)
 4. [Implementation](4-implementation.md)
-   - 4.1 [Technologies](#41-technologies)
-   - 4.2 [Core System](#42-core-system)
-     - 4.2.1 [Time management](#421-time-management)
-     - 4.2.2 [Room search](#422-room-search)
-     - 4.2.3 [Synchronization strategies](#423-synchronization-strategies)
-     - 4.2.4 [Anti-Corruption Layer](#424-anti-corruption-layer)
-     - 4.2.5 [Persistence with native MongoDB driver](#425-persistence-with-native-mongodb-driver)
-     - 4.2.6 [Seeding system](#426-seeding-system)
-   - 4.3 [Notification System](#43-notification-system)
-   - 4.4 [Authentication System](#44-authentication-system)
-   - 4.5 [AI Assistant Integration](#45-ai-assistant-integration)
-     - 4.4.1 [Intent Extraction and RAG-inspired Workflow](#451-intent-extraction-and-rag-inspired-workflow)
-     - 4.4.2 [Structured Output via Function Calling](#452-structured-output-via-function-calling)
+   - 4.1. [Technologies](#41-technologies)
+   - 4.2. [Core System](#42-core-system)
+     - 4.2.1. [Time management](#421-time-management)
+     - 4.2.2. [Room search](#422-room-search)
+     - 4.2.3. [Synchronization strategies](#423-synchronization-strategies)
+     - 4.2.4. [Anti-Corruption Layer](#424-anti-corruption-layer)
+     - 4.2.5. [Persistence with native MongoDB driver](#425-persistence-with-native-mongodb-driver)
+     - 4.2.6. [Seeding system](#426-seeding-system)
+   - 4.3. [Notification System](#43-notification-system)
+   - 4.4. [Authentication System](#44-authentication-system)
+   - 4.5. [AI Assistant Integration](#45-ai-assistant-integration)
+     - 4.5.1. [Intent Extraction and RAG-inspired Workflow](#451-intent-extraction-and-rag-inspired-workflow)
+     - 4.5.2. [Structured Output via Function Calling](#452-structured-output-via-function-calling)
 5. [DevOps](5-devops.md)
 6. [License](6-license.md)
 7. [Deployment](7-deployment.md)
 
-### 4.1 Technologies
+## 4.1. Technologies
 
 #### MEVN
 
@@ -104,13 +104,13 @@ before sending it to the main system.
   after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
   that TypeScript could not intercept.
 
-### 4.2 Core System
+## 4.2. Core System
 
 The implementation of the core system focuses on managing the lifecycle of academic activities and the availability of
 physical spaces. It acts as the definitive "_source of truth_", reconciling static spatial data (classrooms) with dynamic
 schedule information through a robust set of adapters and services.
 
-#### 4.2.1 Time management
+### 4.2.1. Time management
 
 A central challenge was ensuring reliable time comparisons across the system. The implementation of the `Period` object
 (found in `shared/domain/Period.ts`) centralizes this logic to prevent inconsistencies in availability queries.
@@ -138,7 +138,7 @@ export class Period {
 }
 ```
 
-#### 4.2.2 Room search
+### 4.2.2. Room search
 
 The `RoomSearchService` handles the task of finding free "spots" by cross-referencing static data from MongoDB with
 dynamic activities.
@@ -155,7 +155,7 @@ private isRoomAvailable(room: Room, requestedPeriod: Period): boolean {
 }
 ```
 
-#### 4.2.3 Synchronization strategies
+### 4.2.3. Synchronization strategies
 
 The `ActivityManagementService` implements a **reactive synchronization** pattern to manage integration with the
 university.
@@ -165,7 +165,7 @@ implementation follows an "on-demand" retrieval logic with functional caching: d
 `UniboProviderHTTP` is normalized and maintained in a local state, which reduces external calls and ensures system
 operation even if the external provider is unreachable.
 
-#### 4.2.4 Anti-Corruption Layer
+### 4.2.4. Anti-Corruption Layer
 
 Integration with external university data is managed via `UniboProviderHTTP`, which serves as a bridge to the Go
 microservice (`unibo-provider`). The adapter transforms heterogeneous data (often inconsistent in room names or date
@@ -184,7 +184,7 @@ async getActivities(date: Date): Promise<InternalActivity[]> {
 }
 ```
 
-#### 4.2.5 Persistence with native MongoDB driver
+### 4.2.5. Persistence with native MongoDB driver
 
 A key implementation choice was using the native MongoDB driver instead of heavy ORMs, for two main reasons:
 
@@ -194,7 +194,7 @@ A key implementation choice was using the native MongoDB driver instead of heavy
   Branch $\rightarrow$ Room) with minimal overhead; the implementation can thus query nested properties to allow
   targeted searches without performance degradation.
 
-#### 4.2.6 Seeding system
+### 4.2.6. Seeding system
 
 A relevant implementation detail is the `SeedRooms` script. Unlike standard seeding, this engine handles the
 transformation of structured JSON files into complex documents. Its main functions are:
@@ -205,7 +205,7 @@ transformation of structured JSON files into complex documents. Its main functio
 - **Clean-and-load strategy**: to ensure consistency across development environments, the script clears orphaned
   collections before loading, ensuring the integrity of geographic references in MongoDB.
 
-### 4.3 Notification System
+## 4.3. Notification System
 
 The notification system is designed to alert students in real-time when a new activity overlaps with their study plan.
 The architecture follows an **event-driven** approach and uses the **Web Push** standard
@@ -274,7 +274,7 @@ self.addEventListener("notificationclick", function (event) {
 });
 ```
 
-### 4.4 Authentication System
+## 4.4. Authentication System
 
 Authentication is handled by the **AuthService**, which is responsible for protecting sensitive data and managing
 sessions. This service encapsulates cryptographic operations, ensuring secure password storage and preventing plain-text
@@ -370,7 +370,7 @@ export const signUpSchema = z
   .strict(); // Reject fields not provided for in the schema
 ```
 
-### 4.5 AI Assistant Integration
+## 4.5. AI Assistant Integration
 
 The "Assistant" feature provides a conversational interface that enables students to locate study rooms by using natural
 language. It is implemented using Google Gemini (specifically the `gemini-2.5-flash(-lite)` model) via an Adapter
@@ -378,7 +378,7 @@ Pattern.
 This architectural choice decouples the domain logic from the specific LLM provider, ensuring maintainability and
 allowing for future model substitutions without affecting the core business rules.
 
-#### 4.5.1 Intent Extraction and RAG-inspired Workflow
+### 4.5.1. Intent Extraction and RAG-inspired Workflow
 
 Unlike standard chatbots, the system cannot rely solely on the model's pre-trained knowledge because it requires
 real-time access to classroom availability. To address this issue, the `SearchService` implements a synchronous pipeline
@@ -395,7 +395,7 @@ pattern.
    data into the system context. The model then selects the best options and generates a natural language response and a
    structured plan.
 
-#### 4.5.2 Structured Output via Function Calling
+### 4.5.2. Structured Output via Function Calling
 
 To ensure reliable interaction between the LLM and the application front end, we
 use [function calling](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting). Rather than parsing
