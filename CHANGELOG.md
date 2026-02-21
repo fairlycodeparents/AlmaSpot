@@ -1,3 +1,11 @@
+## [4.7.2](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.1...4.7.2) (2026-02-21)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.42.0 ([#113](https://github.com/fairlycodeparents/AlmaSpot/issues/113)) ([186b1da](https://github.com/fairlycodeparents/AlmaSpot/commit/186b1da33dfa4b5eccf71fba979b8871cd11141a))
+- **deps:** update commitlint monorepo to v20.4.2 ([#115](https://github.com/fairlycodeparents/AlmaSpot/issues/115)) ([24c0411](https://github.com/fairlycodeparents/AlmaSpot/commit/24c041169e32821f4b79c3e2f6300ee89c3f28bb))
+- **deps:** update dependency @types/node to v25.3.0 ([#114](https://github.com/fairlycodeparents/AlmaSpot/issues/114)) ([c7b6a09](https://github.com/fairlycodeparents/AlmaSpot/commit/c7b6a095157a8214ae3f04a4a70b1e59ccb4d9ad))
+
 ## [4.7.1](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.0...4.7.1) (2026-02-19)
 
 ### Bug Fixes
