@@ -1,3 +1,13 @@
+## [4.7.3](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.2...4.7.3) (2026-02-22)
+
+### Dependency updates
+
+- **deps:** update dependency vue-tsc to v3.2.5 ([#118](https://github.com/fairlycodeparents/AlmaSpot/issues/118)) ([16e59e4](https://github.com/fairlycodeparents/AlmaSpot/commit/16e59e49e84baf27d8d2ee9e756ce830073561a5))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to ^0.575.0 ([#116](https://github.com/fairlycodeparents/AlmaSpot/issues/116)) ([6ca20ff](https://github.com/fairlycodeparents/AlmaSpot/commit/6ca20ff2c80074e190b23d886169a7d217fb33fc))
+
 ## [4.7.2](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.1...4.7.2) (2026-02-21)
 
 ### Dependency updates
