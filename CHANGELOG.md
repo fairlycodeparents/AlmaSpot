@@ -1,3 +1,9 @@
+## [4.7.4](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.3...4.7.4) (2026-02-22)
+
+### Documentation
+
+- improve terminology and navigation structure ([#119](https://github.com/fairlycodeparents/AlmaSpot/issues/119)) ([6a2013d](https://github.com/fairlycodeparents/AlmaSpot/commit/6a2013d99e1dacc8c720929024b9a911758d8d92))
+
 ## [4.7.3](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.2...4.7.3) (2026-02-22)
 
 ### Dependency updates
