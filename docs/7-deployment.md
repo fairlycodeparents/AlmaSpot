@@ -14,8 +14,8 @@
    - 7.3. [Setup and Execution](#73-setup-and-execution)
 
 The application deployment adopts a **Container-Based** approach, ensuring isolation, reproducibility, and
-independence from the host environment. The entire architecture is defined declaratively via a `docker-compose.prod.
-yml` file, which orchestrates service execution within a dedicated virtual network (`almaspot-network`).
+independence from the host environment. The entire architecture is defined declaratively via a `docker-compose.prod.yml`
+file, which orchestrates service execution within a dedicated virtual network (`almaspot-network`).
 
 ## 7.1. Container Architecture
 
@@ -50,7 +50,7 @@ System deployment requires Docker and Docker Compose installed on the host machi
 1. **Clone the repository**: download the project source code by cloning the GitHub repository:
    > `git clone https://github.com/fairlycodeparents/AlmaSpot.git`
 2. **Configuration**: create a `.env` file in the project root (based on the `.env.example` template) containing
-   database credentials, VAPID cryptographic keys, the provider URL, and the Gemini API key.
+   database credentials, VAPID cryptographic keys, JWT secrets, the provider URL, and the Gemini API key.
 3. **Startup**: the following command pulls the latest image versions for the backend, builds the optimized frontend,
    and starts the entire stack in the background:
    > `docker compose -f docker-compose.prod.yml up -d`

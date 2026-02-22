@@ -12,7 +12,13 @@
      - 5.2.1 [Conventional Commits](#521-conventional-commits)
      - 5.2.2 [Semantic Release](#522-semantic-release)
    - 5.3. [Quality Assurance](#53-quality-assurance)
+     - 5.3.1. [Husky](#531-husky)
+     - 5.3.2. [Prettier](#532-prettier)
+     - 5.3.3. [Code coverage](#533-code-coverage)
    - 5.4. [Continuous Integration and Delivery](#54-continuous-integration-and-delivery)
+     - 5.4.1. [PR Checks](#541-pr-checks)
+     - 5.4.2. [Automated Releases](#542-automated-releases)
+     - 5.4.3. [Renovate Bot](#543-renovate-bot)
 6. [License](6-license.md)
 7. [Deployment](7-deployment.md)
 
@@ -139,16 +145,16 @@ manual intervention.
 
 The pipeline performs the following steps in sequence:
 
-- **Documentation Deployment**: First, the workflow deploys the updated project documentation to GitHub Pages, ensuring
+- **Documentation deployment**: First, the workflow deploys the updated project documentation to GitHub Pages, ensuring
   that the documentation is always synchronized with the latest codebase.
 - **Semantic Release**: It executes Semantic Release to analyze the commit history since the last version. Based on the
   Conventional Commits, it automatically calculates the next version number, generates a changelog, and creates a GitHub
   Release.
-- **Conditional Docker Build**: A crucial step in our pipeline is the verification of the release status. The docker
+- **Conditional Docker build**: A crucial step in our pipeline is the verification of the release status. The docker
   release job is conditional; it executes only if a new release has actually been published by the previous step. This
   prevents the creation of redundant Docker images for commits that do not trigger a version upgrade (e.g.,
   documentation changes or chores).
-- **Artifact Publication**: If a release is triggered, the pipeline builds the Docker images for the server, and
+- **Artifact publication**: If a release is triggered, the pipeline builds the Docker images for the server and
   unibo-provider contexts. These images are tagged with both the specific semantic version (e.g., `1.2.0`) and the
   `latest` tag, and are finally pushed to the GitHub container registry.
 
