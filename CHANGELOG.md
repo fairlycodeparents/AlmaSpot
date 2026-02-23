@@ -1,3 +1,9 @@
+## [4.7.5](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.4...4.7.5) (2026-02-23)
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to adc16b1 ([#120](https://github.com/fairlycodeparents/AlmaSpot/issues/120)) ([9495536](https://github.com/fairlycodeparents/AlmaSpot/commit/94955360f43ec785f95ee95d002650b84f12a8b8))
+
 ## [4.7.4](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.3...4.7.4) (2026-02-22)
 
 ### Documentation
