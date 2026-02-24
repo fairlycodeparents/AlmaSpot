@@ -1,3 +1,10 @@
+## [4.7.6](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.5...4.7.6) (2026-02-24)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.2.2 ([#123](https://github.com/fairlycodeparents/AlmaSpot/issues/123)) ([daa79f7](https://github.com/fairlycodeparents/AlmaSpot/commit/daa79f74f06fd267430d6e9ee281c6f1e34c4409))
+- **deps:** update storybook monorepo to v10.2.11 ([#122](https://github.com/fairlycodeparents/AlmaSpot/issues/122)) ([5a9d67d](https://github.com/fairlycodeparents/AlmaSpot/commit/5a9d67d81aa89a808bd7f16bdb8519e3f3a5edf0))
+
 ## [4.7.5](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.4...4.7.5) (2026-02-23)
 
 ### Bug Fixes
