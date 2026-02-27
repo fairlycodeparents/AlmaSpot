@@ -1,3 +1,11 @@
+## [4.7.8](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.7...4.7.8) (2026-02-27)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.2.3 ([#131](https://github.com/fairlycodeparents/AlmaSpot/issues/131)) ([da79fee](https://github.com/fairlycodeparents/AlmaSpot/commit/da79feed930759984759ca04d3afeff964d98dee))
+- **deps:** update dependency @types/node to v24.10.14 ([#128](https://github.com/fairlycodeparents/AlmaSpot/issues/128)) ([fd38607](https://github.com/fairlycodeparents/AlmaSpot/commit/fd38607f515c77f4e89dbde2a5fb119d3d75e8ff))
+- **deps:** update dependency autoprefixer to v10.4.27 ([#127](https://github.com/fairlycodeparents/AlmaSpot/issues/127)) ([24e0883](https://github.com/fairlycodeparents/AlmaSpot/commit/24e0883e183b45a292ef0d513e11e2163eca6eb8))
+
 ## [4.7.7](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.6...4.7.7) (2026-02-25)
 
 ### Dependency updates
