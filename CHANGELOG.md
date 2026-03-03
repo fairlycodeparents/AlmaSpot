@@ -1,3 +1,17 @@
+## [4.7.9](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.8...4.7.9) (2026-03-03)
+
+### Dependency updates
+
+- **deps:** update dependency @types/node to v24.10.15 ([#132](https://github.com/fairlycodeparents/AlmaSpot/issues/132)) ([b1ef143](https://github.com/fairlycodeparents/AlmaSpot/commit/b1ef1437f0e63223824c46b9441cc88b82f3df73))
+- **deps:** update dependency @types/node to v25.3.2 ([#129](https://github.com/fairlycodeparents/AlmaSpot/issues/129)) ([a665ea9](https://github.com/fairlycodeparents/AlmaSpot/commit/a665ea98aab47361f46523acd490014bca733808))
+- **deps:** update dependency @types/node to v25.3.3 ([#136](https://github.com/fairlycodeparents/AlmaSpot/issues/136)) ([3215261](https://github.com/fairlycodeparents/AlmaSpot/commit/3215261a0f7680570db9ca288da363fbd61055ab))
+- **deps:** update storybook monorepo to v10.2.13 ([#125](https://github.com/fairlycodeparents/AlmaSpot/issues/125)) ([4ce0592](https://github.com/fairlycodeparents/AlmaSpot/commit/4ce0592ec4f89bcf44d2b8ecece9d861d39e7b08))
+- **deps:** update tailwindcss monorepo to v4.2.1 ([#121](https://github.com/fairlycodeparents/AlmaSpot/issues/121)) ([b86620b](https://github.com/fairlycodeparents/AlmaSpot/commit/b86620b1dcd9f217985bafc8e444c04e5effbefe))
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to f075559 ([#138](https://github.com/fairlycodeparents/AlmaSpot/issues/138)) ([c1d1db2](https://github.com/fairlycodeparents/AlmaSpot/commit/c1d1db2d142605985d63cbd4a89761e4d5d01a7b))
+
 ## [4.7.8](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.7...4.7.8) (2026-02-27)
 
 ### Dependency updates
