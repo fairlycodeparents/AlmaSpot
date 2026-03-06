@@ -1,3 +1,12 @@
+## [4.7.11](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.10...4.7.11) (2026-03-06)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.44.0 ([#130](https://github.com/fairlycodeparents/AlmaSpot/issues/130)) ([d5adce2](https://github.com/fairlycodeparents/AlmaSpot/commit/d5adce2f34815d844222c13654e923955cb0e0a8))
+- **deps:** update commitlint monorepo to v20.4.3 ([#142](https://github.com/fairlycodeparents/AlmaSpot/issues/142)) ([d3d0087](https://github.com/fairlycodeparents/AlmaSpot/commit/d3d0087f506ac4435aaf354b1196b17676e37b51))
+- **deps:** update dependency @vue/tsconfig to ^0.9.0 ([#137](https://github.com/fairlycodeparents/AlmaSpot/issues/137)) ([438b1d9](https://github.com/fairlycodeparents/AlmaSpot/commit/438b1d9fd7f0db0c96192d4b07e8fb72c3c1740e))
+- **deps:** update storybook monorepo to v10.2.15 ([#140](https://github.com/fairlycodeparents/AlmaSpot/issues/140)) ([fa79146](https://github.com/fairlycodeparents/AlmaSpot/commit/fa7914622114c255935adecc2ec1fac8c4793d75))
+
 ## [4.7.10](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.9...4.7.10) (2026-03-04)
 
 ### Dependency updates
