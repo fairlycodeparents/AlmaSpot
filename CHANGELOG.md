@@ -1,3 +1,16 @@
+## [4.7.12](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.11...4.7.12) (2026-03-09)
+
+### Dependency updates
+
+- **deps:** update dependency @types/node to v24.12.0 ([#133](https://github.com/fairlycodeparents/AlmaSpot/issues/133)) ([85a6a8a](https://github.com/fairlycodeparents/AlmaSpot/commit/85a6a8ac579e0b64e20dfbeb38d3e5edcf00c615))
+- **deps:** update dependency @types/node to v25.3.5 ([#145](https://github.com/fairlycodeparents/AlmaSpot/issues/145)) ([41bbb7a](https://github.com/fairlycodeparents/AlmaSpot/commit/41bbb7ad8710a0f4fb7ca240f2166feb22d6f935))
+- **deps:** update dependency lint-staged to v16.3.2 ([#134](https://github.com/fairlycodeparents/AlmaSpot/issues/134)) ([db03803](https://github.com/fairlycodeparents/AlmaSpot/commit/db03803c96c6aa1c856f4f166b1c9807659f1429))
+- **deps:** update storybook monorepo to v10.2.16 ([#148](https://github.com/fairlycodeparents/AlmaSpot/issues/148)) ([bee0351](https://github.com/fairlycodeparents/AlmaSpot/commit/bee0351297ff03e07140205d86b91ac0b64a8db4))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to ^0.577.0 ([#143](https://github.com/fairlycodeparents/AlmaSpot/issues/143)) ([ee26b2e](https://github.com/fairlycodeparents/AlmaSpot/commit/ee26b2ee27f99e717eb821e1470a9b674e61f13d))
+
 ## [4.7.11](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.10...4.7.11) (2026-03-06)
 
 ### Dependency updates
