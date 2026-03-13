@@ -1,3 +1,9 @@
+## [4.7.15](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.14...4.7.15) (2026-03-13)
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to 9613050 ([#156](https://github.com/fairlycodeparents/AlmaSpot/issues/156)) ([ef88cca](https://github.com/fairlycodeparents/AlmaSpot/commit/ef88ccae0407a498eef01aa19b57e9479fee7775))
+
 ## [4.7.14](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.13...4.7.14) (2026-03-12)
 
 ### Dependency updates
