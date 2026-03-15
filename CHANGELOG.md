@@ -1,3 +1,12 @@
+## [4.7.16](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.15...4.7.16) (2026-03-15)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.45.0 ([#160](https://github.com/fairlycodeparents/AlmaSpot/issues/160)) ([a83211b](https://github.com/fairlycodeparents/AlmaSpot/commit/a83211b8fb6d636d014f974fef53f396a9cfa386))
+- **deps:** update commitlint monorepo to v20.4.4 ([#157](https://github.com/fairlycodeparents/AlmaSpot/issues/157)) ([98d9f2f](https://github.com/fairlycodeparents/AlmaSpot/commit/98d9f2fae2161cd01464da7f5784093c55bf4546))
+- **deps:** update dependency @vitejs/plugin-vue to v6.0.5 ([#158](https://github.com/fairlycodeparents/AlmaSpot/issues/158)) ([91d6963](https://github.com/fairlycodeparents/AlmaSpot/commit/91d6963eca4aec3e85ed6d5599af8e373a8fbb20))
+- **deps:** update storybook monorepo to v10.2.19 ([#159](https://github.com/fairlycodeparents/AlmaSpot/issues/159)) ([bd1e0d1](https://github.com/fairlycodeparents/AlmaSpot/commit/bd1e0d1b3fb7827cb532157f0c2c376b61d38100))
+
 ## [4.7.15](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.14...4.7.15) (2026-03-13)
 
 ### Bug Fixes
