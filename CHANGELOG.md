@@ -1,3 +1,15 @@
+## [4.7.17](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.16...4.7.17) (2026-03-18)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.3.1 ([#167](https://github.com/fairlycodeparents/AlmaSpot/issues/167)) ([943078a](https://github.com/fairlycodeparents/AlmaSpot/commit/943078a2a71cf12ea1d9eab002c807160eecc7ee))
+- **deps:** update commitlint monorepo to v20.5.0 ([#162](https://github.com/fairlycodeparents/AlmaSpot/issues/162)) ([bea5f8e](https://github.com/fairlycodeparents/AlmaSpot/commit/bea5f8e755562850674f33312dacea6428de3c1d))
+- **deps:** update dependency @types/node to v25.5.0 ([#161](https://github.com/fairlycodeparents/AlmaSpot/issues/161)) ([ff5819c](https://github.com/fairlycodeparents/AlmaSpot/commit/ff5819c7c62017d3fe937bcc2a1ab497d4c1a834))
+- **deps:** update dependency c8 to v11 ([#126](https://github.com/fairlycodeparents/AlmaSpot/issues/126)) ([5797875](https://github.com/fairlycodeparents/AlmaSpot/commit/57978755ae8a7a4bf8c949349eed6c0d9360f9ef))
+- **deps:** update dependency lint-staged to v16.4.0 ([#163](https://github.com/fairlycodeparents/AlmaSpot/issues/163)) ([3ede36c](https://github.com/fairlycodeparents/AlmaSpot/commit/3ede36c96aa79cab1802334eb1f9d958afce48ce))
+- **deps:** update dependency vue-tsc to v3.2.6 ([#166](https://github.com/fairlycodeparents/AlmaSpot/issues/166)) ([d2cc286](https://github.com/fairlycodeparents/AlmaSpot/commit/d2cc286e862ce6b35a075f8cea2edd94501e507f))
+- **deps:** update vitest monorepo to v4.1.0 ([#164](https://github.com/fairlycodeparents/AlmaSpot/issues/164)) ([1981187](https://github.com/fairlycodeparents/AlmaSpot/commit/1981187df8b671e0e6614204c7754731b7e51a0d))
+
 ## [4.7.16](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.15...4.7.16) (2026-03-15)
 
 ### Dependency updates
