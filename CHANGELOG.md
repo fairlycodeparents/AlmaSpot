@@ -1,3 +1,16 @@
+## [4.7.19](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.18...4.7.19) (2026-03-24)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.3.2 ([#174](https://github.com/fairlycodeparents/AlmaSpot/issues/174)) ([3500a60](https://github.com/fairlycodeparents/AlmaSpot/commit/3500a60ea535a93d511f0527f3073a1d39180533))
+- **deps:** update dependency @storybook/test-runner to v0.24.3 ([#169](https://github.com/fairlycodeparents/AlmaSpot/issues/169)) ([c88ad52](https://github.com/fairlycodeparents/AlmaSpot/commit/c88ad528e6537b3f8f96508b3936bb28760af475))
+- **deps:** update dependency vite to v8 ([#165](https://github.com/fairlycodeparents/AlmaSpot/issues/165)) ([a731045](https://github.com/fairlycodeparents/AlmaSpot/commit/a731045711d2c387a9c453aa3c00f49993e8bfec))
+- **deps:** update docker/build-push-action action to v7 ([#146](https://github.com/fairlycodeparents/AlmaSpot/issues/146)) ([a5a77fe](https://github.com/fairlycodeparents/AlmaSpot/commit/a5a77fe1710e89d99440225924dc7deb9d67e9a1))
+- **deps:** update docker/login-action action to v4 ([#144](https://github.com/fairlycodeparents/AlmaSpot/issues/144)) ([5e46a90](https://github.com/fairlycodeparents/AlmaSpot/commit/5e46a90743a2c58bdd195890a640bdcdfe7fcadd))
+- **deps:** update docker/metadata-action action to v6 ([#149](https://github.com/fairlycodeparents/AlmaSpot/issues/149)) ([08ea520](https://github.com/fairlycodeparents/AlmaSpot/commit/08ea5207793de14706992c8b6f74b45282cf7b1a))
+- **deps:** update storybook monorepo to v10.3.1 ([#171](https://github.com/fairlycodeparents/AlmaSpot/issues/171)) ([e3ecab2](https://github.com/fairlycodeparents/AlmaSpot/commit/e3ecab2f2611c001de4f965ab84640b2247fcf1e))
+- **deps:** update tailwindcss monorepo to v4.2.2 ([#170](https://github.com/fairlycodeparents/AlmaSpot/issues/170)) ([e28ac0a](https://github.com/fairlycodeparents/AlmaSpot/commit/e28ac0a1d21eded2179dc4becff1630954088c93))
+
 ## [4.7.18](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.17...4.7.18) (2026-03-19)
 
 ### Dependency updates
