@@ -1,3 +1,11 @@
+## [4.7.20](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.19...4.7.20) (2026-03-25)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.1.1 ([#179](https://github.com/fairlycodeparents/AlmaSpot/issues/179)) ([9f1c798](https://github.com/fairlycodeparents/AlmaSpot/commit/9f1c79873daa948eb1f0a2f40e7496d7be624900))
+- **deps:** update dependency @vue/tsconfig to v0.9.1 ([#178](https://github.com/fairlycodeparents/AlmaSpot/issues/178)) ([cf0604c](https://github.com/fairlycodeparents/AlmaSpot/commit/cf0604c8c2005f3f032fd620c225e0e3d4754378))
+- **deps:** update dependency vite to v8.0.2 ([#173](https://github.com/fairlycodeparents/AlmaSpot/issues/173)) ([69c395a](https://github.com/fairlycodeparents/AlmaSpot/commit/69c395a463932df4e7386cdd83329b27877e16b4))
+
 ## [4.7.19](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.18...4.7.19) (2026-03-24)
 
 ### Dependency updates
