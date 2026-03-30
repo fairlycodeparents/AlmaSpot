@@ -12,6 +12,8 @@ github.com/VaiTon/unibocalendar v0.4.3-0.20260302110231-f075559c24e1 h1:DcaCPoGV
 github.com/VaiTon/unibocalendar v0.4.3-0.20260302110231-f075559c24e1/go.mod h1:ht2FsVw+wCksnzr/4+LtO79GKKpllLJwCqiIAPLEh0A=
 github.com/VaiTon/unibocalendar v0.4.3-0.20260311232035-96130507be9d h1:Xc01KfHuyjjM49/2bQ1aXf9+ZoTamc11ZhgjUSHmilY=
 github.com/VaiTon/unibocalendar v0.4.3-0.20260311232035-96130507be9d/go.mod h1:ht2FsVw+wCksnzr/4+LtO79GKKpllLJwCqiIAPLEh0A=
+github.com/VaiTon/unibocalendar v0.4.3-0.20260329215145-bb7e15fa1297 h1:h83tCpQHhoExz3TFX0Ld6xS2xwPTsjaSeFLudBmhrRY=
+github.com/VaiTon/unibocalendar v0.4.3-0.20260329215145-bb7e15fa1297/go.mod h1:53Jd/LqqwVYL/4mOEXfUSWNvcmj//M1q8TZ4Cj+zAFU=
 github.com/bytedance/gopkg v0.1.3 h1:TPBSwH8RsouGCBcMBktLt1AymVo2TVsBVCY4b6TnZ/M=
 github.com/bytedance/gopkg v0.1.3/go.mod h1:576VvJ+eJgyCzdjS+c4+77QF3p7ubbtiKARP3TxducM=
 github.com/bytedance/sonic v1.14.0 h1:/OfKt8HFw0kh2rj8N0F6C/qPGRESq0BbaNZgcNXXzQQ=
