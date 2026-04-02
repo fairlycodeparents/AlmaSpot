@@ -1,3 +1,13 @@
+## [4.7.25](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.24...4.7.25) (2026-04-02)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.48.0 ([#188](https://github.com/fairlycodeparents/AlmaSpot/issues/188)) ([4a3c6a6](https://github.com/fairlycodeparents/AlmaSpot/commit/4a3c6a602eb0938ae3a75b8edac67dc64e317e75))
+- **deps:** update actions/configure-pages action to v6 ([#183](https://github.com/fairlycodeparents/AlmaSpot/issues/183)) ([279d06b](https://github.com/fairlycodeparents/AlmaSpot/commit/279d06bc786c5b122ff2bb50f1e2a304e21d6030))
+- **deps:** update actions/deploy-pages action to v5 ([#184](https://github.com/fairlycodeparents/AlmaSpot/issues/184)) ([f0d5425](https://github.com/fairlycodeparents/AlmaSpot/commit/f0d5425b87924da32696a6183d8a030da0fc57e0))
+- **deps:** update dependency playwright to v1.59.0 ([#187](https://github.com/fairlycodeparents/AlmaSpot/issues/187)) ([7e0f0a2](https://github.com/fairlycodeparents/AlmaSpot/commit/7e0f0a29dd4bd42b4f85ba68c435c88188b448a1))
+- **deps:** update dependency playwright to v1.59.1 ([#189](https://github.com/fairlycodeparents/AlmaSpot/issues/189)) ([6a9b336](https://github.com/fairlycodeparents/AlmaSpot/commit/6a9b3363da79339e116c26c9e7d20ded59eb73d8))
+
 ## [4.7.24](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.23...4.7.24) (2026-03-30)
 
 ### Bug Fixes
