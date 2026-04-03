@@ -1,3 +1,10 @@
+## [4.7.26](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.25...4.7.26) (2026-04-03)
+
+### Dependency updates
+
+- **core-deps:** update dependency dotenv to v17.4.0 ([#190](https://github.com/fairlycodeparents/AlmaSpot/issues/190)) ([5c4ff0f](https://github.com/fairlycodeparents/AlmaSpot/commit/5c4ff0f04448daedcbb5f76119457ab15d78ede3))
+- **deps:** update storybook monorepo to v10.3.4 ([#191](https://github.com/fairlycodeparents/AlmaSpot/issues/191)) ([80c8ace](https://github.com/fairlycodeparents/AlmaSpot/commit/80c8ace5ff32751e47cdfd19dfe8caca54502b69))
+
 ## [4.7.25](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.24...4.7.25) (2026-04-02)
 
 ### Dependency updates
