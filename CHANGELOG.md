@@ -1,3 +1,16 @@
+## [4.7.30](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.29...4.7.30) (2026-04-11)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.49.0 ([#202](https://github.com/fairlycodeparents/AlmaSpot/issues/202)) ([ce581c6](https://github.com/fairlycodeparents/AlmaSpot/commit/ce581c6a6e27b585dff67b1cca5f7d5ece930ad7))
+- **deps:** update dependency postcss to v8.5.9 ([#201](https://github.com/fairlycodeparents/AlmaSpot/issues/201)) ([7e44669](https://github.com/fairlycodeparents/AlmaSpot/commit/7e44669bb7b1a09ddbdaabe128efdb3a9d6eb7dd))
+- **deps:** update dependency prettier to v3.8.2 ([#205](https://github.com/fairlycodeparents/AlmaSpot/issues/205)) ([e23dc46](https://github.com/fairlycodeparents/AlmaSpot/commit/e23dc46d9f3daf5467879192f09811e9c20a21ee))
+- **deps:** update dependency vite to v8.0.7 ([#198](https://github.com/fairlycodeparents/AlmaSpot/issues/198)) ([0e964d3](https://github.com/fairlycodeparents/AlmaSpot/commit/0e964d38932fa4e8d853f3b990ea820bcdaf98e6))
+- **deps:** update dependency vite to v8.0.8 ([#203](https://github.com/fairlycodeparents/AlmaSpot/issues/203)) ([857775a](https://github.com/fairlycodeparents/AlmaSpot/commit/857775a6b3ea6d565d1c12914e4a61a631680595))
+- **deps:** update storybook monorepo to v10.3.5 ([#200](https://github.com/fairlycodeparents/AlmaSpot/issues/200)) ([7348e67](https://github.com/fairlycodeparents/AlmaSpot/commit/7348e672e142796b2263248d7a53f1c1d3870094))
+- **deps:** update vitest monorepo to v4.1.3 ([#199](https://github.com/fairlycodeparents/AlmaSpot/issues/199)) ([c7b6ce4](https://github.com/fairlycodeparents/AlmaSpot/commit/c7b6ce425220d19111750f6a1f3cc80cdd659a0a))
+- **deps:** update vitest monorepo to v4.1.4 ([#204](https://github.com/fairlycodeparents/AlmaSpot/issues/204)) ([b44466d](https://github.com/fairlycodeparents/AlmaSpot/commit/b44466d6ac70362ddc52db397ab52fad38dc5bff))
+
 ## [4.7.29](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.28...4.7.29) (2026-04-07)
 
 ### Dependency updates
