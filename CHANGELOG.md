@@ -1,3 +1,11 @@
+## [4.7.31](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.30...4.7.31) (2026-04-13)
+
+### Dependency updates
+
+- **core-deps:** update dependency dotenv to v17.4.2 ([#207](https://github.com/fairlycodeparents/AlmaSpot/issues/207)) ([db1efae](https://github.com/fairlycodeparents/AlmaSpot/commit/db1efae35afc48c5c7b1a8feb16dfe613fd89971))
+- **deps:** update dependency @types/node to v25.6.0 ([#206](https://github.com/fairlycodeparents/AlmaSpot/issues/206)) ([5356544](https://github.com/fairlycodeparents/AlmaSpot/commit/5356544cef2afd65649cbd6cc222fa7767fe1c35))
+- **deps:** update docker/setup-buildx-action action to v4 ([#150](https://github.com/fairlycodeparents/AlmaSpot/issues/150)) ([623e78e](https://github.com/fairlycodeparents/AlmaSpot/commit/623e78e176d0e613e4385d76b4cf390727fcdcad))
+
 ## [4.7.30](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.29...4.7.30) (2026-04-11)
 
 ### Dependency updates
