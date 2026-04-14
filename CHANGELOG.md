@@ -1,3 +1,10 @@
+## [4.7.32](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.31...4.7.32) (2026-04-14)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.50.0 ([#209](https://github.com/fairlycodeparents/AlmaSpot/issues/209)) ([c4f172c](https://github.com/fairlycodeparents/AlmaSpot/commit/c4f172ceb09e729f5a85aa7c47e668e300786193))
+- **deps:** update dependency @vitejs/plugin-vue to v6.0.6 ([#208](https://github.com/fairlycodeparents/AlmaSpot/issues/208)) ([446b5e4](https://github.com/fairlycodeparents/AlmaSpot/commit/446b5e41e738bb65e066a4aff64222f8c9805b21))
+
 ## [4.7.31](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.30...4.7.31) (2026-04-13)
 
 ### Dependency updates
