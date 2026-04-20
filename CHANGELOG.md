@@ -1,3 +1,18 @@
+## [4.7.34](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.33...4.7.34) (2026-04-20)
+
+### Dependency updates
+
+- **deps:** update actions/upload-pages-artifact action to v5 ([#211](https://github.com/fairlycodeparents/AlmaSpot/issues/211)) ([5910536](https://github.com/fairlycodeparents/AlmaSpot/commit/591053645817e3d8c0f6715b6784412f926a2ea9))
+- **deps:** update dependency postcss to v8.5.10 ([#214](https://github.com/fairlycodeparents/AlmaSpot/issues/214)) ([7b7c3fd](https://github.com/fairlycodeparents/AlmaSpot/commit/7b7c3fd7d60074f1d6133c804ea93489e9a4ef57))
+- **deps:** update dependency prettier to v3.8.3 ([#213](https://github.com/fairlycodeparents/AlmaSpot/issues/213)) ([08a1e6a](https://github.com/fairlycodeparents/AlmaSpot/commit/08a1e6a5a7e024af0754e53d7b9dd0c033cfdf2b))
+- **deps:** update dependency vue-tsc to v3.2.7 ([#215](https://github.com/fairlycodeparents/AlmaSpot/issues/215)) ([6536ed9](https://github.com/fairlycodeparents/AlmaSpot/commit/6536ed91444e079d9211461818a810fc5bc912c7))
+- **deps:** update docker/setup-qemu-action action to v4 ([#151](https://github.com/fairlycodeparents/AlmaSpot/issues/151)) ([674aed2](https://github.com/fairlycodeparents/AlmaSpot/commit/674aed285af02e867d915537e48613262c9d0539))
+- **deps:** update node.js to v24 ([#38](https://github.com/fairlycodeparents/AlmaSpot/issues/38)) ([7d0efb3](https://github.com/fairlycodeparents/AlmaSpot/commit/7d0efb302fefda57159683d9313e37024b06b61a))
+
+### Bug Fixes
+
+- **core-deps:** update dependency lucide-vue-next to v1 ([#177](https://github.com/fairlycodeparents/AlmaSpot/issues/177)) ([72b6f52](https://github.com/fairlycodeparents/AlmaSpot/commit/72b6f524a1515b79c9ed622a1c079061f5e074b0))
+
 ## [4.7.33](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.32...4.7.33) (2026-04-15)
 
 ### Dependency updates
