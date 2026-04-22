@@ -1,3 +1,13 @@
+## [4.7.35](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.34...4.7.35) (2026-04-22)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.2.0 ([#218](https://github.com/fairlycodeparents/AlmaSpot/issues/218)) ([9ffaa70](https://github.com/fairlycodeparents/AlmaSpot/commit/9ffaa70eb0d5bfdca60d039f1a80913e915909d9))
+- **deps:** update dependency vite to v8.0.9 ([#217](https://github.com/fairlycodeparents/AlmaSpot/issues/217)) ([02c9b66](https://github.com/fairlycodeparents/AlmaSpot/commit/02c9b66c57b65a9f2a117127714b62725b9946d8))
+- **deps:** update tailwindcss monorepo to v4.2.3 ([#220](https://github.com/fairlycodeparents/AlmaSpot/issues/220)) ([852e0b5](https://github.com/fairlycodeparents/AlmaSpot/commit/852e0b576b2450a655be64ea6b0a5b1e5019c10a))
+- **deps:** update tailwindcss monorepo to v4.2.4 ([#221](https://github.com/fairlycodeparents/AlmaSpot/issues/221)) ([9c84fa6](https://github.com/fairlycodeparents/AlmaSpot/commit/9c84fa663f85e78067036d606821d548e180b4fb))
+- **deps:** update vitest monorepo to v4.1.5 ([#222](https://github.com/fairlycodeparents/AlmaSpot/issues/222)) ([a491f25](https://github.com/fairlycodeparents/AlmaSpot/commit/a491f25a735da65e0ad7f883b39c40beb238ed12))
+
 ## [4.7.34](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.33...4.7.34) (2026-04-20)
 
 ### Dependency updates
