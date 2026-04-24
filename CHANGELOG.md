@@ -1,3 +1,10 @@
+## [4.7.37](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.36...4.7.37) (2026-04-24)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.5.0 ([#219](https://github.com/fairlycodeparents/AlmaSpot/issues/219)) ([03ddb5c](https://github.com/fairlycodeparents/AlmaSpot/commit/03ddb5ccf174814631a1fb2053ef0639a4f2b423))
+- **deps:** update dependency vite to v8.0.10 ([#224](https://github.com/fairlycodeparents/AlmaSpot/issues/224)) ([261bb45](https://github.com/fairlycodeparents/AlmaSpot/commit/261bb45c1c9c1f893af3ad8dd69668b44a3aff56))
+
 ## [4.7.36](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.35...4.7.36) (2026-04-22)
 
 ### Dependency updates
