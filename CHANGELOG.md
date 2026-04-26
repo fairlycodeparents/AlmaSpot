@@ -1,3 +1,13 @@
+## [4.7.39](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.38...4.7.39) (2026-04-26)
+
+### Dependency updates
+
+- **deps:** update dependency @commitlint/cli to v20.5.2 ([#225](https://github.com/fairlycodeparents/AlmaSpot/issues/225)) ([c5b4e62](https://github.com/fairlycodeparents/AlmaSpot/commit/c5b4e6245fd66ad2421ead9b5fb3dc1288c7decf))
+
+### Bug Fixes
+
+- **core-deps:** update dependency vue-router to v5 ([#65](https://github.com/fairlycodeparents/AlmaSpot/issues/65)) ([4c9b04a](https://github.com/fairlycodeparents/AlmaSpot/commit/4c9b04acea6219564356a0a6bd8a4da488c1e3a8))
+
 ## [4.7.38](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.37...4.7.38) (2026-04-25)
 
 ### Bug Fixes
