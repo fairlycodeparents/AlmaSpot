@@ -1,3 +1,10 @@
+## [4.7.40](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.39...4.7.40) (2026-04-29)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.6.0 ([#227](https://github.com/fairlycodeparents/AlmaSpot/issues/227)) ([e7fd07d](https://github.com/fairlycodeparents/AlmaSpot/commit/e7fd07d60afe15a3631ed08a003cb94ccda5aa8f))
+- **deps:** update dependency postcss to v8.5.12 ([#226](https://github.com/fairlycodeparents/AlmaSpot/issues/226)) ([57df9ac](https://github.com/fairlycodeparents/AlmaSpot/commit/57df9ac56e8cf364bfdf5dba4fa791c6f189f387))
+
 ## [4.7.39](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.38...4.7.39) (2026-04-26)
 
 ### Dependency updates
