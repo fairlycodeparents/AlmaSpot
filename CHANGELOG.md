@@ -1,3 +1,12 @@
+## [4.7.42](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.41...4.7.42) (2026-05-03)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.51.0 ([#230](https://github.com/fairlycodeparents/AlmaSpot/issues/230)) ([6fce8b9](https://github.com/fairlycodeparents/AlmaSpot/commit/6fce8b9102129084d0b160ed6505072d163f13c1))
+- **deps:** update commitlint monorepo to v20.5.3 ([#232](https://github.com/fairlycodeparents/AlmaSpot/issues/232)) ([00d8f58](https://github.com/fairlycodeparents/AlmaSpot/commit/00d8f58e814eb8cca27a251a55df055a63495f24))
+- **deps:** update dependency postcss to v8.5.13 ([#233](https://github.com/fairlycodeparents/AlmaSpot/issues/233)) ([b9803a2](https://github.com/fairlycodeparents/AlmaSpot/commit/b9803a2d9a234761446a906da36440b86d605093))
+- **deps:** update storybook monorepo to v10.3.6 ([#228](https://github.com/fairlycodeparents/AlmaSpot/issues/228)) ([a97b6dd](https://github.com/fairlycodeparents/AlmaSpot/commit/a97b6dda1f2d3fd5098b74b3e25ce67eb68de771))
+
 ## [4.7.41](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.40...4.7.41) (2026-05-01)
 
 ### Dependency updates
