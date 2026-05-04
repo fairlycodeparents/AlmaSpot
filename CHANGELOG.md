@@ -1,3 +1,9 @@
+## [4.7.43](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.42...4.7.43) (2026-05-04)
+
+### Dependency updates
+
+- **core-deps:** update dependency zod to v4.4.2 ([#231](https://github.com/fairlycodeparents/AlmaSpot/issues/231)) ([1721e45](https://github.com/fairlycodeparents/AlmaSpot/commit/1721e458f20f8c785ee87ed8c57af2e798b2c400))
+
 ## [4.7.42](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.41...4.7.42) (2026-05-03)
 
 ### Dependency updates
