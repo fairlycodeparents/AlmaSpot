@@ -1,3 +1,11 @@
+## [4.7.45](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.44...4.7.45) (2026-05-06)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v1.52.0 ([#237](https://github.com/fairlycodeparents/AlmaSpot/issues/237)) ([d7218ae](https://github.com/fairlycodeparents/AlmaSpot/commit/d7218aeaf4b577c9b6401992ee2781d81aa63ee0))
+- **deps:** update dependency postcss to v8.5.14 ([#236](https://github.com/fairlycodeparents/AlmaSpot/issues/236)) ([1992f38](https://github.com/fairlycodeparents/AlmaSpot/commit/1992f3809a0789b14c7fd922720e5ca3f7d19e7a))
+- **deps:** update dependency vue-tsc to v3.2.8 ([#235](https://github.com/fairlycodeparents/AlmaSpot/issues/235)) ([012964f](https://github.com/fairlycodeparents/AlmaSpot/commit/012964ffc1b2216e1b9b93552e4058433ead32a7))
+
 ## [4.7.44](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.43...4.7.44) (2026-05-05)
 
 ### Dependency updates
