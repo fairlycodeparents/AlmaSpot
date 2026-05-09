@@ -1,3 +1,10 @@
+## [4.7.47](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.46...4.7.47) (2026-05-09)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.6.2 ([#245](https://github.com/fairlycodeparents/AlmaSpot/issues/245)) ([eddd83c](https://github.com/fairlycodeparents/AlmaSpot/commit/eddd83c0c4178a2c5936cc26e847fb99e07681a6))
+- **deps:** update dependency lint-staged to v17 ([#239](https://github.com/fairlycodeparents/AlmaSpot/issues/239)) ([ce742ba](https://github.com/fairlycodeparents/AlmaSpot/commit/ce742ba995a55a9ebf002857f66235dbc25d34bd))
+
 ## [4.7.46](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.45...4.7.46) (2026-05-06)
 
 ### Dependency updates
