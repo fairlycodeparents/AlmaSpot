@@ -1,3 +1,18 @@
+## [4.7.48](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.47...4.7.48) (2026-05-14)
+
+### Dependency updates
+
+- **core-deps:** update dependency vue-router to v5.0.7 ([#253](https://github.com/fairlycodeparents/AlmaSpot/issues/253)) ([6acf5ef](https://github.com/fairlycodeparents/AlmaSpot/commit/6acf5efff869f06fa2a65d0fcbc29db37068b0a2))
+- **deps:** update dependency @types/node to v24.12.3 ([#243](https://github.com/fairlycodeparents/AlmaSpot/issues/243)) ([3884221](https://github.com/fairlycodeparents/AlmaSpot/commit/38842211a3bac696fe15699d9d9f4d21a28cc345))
+- **deps:** update dependency @types/node to v24.12.4 ([#252](https://github.com/fairlycodeparents/AlmaSpot/issues/252)) ([c1337b1](https://github.com/fairlycodeparents/AlmaSpot/commit/c1337b17eac1bd9dffb948d2afa72c6ac6c49878))
+- **deps:** update dependency @types/node to v25.6.2 ([#241](https://github.com/fairlycodeparents/AlmaSpot/issues/241)) ([b3aa479](https://github.com/fairlycodeparents/AlmaSpot/commit/b3aa479a8d37a2e4c6b59ed3b12cd778a9428723))
+- **deps:** update dependency @types/node to v25.7.0 ([#250](https://github.com/fairlycodeparents/AlmaSpot/issues/250)) ([ab86951](https://github.com/fairlycodeparents/AlmaSpot/commit/ab869510601287e47bd2a3b78bc8891825d69976))
+- **deps:** update dependency lint-staged to v17.0.4 ([#246](https://github.com/fairlycodeparents/AlmaSpot/issues/246)) ([5f2a653](https://github.com/fairlycodeparents/AlmaSpot/commit/5f2a65397fe964fd6b2b9947f6a953728e963160))
+- **deps:** update dependency playwright to v1.60.0 ([#251](https://github.com/fairlycodeparents/AlmaSpot/issues/251)) ([1c4bc35](https://github.com/fairlycodeparents/AlmaSpot/commit/1c4bc354df498876793150d0c1c8f1ab27eedb3d))
+- **deps:** update dependency vite to v8.0.11 ([#240](https://github.com/fairlycodeparents/AlmaSpot/issues/240)) ([62fbaff](https://github.com/fairlycodeparents/AlmaSpot/commit/62fbaff5c9d72664c25a2cc59c600a3715938ac8))
+- **deps:** update dependency vite to v8.0.12 ([#248](https://github.com/fairlycodeparents/AlmaSpot/issues/248)) ([5dfe882](https://github.com/fairlycodeparents/AlmaSpot/commit/5dfe8820309dce255fa35718a0da06a764368530))
+- **deps:** update vitest monorepo to v4.1.6 ([#249](https://github.com/fairlycodeparents/AlmaSpot/issues/249)) ([9064894](https://github.com/fairlycodeparents/AlmaSpot/commit/9064894549c814a87977d8f31cf4d0c6570fc357))
+
 ## [4.7.47](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.46...4.7.47) (2026-05-09)
 
 ### Dependency updates
