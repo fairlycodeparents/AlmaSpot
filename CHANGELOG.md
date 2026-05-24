@@ -1,3 +1,31 @@
+## [4.7.49](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.48...4.7.49) (2026-05-24)
+
+### Dependency updates
+
+- **deps:** update commitlint monorepo to v21 ([#244](https://github.com/fairlycodeparents/AlmaSpot/issues/244)) ([6afa820](https://github.com/fairlycodeparents/AlmaSpot/commit/6afa820510ebf8a2054bb8d5a76ed62f49016ea5))
+- **deps:** update dependency @storybook/test-runner to v0.24.4 ([#255](https://github.com/fairlycodeparents/AlmaSpot/issues/255)) ([0d9283e](https://github.com/fairlycodeparents/AlmaSpot/commit/0d9283e4dfbe0756a833c6db4dd3cba3309b235b))
+- **deps:** update dependency @types/node to v25.8.0 ([#259](https://github.com/fairlycodeparents/AlmaSpot/issues/259)) ([3a1df83](https://github.com/fairlycodeparents/AlmaSpot/commit/3a1df83e79f6d6ae67b09c847e4d354f40c43b7e))
+- **deps:** update dependency @types/node to v25.9.0 ([#263](https://github.com/fairlycodeparents/AlmaSpot/issues/263)) ([d5349fd](https://github.com/fairlycodeparents/AlmaSpot/commit/d5349fd92ff89eb335b2e32e2528ccd7827fcb24))
+- **deps:** update dependency @types/node to v25.9.1 ([#267](https://github.com/fairlycodeparents/AlmaSpot/issues/267)) ([073fb60](https://github.com/fairlycodeparents/AlmaSpot/commit/073fb602ac851cd3ccc25c006689d1501658005d))
+- **deps:** update dependency @vitejs/plugin-vue to v6.0.7 ([#260](https://github.com/fairlycodeparents/AlmaSpot/issues/260)) ([7f61b28](https://github.com/fairlycodeparents/AlmaSpot/commit/7f61b28f89e15847698f599b1a9a3784f2015115))
+- **deps:** update dependency lint-staged to v17.0.5 ([#261](https://github.com/fairlycodeparents/AlmaSpot/issues/261)) ([ed9f28b](https://github.com/fairlycodeparents/AlmaSpot/commit/ed9f28ba3c6cc1ea176a2cdddd284bad19845716))
+- **deps:** update dependency postcss to v8.5.15 ([#265](https://github.com/fairlycodeparents/AlmaSpot/issues/265)) ([6a8b5d5](https://github.com/fairlycodeparents/AlmaSpot/commit/6a8b5d5fc25532ab41ea624a22a638213b8837a2))
+- **deps:** update dependency tsx to v4.22.1 ([#258](https://github.com/fairlycodeparents/AlmaSpot/issues/258)) ([de9aaac](https://github.com/fairlycodeparents/AlmaSpot/commit/de9aaac7a247ca697554075f18e794c474b65664))
+- **deps:** update dependency tsx to v4.22.2 ([#262](https://github.com/fairlycodeparents/AlmaSpot/issues/262)) ([e9f90c3](https://github.com/fairlycodeparents/AlmaSpot/commit/e9f90c340e20d305c6022c3164f041b0ceb28d31))
+- **deps:** update dependency tsx to v4.22.3 ([#266](https://github.com/fairlycodeparents/AlmaSpot/issues/266)) ([6ac9391](https://github.com/fairlycodeparents/AlmaSpot/commit/6ac9391e6d97ae37a69ab45cde68dff27ed866f5))
+- **deps:** update dependency vite to v8.0.13 ([#257](https://github.com/fairlycodeparents/AlmaSpot/issues/257)) ([ada7cf3](https://github.com/fairlycodeparents/AlmaSpot/commit/ada7cf34e79ed0444be4ffd4bdfc47cb7f4452af))
+- **deps:** update dependency vite to v8.0.14 ([#269](https://github.com/fairlycodeparents/AlmaSpot/issues/269)) ([47733c2](https://github.com/fairlycodeparents/AlmaSpot/commit/47733c25de3c30666afd63bc326088c4e26f69b7))
+- **deps:** update dependency vue-tsc to v3.2.9 ([#254](https://github.com/fairlycodeparents/AlmaSpot/issues/254)) ([6e3bbed](https://github.com/fairlycodeparents/AlmaSpot/commit/6e3bbedca1c4abd048c1dedd39dcb52ac98463a0))
+- **deps:** update dependency vue-tsc to v3.3.1 ([#264](https://github.com/fairlycodeparents/AlmaSpot/issues/264)) ([f034db8](https://github.com/fairlycodeparents/AlmaSpot/commit/f034db8e0608ad760e8af15099ca1500eceaf545))
+- **deps:** update storybook monorepo to v10.4.0 ([#256](https://github.com/fairlycodeparents/AlmaSpot/issues/256)) ([4332063](https://github.com/fairlycodeparents/AlmaSpot/commit/43320632083aa7ebd1a7c68cae8651e17e549412))
+- **deps:** update storybook monorepo to v10.4.1 ([#270](https://github.com/fairlycodeparents/AlmaSpot/issues/270)) ([552c732](https://github.com/fairlycodeparents/AlmaSpot/commit/552c732da344ce5ac4046b45c007db40c8ba1c80))
+- **deps:** update tailwindcss monorepo to v4.3.0 ([#247](https://github.com/fairlycodeparents/AlmaSpot/issues/247)) ([7ac704f](https://github.com/fairlycodeparents/AlmaSpot/commit/7ac704f8b3e9386ffbeb3f44b4f2fafc926fb8c4))
+- **deps:** update vitest monorepo to v4.1.7 ([#268](https://github.com/fairlycodeparents/AlmaSpot/issues/268)) ([bd1b2cc](https://github.com/fairlycodeparents/AlmaSpot/commit/bd1b2cc1a3755c0d255d8bc458193a972e881f69))
+
+### Bug Fixes
+
+- **core-deps:** update dependency @google/genai to v2 ([#242](https://github.com/fairlycodeparents/AlmaSpot/issues/242)) ([4931d7a](https://github.com/fairlycodeparents/AlmaSpot/commit/4931d7a1fd63e2766d7863c9bf3fc831ad011d84))
+
 ## [4.7.48](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.47...4.7.48) (2026-05-14)
 
 ### Dependency updates
