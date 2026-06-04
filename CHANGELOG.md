@@ -1,3 +1,16 @@
+## [4.7.53](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.52...4.7.53) (2026-06-04)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.8.0 ([#284](https://github.com/fairlycodeparents/AlmaSpot/issues/284)) ([705451e](https://github.com/fairlycodeparents/AlmaSpot/commit/705451e422ea4515039417ff9adb1a6b79336586))
+- **deps:** update dependency lint-staged to v17.0.6 ([#277](https://github.com/fairlycodeparents/AlmaSpot/issues/277)) ([053473a](https://github.com/fairlycodeparents/AlmaSpot/commit/053473a9defa1baecb0ee18f5bc56d0449e0e307))
+- **deps:** update dependency lint-staged to v17.0.7 ([#279](https://github.com/fairlycodeparents/AlmaSpot/issues/279)) ([a3c8dee](https://github.com/fairlycodeparents/AlmaSpot/commit/a3c8dee12eb2e4efc81b9b251192ea2c8de28850))
+- **deps:** update dependency tsx to v4.22.4 ([#280](https://github.com/fairlycodeparents/AlmaSpot/issues/280)) ([83bebab](https://github.com/fairlycodeparents/AlmaSpot/commit/83bebabb7bd63a478cde77c11f5e07e55e000b3e))
+- **deps:** update dependency vite to v8.0.16 ([#281](https://github.com/fairlycodeparents/AlmaSpot/issues/281)) ([ed33534](https://github.com/fairlycodeparents/AlmaSpot/commit/ed335340c9ac9be26d13460cdc0a67a0adedc065))
+- **deps:** update dependency vue-tsc to v3.3.3 ([#278](https://github.com/fairlycodeparents/AlmaSpot/issues/278)) ([5e615e0](https://github.com/fairlycodeparents/AlmaSpot/commit/5e615e0a396c4739bc3d66dfb24cdc30f7aa6c8b))
+- **deps:** update storybook monorepo to v10.4.2 ([#283](https://github.com/fairlycodeparents/AlmaSpot/issues/283)) ([e6fa66c](https://github.com/fairlycodeparents/AlmaSpot/commit/e6fa66c642ddc7f65da9d76e0dc4f3503a52b653))
+- **deps:** update vitest monorepo to v4.1.8 ([#282](https://github.com/fairlycodeparents/AlmaSpot/issues/282)) ([2ae22eb](https://github.com/fairlycodeparents/AlmaSpot/commit/2ae22ebfd0a05cd60ccb5e7d76bcc6e86024888d))
+
 ## [4.7.52](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.51...4.7.52) (2026-05-30)
 
 ### Dependency updates
