@@ -3,7 +3,7 @@ module unibo-provider
 go 1.25.0
 
 require (
-	github.com/VaiTon/unibocalendar v0.4.3-0.20260329215145-bb7e15fa1297
+	github.com/VaiTon/unibocalendar v0.4.3-0.20260604135423-4ddf688a224a
 	github.com/cartabinaria/unibo-go v0.5.1
 	github.com/gin-gonic/gin v1.12.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
@@ -30,7 +30,7 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
-	github.com/quic-go/quic-go v0.59.0 // indirect
+	github.com/quic-go/quic-go v0.59.1 // indirect
 	github.com/rs/zerolog v1.34.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.3.1 // indirect
