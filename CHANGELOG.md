@@ -1,3 +1,9 @@
+## [4.7.57](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.56...4.7.57) (2026-06-11)
+
+### Dependency updates
+
+- **core-deps:** update vue monorepo to v3.5.38 ([#295](https://github.com/fairlycodeparents/AlmaSpot/issues/295)) ([8660fee](https://github.com/fairlycodeparents/AlmaSpot/commit/8660fee4e4af01c41fce19d6d9cb484fe4cd3231))
+
 ## [4.7.56](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.55...4.7.56) (2026-06-11)
 
 ### Dependency updates
