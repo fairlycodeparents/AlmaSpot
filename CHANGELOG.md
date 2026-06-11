@@ -1,3 +1,14 @@
+## [4.7.56](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.55...4.7.56) (2026-06-11)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.3.0 ([#291](https://github.com/fairlycodeparents/AlmaSpot/issues/291)) ([8e962cf](https://github.com/fairlycodeparents/AlmaSpot/commit/8e962cff162f5b5385fb6b32a8b10430d713399b))
+- **deps:** update dependency @types/node to v24.13.1 ([#285](https://github.com/fairlycodeparents/AlmaSpot/issues/285)) ([aa1fe0b](https://github.com/fairlycodeparents/AlmaSpot/commit/aa1fe0b87101ab8fa2d2ebf0dfe560213c0fa8cb))
+- **deps:** update dependency @types/node to v25.9.2 ([#287](https://github.com/fairlycodeparents/AlmaSpot/issues/287)) ([b452e3d](https://github.com/fairlycodeparents/AlmaSpot/commit/b452e3d0148f2b741184f17a43afa75adf961885))
+- **deps:** update dependency prettier to v3.8.4 ([#289](https://github.com/fairlycodeparents/AlmaSpot/issues/289)) ([1c1718d](https://github.com/fairlycodeparents/AlmaSpot/commit/1c1718d5efa3862bd9b57447d33bc2f807e43052))
+- **deps:** update storybook monorepo to v10.4.3 ([#290](https://github.com/fairlycodeparents/AlmaSpot/issues/290)) ([eff30a5](https://github.com/fairlycodeparents/AlmaSpot/commit/eff30a560737d484cb7868fb68b1d2e506c5863f))
+- **deps:** update vue-language-tools monorepo to v3.3.4 ([#288](https://github.com/fairlycodeparents/AlmaSpot/issues/288)) ([dac389b](https://github.com/fairlycodeparents/AlmaSpot/commit/dac389b876a0b40ff62f04d27abdfff9fd160d55))
+
 ## [4.7.55](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.54...4.7.55) (2026-06-05)
 
 ### Dependency updates
