@@ -1,3 +1,14 @@
+## [4.7.58](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.57...4.7.58) (2026-06-14)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.7.0 ([#292](https://github.com/fairlycodeparents/AlmaSpot/issues/292)) ([d1174c3](https://github.com/fairlycodeparents/AlmaSpot/commit/d1174c30bc14618b33e3710ce7d3f5daf8762c16))
+- **deps:** update dependency @types/node to v24.13.2 ([#293](https://github.com/fairlycodeparents/AlmaSpot/issues/293)) ([b84b9ce](https://github.com/fairlycodeparents/AlmaSpot/commit/b84b9ce87e467f7e2f1bb874fd4a44452f2d50ae))
+- **deps:** update dependency @types/node to v25.9.3 ([#294](https://github.com/fairlycodeparents/AlmaSpot/issues/294)) ([b482ad0](https://github.com/fairlycodeparents/AlmaSpot/commit/b482ad0aa37d5246f1d8ec88e9a0663d5f32f762))
+- **deps:** update storybook monorepo to v10.4.4 ([#296](https://github.com/fairlycodeparents/AlmaSpot/issues/296)) ([9901660](https://github.com/fairlycodeparents/AlmaSpot/commit/9901660e5ae35aeb3c2a7984feed326f6ff131e2))
+- **deps:** update tailwindcss monorepo to v4.3.1 ([#297](https://github.com/fairlycodeparents/AlmaSpot/issues/297)) ([2ac854f](https://github.com/fairlycodeparents/AlmaSpot/commit/2ac854fa2e1455e9c2104138f91bd78f27f76cd3))
+- **deps:** update vue-language-tools monorepo to v3.3.5 ([#298](https://github.com/fairlycodeparents/AlmaSpot/issues/298)) ([cce0221](https://github.com/fairlycodeparents/AlmaSpot/commit/cce0221d585bd55155a42d19599bc201c1638b6b))
+
 ## [4.7.57](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.56...4.7.57) (2026-06-11)
 
 ### Dependency updates
