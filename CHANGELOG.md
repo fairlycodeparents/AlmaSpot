@@ -1,3 +1,13 @@
+## [4.7.59](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.58...4.7.59) (2026-06-19)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.7.1 ([#303](https://github.com/fairlycodeparents/AlmaSpot/issues/303)) ([bcc6851](https://github.com/fairlycodeparents/AlmaSpot/commit/bcc685115e66cb3e4d2871cb58666e97ec0247a3))
+- **deps:** update playwright monorepo to v1.61.0 ([#301](https://github.com/fairlycodeparents/AlmaSpot/issues/301)) ([963f696](https://github.com/fairlycodeparents/AlmaSpot/commit/963f69644382803c0219207d1f780a8d62feb3dd))
+- **deps:** update storybook monorepo to v10.4.5 ([#299](https://github.com/fairlycodeparents/AlmaSpot/issues/299)) ([d196828](https://github.com/fairlycodeparents/AlmaSpot/commit/d196828491a934ae57297dd829f8df65f4df1c48))
+- **deps:** update storybook monorepo to v10.4.6 ([#302](https://github.com/fairlycodeparents/AlmaSpot/issues/302)) ([3993036](https://github.com/fairlycodeparents/AlmaSpot/commit/3993036adacbbac568927cfda8261c441949b207))
+- **deps:** update vitest monorepo to v4.1.9 ([#300](https://github.com/fairlycodeparents/AlmaSpot/issues/300)) ([ff0805e](https://github.com/fairlycodeparents/AlmaSpot/commit/ff0805e2d6ae9bd9c647b8098bbbb9913d27a260))
+
 ## [4.7.58](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.57...4.7.58) (2026-06-14)
 
 ### Dependency updates
