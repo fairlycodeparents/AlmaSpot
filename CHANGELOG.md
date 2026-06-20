@@ -1,3 +1,10 @@
+## [4.7.60](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.59...4.7.60) (2026-06-20)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.9.0 ([#306](https://github.com/fairlycodeparents/AlmaSpot/issues/306)) ([ea3cbcb](https://github.com/fairlycodeparents/AlmaSpot/commit/ea3cbcb3e6ae8343f63939baa8fd9e0234cb7af1))
+- **deps:** update dependency @types/node to v25.9.4 ([#305](https://github.com/fairlycodeparents/AlmaSpot/issues/305)) ([dbc6b0f](https://github.com/fairlycodeparents/AlmaSpot/commit/dbc6b0f7c6cb235058d89d0b8879308a7a144b2a))
+
 ## [4.7.59](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.58...4.7.59) (2026-06-19)
 
 ### Dependency updates
