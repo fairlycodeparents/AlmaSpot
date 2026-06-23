@@ -1,3 +1,11 @@
+## [4.7.62](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.61...4.7.62) (2026-06-23)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.7.2 ([#309](https://github.com/fairlycodeparents/AlmaSpot/issues/309)) ([9e44db5](https://github.com/fairlycodeparents/AlmaSpot/commit/9e44db5aa00e5e6d7abcc769777671c058ddc4a4))
+- **deps:** update actions/checkout action to v7 ([#304](https://github.com/fairlycodeparents/AlmaSpot/issues/304)) ([92f8f9d](https://github.com/fairlycodeparents/AlmaSpot/commit/92f8f9d921240747ceecb78210e3979ae72f0623))
+- **deps:** update dependency lint-staged to v17.0.8 ([#308](https://github.com/fairlycodeparents/AlmaSpot/issues/308)) ([4667193](https://github.com/fairlycodeparents/AlmaSpot/commit/4667193be58fb59feeb9a0491e0ed02db6a046e7))
+
 ## [4.7.61](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.60...4.7.61) (2026-06-21)
 
 ### Dependency updates
