@@ -1,3 +1,12 @@
+## [4.7.63](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.62...4.7.63) (2026-06-25)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.10.0 ([#314](https://github.com/fairlycodeparents/AlmaSpot/issues/314)) ([766c6ed](https://github.com/fairlycodeparents/AlmaSpot/commit/766c6ed576190dfccc1c2d48561157e508e27c9c))
+- **deps:** update dependency autoprefixer to v10.5.1 ([#311](https://github.com/fairlycodeparents/AlmaSpot/issues/311)) ([a5202e4](https://github.com/fairlycodeparents/AlmaSpot/commit/a5202e4893eb4e27a24c0f777723f86646dcb8c2))
+- **deps:** update dependency autoprefixer to v10.5.2 ([#315](https://github.com/fairlycodeparents/AlmaSpot/issues/315)) ([ce0b07c](https://github.com/fairlycodeparents/AlmaSpot/commit/ce0b07c47a861ed53dd1e8e82211ac496f447b55))
+- **deps:** update playwright monorepo ([#313](https://github.com/fairlycodeparents/AlmaSpot/issues/313)) ([7d35886](https://github.com/fairlycodeparents/AlmaSpot/commit/7d358864b6050a619084b99541378527ec521858))
+
 ## [4.7.62](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.61...4.7.62) (2026-06-23)
 
 ### Dependency updates
