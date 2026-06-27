@@ -1,3 +1,10 @@
+## [4.7.65](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.64...4.7.65) (2026-06-27)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.7.3 ([#319](https://github.com/fairlycodeparents/AlmaSpot/issues/319)) ([7e3db07](https://github.com/fairlycodeparents/AlmaSpot/commit/7e3db07b42ab5cfe550e10e076e44ca838e39c4a))
+- **deps:** update dependency prettier to v3.8.5 ([#318](https://github.com/fairlycodeparents/AlmaSpot/issues/318)) ([86940e6](https://github.com/fairlycodeparents/AlmaSpot/commit/86940e6e3444ea077870e0c9ede1b203064e554e))
+
 ## [4.7.64](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.63...4.7.64) (2026-06-26)
 
 ### Dependency updates
