@@ -1,3 +1,9 @@
+## [4.7.66](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.65...4.7.66) (2026-06-28)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.4.0 ([#317](https://github.com/fairlycodeparents/AlmaSpot/issues/317)) ([7126b3a](https://github.com/fairlycodeparents/AlmaSpot/commit/7126b3adc8616bafab1ab713dae7fd1620d04497))
+
 ## [4.7.65](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.64...4.7.65) (2026-06-27)
 
 ### Dependency updates
