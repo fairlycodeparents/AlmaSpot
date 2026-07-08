@@ -3,6 +3,28 @@
 ### Dependency updates
 
 - **core-deps:** update dependency mongodb to v7.5.0 ([#330](https://github.com/fairlycodeparents/AlmaSpot/issues/330)) ([0aad678](https://github.com/fairlycodeparents/AlmaSpot/commit/0aad678a826f258df5b36195c4f6b5e85a959332))
+- **core-deps:** update dependency mongoose to v9.7.4 ([#329](https://github.com/fairlycodeparents/AlmaSpot/issues/329)) ([9827a84](https://github.com/fairlycodeparents/AlmaSpot/commit/9827a849e23dd9bb8c3b17bb8855da08ecda5402))
+- **deps:** update commitlint monorepo to v21.1.0 ([#312](https://github.com/fairlycodeparents/AlmaSpot/issues/312)) ([db9e401](https://github.com/fairlycodeparents/AlmaSpot/commit/db9e40146bb889a3f28603678a5882f3550ba2d8))
+- **deps:** update commitlint monorepo to v21.2.0 ([#323](https://github.com/fairlycodeparents/AlmaSpot/issues/323)) ([6a112b7](https://github.com/fairlycodeparents/AlmaSpot/commit/6a112b7d530f12b2d5b4fc340a2977a2bc1e9c37))
+- **deps:** update dependency postcss to v8.5.16 ([#321](https://github.com/fairlycodeparents/AlmaSpot/issues/321)) ([ea46895](https://github.com/fairlycodeparents/AlmaSpot/commit/ea46895583d72574d835f4e80a7bacd9f7123251))
+- **deps:** update dependency prettier to v3.9.4 ([#320](https://github.com/fairlycodeparents/AlmaSpot/issues/320)) ([e7c3b79](https://github.com/fairlycodeparents/AlmaSpot/commit/e7c3b79d9247dbb670dacce16b7356aa317b838a))
+- **deps:** update dependency tsx to v4.22.5 ([#326](https://github.com/fairlycodeparents/AlmaSpot/issues/326)) ([8cdef6d](https://github.com/fairlycodeparents/AlmaSpot/commit/8cdef6da44c32ddcfed9b33dc902584a4e1078cd))
+- **deps:** update dependency tsx to v4.23.0 ([#327](https://github.com/fairlycodeparents/AlmaSpot/issues/327)) ([63159fd](https://github.com/fairlycodeparents/AlmaSpot/commit/63159fd0220d54df0f731df67d9ef290400de8a6))
+- **deps:** update dependency vite to v8.1.2 ([#310](https://github.com/fairlycodeparents/AlmaSpot/issues/310)) ([de991b1](https://github.com/fairlycodeparents/AlmaSpot/commit/de991b13c795432b96f3382afb66e132666cdc85))
+- **deps:** update dependency vite to v8.1.3 ([#325](https://github.com/fairlycodeparents/AlmaSpot/issues/325)) ([af93a81](https://github.com/fairlycodeparents/AlmaSpot/commit/af93a818f4fe401c90f9c88dd374b2a533de679a))
+- **deps:** update dependency vue-tsc to v3.3.6 ([#324](https://github.com/fairlycodeparents/AlmaSpot/issues/324)) ([4ff73fc](https://github.com/fairlycodeparents/AlmaSpot/commit/4ff73fc03bdc110c7420d0787862396b5ea30254))
+- **deps:** update tailwindcss monorepo to v4.3.2 ([#322](https://github.com/fairlycodeparents/AlmaSpot/issues/322)) ([6c8cd52](https://github.com/fairlycodeparents/AlmaSpot/commit/6c8cd52213d560fd2b683db88d3593974585330c))
+- **deps:** update vitest monorepo to v4.1.10 ([#328](https://github.com/fairlycodeparents/AlmaSpot/issues/328)) ([c1531dd](https://github.com/fairlycodeparents/AlmaSpot/commit/c1531ddb3805103992d61271bb8b2042664c462f))
+
+### General maintenance
+
+- **release:** 4.7.67 [skip ci] ([02b9b7e](https://github.com/fairlycodeparents/AlmaSpot/commit/02b9b7ed1701d7521f4f119a9cb38da19dcd2cd7))
+
+## [4.7.67](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.66...4.7.67) (2026-07-08)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.5.0 ([#330](https://github.com/fairlycodeparents/AlmaSpot/issues/330)) ([0aad678](https://github.com/fairlycodeparents/AlmaSpot/commit/0aad678a826f258df5b36195c4f6b5e85a959332))
 - **deps:** update commitlint monorepo to v21.1.0 ([#312](https://github.com/fairlycodeparents/AlmaSpot/issues/312)) ([db9e401](https://github.com/fairlycodeparents/AlmaSpot/commit/db9e40146bb889a3f28603678a5882f3550ba2d8))
 - **deps:** update commitlint monorepo to v21.2.0 ([#323](https://github.com/fairlycodeparents/AlmaSpot/issues/323)) ([6a112b7](https://github.com/fairlycodeparents/AlmaSpot/commit/6a112b7d530f12b2d5b4fc340a2977a2bc1e9c37))
 - **deps:** update dependency postcss to v8.5.16 ([#321](https://github.com/fairlycodeparents/AlmaSpot/issues/321)) ([ea46895](https://github.com/fairlycodeparents/AlmaSpot/commit/ea46895583d72574d835f4e80a7bacd9f7123251))
