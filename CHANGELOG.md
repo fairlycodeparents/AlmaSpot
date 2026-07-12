@@ -1,3 +1,19 @@
+## [4.7.68](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.67...4.7.68) (2026-07-12)
+
+### Dependency updates
+
+- **deps:** update dependency @commitlint/cli to v21.2.1 ([#332](https://github.com/fairlycodeparents/AlmaSpot/issues/332)) ([8d77278](https://github.com/fairlycodeparents/AlmaSpot/commit/8d772789ac1751e612e2ba3d26860a34153d59a6))
+- **deps:** update dependency @types/node to v24.13.3 ([#333](https://github.com/fairlycodeparents/AlmaSpot/issues/333)) ([5a72638](https://github.com/fairlycodeparents/AlmaSpot/commit/5a72638c96e54ac5b1dfc10707d766d60fb2cade))
+- **deps:** update dependency @types/node to v25.9.5 ([#334](https://github.com/fairlycodeparents/AlmaSpot/issues/334)) ([50519e9](https://github.com/fairlycodeparents/AlmaSpot/commit/50519e98347a28f1b5e0857e16afe4e6ad83c481))
+- **deps:** update dependency postcss to v8.5.17 ([#340](https://github.com/fairlycodeparents/AlmaSpot/issues/340)) ([c9f52b4](https://github.com/fairlycodeparents/AlmaSpot/commit/c9f52b460c5f85cd10fce1144f60602dce43e98e))
+- **deps:** update dependency prettier to v3.9.5 ([#337](https://github.com/fairlycodeparents/AlmaSpot/issues/337)) ([0442c9a](https://github.com/fairlycodeparents/AlmaSpot/commit/0442c9a2940de5b798e7ed1860ea92aaed1fac52))
+- **deps:** update dependency vite to v8.1.4 ([#336](https://github.com/fairlycodeparents/AlmaSpot/issues/336)) ([34eb843](https://github.com/fairlycodeparents/AlmaSpot/commit/34eb843d8f0b43a0f73df3da64fdd28715fa947c))
+- **deps:** update dependency vue-tsc to v3.3.7 ([#331](https://github.com/fairlycodeparents/AlmaSpot/issues/331)) ([4af3551](https://github.com/fairlycodeparents/AlmaSpot/commit/4af355176dd9dc929be2842607080b3162eb0b9d))
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to 521d8bf ([#341](https://github.com/fairlycodeparents/AlmaSpot/issues/341)) ([ff239fb](https://github.com/fairlycodeparents/AlmaSpot/commit/ff239fb862abb924378327413524abef94ccab0c))
+
 ## [4.7.67](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.66...4.7.67) (2026-07-08)
 
 ### Dependency updates
