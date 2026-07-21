@@ -3,7 +3,7 @@ module unibo-provider
 go 1.25.0
 
 require (
-	github.com/VaiTon/unibocalendar v0.4.3-0.20260712133933-521d8bf47077
+	github.com/VaiTon/unibocalendar v0.4.3-0.20260720111522-558e24a657d3
 	github.com/cartabinaria/unibo-go v0.5.1
 	github.com/gin-gonic/gin v1.12.0
 	github.com/patrickmn/go-cache v2.1.0+incompatible
@@ -37,12 +37,12 @@ require (
 	go.mongodb.org/mongo-driver/v2 v2.5.0 // indirect
 	go.uber.org/mock v0.6.0 // indirect
 	golang.org/x/arch v0.22.0 // indirect
-	golang.org/x/crypto v0.52.0 // indirect
-	golang.org/x/mod v0.35.0 // indirect
-	golang.org/x/net v0.54.0 // indirect
-	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
-	golang.org/x/text v0.37.0 // indirect
-	golang.org/x/tools v0.44.0 // indirect
+	golang.org/x/crypto v0.54.0 // indirect
+	golang.org/x/mod v0.37.0 // indirect
+	golang.org/x/net v0.56.0 // indirect
+	golang.org/x/sync v0.22.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
+	golang.org/x/text v0.40.0 // indirect
+	golang.org/x/tools v0.47.0 // indirect
 	google.golang.org/protobuf v1.36.10 // indirect
 )
