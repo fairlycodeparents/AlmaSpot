@@ -1,3 +1,18 @@
+## [4.7.69](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.68...4.7.69) (2026-07-21)
+
+### Dependency updates
+
+- **deps:** update dependency @vitejs/plugin-vue to v6.0.8 ([#346](https://github.com/fairlycodeparents/AlmaSpot/issues/346)) ([0d0f6f3](https://github.com/fairlycodeparents/AlmaSpot/commit/0d0f6f31a094c026eaba9df04d8f8d5cae747c1e))
+- **deps:** update dependency autoprefixer to v10.5.4 ([#347](https://github.com/fairlycodeparents/AlmaSpot/issues/347)) ([696d78f](https://github.com/fairlycodeparents/AlmaSpot/commit/696d78f67912803066c9943a0fc3f61206370380))
+- **deps:** update dependency postcss to v8.5.18 ([#342](https://github.com/fairlycodeparents/AlmaSpot/issues/342)) ([c69bfdc](https://github.com/fairlycodeparents/AlmaSpot/commit/c69bfdc3fa612fcc2ed04c2c407e6a444e916287))
+- **deps:** update dependency postcss to v8.5.19 ([#344](https://github.com/fairlycodeparents/AlmaSpot/issues/344)) ([d834776](https://github.com/fairlycodeparents/AlmaSpot/commit/d8347762161a5c6ef72e263421228d11a7abc654))
+- **deps:** update dependency postcss to v8.5.20 ([#352](https://github.com/fairlycodeparents/AlmaSpot/issues/352)) ([d5ed2d5](https://github.com/fairlycodeparents/AlmaSpot/commit/d5ed2d5615fe927fcba1d2e48cd1cc3e22e66ee1))
+- **deps:** update dependency tsx to v4.23.1 ([#343](https://github.com/fairlycodeparents/AlmaSpot/issues/343)) ([223f573](https://github.com/fairlycodeparents/AlmaSpot/commit/223f573e698749c82d271d51b56d7ab75ab26e45))
+
+### Bug Fixes
+
+- **deps:** update github.com/vaiton/unibocalendar digest to 558e24a ([#353](https://github.com/fairlycodeparents/AlmaSpot/issues/353)) ([5979650](https://github.com/fairlycodeparents/AlmaSpot/commit/597965028c72a04f4a985c3806b037da1304cb5f))
+
 ## [4.7.68](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.67...4.7.68) (2026-07-12)
 
 ### Dependency updates
