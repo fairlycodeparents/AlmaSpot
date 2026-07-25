@@ -1,3 +1,15 @@
+## [4.7.70](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.69...4.7.70) (2026-07-25)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.13.0 ([#338](https://github.com/fairlycodeparents/AlmaSpot/issues/338)) ([36c06e4](https://github.com/fairlycodeparents/AlmaSpot/commit/36c06e4eaf9dc27f4547fea7c6762d96e927b949))
+- **deps:** update dependency postcss to v8.5.21 ([#354](https://github.com/fairlycodeparents/AlmaSpot/issues/354)) ([e58ce7b](https://github.com/fairlycodeparents/AlmaSpot/commit/e58ce7b6719f00e80023e1f0dc35571b455798c5))
+- **deps:** update dependency postcss to v8.5.22 ([#356](https://github.com/fairlycodeparents/AlmaSpot/issues/356)) ([da8b6c7](https://github.com/fairlycodeparents/AlmaSpot/commit/da8b6c71417606ee77f1ac38aa43459456d78976))
+- **deps:** update dependency prettier to v3.9.6 ([#355](https://github.com/fairlycodeparents/AlmaSpot/issues/355)) ([2924baf](https://github.com/fairlycodeparents/AlmaSpot/commit/2924bafe0eee1249ac1fa78ff5bc03d19421c736))
+- **deps:** update dependency vite to v8.1.5 ([#349](https://github.com/fairlycodeparents/AlmaSpot/issues/349)) ([8ef4f89](https://github.com/fairlycodeparents/AlmaSpot/commit/8ef4f89dce36ecc20d68dc942726b328323e27b0))
+- **deps:** update dependency vue-tsc to v3.3.8 ([#357](https://github.com/fairlycodeparents/AlmaSpot/issues/357)) ([39c196c](https://github.com/fairlycodeparents/AlmaSpot/commit/39c196c32b35ccf252d74d9e0e41e907e89ffd2e))
+- **deps:** update tailwindcss monorepo to v4.3.3 ([#350](https://github.com/fairlycodeparents/AlmaSpot/issues/350)) ([b8eba89](https://github.com/fairlycodeparents/AlmaSpot/commit/b8eba89d2ec662e745eaced8df56282e2497a371))
+
 ## [4.7.69](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.68...4.7.69) (2026-07-21)
 
 ### Dependency updates
