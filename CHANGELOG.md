@@ -1,3 +1,10 @@
+## [4.7.72](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.71...4.7.72) (2026-07-26)
+
+### Dependency updates
+
+- **core-deps:** update dependency vue-router to v5.2.0 ([#351](https://github.com/fairlycodeparents/AlmaSpot/issues/351)) ([436749f](https://github.com/fairlycodeparents/AlmaSpot/commit/436749f62cd6fdbe29d7507d311d9ec6f3c39245))
+- **deps:** update dependency postcss to v8.5.23 ([#361](https://github.com/fairlycodeparents/AlmaSpot/issues/361)) ([d65fef9](https://github.com/fairlycodeparents/AlmaSpot/commit/d65fef9793e8b5e8414120e2ec20b03a1eb76890))
+
 ## [4.7.71](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.70...4.7.71) (2026-07-25)
 
 ### Dependency updates
