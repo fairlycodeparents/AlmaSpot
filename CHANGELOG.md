@@ -1,3 +1,12 @@
+## [4.7.73](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.72...4.7.73) (2026-07-28)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.8.1 ([#366](https://github.com/fairlycodeparents/AlmaSpot/issues/366)) ([9321027](https://github.com/fairlycodeparents/AlmaSpot/commit/9321027344db17d9989e1f2c0eefc46bf449d7f6))
+- **deps:** update dependency lint-staged to v17.2.0 ([#359](https://github.com/fairlycodeparents/AlmaSpot/issues/359)) ([c1bd3c6](https://github.com/fairlycodeparents/AlmaSpot/commit/c1bd3c6c54dc5b350fc695e37ab2e4dc82cb8525))
+- **deps:** update dependency playwright to v1.62.0 ([#362](https://github.com/fairlycodeparents/AlmaSpot/issues/362)) ([05cbaa8](https://github.com/fairlycodeparents/AlmaSpot/commit/05cbaa87c895d88dd1b2d2a7ee40042a0af43427))
+- **deps:** update storybook monorepo to v10.5.5 ([#339](https://github.com/fairlycodeparents/AlmaSpot/issues/339)) ([8e960fd](https://github.com/fairlycodeparents/AlmaSpot/commit/8e960fd7ded90f1b2fefac87e0ad3ae729601bd1))
+
 ## [4.7.72](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.71...4.7.72) (2026-07-26)
 
 ### Dependency updates
