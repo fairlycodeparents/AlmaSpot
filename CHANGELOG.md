@@ -1,3 +1,10 @@
+## [4.7.75](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.74...4.7.75) (2026-07-30)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.15.0 ([#371](https://github.com/fairlycodeparents/AlmaSpot/issues/371)) ([8621846](https://github.com/fairlycodeparents/AlmaSpot/commit/86218466372fd2fe694a841b2ac797a2a58f1e46))
+- **deps:** update dependency playwright to v1.62.1 ([#370](https://github.com/fairlycodeparents/AlmaSpot/issues/370)) ([f1ed18f](https://github.com/fairlycodeparents/AlmaSpot/commit/f1ed18fc74e5820983e25031c2ef764998216f5d))
+
 ## [4.7.74](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.73...4.7.74) (2026-07-30)
 
 ### Dependency updates
