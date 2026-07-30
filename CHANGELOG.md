@@ -1,3 +1,12 @@
+## [4.7.74](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.73...4.7.74) (2026-07-30)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.14.0 ([#369](https://github.com/fairlycodeparents/AlmaSpot/issues/369)) ([99397a7](https://github.com/fairlycodeparents/AlmaSpot/commit/99397a7352c767683a2d65038c03cc7ad94e5535))
+- **deps:** update actions/setup-node action to v7 ([#345](https://github.com/fairlycodeparents/AlmaSpot/issues/345)) ([42a189c](https://github.com/fairlycodeparents/AlmaSpot/commit/42a189c66d40e8c57f99d6d1e3eb831d1c1e6d87))
+- **deps:** update dependency postcss to v8.5.24 ([#367](https://github.com/fairlycodeparents/AlmaSpot/issues/367)) ([b591e31](https://github.com/fairlycodeparents/AlmaSpot/commit/b591e315e175de4adec0294b54d6822e624c9923))
+- **deps:** update dependency postcss to v8.5.25 ([#368](https://github.com/fairlycodeparents/AlmaSpot/issues/368)) ([a1ebdfd](https://github.com/fairlycodeparents/AlmaSpot/commit/a1ebdfd2f7c7f3b684b480bc15de546863af48c8))
+
 ## [4.7.73](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.72...4.7.73) (2026-07-28)
 
 ### Dependency updates
