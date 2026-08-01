@@ -1,3 +1,10 @@
+## [4.7.76](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.75...4.7.76) (2026-08-01)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.9.1 ([#372](https://github.com/fairlycodeparents/AlmaSpot/issues/372)) ([54406c2](https://github.com/fairlycodeparents/AlmaSpot/commit/54406c26c4b8d7c7c57674f1a1d2752540ee3ad4))
+- **deps:** update dependency vue-tsc to v3.3.9 ([#374](https://github.com/fairlycodeparents/AlmaSpot/issues/374)) ([add69ad](https://github.com/fairlycodeparents/AlmaSpot/commit/add69ad108e37a3f71eb0f77cea97f8322dc575f))
+
 ## [4.7.75](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.74...4.7.75) (2026-07-30)
 
 ### Dependency updates
