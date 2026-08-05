@@ -1,3 +1,18 @@
+## [4.7.77](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.76...4.7.77) (2026-08-05)
+
+### Dependency updates
+
+- **deps:** update dependency c8 to v12 ([#364](https://github.com/fairlycodeparents/AlmaSpot/issues/364)) ([74d76d5](https://github.com/fairlycodeparents/AlmaSpot/commit/74d76d59711b0b226b470a2abe79b04803d11f25))
+- **deps:** update dependency lint-staged to v17.3.0 ([#375](https://github.com/fairlycodeparents/AlmaSpot/issues/375)) ([7f9ee73](https://github.com/fairlycodeparents/AlmaSpot/commit/7f9ee7354166a6ee16422e7196b90cf764667ee1))
+- **deps:** update dependency tsx to v4.23.4 ([#376](https://github.com/fairlycodeparents/AlmaSpot/issues/376)) ([489ff11](https://github.com/fairlycodeparents/AlmaSpot/commit/489ff11cead6902036426e50a5d102a6533f7035))
+- **deps:** update dependency tsx to v4.23.5 ([#377](https://github.com/fairlycodeparents/AlmaSpot/issues/377)) ([8a81329](https://github.com/fairlycodeparents/AlmaSpot/commit/8a8132929f48d3c54e5776f815004d8c0efda14d))
+- **deps:** update dependency vite to v8.2.0 ([#373](https://github.com/fairlycodeparents/AlmaSpot/issues/373)) ([943543c](https://github.com/fairlycodeparents/AlmaSpot/commit/943543cf6ceec61cbed5341a074947205bf9bc24))
+- **deps:** update storybook monorepo to v10.5.6 ([#378](https://github.com/fairlycodeparents/AlmaSpot/issues/378)) ([e85db36](https://github.com/fairlycodeparents/AlmaSpot/commit/e85db361bcdcd35cca753f818584df53a9e29e45))
+
+### Bug Fixes
+
+- **core-deps:** update dependency pinia to v4 ([#365](https://github.com/fairlycodeparents/AlmaSpot/issues/365)) ([7096daa](https://github.com/fairlycodeparents/AlmaSpot/commit/7096daa4d0fa6b9d244664e2236c5278f9f9b235))
+
 ## [4.7.76](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.75...4.7.76) (2026-08-01)
 
 ### Dependency updates
