@@ -1,3 +1,14 @@
+## [4.7.78](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.77...4.7.78) (2026-08-08)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.16.0 ([#380](https://github.com/fairlycodeparents/AlmaSpot/issues/380)) ([da0a285](https://github.com/fairlycodeparents/AlmaSpot/commit/da0a285d66054031d80245998553c73df3673426))
+- **deps:** update dependency postcss to v8.5.26 ([#381](https://github.com/fairlycodeparents/AlmaSpot/issues/381)) ([c29dcec](https://github.com/fairlycodeparents/AlmaSpot/commit/c29dcecf9f902ee93bc766efd7c2cbc3cb2180ea))
+- **deps:** update dependency tsx to v4.23.11 ([#382](https://github.com/fairlycodeparents/AlmaSpot/issues/382)) ([16cf7d1](https://github.com/fairlycodeparents/AlmaSpot/commit/16cf7d192a40bee993bdcc965f11406be297b8d4))
+- **deps:** update dependency tsx to v4.23.8 ([#379](https://github.com/fairlycodeparents/AlmaSpot/issues/379)) ([6406802](https://github.com/fairlycodeparents/AlmaSpot/commit/6406802bde12257588aa2b049b156e6579d9054d))
+- **deps:** update dependency vite to v8.2.1 ([#383](https://github.com/fairlycodeparents/AlmaSpot/issues/383)) ([651b173](https://github.com/fairlycodeparents/AlmaSpot/commit/651b173d1521897f001388401d680d181a075461))
+- **deps:** update storybook monorepo to v10.5.7 ([#384](https://github.com/fairlycodeparents/AlmaSpot/issues/384)) ([ec5146a](https://github.com/fairlycodeparents/AlmaSpot/commit/ec5146ae77fa19ac417006bcf323a8180f185df9))
+
 ## [4.7.77](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.76...4.7.77) (2026-08-05)
 
 ### Dependency updates
