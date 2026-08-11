@@ -1,3 +1,9 @@
+## [4.7.79](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.78...4.7.79) (2026-08-11)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.9.2 ([#386](https://github.com/fairlycodeparents/AlmaSpot/issues/386)) ([bfaa7c1](https://github.com/fairlycodeparents/AlmaSpot/commit/bfaa7c158798af8b39d89c1111dc5be92002f3e3))
+
 ## [4.7.78](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.77...4.7.78) (2026-08-08)
 
 ### Dependency updates
