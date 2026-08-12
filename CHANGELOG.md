@@ -1,3 +1,10 @@
+## [4.7.80](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.79...4.7.80) (2026-08-12)
+
+### Dependency updates
+
+- **core-deps:** update dependency pinia to v4.0.3 ([#387](https://github.com/fairlycodeparents/AlmaSpot/issues/387)) ([b6a9495](https://github.com/fairlycodeparents/AlmaSpot/commit/b6a94956228684c5b894c4495129a567e4cbef63))
+- **deps:** update dependency tsx to v4.23.12 ([#385](https://github.com/fairlycodeparents/AlmaSpot/issues/385)) ([bff32d2](https://github.com/fairlycodeparents/AlmaSpot/commit/bff32d27af1ab44027dfe79609fe4790bcbd247d))
+
 ## [4.7.79](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.78...4.7.79) (2026-08-11)
 
 ### Dependency updates
