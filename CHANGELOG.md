@@ -1,3 +1,11 @@
+## [4.7.81](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.80...4.7.81) (2026-08-15)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.17.1 ([#388](https://github.com/fairlycodeparents/AlmaSpot/issues/388)) ([bfbdc7b](https://github.com/fairlycodeparents/AlmaSpot/commit/bfbdc7b683489cb817981399b5a4efbb10186e51))
+- **deps:** update commitlint monorepo to v21.2.2 ([#389](https://github.com/fairlycodeparents/AlmaSpot/issues/389)) ([17b404e](https://github.com/fairlycodeparents/AlmaSpot/commit/17b404ed984fbb39460508acb16e70dfb12300f6))
+- **deps:** update storybook monorepo to v10.5.8 ([#390](https://github.com/fairlycodeparents/AlmaSpot/issues/390)) ([3f15738](https://github.com/fairlycodeparents/AlmaSpot/commit/3f157381a83c0a2c58382291f1a7bc129a1745a0))
+
 ## [4.7.80](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.79...4.7.80) (2026-08-12)
 
 ### Dependency updates
