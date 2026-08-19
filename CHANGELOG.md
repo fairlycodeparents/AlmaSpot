@@ -1,3 +1,9 @@
+## [4.7.83](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.82...4.7.83) (2026-08-19)
+
+### Dependency updates
+
+- **core-deps:** update dependency uuid to v14.0.2 ([#395](https://github.com/fairlycodeparents/AlmaSpot/issues/395)) ([c3fa5ee](https://github.com/fairlycodeparents/AlmaSpot/commit/c3fa5ee9834e68f2141f26b9e8de11d0b919ae3f))
+
 ## [4.7.82](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.81...4.7.82) (2026-08-19)
 
 ### Dependency updates
