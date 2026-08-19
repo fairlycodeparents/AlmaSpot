@@ -1,3 +1,11 @@
+## [4.7.82](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.81...4.7.82) (2026-08-19)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.9.3 ([#392](https://github.com/fairlycodeparents/AlmaSpot/issues/392)) ([eea204b](https://github.com/fairlycodeparents/AlmaSpot/commit/eea204b49596f5331f80288d6a390ba63cd6ffce))
+- **deps:** update dependency vue-tsc to v3.3.10 ([#391](https://github.com/fairlycodeparents/AlmaSpot/issues/391)) ([df56cb0](https://github.com/fairlycodeparents/AlmaSpot/commit/df56cb037e415de020195bc356b164e01c9df7e6))
+- **deps:** update storybook monorepo to v10.5.9 ([#393](https://github.com/fairlycodeparents/AlmaSpot/issues/393)) ([8d525bf](https://github.com/fairlycodeparents/AlmaSpot/commit/8d525bfbddff8ec03fd1156544a89a00bb6ba10a))
+
 ## [4.7.81](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.80...4.7.81) (2026-08-15)
 
 ### Dependency updates
