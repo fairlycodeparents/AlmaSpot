@@ -1,3 +1,11 @@
+## [4.7.84](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.83...4.7.84) (2026-08-21)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.18.0 ([#397](https://github.com/fairlycodeparents/AlmaSpot/issues/397)) ([72e2103](https://github.com/fairlycodeparents/AlmaSpot/commit/72e21039602095cd27fab9a5603ad5eafe7470a6))
+- **deps:** update dependency vite to v8.2.2 ([#398](https://github.com/fairlycodeparents/AlmaSpot/issues/398)) ([9fe04a0](https://github.com/fairlycodeparents/AlmaSpot/commit/9fe04a00291fbb05ee94b0896753f7f04d8bbcbc))
+- **deps:** update vitest monorepo to v4.1.11 ([#394](https://github.com/fairlycodeparents/AlmaSpot/issues/394)) ([3527df6](https://github.com/fairlycodeparents/AlmaSpot/commit/3527df6bbe94de7c2b3264d57fd7e8e057bae58c))
+
 ## [4.7.83](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.82...4.7.83) (2026-08-19)
 
 ### Dependency updates
