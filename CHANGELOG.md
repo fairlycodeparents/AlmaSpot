@@ -1,3 +1,11 @@
+## [4.7.85](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.84...4.7.85) (2026-08-25)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.9.4 ([#400](https://github.com/fairlycodeparents/AlmaSpot/issues/400)) ([f271612](https://github.com/fairlycodeparents/AlmaSpot/commit/f271612a06a6ac49c66502ec342f013a5fb972ce))
+- **deps:** update dependency vue-tsc to v3.3.11 ([#399](https://github.com/fairlycodeparents/AlmaSpot/issues/399)) ([62ab5f8](https://github.com/fairlycodeparents/AlmaSpot/commit/62ab5f8ed797dd08dd1146dae45857ee8d95eb24))
+- **deps:** update golang docker tag to v1.27 ([#396](https://github.com/fairlycodeparents/AlmaSpot/issues/396)) ([6e181c3](https://github.com/fairlycodeparents/AlmaSpot/commit/6e181c3d0543c16783abdb3e61d4db0e41041221))
+
 ## [4.7.84](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.83...4.7.84) (2026-08-21)
 
 ### Dependency updates
