@@ -1,3 +1,10 @@
+## [4.7.89](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.88...4.7.89) (2026-08-29)
+
+### Dependency updates
+
+- **core-deps:** update dependency zod to v4.5.4 ([#405](https://github.com/fairlycodeparents/AlmaSpot/issues/405)) ([ac9c08e](https://github.com/fairlycodeparents/AlmaSpot/commit/ac9c08ee3283d5b7c1da6a2d5fdeb59a06e430a1))
+- **deps:** update dependency lint-staged to v17.4.1 ([#404](https://github.com/fairlycodeparents/AlmaSpot/issues/404)) ([0ff4fe6](https://github.com/fairlycodeparents/AlmaSpot/commit/0ff4fe64d976f7f371a0efd608adb029a153ca19))
+
 ## [4.7.88](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.87...4.7.88) (2026-08-28)
 
 ### Dependency updates
