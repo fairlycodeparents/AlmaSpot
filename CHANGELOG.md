@@ -1,3 +1,10 @@
+## [4.7.90](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.89...4.7.90) (2026-09-02)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.20.0 ([#407](https://github.com/fairlycodeparents/AlmaSpot/issues/407)) ([b945811](https://github.com/fairlycodeparents/AlmaSpot/commit/b94581151da7398fbc1ca2f3b536ba08d8138cfb))
+- **deps:** update dependency tsx to v4.23.13 ([#406](https://github.com/fairlycodeparents/AlmaSpot/issues/406)) ([c842099](https://github.com/fairlycodeparents/AlmaSpot/commit/c842099a2f7517d59eccf5c1c8f12c66541e200a))
+
 ## [4.7.89](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.88...4.7.89) (2026-08-29)
 
 ### Dependency updates
