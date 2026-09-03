@@ -1,3 +1,9 @@
+## [4.7.91](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.90...4.7.91) (2026-09-03)
+
+### Dependency updates
+
+- **core-deps:** update dependency vue-router to v5.3.1 ([#408](https://github.com/fairlycodeparents/AlmaSpot/issues/408)) ([8ba2ed4](https://github.com/fairlycodeparents/AlmaSpot/commit/8ba2ed45cc2783f21f83194d5a8117c68ad757bb))
+
 ## [4.7.90](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.89...4.7.90) (2026-09-02)
 
 ### Dependency updates
