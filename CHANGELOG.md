@@ -1,3 +1,12 @@
+## [4.7.94](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.93...4.7.94) (2026-09-07)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.21.0 ([#410](https://github.com/fairlycodeparents/AlmaSpot/issues/410)) ([80436e1](https://github.com/fairlycodeparents/AlmaSpot/commit/80436e1b09fd41c49cf0824eb0ab35d82d6288fa))
+- **deps:** update dependency @storybook/test-runner to v0.24.5 ([#409](https://github.com/fairlycodeparents/AlmaSpot/issues/409)) ([b6f1580](https://github.com/fairlycodeparents/AlmaSpot/commit/b6f1580e9311692418f53bc903ae3d4f46ea1601))
+- **deps:** update dependency autoprefixer to v10.5.5 ([#413](https://github.com/fairlycodeparents/AlmaSpot/issues/413)) ([7393b4c](https://github.com/fairlycodeparents/AlmaSpot/commit/7393b4c06ffb678533e4f3a443292a43a6a77ac4))
+- **deps:** update dependency postcss to v8.5.28 ([#411](https://github.com/fairlycodeparents/AlmaSpot/issues/411)) ([026e322](https://github.com/fairlycodeparents/AlmaSpot/commit/026e322400972ac01495e0c4bd962e2e30ae296c))
+
 ## [4.7.93](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.92...4.7.93) (2026-09-05)
 
 ### Dependency updates
