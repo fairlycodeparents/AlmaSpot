@@ -1,6 +1,6 @@
 services:
   mongo:
-    image: mongo:6.0
+    image: mongo:8.3
     container_name: almaspot-mongo
     restart: always
     ports:
