@@ -50,58 +50,58 @@ regarding lesson schedules and room availability. The choice of Go for this task
 network operations and its ability to handle concurrency natively, allowing for rapid processing of external data
 before sending it to the main system.
 
-#### Other technologies used
+#### Other technologies
 
-- **argon2**: Library used for password hashing. It guarantees advanced protection against brute-force and rainbow
+- **Argon2**: Library used for password hashing. It guarantees advanced protection against brute-force and rainbow
   table attacks.
 
-- **c8**: Tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
+- **C8**: Tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
   measure test effectiveness, generating detailed reports that highlight well-verified code portions and those with
   insufficient coverage.
 
-- **dotenv**: Module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
+- **Dotenv**: Module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
   separating sensitive configurations (such as API keys and credentials) from the source code.
 
-- **genai** (Google Generative AI): Client SDK used to integrate generative artificial intelligence features
+- **GenAI** (Google Generative AI): Client SDK used to integrate generative artificial intelligence features
   (Gemini models) within the application, allowing for content generation or semantic analysis.
 
-- **jsonwebtoken**: Implementation for token signing, decoding, and verification. Used to handle _stateless_
+- **Jsonwebtoken**: Implementation for token signing, decoding, and verification. Used to handle _stateless_
   authentication and the secure exchange of information between client and server.
 
-- **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
   model application data, handling validation, type conversion, and business logic.
 
-- **nginx**: Web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
+- **Nginx**: Web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
   request routing, ensuring scalability and correct path resolution for Single Page
   Application (SPA).
 
-- **pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
+- **Pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
   (e.g., user data, tokens) in a reactive and modular way, facilitating data sharing between components.
 
-- **postcss**: Tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
+- **PostCSS**: Tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
   Tailwind CSS and ensure cross-browser compatibility.
 
-- **storybook**: Open source tool for UI component development that acts as a laboratory and interactive documentation.
+- **Storybook**: Open source tool for UI component development that acts as a laboratory and interactive documentation.
   It allows verifying component states and accessibility outside the main application, ensuring that the design system
   defined in Tailwind CSS is applied correctly on all elements.
 
-- **tailwindcss**: CSS framework that allows building user interfaces quickly directly in the markup. It offers a
+- **TailwindCSS**: CSS framework that allows building user interfaces quickly directly in the markup. It offers a
   consistent design system and drastically reduces the need to write custom stylesheets, optimizing the final bundle by
   removing unused classes.
 
-- **typescript**: A strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript,
+- **TypeScript**: A strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript,
   allowing it to run wherever JavaScript runs.
 
-- **uuid**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
+- **UUID**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
   unique global identifiers.
 
-- **web-push**: Library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
+- **Web Push**: Library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
   generation and interaction with browser Push Services.
 
-- **vite**: New generation build tool for the frontend. It provides a rapid and optimized development environment for
+- **Vite**: New generation build tool for the frontend. It provides a rapid and optimized development environment for
   web applications.
 
-- **zod**: Schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
+- **Zod**: Schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
   after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
   that TypeScript could not intercept.
 
