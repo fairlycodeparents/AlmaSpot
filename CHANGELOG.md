@@ -1,3 +1,9 @@
+## [4.7.96](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.95...4.7.96) (2026-09-11)
+
+### Documentation
+
+- improve formatting ([#422](https://github.com/fairlycodeparents/AlmaSpot/issues/422)) ([009ec6e](https://github.com/fairlycodeparents/AlmaSpot/commit/009ec6effda1c9916cb8c99b952659fd6f94e5a2))
+
 ## [4.7.95](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.94...4.7.95) (2026-09-11)
 
 ### Dependency updates
