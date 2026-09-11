@@ -25,12 +25,13 @@
 
 ## 4.1. Technologies
 
-#### MEVN
+#### MEVN Stack
 
 - **MongoDB**: NoSQL database used for data persistence management and storage of documents in a JSON-like format;
-- **Express**: web framework for Node.js used for managing routing and abstracting HTTP requests and responses within controllers;
-- **Node.js**: runtime environment used for the development of the server component (backend);
-- **Vue.js**: progressive framework used on the frontend for creating the user interface based on reactive components.
+- **Express**: Web framework for Node.js used for managing routing and abstracting HTTP requests and responses within
+  controllers;
+- **Node.js**: Runtime environment used for the development of the server component (backend);
+- **Vue.js**: Progressive framework used on the frontend for creating the user interface based on reactive components.
 
 #### Docker
 
@@ -49,76 +50,76 @@ regarding lesson schedules and room availability. The choice of Go for this task
 network operations and its ability to handle concurrency natively, allowing for rapid processing of external data
 before sending it to the main system.
 
-#### Other technologies used
+#### Other technologies
 
-- **argon2**: library used for password hashing. It guarantees advanced protection against brute-force and rainbow
+- **Argon2**: Library used for password hashing. It guarantees advanced protection against brute-force and rainbow
   table attacks.
 
-- **c8**: tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
+- **C8**: Tool for code coverage analysis that leverages the native features of the Node.js V8 engine. It was used to
   measure test effectiveness, generating detailed reports that highlight well-verified code portions and those with
   insufficient coverage.
 
-- **dotenv**: module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
+- **Dotenv**: Module that loads environment variables from a `.env` file into `process.env`. It is fundamental for
   separating sensitive configurations (such as API keys and credentials) from the source code.
 
-- **genai** (Google Generative AI): client SDK used to integrate generative artificial intelligence features
+- **GenAI** (Google Generative AI): Client SDK used to integrate generative artificial intelligence features
   (Gemini models) within the application, allowing for content generation or semantic analysis.
 
-- **jsonwebtoken**: implementation for token signing, decoding, and verification. Used to handle _stateless_
+- **Jsonwebtoken**: Implementation for token signing, decoding, and verification. Used to handle _stateless_
   authentication and the secure exchange of information between client and server.
 
-- **mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
+- **Mongoose**: ODM (Object Data Modeling) library for MongoDB and Node.js. It provides a schema-based solution to
   model application data, handling validation, type conversion, and business logic.
 
-- **nginx**: web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
+- **Nginx**: Web server and _reverse proxy_ configured to serve static files produced by Vite and to manage
   request routing, ensuring scalability and correct path resolution for Single Page
   Application (SPA).
 
-- **pinia**: the official _State Management_ library for Vue.js. Used to handle the global application state
+- **Pinia**: The official _State Management_ library for Vue.js. Used to handle the global application state
   (e.g., user data, tokens) in a reactive and modular way, facilitating data sharing between components.
 
-- **postcss**: tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
+- **PostCSS**: Tool for transforming CSS via JavaScript plugins. In the project, it serves as a processor to compile
   Tailwind CSS and ensure cross-browser compatibility.
 
-- **storybook**: open source tool for UI component development that acts as a laboratory and interactive documentation.
+- **Storybook**: Open source tool for UI component development that acts as a laboratory and interactive documentation.
   It allows verifying component states and accessibility outside the main application, ensuring that the design system
   defined in Tailwind CSS is applied correctly on all elements.
 
-- **tailwindcss**: CSS framework that allows building user interfaces quickly directly in the markup. It offers a
+- **TailwindCSS**: CSS framework that allows building user interfaces quickly directly in the markup. It offers a
   consistent design system and drastically reduces the need to write custom stylesheets, optimizing the final bundle by
   removing unused classes.
 
-- **typescript**: a strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript
-  , allowing it to run wherever JavaScript runs.
+- **TypeScript**: A strongly typed programming language based on JavaScript. TypeScript code is converted to JavaScript,
+  allowing it to run wherever JavaScript runs.
 
-- **uuid**: tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
+- **UUID**: Tool for generating UUIDs (Universally Unique Identifiers) compliant with RFC 4122. It is used to create
   unique global identifiers.
 
-- **web-push**: library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
+- **Web Push**: Library supporting the Web Push protocol for sending notifications to users. It handles VAPID key
   generation and interaction with browser Push Services.
 
-- **vite**: new generation build tool for the frontend. It provides a rapid and optimized development environment for
+- **Vite**: New generation build tool for the frontend. It provides a rapid and optimized development environment for
   web applications.
 
-- **zod**: schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
+- **Zod**: Schema validation library that extends type safety to runtime. Since TypeScript static checks disappear
   after compilation, Zod helps verify that data coming from the client respects the expected format, preventing errors
   that TypeScript could not intercept.
 
 ## 4.2. Core System
 
 The implementation of the core system focuses on managing the lifecycle of academic activities and the availability of
-physical spaces. It acts as the definitive "_source of truth_", reconciling static spatial data (classrooms) with dynamic
-schedule information through a robust set of adapters and services.
+physical spaces. It acts as the definitive "_source of truth_", reconciling static spatial data (classrooms) with
+dynamic schedule information through a robust set of adapters and services.
 
 ### 4.2.1. Time management
 
 A central challenge was ensuring reliable time comparisons across the system. The implementation of the `Period` object
 (found in `shared/domain/Period.ts`) centralizes this logic to prevent inconsistencies in availability queries.
 
-- **Overlap logic**: instead of scattering conditional checks throughout the services, the Period class implements a
+- **Overlap logic**: Instead of scattering conditional checks throughout the services, the Period class implements a
   dedicated method to detect time collisions.
 
-- **Immutability**: to prevent side effects during complex filtering operations, Period is implemented as an immutable
+- **Immutability**: To prevent side effects during complex filtering operations, Period is implemented as an immutable
   value object.
 
 ```typescript
@@ -144,7 +145,8 @@ The `RoomSearchService` handles the task of finding free "spots" by cross-refere
 dynamic activities.
 
 The algorithm retrieves active activities for the requested day and performs multi-level filtering. It does not simply
-verify the existence of a room; it performs a real-time difference between `Room` entities and the `Activity` collection.
+verify the existence of a room; it performs a real-time difference between `Room` entities and the `Activity`
+collection.
 
 ```typescript
 private isRoomAvailable(room: Room, requestedPeriod: Period): boolean {
@@ -188,21 +190,21 @@ async getActivities(date: Date): Promise<InternalActivity[]> {
 
 A key implementation choice was using the native MongoDB driver instead of heavy ORMs, for two main reasons:
 
-- **Query optimization**: in `MongoRoomRepository`, the native driver allows granular control over collections organized
+- **Query optimization**: In `MongoRoomRepository`, the native driver allows granular control over collections organized
   by campus (Bologna, Cesena, etc.).
-- **Geographic hierarchy**: by leveraging MongoDB's dot-notation, the system queries nested fields (Campus $\rightarrow$
-  Branch $\rightarrow$ Room) with minimal overhead; the implementation can thus query nested properties to allow
-  targeted searches without performance degradation.
+- **Geographic hierarchy**: By leveraging MongoDB's dot-notation, the system queries nested fields (Campus → Branch →
+  Room) with minimal overhead; the implementation can thus query nested properties to allow targeted searches without
+  performance degradation.
 
 ### 4.2.6. Seeding system
 
 A relevant implementation detail is the `SeedRooms` script. Unlike standard seeding, this engine handles the
 transformation of structured JSON files into complex documents. Its main functions are:
 
-- **Document transformation**: it processes campus-specific files (e.g., `cesena_rooms.json`), reconstructing the
+- **Document transformation**: It processes campus-specific files (e.g., `cesena_rooms.json`), reconstructing the
   `Location` object hierarchy.
 
-- **Clean-and-load strategy**: to ensure consistency across development environments, the script clears orphaned
+- **Clean-and-load strategy**: To ensure consistency across development environments, the script clears orphaned
   collections before loading, ensuring the integrity of geographic references in MongoDB.
 
 ## 4.3. Notification System
@@ -237,7 +239,7 @@ the subscription is automatically removed.
 Client-side, reception is handled by a **Service Worker** (`sw.js`).
 The Service Worker wakes up, decodes the JSON payload, and displays the system notification to the user.
 
-```javascript
+```typescript
 self.addEventListener("push", function (event) {
   const payload = event.data ? event.data.json() : {};
   const title = payload.title || "AlmaSpot";
@@ -252,7 +254,7 @@ self.addEventListener("push", function (event) {
 Subsequently, it opens the application by appending parameters to the URL, allowing the frontend to immediately display
 the details of the issue upon startup.
 
-```javascript
+```typescript
 self.addEventListener("notificationclick", function (event) {
   event.notification.close();
   let targetUrl = event.notification.data.url || "/";
@@ -327,7 +329,7 @@ Authentication is handled in a _stateless_ manner using **JSON Web Tokens (JWT)*
 registration), the server generates a signed token containing the user ID, email, role (currently limited to _admin_ in
 this version), and an expiration time. This approach eliminates the need to maintain session state on the server side.
 
-##### Data Validation and Integrity
+#### Data Validation and Integrity
 
 To preserve domain integrity, a declarative validation mechanism was implemented using the **Zod** library. This allows
 for the definition of schemas that serve as strict contracts for input data.

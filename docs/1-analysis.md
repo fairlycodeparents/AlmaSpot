@@ -4,8 +4,8 @@
 
 1. [Analysis](1-analysis.md)
    - 1.1. [Problem analysis](#11-problem-analysis)
-     - 1.1.1. [Context](#111-the-context)
-     - 1.1.2. [Problem statement](#112-the-problem-statement)
+     - 1.1.1. [Context](#111-context)
+     - 1.1.2. [Problem statement](#112-problem-statement)
      - 1.1.3. [Proposed solution](#113-proposed-solution)
      - 1.1.4. [Roles](#114-roles)
    - 1.2. [Requirements analysis](#12-requirements-analysis)
@@ -39,11 +39,11 @@ lecture hall is free and available for individual or group study during these pe
 
 The current ecosystem raises several critical issues:
 
-1. **Data fragmentation**: schedule information is scattered across course and/or teacher web
+1. **Data fragmentation**: Schedule information is scattered across course and/or teacher web
    portals, making it difficult to gather information about room occupancy.
-2. **Lack of real-time updates**: official schedules do not account for last-minute or
+2. **Lack of real-time updates**: Official schedules do not account for last-minute or
    unofficial activities, such as seminars or other events.
-3. **Inefficient resource usage**: students who search for a spot at random are often forced to
+3. **Inefficient resource usage**: Students who search for a spot at random are often forced to
    leave a room because they were unaware that a lecture was about to start.
 
 ### 1.1.3. Proposed solution
@@ -65,14 +65,14 @@ The system recognises two distinct roles:
 
 ### 1.2.1. System requirements
 
-1. **Schedule acquisition**: the system must autonomously acquire heterogeneous schedule data from
+1. **Schedule acquisition**: The system must autonomously acquire heterogeneous schedule data from
    university sources (open data) and normalise it into a consistent format.
-2. **Availability calculation**: the system must determine the real-time status of a resource by
+2. **Availability calculation**: The system must determine the real-time status of a resource by
    intersecting official lectures and administrator activities.
-3. **Smart Discovery (AI)**: the system must support natural language queries (e.g. "I'd prefer
+3. **Smart Discovery (AI)**: The system must support natural language queries (e.g. "I'd prefer
    not to move to a different campus") to help users find solutions if a single room is not
    available for the entire requested period.
-4. **Proactive notification**: the system must follow a 'push' model to notify users who have
+4. **Proactive notification**: The system must follow a 'push' model to notify users who have
    subscribed to specific solutions of state changes.
 
 ### 1.2.2. Functional requirements
