@@ -1,3 +1,22 @@
+## [4.7.95](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.94...4.7.95) (2026-09-11)
+
+### Dependency updates
+
+- **deps:** downgrade mongo image to version 7.0 ([#417](https://github.com/fairlycodeparents/AlmaSpot/issues/417)) ([ce7f377](https://github.com/fairlycodeparents/AlmaSpot/commit/ce7f377bf47be45879fb31907949345802862a8d))
+- **deps:** update dependency @types/node to v24.13.4 ([#419](https://github.com/fairlycodeparents/AlmaSpot/issues/419)) ([1c35e17](https://github.com/fairlycodeparents/AlmaSpot/commit/1c35e177ee42afcf24beb0723d337ff9f224023b))
+- **deps:** update dependency @types/node to v25.9.6 ([#420](https://github.com/fairlycodeparents/AlmaSpot/issues/420)) ([3fdacff](https://github.com/fairlycodeparents/AlmaSpot/commit/3fdacff87b8fb63e6efd48ed37732eebf4230de4))
+- **deps:** update dependency lint-staged to v17.5.0 ([#416](https://github.com/fairlycodeparents/AlmaSpot/issues/416)) ([da6adec](https://github.com/fairlycodeparents/AlmaSpot/commit/da6adecc15e7e76656e8989e94f9b0ef0a619652))
+- **deps:** update dependency playwright to v1.63.0 ([#415](https://github.com/fairlycodeparents/AlmaSpot/issues/415)) ([379a104](https://github.com/fairlycodeparents/AlmaSpot/commit/379a104ec0c24fa2fb146c1d4c092218d996a53a))
+- **deps:** update mongo docker tag to v8 ([#23](https://github.com/fairlycodeparents/AlmaSpot/issues/23)) ([70dba81](https://github.com/fairlycodeparents/AlmaSpot/commit/70dba8187d205051aaf0033df96213b1308f3ec8))
+
+### Bug Fixes
+
+- **core-deps:** update dependency argon2 to ^0.45.0 ([#360](https://github.com/fairlycodeparents/AlmaSpot/issues/360)) ([9c15f78](https://github.com/fairlycodeparents/AlmaSpot/commit/9c15f78cb1216d5e3e3a328a1fe2bd6ea1572dc5))
+
+### General maintenance
+
+- **config:** migrate Renovate config ([#363](https://github.com/fairlycodeparents/AlmaSpot/issues/363)) ([73c91c4](https://github.com/fairlycodeparents/AlmaSpot/commit/73c91c46a4fe7fca272f018e62bbc346c4d70d4d))
+
 ## [4.7.94](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.93...4.7.94) (2026-09-07)
 
 ### Dependency updates
