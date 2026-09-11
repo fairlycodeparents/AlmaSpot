@@ -9,7 +9,7 @@ import { env } from "../../../../shared/config/env";
 export class AuthService implements AuthInputPort {
   private readonly JWT_SECRET = env.JWT_SECRET;
 
-  private readonly HASH_CONFIG = {
+  private readonly HASH_CONFIG: argon2.HashOptions = {
     type: argon2.argon2id,
     memoryCost: 2 ** 16,
     timeCost: 3,
