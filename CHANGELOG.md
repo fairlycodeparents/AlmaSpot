@@ -1,3 +1,9 @@
+## [4.7.98](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.97...4.7.98) (2026-09-13)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.22.0 ([#426](https://github.com/fairlycodeparents/AlmaSpot/issues/426)) ([cc36603](https://github.com/fairlycodeparents/AlmaSpot/commit/cc3660306f5d29a481ba67415802369d14e4e99c))
+
 ## [4.7.97](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.96...4.7.97) (2026-09-13)
 
 ### Dependency updates
