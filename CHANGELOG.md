@@ -1,3 +1,12 @@
+## [4.7.97](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.96...4.7.97) (2026-09-13)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongoose to v9.10.0 ([#427](https://github.com/fairlycodeparents/AlmaSpot/issues/427)) ([79e5609](https://github.com/fairlycodeparents/AlmaSpot/commit/79e5609f53dcc43b6ba1817c5827ee8ba46812b5))
+- **deps:** downgrade MongoDB version in production and CI configurations ([#428](https://github.com/fairlycodeparents/AlmaSpot/issues/428)) ([47db67f](https://github.com/fairlycodeparents/AlmaSpot/commit/47db67f0aa14c0403a5109cacf3d717fde72ebf1))
+- **deps:** update dependency autoprefixer to v10.5.6 ([#425](https://github.com/fairlycodeparents/AlmaSpot/issues/425)) ([d3bd7b2](https://github.com/fairlycodeparents/AlmaSpot/commit/d3bd7b285ee3adab34092ec53d12d3e57b846372))
+- **deps:** update dependency lint-staged to v17.5.1 ([#423](https://github.com/fairlycodeparents/AlmaSpot/issues/423)) ([fda457b](https://github.com/fairlycodeparents/AlmaSpot/commit/fda457b90a320caccc0444a36903dc40c8fbbc3a))
+
 ## [4.7.96](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.95...4.7.96) (2026-09-11)
 
 ### Documentation
