@@ -1,3 +1,9 @@
+## [4.7.101](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.100...4.7.101) (2026-09-17)
+
+### Dependency updates
+
+- **core-deps:** update dependency vue to v3.5.43 ([#438](https://github.com/fairlycodeparents/AlmaSpot/issues/438)) ([4b0076a](https://github.com/fairlycodeparents/AlmaSpot/commit/4b0076a694594956aabd1205b9ab3b4c7dddcca7))
+
 ## [4.7.100](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.99...4.7.100) (2026-09-17)
 
 ### Dependency updates
