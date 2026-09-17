@@ -1,3 +1,13 @@
+## [4.7.100](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.99...4.7.100) (2026-09-17)
+
+### Dependency updates
+
+- **core-deps:** update dependency zod to v4.6.5 ([#421](https://github.com/fairlycodeparents/AlmaSpot/issues/421)) ([ac0e28a](https://github.com/fairlycodeparents/AlmaSpot/commit/ac0e28aea4d0410ea836436c042580f4b3f39430))
+- **deps:** update dependency @types/node to v24.13.5 ([#434](https://github.com/fairlycodeparents/AlmaSpot/issues/434)) ([0faae6d](https://github.com/fairlycodeparents/AlmaSpot/commit/0faae6d5aae255d536cf896a0a808a17cef8e559))
+- **deps:** update dependency @types/node to v25.9.7 ([#435](https://github.com/fairlycodeparents/AlmaSpot/issues/435)) ([57c1cdd](https://github.com/fairlycodeparents/AlmaSpot/commit/57c1cdd58a429321b0ce00b4646832939bcfa3df))
+- **deps:** update dependency @vitejs/plugin-vue to v6.0.9 ([#431](https://github.com/fairlycodeparents/AlmaSpot/issues/431)) ([6a937b9](https://github.com/fairlycodeparents/AlmaSpot/commit/6a937b934988922894829a1058b80b81befe34e3))
+- **deps:** update dependency prettier to v3.9.7 ([#436](https://github.com/fairlycodeparents/AlmaSpot/issues/436)) ([ce6597e](https://github.com/fairlycodeparents/AlmaSpot/commit/ce6597ebbde13cca50dab49ba2731e634e47da01))
+
 ## [4.7.99](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.98...4.7.99) (2026-09-15)
 
 ### Dependency updates
