@@ -1,3 +1,14 @@
+## [4.7.102](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.101...4.7.102) (2026-09-21)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.23.0 ([#437](https://github.com/fairlycodeparents/AlmaSpot/issues/437)) ([7a3f236](https://github.com/fairlycodeparents/AlmaSpot/commit/7a3f236ec6e0d91d7bb747ad9e24e8b4e71128cd))
+- **deps:** update commitlint monorepo to v21.2.3 ([#443](https://github.com/fairlycodeparents/AlmaSpot/issues/443)) ([51a7e59](https://github.com/fairlycodeparents/AlmaSpot/commit/51a7e599c3ddc47d9d2bf85e75d58d0e2d6cd35a))
+- **deps:** update dependency @types/node to v24.13.6 ([#441](https://github.com/fairlycodeparents/AlmaSpot/issues/441)) ([32f1d0e](https://github.com/fairlycodeparents/AlmaSpot/commit/32f1d0e8548eb8a25bcb9ab06a38c1fe6c846e0a))
+- **deps:** update dependency @types/node to v25.9.8 ([#442](https://github.com/fairlycodeparents/AlmaSpot/issues/442)) ([7fbf860](https://github.com/fairlycodeparents/AlmaSpot/commit/7fbf860f411b719b7edfb2a7f04d34ee21056d6c))
+- **deps:** update dependency prettier to v3.9.8 ([#439](https://github.com/fairlycodeparents/AlmaSpot/issues/439)) ([b3057a0](https://github.com/fairlycodeparents/AlmaSpot/commit/b3057a075b696c894d06732a567bfa8bef12b8d2))
+- **deps:** update dependency tsx to v4.23.15 ([#444](https://github.com/fairlycodeparents/AlmaSpot/issues/444)) ([99f38c1](https://github.com/fairlycodeparents/AlmaSpot/commit/99f38c14d72bda8add8972aa1e7b3534f3777d23))
+
 ## [4.7.101](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.100...4.7.101) (2026-09-17)
 
 ### Dependency updates
