@@ -1,3 +1,10 @@
+## [4.7.103](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.102...4.7.103) (2026-09-22)
+
+### Dependency updates
+
+- **core-deps:** update dependency @google/genai to v2.24.0 ([#445](https://github.com/fairlycodeparents/AlmaSpot/issues/445)) ([c295f5c](https://github.com/fairlycodeparents/AlmaSpot/commit/c295f5c9c3e3f3c1cd30d75ba09afc0610737918))
+- **deps:** update dependency autoprefixer to v10.6.1 ([#430](https://github.com/fairlycodeparents/AlmaSpot/issues/430)) ([97c7345](https://github.com/fairlycodeparents/AlmaSpot/commit/97c7345feed8de727736c5760691c42c6ecfd3bf))
+
 ## [4.7.102](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.101...4.7.102) (2026-09-21)
 
 ### Dependency updates
