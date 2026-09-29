@@ -1,3 +1,14 @@
+## [4.7.105](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.104...4.7.105) (2026-09-29)
+
+### Dependency updates
+
+- **core-deps:** update dependency mongodb to v7.7.0 ([#451](https://github.com/fairlycodeparents/AlmaSpot/issues/451)) ([3f2c5cd](https://github.com/fairlycodeparents/AlmaSpot/commit/3f2c5cde4f841adf41ad3f7bbe6479d7bf0f28a9))
+- **deps:** update dependency @types/node to v24.19.0 ([#449](https://github.com/fairlycodeparents/AlmaSpot/issues/449)) ([7613f3e](https://github.com/fairlycodeparents/AlmaSpot/commit/7613f3e6ee9780e308fb54a53eeaf955e4d3ad13))
+- **deps:** update dependency lint-staged to v17.6.0 ([#450](https://github.com/fairlycodeparents/AlmaSpot/issues/450)) ([fdc6671](https://github.com/fairlycodeparents/AlmaSpot/commit/fdc6671842a67f66caae3d702655424c70e11206))
+- **deps:** update dependency prettier to v3.9.9 ([#448](https://github.com/fairlycodeparents/AlmaSpot/issues/448)) ([8e5aa38](https://github.com/fairlycodeparents/AlmaSpot/commit/8e5aa38d1fabd60f5dfe46ae7cd26a82789ac08d))
+- **deps:** update dependency vite to v8.3.1 ([#424](https://github.com/fairlycodeparents/AlmaSpot/issues/424)) ([e177602](https://github.com/fairlycodeparents/AlmaSpot/commit/e177602ef2c45337953f3d0ecf23ce5365873517))
+- **deps:** update storybook monorepo to v10.6.0 ([#447](https://github.com/fairlycodeparents/AlmaSpot/issues/447)) ([1899c81](https://github.com/fairlycodeparents/AlmaSpot/commit/1899c818c610b067d2b6dfd15c2b305f39213a09))
+
 ## [4.7.104](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.103...4.7.104) (2026-09-23)
 
 ### Dependency updates
