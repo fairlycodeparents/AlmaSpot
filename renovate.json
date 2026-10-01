@@ -5,16 +5,27 @@
   "labels": ["dependencies"],
   "semanticCommits": "enabled",
   "ignoreUnstable": true,
-  "automergeSchedule": ["* 0-7 * * *"],
+  "automergeSchedule": ["* 0-7 * * 1"],
   "timezone": "CET",
+  "schedule": ["before 7am on monday"],
   "automerge": true,
   "prHourlyLimit": 10,
   "packageRules": [
     {
-      "description": "Updates to the dependencies should trigger a new patch release",
+      "description": "Group non-major production dependencies into a single PR",
       "matchFileNames": ["**/package.json"],
       "matchDepTypes": ["dependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dependencies",
+      "groupSlug": "prod-deps",
       "semanticCommitScope": "core-deps"
+    },
+    {
+      "description": "Group non-major devDependencies into a single PR",
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "dev dependencies",
+      "groupSlug": "dev-deps"
     }
   ]
 }
