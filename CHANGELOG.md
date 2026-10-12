@@ -1,3 +1,19 @@
+## [4.7.107](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.106...4.7.107) (2026-10-12)
+
+### Dependency updates
+
+- **core-deps:** update dependencies ([#459](https://github.com/fairlycodeparents/AlmaSpot/issues/459)) ([03c3ba5](https://github.com/fairlycodeparents/AlmaSpot/commit/03c3ba514cbcd7b9af14dd7092e6bb197dfa59ce))
+- **deps:** update dev dependencies ([#458](https://github.com/fairlycodeparents/AlmaSpot/issues/458)) ([6c4f6bc](https://github.com/fairlycodeparents/AlmaSpot/commit/6c4f6bc802506ed27ce7e397f52cd4d898bef513))
+- **deps:** update mongo docker tag to v9 ([#456](https://github.com/fairlycodeparents/AlmaSpot/issues/456)) ([687ad88](https://github.com/fairlycodeparents/AlmaSpot/commit/687ad880ab3eeb01ae268661ec2a46763dd724df))
+
+### Build and continuous integration
+
+- **pr-checks:** add semantic release dry run step ([8edab63](https://github.com/fairlycodeparents/AlmaSpot/commit/8edab634d0fdcbd60b6dff4ca488633318f3e8e1))
+
+### General maintenance
+
+- **renovate:** update automerge schedule and group dependency rules ([8a0cac1](https://github.com/fairlycodeparents/AlmaSpot/commit/8a0cac1b7fbad8840c0eeefba6957c680f271d9f))
+
 ## [4.7.106](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.105...4.7.106) (2026-09-29)
 
 ### Dependency updates
