@@ -1,3 +1,13 @@
+## [4.7.108](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.107...4.7.108) (2026-10-26)
+
+### Dependency updates
+
+- **deps:** update dev dependencies ([#460](https://github.com/fairlycodeparents/AlmaSpot/issues/460)) ([3c2d622](https://github.com/fairlycodeparents/AlmaSpot/commit/3c2d622fe4d9491fb7057eecc72a68724362d427))
+
+### Bug Fixes
+
+- **deps:** update module github.com/cartabinaria/unibo-go to v0.5.2 ([#461](https://github.com/fairlycodeparents/AlmaSpot/issues/461)) ([22f2d02](https://github.com/fairlycodeparents/AlmaSpot/commit/22f2d02545db8915c488231fdc0f5552a0ee21d4))
+
 ## [4.7.107](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.106...4.7.107) (2026-10-12)
 
 ### Dependency updates
