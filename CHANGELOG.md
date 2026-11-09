@@ -1,3 +1,9 @@
+## [4.7.110](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.109...4.7.110) (2026-11-09)
+
+### Dependency updates
+
+- **core-deps:** update dependencies ([#462](https://github.com/fairlycodeparents/AlmaSpot/issues/462)) ([fa304e2](https://github.com/fairlycodeparents/AlmaSpot/commit/fa304e2f7348e64dbabca4d40e9cdd14631d7fef))
+
 ## [4.7.109](https://github.com/fairlycodeparents/AlmaSpot/compare/4.7.108...4.7.109) (2026-11-02)
 
 ### Bug Fixes
